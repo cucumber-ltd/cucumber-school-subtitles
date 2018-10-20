@@ -1,0 +1,1625 @@
+WEBVTT
+
+1
+00:00:14.592 --> 00:00:17.920
+Welcome to the final lesson in this series of cucumber School
+
+2
+00:00:18.176 --> 00:00:24.320
+Over the series we try to cover all the important techniques and Concepts we think you need to become a
+
+3
+00:00:24.576 --> 00:00:27.136
+Successful Behavior driven development
+
+4
+00:00:28.160 --> 00:00:31.488
+We told you how to break down requirements with example mapping
+
+5
+00:00:32.000 --> 00:00:35.584
+And how to express those examples as good can scenarios
+
+6
+00:00:36.096 --> 00:00:39.680
+Please explain the importance of keeping a features of readable
+
+7
+00:00:39.936 --> 00:00:44.544
+I show you how to write great flexible step definitions to help you achieve that goal
+
+8
+00:00:45.568 --> 00:00:51.712
+We've also explore the difference between acceptance test and unit tests and demonstrated
+
+9
+00:00:51.968 --> 00:00:58.112
+Outside in approach to software development Works using both types of tests to drive out the solution to
+
+10
+00:00:58.368 --> 00:00:59.648
+Stakeholders problems
+
+11
+00:01:01.696 --> 00:01:04.512
+One glaring Omission from the story so far however
+
+12
+00:01:04.768 --> 00:01:08.352
+Is that our Sheltie solution is nothing more than a demain model
+
+13
+00:01:09.120 --> 00:01:12.192
+It doesn't have any way for users to interact with it
+
+14
+00:01:12.960 --> 00:01:13.728
+Well
+
+15
+00:01:13.984 --> 00:01:15.776
+That's all about to change
+
+16
+00:01:16.544 --> 00:01:22.688
+In this episode will review the code is just been written for the first iteration of shout his web user into
+
+17
+00:01:22.944 --> 00:01:26.784
+Face I show you how to use selenium Webdriver
+
+18
+00:01:27.296 --> 00:01:33.440
+Browser automation library to run a cucumber scenarios through that user interface
+
+19
+00:01:34.464 --> 00:01:40.608
+We think it would be irresponsible to teach you how to use selenium without also teaching you about the ad
+
+20
+00:01:40.864 --> 00:01:43.680
+Agile testing pyramid and its nemesis
+
+21
+00:01:43.936 --> 00:01:45.984
+The testing ice cream cone
+
+22
+00:01:46.752 --> 00:01:52.896
+We've come across too many teams who have ended up with miserably slow unreliable
+
+23
+00:01:53.152 --> 00:01:55.456
+Hi sweets that cost too much to maintain
+
+24
+00:01:55.712 --> 00:01:59.296
+Because all that cucumber scenarios go through the UI
+
+25
+00:02:00.064 --> 00:02:01.856
+It doesn't have to be this way
+
+26
+00:02:02.112 --> 00:02:05.696
+And in this episode will show you how to avoid this trap
+
+27
+00:02:06.720 --> 00:02:12.864
+Let's start by walking you through the changes that have been happening in the code base while we've been away
+
+28
+00:02:14.400 --> 00:02:19.264
+Shouting out as a simple web UI which displays a former user Coushatta message
+
+29
+00:02:19.520 --> 00:02:24.128
+It won't win any awards for Style just yet but it should be functional least
+
+30
+00:02:25.664 --> 00:02:31.808
+We can let cucumber put the NuWave up three Spaces by setting The Shanty testx system property
+
+31
+00:02:32.064 --> 00:02:33.088
+To web
+
+32
+00:02:33.344 --> 00:02:34.880
+When we were on cucumber
+
+33
+00:02:36.160 --> 00:02:40.768
+This setting causes the scenarios to be run through a browser by selenium
+
+34
+00:02:41.280 --> 00:02:45.888
+And if you watch closely you can see the message being typed into the phone as it runs
+
+35
+00:02:46.912 --> 00:02:53.056
+You can see it way slower to run the scenarios 5 browser
+
+36
+00:03:06.112 --> 00:03:12.000
+Luckily we still have our original much faster version of the acceptance test that go directly to the domain model
+
+37
+00:03:12.768 --> 00:03:14.560
+These running less than a second
+
+38
+00:03:14.816 --> 00:03:20.960
+We can run this version by setting Shafi test that to something else we'll just leaving South Hill together
+
+39
+00:03:25.568 --> 00:03:26.592
+Nice
+
+40
+00:03:26.848 --> 00:03:29.664
+So we have the best of both worlds it seems
+
+41
+00:03:30.432 --> 00:03:36.576
+Let's have a look at how this is been implemented in the features in the construction of a step dance class here
+
+42
+00:03:36.832 --> 00:03:39.392
+Declaring a parameter of type shout support
+
+43
+00:03:39.648 --> 00:03:44.256
+This is an abstract class only have two concrete implementations of that class
+
+44
+00:03:44.512 --> 00:03:47.840
+The main child support and website support
+
+45
+00:03:48.864 --> 00:03:55.008
+Of hearing custom Pika Factory we decide which one to use based on the show T Test
+
+46
+00:03:55.264 --> 00:03:56.032
+Assistant property
+
+47
+00:03:57.056 --> 00:04:02.176
+We're telling cucumber to use this custom implementation of object Factory here in Kokomo properties
+
+48
+00:04:03.712 --> 00:04:07.808
+But the main child support and web child support a polymorphic
+
+49
+00:04:08.320 --> 00:04:12.416
+Meaning they implement the exact same setup as defined in child support
+
+50
+00:04:13.184 --> 00:04:16.768
+As far as the step definitions I can send the interchangeable
+
+51
+00:04:17.024 --> 00:04:22.143
+This is why I was this to use different strategies for automation application
+
+52
+00:04:24.191 --> 00:04:29.311
+The main child support contains the Familia automation code that cools into main model DirecTV
+
+53
+00:04:31.359 --> 00:04:33.407
+Webshop support on the other hand
+
+54
+00:04:33.663 --> 00:04:37.503
+Is where we go to my shop see-through its new web URI
+
+55
+00:04:38.015 --> 00:04:42.111
+As you can see this quite a bit more work being done here
+
+56
+00:04:43.647 --> 00:04:49.791
+These hooks stop serving stop server Stop & Stop the website so that we can be confident they'll be
+
+57
+00:04:50.047 --> 00:04:53.119
+Chino State leaking from one scenario to the next
+
+58
+00:04:54.143 --> 00:05:00.287
+This hook close all browsers make sure to close any open browsers at the end of each scenario
+
+59
+00:05:01.567 --> 00:05:06.943
+Implementation of showing shout it's very different to the one that hits the demand model directly
+
+60
+00:05:07.711 --> 00:05:10.783
+Best weekly login a Chao
+
+61
+00:05:11.039 --> 00:05:15.391
+If I miss just open the homepage for the app putting the user's name in the query string
+
+62
+00:05:16.927 --> 00:05:21.791
+The browser here is an instance of selenium Firefox driver class
+
+63
+00:05:22.559 --> 00:05:25.631
+We keep all the browsers used in the scenario in a map
+
+64
+00:05:25.887 --> 00:05:27.679
+With one browser per person
+
+65
+00:05:28.703 --> 00:05:32.799
+We usually get browser for method to fetch a browser for sure
+
+66
+00:05:33.055 --> 00:05:35.615
+And sign that is the current browser
+
+67
+00:05:37.151 --> 00:05:43.295
+Next the shell method asks Webdriver to find the message box on the phone then types out the come
+
+68
+00:05:43.551 --> 00:05:45.855
+Mountains of the message into the box
+
+69
+00:05:46.367 --> 00:05:48.671
+Next defines a form submit button
+
+70
+00:05:49.439 --> 00:05:50.463
+And clicks it
+
+71
+00:05:54.815 --> 00:05:58.655
+Let's walkthrough what happens when a scenario runs using web shout support
+
+72
+00:05:59.423 --> 00:06:05.567
+When cucumber runs day showing shouts free Bagel step it's search for the corresponding step definition
+
+73
+00:06:05.823 --> 00:06:07.615
+Executes the method in the steps class
+
+74
+00:06:09.151 --> 00:06:14.271
+Now the code in the steppe definition Kohl's the show and Shout method on child support
+
+75
+00:06:14.783 --> 00:06:17.599
+Which is an instance of web child support
+
+76
+00:06:18.623 --> 00:06:24.767
+Which integrated Webdriver and calls the get methadone it to open the homepage of Sean
+
+77
+00:06:25.279 --> 00:06:31.423
+Selenium Webdriver now tells Firefox to open a browser that URL when the browser opens at URL
+
+78
+00:06:31.679 --> 00:06:34.239
+Iweb so it will get a request for the page
+
+79
+00:06:34.495 --> 00:06:37.823
+We rented a page on the server and the browser displays it
+
+80
+00:06:38.847 --> 00:06:43.455
+Next webshop support a selenium to fill out and submit the shop phone
+
+81
+00:06:43.967 --> 00:06:46.271
+Which causes button clicks on the browser
+
+82
+00:06:47.039 --> 00:06:52.415
+The form submitted to the server and a cervical the Coeur d'Alene to broadcast the shelves
+
+83
+00:06:53.695 --> 00:06:58.047
+In contrast dementia support implementation of showing Shout
+
+84
+00:06:58.303 --> 00:07:00.351
+Kohl's the domain model directly
+
+85
+00:07:01.119 --> 00:07:04.959
+Noticed this is exactly the same code as the web server uses
+
+86
+00:07:05.727 --> 00:07:11.871
+The strategy that talks directly to the cold tonight model gives us fast feedback and lets his test with a hot tub
+
+87
+00:07:12.127 --> 00:07:14.175
+The applications behaviors implemented
+
+88
+00:07:14.943 --> 00:07:21.087
+But now I did a second strategy. Last approve this Behavior still works when presented by the web UI
+
+89
+00:07:22.111 --> 00:07:24.159
+You might be wondering why we need both
+
+90
+00:07:24.671 --> 00:07:28.511
+Why didn't we just stopped driving all way in from the web UI in the beginning
+
+91
+00:07:30.303 --> 00:07:35.679
+We found the focusing on driving out at the main model for my scenarios first
+
+92
+00:07:35.935 --> 00:07:37.727
+Modeling by example
+
+93
+00:07:38.239 --> 00:07:42.591
+Gives us fast we back about the understanding of new problems to mines
+
+94
+00:07:43.103 --> 00:07:49.247
+We don't get distracted by solution to man complexities like web service HTML and so on
+
+95
+00:07:49.503 --> 00:07:53.087
+Why was still just trying to understand the core of the problem
+
+96
+00:07:54.367 --> 00:08:00.511
+In the long run we also find staying focused on the Kodi main helps us build scenario is that the most stay
+
+97
+00:08:00.767 --> 00:08:02.047
+Fable of the time
+
+98
+00:08:03.071 --> 00:08:08.703
+User interfaces tend to change a lot more often than the coal business rules of the Domaine
+
+99
+00:08:10.495 --> 00:08:16.639
+Building scenarios that makes sense even without to use interface also helps us to avoid eye test from become
+
+100
+00:08:16.895 --> 00:08:17.407
+Coming to
+
+101
+00:08:17.663 --> 00:08:18.943
+Imperative
+
+102
+00:08:19.967 --> 00:08:26.111
+Most teams who rotten run that keeps against the user interface and it was a lot of incidental detail
+
+103
+00:08:26.367 --> 00:08:29.183
+In the scenarios about the UI interaction
+
+104
+00:08:29.695 --> 00:08:31.231
+Solution to mine stuff
+
+105
+00:08:31.999 --> 00:08:34.559
+These scenarios at pull documentation
+
+106
+00:08:35.071 --> 00:08:41.215
+That too busy talking about how to use a phone as a task rather than what the user is trying to achieve
+
+107
+00:08:42.751 --> 00:08:43.775
+For example
+
+108
+00:08:44.031 --> 00:08:46.591
+We might have written scenario like this instead
+
+109
+00:08:50.175 --> 00:08:52.991
+This scenario doesn't illustrate the behavior very well
+
+110
+00:08:53.759 --> 00:08:59.391
+If you didn't know anything about Shawty imma trying to understand it through the examples written like this
+
+111
+00:08:59.647 --> 00:09:00.927
+You have a tough time
+
+112
+00:09:01.695 --> 00:09:03.999
+It makes a lousy documentation
+
+113
+00:09:05.535 --> 00:09:11.679
+Notice how the language used in this scenario the URL the css-selectors
+
+114
+00:09:11.935 --> 00:09:17.567
+The filling in fields and clicking the buttons is from the solution to me not the problem to mean
+
+115
+00:09:18.335 --> 00:09:22.175
+It tells you nothing about your team's ubiquitous language
+
+116
+00:09:23.967 --> 00:09:26.527
+Finally the scenarios Bristol
+
+117
+00:09:26.783 --> 00:09:32.927
+If you need to change the details of the interaction for sending a shout so just the way you will send to Kate
+
+118
+00:09:33.183 --> 00:09:36.767
+You need to come back and change every scenario that involves shouting
+
+119
+00:09:37.535 --> 00:09:39.839
+By pushing the house down
+
+120
+00:09:40.351 --> 00:09:42.655
+Your scenarios will remain true
+
+121
+00:09:42.911 --> 00:09:43.935
+Malanga
+
+122
+00:09:44.703 --> 00:09:50.847
+The opposite of the imperative style web Express the scenario is using problem the main language is known as a
+
+123
+00:09:51.103 --> 00:09:52.639
+Declarative Style
+
+124
+00:09:53.151 --> 00:09:59.295
+In the style we tried to describe what the user is trying to achieve rather than how they do it
+
+125
+00:10:00.831 --> 00:10:06.975
+Thanks to the Dakar to start we've been using through the rest of the series we were able to easily swap in a difference
+
+126
+00:10:07.231 --> 00:10:09.535
+Stretchy automating application through the web
+
+127
+00:10:09.791 --> 00:10:12.095
+Without changing us specifications
+
+128
+00:10:13.119 --> 00:10:18.495
+After other interfaces to our application like a rest API or a mobile app
+
+129
+00:10:18.751 --> 00:10:24.895
+We can continue to use this pun I didn't use strategies that runoff scenarios through these neulasta
+
+130
+00:10:25.151 --> 00:10:25.663
+Stack
+
+131
+00:10:26.943 --> 00:10:33.087
+Remember each of these strategies uses exactly the same scenarios and step definition
+
+132
+00:10:34.367 --> 00:10:40.511
+This means the investment to put into writing your scenarios face back over and over
+
+133
+00:10:40.767 --> 00:10:44.863
+Reusing to validate the behavior of the application from these different perspectives
+
+134
+00:10:45.631 --> 00:10:51.263
+This is a major advantage of having push the details of how show and shout down into a helper method
+
+135
+00:10:52.031 --> 00:10:57.663
+If this detail was still up in the steppe definition or worse in the scenario itself
+
+136
+00:10:57.919 --> 00:10:59.711
+We wouldn't have his flexibility
+
+137
+00:11:02.015 --> 00:11:08.159
+In general the structure Imaging in our application and test code is cool day ports and adapters architecture
+
+138
+00:11:08.415 --> 00:11:10.719
+Hexagonal architecture
+
+139
+00:11:11.743 --> 00:11:17.375
+You can think of poison adopted as a direct analogy to physical devices with plugs and sockets
+
+140
+00:11:18.143 --> 00:11:24.287
+For example the HDMI port on this laptop that's me plug in any kind of display that also has a HDMI
+
+141
+00:11:24.543 --> 00:11:25.055
+Airport
+
+142
+00:11:25.823 --> 00:11:30.431
+If I need to use a VGA display I can use an adapter between the two
+
+143
+00:11:31.711 --> 00:11:33.759
+In a hexagonal architecture
+
+144
+00:11:34.015 --> 00:11:37.343
+The Alexa can contains your core business logic
+
+145
+00:11:38.111 --> 00:11:43.231
+This is why they if statements that deliver the most value to your stakeholders should live
+
+146
+00:11:44.255 --> 00:11:50.399
+Mexican knows nothing about the outside world your web servers your database is your email sending so
+
+147
+00:11:50.655 --> 00:11:52.703
+Service or Enterprise message bus
+
+148
+00:11:53.215 --> 00:11:55.519
+It's pure business logic
+
+149
+00:11:56.543 --> 00:12:00.895
+We expose disco Behavior by one or more ports
+
+150
+00:12:01.663 --> 00:12:05.759
+Cold is really just a protocol if you like
+
+151
+00:12:06.271 --> 00:12:12.415
+A component to understand that part 2 Culkin then plug in and interacts with the coal through the port
+
+152
+00:12:13.695 --> 00:12:15.999
+Bacolod component adapter
+
+153
+00:12:16.255 --> 00:12:21.119
+It's the account is job to expose the code to my logic to the outside world
+
+154
+00:12:23.679 --> 00:12:26.239
+In Shawty It's just one pulled
+
+155
+00:12:26.495 --> 00:12:30.847
+The ipity the main model made up of the personal Network classes
+
+156
+00:12:31.615 --> 00:12:34.687
+We talked into different adapters to this little port
+
+157
+00:12:35.199 --> 00:12:41.343
+The weather which exposes chassis code 9 of the web for uses for selenium Webdriver
+
+158
+00:12:41.599 --> 00:12:42.367
+Interact with
+
+159
+00:12:43.135 --> 00:12:44.927
+The main child support
+
+160
+00:12:45.183 --> 00:12:47.999
+Which lets cucumber Drive the application to write
+
+161
+00:12:48.767 --> 00:12:51.839
+Both clients of the same API
+
+162
+00:12:54.143 --> 00:12:59.007
+The hexagonal architecture is a terrific fit for teens that care about testability
+
+163
+00:12:59.263 --> 00:13:05.407
+In fact it was invented precisely to allow for testability back in the days when sick time.
+
+164
+00:13:05.663 --> 00:13:07.199
+Impossible to ultimate
+
+165
+00:13:07.711 --> 00:13:13.855
+By separating the code to main logic from the gooey these tdd Pioneers Bible to plug that
+
+166
+00:13:14.111 --> 00:13:16.159
+A test into the same pool to security
+
+167
+00:13:16.415 --> 00:13:19.487
+Still test most of the applications Behavior
+
+168
+00:13:20.767 --> 00:13:26.911
+If you have the discipline to keep your code separated like this you benefit from being able to run the test against the most
+
+169
+00:13:27.167 --> 00:13:31.263
+Business valuable lines of code in your codebase Dakota Maine
+
+170
+00:13:31.775 --> 00:13:33.823
+In the shortest amount of time
+
+171
+00:13:35.103 --> 00:13:41.247
+Test pure business logic can run Lightning Fast meaning is cheap to get really sore feet
+
+172
+00:13:41.503 --> 00:13:44.575
+About whether that logic is behaving correctly
+
+173
+00:13:45.855 --> 00:13:47.391
+Let's get back to the code
+
+174
+00:13:47.903 --> 00:13:54.047
+To give us a way to test the app manually The Shanty developers have kindly added this manual test server class
+
+175
+00:13:54.559 --> 00:13:58.399
+Which starts the web server preconfigured with some Familia Testarossa
+
+176
+00:13:59.423 --> 00:14:03.519
+This means we're able to test the web app without having to create account for people
+
+177
+00:14:04.031 --> 00:14:05.567
+Future we don't have yet
+
+178
+00:14:06.847 --> 00:14:10.175
+So we should be able to open One browser top of Sean
+
+179
+00:14:10.687 --> 00:14:12.479
+And another time is Lucy
+
+180
+00:14:12.735 --> 00:14:14.783
+Send a shout from Shawn
+
+181
+00:14:15.039 --> 00:14:21.183
+Refresh Lucy's page and see wait a minute was shown Shout
+
+182
+00:14:22.463 --> 00:14:23.487
+This is odd
+
+183
+00:14:23.743 --> 00:14:25.791
+The snarry was passing
+
+184
+00:14:26.047 --> 00:14:28.863
+But there's nothing appearing on Lucy's page
+
+185
+00:14:29.887 --> 00:14:31.167
+What's going on
+
+186
+00:14:32.959 --> 00:14:37.311
+The answer lies in the implementation of our then step
+
+187
+00:14:38.591 --> 00:14:44.735
+Reading it we can see the step definition is going to rectally to the Domaine model to discover the messages
+
+188
+00:14:44.991 --> 00:14:46.015
+At least his head
+
+189
+00:14:47.039 --> 00:14:49.087
+This shouldn't have been a surprise to us
+
+190
+00:14:49.343 --> 00:14:50.879
+It's always been that way
+
+191
+00:14:51.647 --> 00:14:57.791
+But since all Wednesday up now it's the UI we would expect this then step to also a dog
+
+192
+00:14:58.047 --> 00:14:59.327
+The same strategy
+
+193
+00:15:00.863 --> 00:15:04.447
+When you start to mix different depths of testing as we're doing here
+
+194
+00:15:04.959 --> 00:15:10.591
+A good rule of thumb is to keep the death of you when and then steps consistent
+
+195
+00:15:11.615 --> 00:15:17.759
+It's often advisable to bypass layers and reach down deeper into the Stop to set up state in the
+
+196
+00:15:18.015 --> 00:15:18.783
+Given steps
+
+197
+00:15:19.295 --> 00:15:22.111
+If we carry out an action by the UI
+
+198
+00:15:22.623 --> 00:15:27.231
+The outcome chat in the den step should also be done through the UI
+
+199
+00:15:29.535 --> 00:15:33.887
+Let's remedy the situation by pushing the code in the steppe definition
+
+200
+00:15:34.143 --> 00:15:35.423
+And to help them acid
+
+201
+00:15:35.935 --> 00:15:40.543
+Then we'll be able to have two different strategies for checking the messages to users Hood
+
+202
+00:15:41.567 --> 00:15:46.431
+Once we have a failing test for the web strategy we can drive out the behavior
+
+203
+00:15:46.687 --> 00:15:49.247
+In the UI to display that uses messages
+
+204
+00:15:50.271 --> 00:15:53.087
+Will focus on a single scenario while we do this work
+
+205
+00:15:53.855 --> 00:15:57.183
+Once we got that one passing to our satisfaction
+
+206
+00:15:57.439 --> 00:16:00.511
+We can apply the same change across the rest of the scenarios
+
+207
+00:16:01.791 --> 00:16:06.911
+This very basic scenario by Lucy has shown is a good place to start
+
+208
+00:16:10.239 --> 00:16:15.359
+That's extractor method messages shouted by from the body of the steppe definition
+
+209
+00:16:15.615 --> 00:16:18.431
+And put it in a demand child support
+
+210
+00:16:29.951 --> 00:16:31.999
+That scenario was still passing
+
+211
+00:16:34.047 --> 00:16:39.167
+Now when would run it for the web we show me need to add that message to web child support
+
+212
+00:16:40.447 --> 00:16:42.495
+How will we fix the messages Hood
+
+213
+00:16:45.823 --> 00:16:50.175
+The first thing we'll need to do is log in to make sure was reading the messages for the correct user
+
+214
+00:16:50.687 --> 00:16:53.247
+So we can reuse this help a method we've already built
+
+215
+00:16:54.527 --> 00:16:58.111
+Now we'll need to scrape the messages off the HTML page
+
+216
+00:16:59.135 --> 00:17:02.719
+Friend looking test first year so we don't have to smoke up yet
+
+217
+00:17:03.487 --> 00:17:04.511
+That's not a problem
+
+218
+00:17:04.767 --> 00:17:08.607
+We can use the test to help it design what the mock-up should look like
+
+219
+00:17:10.143 --> 00:17:15.007
+Let's assume that each message will be an element with a message plus on it
+
+220
+00:17:16.031 --> 00:17:19.615
+We can ask some of them to give us all the elements with that class
+
+221
+00:17:20.639 --> 00:17:26.783
+That gives is a list of selenium Webdriver Elements which we can then transform into a list of that text
+
+222
+00:17:27.039 --> 00:17:27.551
+Content
+
+223
+00:17:34.975 --> 00:17:36.767
+Let's watch this test fail
+
+224
+00:17:40.607 --> 00:17:41.631
+Calypso Cay
+
+225
+00:17:42.399 --> 00:17:47.263
+Let's Play Fake it till you make it just to check the secessionist doing the right thing
+
+226
+00:17:47.775 --> 00:17:51.615
+Hard code HTML we want into the template here
+
+227
+00:17:53.151 --> 00:17:56.223
+This gives us a chance to talk with a designer about the mock-up
+
+228
+00:17:56.991 --> 00:18:00.063
+We go over for a chat and he loves it
+
+229
+00:18:00.575 --> 00:18:01.855
+So we can press on
+
+230
+00:18:08.255 --> 00:18:11.839
+The next step is to make the HTML template dynamic
+
+231
+00:18:12.095 --> 00:18:15.935
+I have a display the actual list of messages headed by the user
+
+232
+00:18:16.703 --> 00:18:22.847
+We could continue using the Cucumber scenario to drive this out but it would be best to zoom in Boca
+
+233
+00:18:23.103 --> 00:18:25.151
+Croissants immunity test for the Wipeout now
+
+234
+00:18:26.175 --> 00:18:32.319
+That way if this behavior of a slipped loose in the future there will be a unit test pointing us to exactly why we need
+
+235
+00:18:32.575 --> 00:18:33.599
+To go to fix it
+
+236
+00:18:34.879 --> 00:18:38.975
+Luckily the weather app is already been built with some unit test around it
+
+237
+00:18:40.255 --> 00:18:44.863
+These test load the httpservlet in isolation
+
+238
+00:18:45.119 --> 00:18:47.167
+Passing in a map of people
+
+239
+00:18:47.423 --> 00:18:49.727
+Just contains test doubles
+
+240
+00:18:50.239 --> 00:18:56.383
+We could have used real instances for my code to main model that we explain in the last episode season 2
+
+241
+00:18:56.639 --> 00:19:02.527
+Festivals houses to see the protocol on the port between the web app adapter on a code to Maine
+
+242
+00:19:03.551 --> 00:19:07.647
+We've abstracted some of the nitty-gritty of calling a servlet into a base class
+
+243
+00:19:08.159 --> 00:19:09.951
+Which you can examine for yourself
+
+244
+00:19:15.583 --> 00:19:21.727
+We need a new test for the get request which simulates the situation by Lucy has hit a couple of messages
+
+245
+00:19:22.495 --> 00:19:24.031
+Infuser homepage
+
+246
+00:19:43.999 --> 00:19:48.095
+We expect to be able to find the message text in each of the message elements
+
+247
+00:19:54.751 --> 00:19:59.871
+Let me run this it fails because we just hard-coding the message of the moment
+
+248
+00:20:00.383 --> 00:20:02.175
+Lesti d a solution
+
+249
+00:20:04.223 --> 00:20:10.367
+If you'd like to try this yourself just pause the video here see if you can figure out what to do next before we show you
+
+250
+00:20:12.927 --> 00:20:18.559
+Starting in the template we can look for a local variable that's cool it messages Hood
+
+251
+00:20:18.815 --> 00:20:20.351
+And it's right over it
+
+252
+00:20:20.607 --> 00:20:23.423
+Reach message will write a message element
+
+253
+00:20:26.495 --> 00:20:29.823
+Now we need to set up messages Hood variable for the template
+
+254
+00:20:30.079 --> 00:20:34.687
+We do that from within the do get requests have the method on the web servlet
+
+255
+00:20:35.967 --> 00:20:39.551
+We need to put the messages Hood into this context map
+
+256
+00:20:40.319 --> 00:20:46.463
+Hopefully we have to get use a method that fetches the right user from the people map based on the query string
+
+257
+00:20:46.719 --> 00:20:50.047
+Primitive using the request let's give that a try
+
+258
+00:20:51.583 --> 00:20:52.607
+Great
+
+259
+00:20:53.631 --> 00:20:55.679
+Suddenly everything is green
+
+260
+00:20:56.959 --> 00:21:03.103
+TriQuint manual test for yourself creating a couple of tops as shown in Lacey and satisfy you
+
+261
+00:21:03.359 --> 00:21:04.895
+Self that it's working now
+
+262
+00:21:05.919 --> 00:21:10.783
+Now that we've proved all messages Hood by Method works for both domain and web strategies
+
+263
+00:21:11.039 --> 00:21:13.855
+Let's use that method in all the step definitions
+
+264
+00:21:14.111 --> 00:21:19.744
+Send it every scenario that checks from Estes I will do that check in a consistent way
+
+265
+00:21:20.768 --> 00:21:26.912
+This is just a matter of finding each cold ask a person to main object for messages hood and converting it to you
+
+266
+00:21:27.168 --> 00:21:28.704
+Fuse on you help a message instead
+
+267
+00:21:32.032 --> 00:21:34.592
+Let's run all the cigars in the shower feature
+
+268
+00:21:48.928 --> 00:21:49.696
+Great
+
+269
+00:21:50.208 --> 00:21:51.744
+It looks like we're done
+
+270
+00:21:52.512 --> 00:21:58.656
+If we look at the other feature Premium Accounts we can see that there's a similar problem to the one which is
+
+271
+00:21:58.912 --> 00:21:59.680
+This resolved
+
+272
+00:22:00.192 --> 00:22:01.728
+This last step
+
+273
+00:22:01.984 --> 00:22:04.800
+Then shown should have end credit
+
+274
+00:22:05.056 --> 00:22:11.200
+Goes direct to The Domain model to check Sean's credits rather than having an extra layer of indirection
+
+275
+00:22:11.456 --> 00:22:14.784
+Total hours to use a demain a web strategy for the check
+
+276
+00:22:15.808 --> 00:22:21.952
+It will be useful practice for you to go through and apply exactly what we just did to the steppe definition
+
+277
+00:22:22.976 --> 00:22:25.280
+Will leave as an exercise for you
+
+278
+00:22:27.328 --> 00:22:29.632
+Let's fast-forward to the point where this is done
+
+279
+00:22:31.168 --> 00:22:37.312
+Now we can all of us scenarios at both levels against the two main and again
+
+280
+00:22:37.568 --> 00:22:38.336
+That's the web UI
+
+281
+00:22:39.616 --> 00:22:41.152
+This is awesome
+
+282
+00:22:42.432 --> 00:22:43.456
+Isn't it
+
+283
+00:22:43.968 --> 00:22:47.552
+We talked a lot about the benefits of automated testing the series
+
+284
+00:22:47.808 --> 00:22:51.904
+Let's consider the flip side for a moment and look at the cost
+
+285
+00:22:53.440 --> 00:22:57.280
+Every automated testing your system comes at a cost
+
+286
+00:22:58.048 --> 00:23:00.608
+You have the cost of writing it in the first place
+
+287
+00:23:00.864 --> 00:23:03.936
+The cost of waiting for it to run each time
+
+288
+00:23:04.448 --> 00:23:08.800
+The cost of changing it for the desired Behavior the application changes
+
+289
+00:23:09.056 --> 00:23:13.408
+And the cost of debugging it when it fails for no good reason
+
+290
+00:23:14.944 --> 00:23:21.088
+When the majority of your test had the application through the user interface you got a great benefit from now
+
+291
+00:23:21.344 --> 00:23:24.928
+Each scenario is using the system exactly as they use it would
+
+292
+00:23:25.696 --> 00:23:29.536
+Get the downside is that these tests of much slower to run
+
+293
+00:23:29.792 --> 00:23:31.840
+I don't have much less reliable
+
+294
+00:23:33.376 --> 00:23:39.008
+A well-known metaphor to help you think about this problem is the agile testing pyramid
+
+295
+00:23:40.032 --> 00:23:44.128
+At the base of the pyramid you have a large number of unit test
+
+296
+00:23:44.896 --> 00:23:51.040
+Shallow test that directly hit isolated individual classes in modules in your solution
+
+297
+00:23:52.832 --> 00:23:58.976
+The pyramid gets narrower as you go up indicating that as a depth of test increases
+
+298
+00:23:59.232 --> 00:24:01.024
+The less of them you should have
+
+299
+00:24:01.536 --> 00:24:07.168
+At the very top of the pyramid where the test go right through the whole application stock
+
+300
+00:24:07.680 --> 00:24:09.472
+You want as few as possible
+
+301
+00:24:10.496 --> 00:24:13.824
+Just enough to give you confidence the thing is working
+
+302
+00:24:15.616 --> 00:24:18.176
+When you drive most of your behavior through the GUI
+
+303
+00:24:18.688 --> 00:24:20.224
+You end up with the opposite
+
+304
+00:24:20.480 --> 00:24:23.296
+More of a testing ice cream cone
+
+305
+00:24:24.064 --> 00:24:26.880
+Now I love it ice cream on a hot Summer's Day
+
+306
+00:24:27.136 --> 00:24:29.440
+When your test Suite looks like this
+
+307
+00:24:29.696 --> 00:24:35.840
+You're waiting hours for test results at least one or two random fate is in
+
+308
+00:24:36.096 --> 00:24:37.120
+Every belt
+
+309
+00:24:40.960 --> 00:24:44.288
+Although we have the choice to run every shouty scenario through the movie
+
+310
+00:24:44.544 --> 00:24:48.640
+The agile testing pyramid tells us that would be a bad idea
+
+311
+00:24:49.664 --> 00:24:55.808
+We need to select a few representative or key examples to run through the web UI
+
+312
+00:24:56.064 --> 00:24:58.368
+I'm going to rest through the Domaine
+
+313
+00:24:59.392 --> 00:25:01.440
+How do we choose as key examples
+
+314
+00:25:02.976 --> 00:25:05.792
+Was trying to think about what could possibly go wrong
+
+315
+00:25:06.560 --> 00:25:11.424
+We want to identify the minimum number of scenarios that would give us confidence the system is working
+
+316
+00:25:11.936 --> 00:25:17.312
+Remember those are cool to me and our web server protected by their own unit test
+
+317
+00:25:17.568 --> 00:25:20.384
+So we just need a few checks the basic correctness
+
+318
+00:25:20.896 --> 00:25:23.712
+Would it be enough to just test this scenario
+
+319
+00:25:23.968 --> 00:25:26.272
+The one by the listeners within range
+
+320
+00:25:27.296 --> 00:25:30.112
+If we did that what could possibly go wrong
+
+321
+00:25:31.648 --> 00:25:37.792
+Without test this afternoon we can imagine a book where the web service template didn't render multiple messages
+
+322
+00:25:38.560 --> 00:25:40.608
+This scenario only works for one
+
+323
+00:25:41.632 --> 00:25:45.472
+So we can this scenario the one where there are two shouts
+
+324
+00:25:46.240 --> 00:25:52.128
+It would easily catch that bug in manual testing and then put it down with a unit test on the web server
+
+325
+00:25:53.408 --> 00:25:56.736
+So we don't need to run this is a. Test every time
+
+326
+00:25:57.504 --> 00:25:58.528
+In fact
+
+327
+00:25:58.784 --> 00:26:01.344
+To do so would be wasteful
+
+328
+00:26:03.136 --> 00:26:06.720
+How about the scenario about the listening being out of range
+
+329
+00:26:06.976 --> 00:26:10.304
+Brisket bath in a web deps cucumber run
+
+330
+00:26:11.072 --> 00:26:13.888
+Would we leave ourselves vulnerable to a dangerous bug
+
+331
+00:26:15.424 --> 00:26:21.568
+Well it's true that if people had messages that were not meant for them it could make us look pretty bad
+
+332
+00:26:22.592 --> 00:26:24.640
+How likely is it to happen
+
+333
+00:26:25.408 --> 00:26:27.456
+That logic is all in the cold in May
+
+334
+00:26:27.968 --> 00:26:31.552
+The website we just rented the messages returned by the cool
+
+335
+00:26:32.320 --> 00:26:35.904
+That is almost zero Risk Facebook ever leaking out
+
+336
+00:26:36.672 --> 00:26:40.256
+Again a full stack test this bag it would be wasteful
+
+337
+00:26:42.816 --> 00:26:48.960
+Well the same goes for the logic about the long message we know that has potential for the to be bugs in the interim
+
+338
+00:26:49.216 --> 00:26:51.520
+Fraction of the UI for longer messages
+
+339
+00:26:51.776 --> 00:26:53.824
+It makes sense for us to run this one
+
+340
+00:26:54.592 --> 00:26:56.896
+Let's markets up as high risk
+
+341
+00:26:57.408 --> 00:27:01.504
+I'm not the one where the listeners within ranges high-impact
+
+342
+00:27:02.272 --> 00:27:04.064
+Explain these terms in the moment
+
+343
+00:27:05.344 --> 00:27:11.488
+Now we can run the test of the top of our pyramid using those tags and the web test
+
+344
+00:27:11.744 --> 00:27:12.256
+Upsetting
+
+345
+00:27:13.280 --> 00:27:17.888
+That we have three different levels of test not pyramid we want to run to check out code
+
+346
+00:27:18.144 --> 00:27:24.288
+Did unit test the coordinate acceptance test on the key examples running a full
+
+347
+00:27:24.544 --> 00:27:25.312
+Stack test
+
+348
+00:27:27.360 --> 00:27:31.968
+Let's set up a maven configuration to run all of these tests first with a single command
+
+349
+00:27:33.248 --> 00:27:38.880
+Maven already runs on unit and two main level exception testing automatically using the show if I plug in
+
+350
+00:27:39.392 --> 00:27:45.536
+We cannot extra consideration to a pom XML to tell Sheila fi to run a second execution of the test
+
+351
+00:27:45.792 --> 00:27:47.072
+With different configuration
+
+352
+00:27:48.352 --> 00:27:50.912
+Just out of Surefire plugin node like this
+
+353
+00:27:51.680 --> 00:27:56.032
+Then an execution node with an ID of web acceptance test
+
+354
+00:27:57.312 --> 00:27:59.360
+Now we attach it to the test go
+
+355
+00:27:59.616 --> 00:28:01.408
+The one Maven runs by default
+
+356
+00:28:02.432 --> 00:28:05.760
+We can figure the execution by excluding all unit test
+
+357
+00:28:06.016 --> 00:28:07.552
+No need to run those again
+
+358
+00:28:07.808 --> 00:28:11.136
+I'm setting the odd line to use the test depth of wet
+
+359
+00:28:11.392 --> 00:28:16.256
+The Cucumber option set to only run those scenarios tag cuz I the high impact of high risk
+
+360
+00:28:18.816 --> 00:28:24.448
+Now when we run Maven test from the command line it runs all three lies about testing pyramid
+
+361
+00:28:24.704 --> 00:28:26.496
+Starting from the bottom up
+
+362
+00:28:31.104 --> 00:28:32.384
+One last thing
+
+363
+00:28:32.896 --> 00:28:37.504
+When we will tonight web pages we need to refer to user interface elements in action
+
+364
+00:28:37.760 --> 00:28:40.320
+Buttons links text clicks Etc
+
+365
+00:28:41.088 --> 00:28:46.464
+This is solution to man jog on with managed to keep out about scenarios and that's good
+
+366
+00:28:47.232 --> 00:28:48.768
+But it has to go somewhere
+
+367
+00:28:50.304 --> 00:28:56.448
+Elijah project it becomes useful to create abstractions page objects to represent the things being filled in
+
+368
+00:28:56.704 --> 00:28:58.240
+Clayton examined for content
+
+369
+00:28:58.752 --> 00:29:04.896
+For example we might have a homepage object with a mass of cold shout then capsulated the core
+
+370
+00:29:05.152 --> 00:29:07.456
+Most interact with the elements on the web page
+
+371
+00:29:07.968 --> 00:29:10.272
+This allows you to easily reuse code
+
+372
+00:29:10.784 --> 00:29:12.576
+And keep it easy to read
+
+373
+00:29:13.088 --> 00:29:15.648
+You can easily peel page objects on your own
+
+374
+00:29:15.904 --> 00:29:22.048
+But if you're feeling lazy selenium ships with a page Factory class that reduces the amount of boilerplate code
+
+375
+00:29:22.304 --> 00:29:23.072
+You need to write
+
+376
+00:29:24.608 --> 00:29:29.984
+The page of Jake Patton is a great fit for keeping your web automation code tidy
+
+377
+00:29:30.240 --> 00:29:31.008
+Thought
+
+378
+00:29:31.264 --> 00:29:37.408
+We strongly recommend that you try to push as many of your test down the pyramid first
+
+379
+00:29:38.432 --> 00:29:43.552
+You can use page objects together with a hexagonal architecture pot and we've shown you in this episode
+
+380
+00:29:43.808 --> 00:29:46.368
+So that when you do need to hit the web UI
+
+381
+00:29:46.624 --> 00:29:49.440
+You can do that through neat and tidy code
+
+382
+00:29:50.208 --> 00:29:53.024
+That's it kids School's Out
+
+383
+00:29:53.280 --> 00:29:55.840
+Time to step out into the real world
+
+384
+00:29:57.120 --> 00:30:02.240
+This is been an intense episode throwing a lot of new Concepts at you
+
+385
+00:30:02.752 --> 00:30:08.128
+The hexagonal architecture the stressed you patent and the Adderall testing pyramid
+
+386
+00:30:09.408 --> 00:30:15.552
+Please take time to watch this video over a few times until you understand these Concepts and
+
+387
+00:30:15.808 --> 00:30:18.112
+Study the exercises in reflection questions
+
+388
+00:30:19.136 --> 00:30:25.024
+We want you to remember that acceptance test don't have to be. Test
+
+389
+00:30:25.792 --> 00:30:26.560
+It's fine
+
+390
+00:30:26.816 --> 00:30:28.608
+It's only mistake if they are
+
+391
+00:30:29.888 --> 00:30:35.520
+Don't fall into the Trap of building yet another testing ice cream cone for your project
+
+392
+00:30:36.032 --> 00:30:42.176
+Have developers intestines work side-by-side to maximize the value you get from your testing
+
+393
+00:30:42.432 --> 00:30:47.552
+Investment by pushing as many tests as you can down to the lowest level
+
+394
+00:30:48.576 --> 00:30:54.720
+The responsibility for the health and well-being of the world's cucumber sweets rest with you now
+
+395
+00:30:55.744 --> 00:30:58.304
+Use your knowledge wisely
+
+396
+00:31:00.864 --> 00:31:05.472
+If you remember one thing from the video series remember this
+
+397
+00:31:06.496 --> 00:31:08.288
+Software you write
+
+398
+00:31:08.544 --> 00:31:09.824
+It's just a model
+
+399
+00:31:10.848 --> 00:31:14.688
+A model of your team's understanding of the problem to mine
+
+400
+00:31:15.712 --> 00:31:18.016
+The best of the understanding is
+
+401
+00:31:18.528 --> 00:31:20.320
+The best of the software will be
+
+402
+00:31:21.600 --> 00:31:25.696
+Put your effort into understanding the problem together
+
+403
+00:31:26.208 --> 00:31:27.488
+Anna software
+
+404
+00:31:28.000 --> 00:31:29.536
+Will take care of itself
+
+405
+00:31:31.840 --> 00:31:34.144
+Goodbye from all of us on cucumber School
+
+406
+00:31:34.656 --> 00:31:36.192
+And have fun out there

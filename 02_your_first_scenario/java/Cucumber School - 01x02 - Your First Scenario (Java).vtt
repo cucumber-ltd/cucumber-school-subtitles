@@ -1,0 +1,733 @@
+WEBVTT
+
+1
+00:00:14.848 --> 00:00:19.200
+Hello and welcome to the second lesson there at cucumber School
+
+2
+00:00:19.712 --> 00:00:25.856
+Last time we learned how to use conversations about concrete examples to explode
+
+3
+00:00:26.112 --> 00:00:27.648
+I decide what to build
+
+4
+00:00:28.416 --> 00:00:34.560
+And this episode you learn how to describe those examples using the gherkin specification language
+
+5
+00:00:34.816 --> 00:00:36.864
+So that cucumber can run them
+
+6
+00:00:37.376 --> 00:00:42.240
+Then we'll drive out to solution using a failing cucumber scenario to guide us
+
+7
+00:00:43.008 --> 00:00:48.640
+It's going to be a fair amount of programming in this episode on some object-oriented design as well
+
+8
+00:00:48.896 --> 00:00:52.480
+We want this to feel real so will work on something fun
+
+9
+00:00:52.736 --> 00:00:54.784
+A social networking application
+
+10
+00:00:55.808 --> 00:01:01.952
+Shawty is a social network that allows people who are physically close to communicate
+
+11
+00:01:02.208 --> 00:01:08.352
+Just like people are always communicated with the voices in the real world you can talk to some
+
+12
+00:01:08.608 --> 00:01:12.960
+One in the same room or across the street or even a hundred meters away from you in the park
+
+13
+00:01:13.472 --> 00:01:15.264
+If you shout
+
+14
+00:01:16.032 --> 00:01:22.176
+That's Shawty what you saying this social network can only be heard by people who are nearby
+
+15
+00:01:24.480 --> 00:01:27.808
+Let's start with a very basic example of shot his behavior
+
+16
+00:01:28.064 --> 00:01:31.648
+Something we might have discussed in The Three Amigos mating
+
+17
+00:01:33.440 --> 00:01:39.584
+Show me shoutouts free Bagels at Shawn's and Lucy the listener
+
+18
+00:01:39.840 --> 00:01:45.984
+Mississippi Stud across the street from the store 15 meters away he is him she walks into Sean's coffee
+
+19
+00:01:46.240 --> 00:01:48.800
+Coffee shop and takes advantage of the offer
+
+20
+00:01:50.592 --> 00:01:54.944
+We can translate this into a gherkin scenario so that you can look and run it
+
+21
+00:01:56.992 --> 00:01:58.272
+Hazel that would look
+
+22
+00:02:00.576 --> 00:02:03.648
+You can see that a full Special K was being used to
+
+23
+00:02:03.904 --> 00:02:09.280
+Scenario just tells cucumber we're about to describe an example that it can execute
+
+24
+00:02:10.048 --> 00:02:14.912
+And you see the lines beginning with given when then
+
+25
+00:02:15.936 --> 00:02:16.960
+Even
+
+26
+00:02:17.216 --> 00:02:19.776
+Is the context for the scenario
+
+27
+00:02:20.288 --> 00:02:23.104
+Putting the system into a specific state
+
+28
+00:02:23.360 --> 00:02:26.176
+Ready for the scenario to unfold
+
+29
+00:02:26.944 --> 00:02:29.248
+When is the auction
+
+30
+00:02:30.016 --> 00:02:35.904
+Something that happens to the system that will cause something else to happen outcome
+
+31
+00:02:37.184 --> 00:02:39.488
+Then is the outcome
+
+32
+00:02:40.000 --> 00:02:46.144
+It's the behavior we expect from the system when this action happens in this context
+
+33
+00:02:47.168 --> 00:02:53.312
+You'll notice we committed for my outcome anything about Lucy
+
+34
+00:02:53.568 --> 00:02:55.872
+Looking at DeSean store making a purchase
+
+35
+00:02:56.384 --> 00:03:02.528
+Navigation is supposed to describe the behavior of the system should be distracting. Detailing Austin area
+
+36
+00:03:03.808 --> 00:03:09.952
+Each scenario has three ingredients a context and action and one or more
+
+37
+00:03:10.208 --> 00:03:11.232
+Outcomes
+
+38
+00:03:11.744 --> 00:03:17.888
+Together they describe one single aspect of the behavior of the system
+
+39
+00:03:18.912 --> 00:03:21.984
+Now that we translated are examples of cooking
+
+40
+00:03:22.240 --> 00:03:23.776
+We can automate it
+
+41
+00:03:26.336 --> 00:03:32.480
+The easiest way to get started with cucumber for Java is to use a template project for the bills script that sets everything
+
+42
+00:03:32.736 --> 00:03:33.504
+Directly
+
+43
+00:03:34.272 --> 00:03:37.088
+You can download this template project from GitHub
+
+44
+00:03:37.856 --> 00:03:43.232
+Open your web browser and go to the
+
+45
+00:03:44.000 --> 00:03:47.328
+If you're comfortable with it you can just clone the project
+
+46
+00:03:47.840 --> 00:03:49.632
+If you need to get don't worry
+
+47
+00:03:49.888 --> 00:03:51.680
+Will downloaded zip file instead
+
+48
+00:03:52.704 --> 00:03:57.568
+Releases and download the most recent that file that starts with a v
+
+49
+00:03:58.592 --> 00:04:02.176
+If you're on Windows take the zip file to download it
+
+50
+00:04:02.944 --> 00:04:07.552
+If y'all know it's 10 just copy the link and download it was WK
+
+51
+00:04:08.832 --> 00:04:14.976
+Windows extract a zip file by double-clicking on it or if you don't know it lyrics
+
+52
+00:04:15.232 --> 00:04:16.256
+Zip command
+
+53
+00:04:17.280 --> 00:04:21.887
+After extracting the zip file name the directory to Shawty
+
+54
+00:04:23.167 --> 00:04:26.751
+In your shell CD into the shouting directory
+
+55
+00:04:27.519 --> 00:04:33.663
+The template project Maven and strips that makes it easier to get started with
+
+56
+00:04:33.919 --> 00:04:34.943
+Cucumber for Java
+
+57
+00:04:35.711 --> 00:04:40.575
+Will be using Maven so if you haven't installed that's already now's a good time
+
+58
+00:04:41.599 --> 00:04:43.903
+Let's take a look at what else is in this project
+
+59
+00:04:44.927 --> 00:04:48.255
+There is a main directory for application code
+
+60
+00:04:48.511 --> 00:04:51.071
+I test directory for a test code
+
+61
+00:04:52.095 --> 00:04:54.655
+Let's remove some of the files that come with the project
+
+62
+00:04:55.423 --> 00:05:01.055
+The news
+
+63
+00:05:01.567 --> 00:05:03.871
+We have a project
+
+64
+00:05:04.127 --> 00:05:07.711
+Building it from the ground up so you can see what is going on
+
+65
+00:05:09.247 --> 00:05:14.367
+Before we have the project in iida to modify the name of the application
+
+66
+00:05:14.623 --> 00:05:16.415
+Will use a text editor for this
+
+67
+00:05:16.671 --> 00:05:18.463
+I'm using the automatic
+
+68
+00:05:18.719 --> 00:05:20.255
+You can use anything you like
+
+69
+00:05:21.279 --> 00:05:22.815
+Open Palm to XML
+
+70
+00:05:23.071 --> 00:05:26.399
+I change the group ID
+
+71
+00:05:26.911 --> 00:05:27.935
+A name
+
+72
+00:05:29.471 --> 00:05:31.263
+Ready to start coding
+
+73
+00:05:32.031 --> 00:05:38.175
+Don't you use intellij-idea Community Edition because I was really nice cucumber integration built in
+
+74
+00:05:38.943 --> 00:05:43.295
+If you prefer to use a different ID
+
+75
+00:05:44.063 --> 00:05:48.415
+To open the project in IntelliJ just open the pumble XML file
+
+76
+00:05:52.255 --> 00:05:55.583
+Let's rename the package from skeleton to Shawty
+
+77
+00:05:56.095 --> 00:05:59.423
+IntelliJ you can redeem it by the recital menu
+
+78
+00:06:01.983 --> 00:06:07.103
+The first file we're going to create is a feature file by we will write a scenario
+
+79
+00:06:07.615 --> 00:06:13.247
+Where to file coach out of feature in the shanty directory under resources
+
+80
+00:06:19.647 --> 00:06:23.231
+Now that we have a scenario it's time to run it
+
+81
+00:06:23.487 --> 00:06:28.095
+Switch back to the command prompt to run Maven test
+
+82
+00:06:28.863 --> 00:06:31.167
+Mason will not download cucumber
+
+83
+00:06:31.423 --> 00:06:35.007
+Impala code until cucumber to run the feature file
+
+84
+00:06:36.031 --> 00:06:39.615
+You'll see that you can buy just found us eat your file and read it back to us
+
+85
+00:06:41.151 --> 00:06:43.455
+We can see a summary of the results of the bottom
+
+86
+00:06:44.223 --> 00:06:48.831
+Three steps one scenario all undefined
+
+87
+00:06:50.111 --> 00:06:52.927
+Let's run the scenario again from inside IntelliJ
+
+88
+00:06:53.695 --> 00:06:57.279
+Select-A-Seat ufology is run from the context menu
+
+89
+00:07:00.863 --> 00:07:02.655
+This will give you similar output
+
+90
+00:07:04.191 --> 00:07:10.335
+Undefined when she commits doesn't know what to do for any of the three steps Woodrow Tanaka can scenario
+
+91
+00:07:11.359 --> 00:07:14.943
+It needs us to provide some step definitions
+
+92
+00:07:15.199 --> 00:07:20.319
+Step definitions translate in the plain language using gherkin
+
+93
+00:07:20.575 --> 00:07:21.599
+Entry code
+
+94
+00:07:22.623 --> 00:07:28.767
+When kicking a Runza step it looks for a step definition of matches the text in the step
+
+95
+00:07:29.535 --> 00:07:33.887
+If it finds one that executes the code in the steppe definition
+
+96
+00:07:34.911 --> 00:07:38.495
+It doesn't find one well you just see what happens
+
+97
+00:07:39.007 --> 00:07:44.895
+Breathing to help sleep
+
+98
+00:07:45.151 --> 00:07:46.687
+Let's copy those
+
+99
+00:07:47.455 --> 00:07:51.295
+What creates a new class in the shanty package Bible paste those Snippets
+
+100
+00:07:51.807 --> 00:07:55.135
+Make sure you created on the test and not mine
+
+101
+00:07:56.159 --> 00:07:59.743
+Is complaining that there was some unknown symbols
+
+102
+00:08:00.255 --> 00:08:02.303
+We need to add some info statements
+
+103
+00:08:02.815 --> 00:08:04.863
+Will do that for us
+
+104
+00:08:06.399 --> 00:08:08.703
+Pretend to the scenario and run it again
+
+105
+00:08:11.007 --> 00:08:14.591
+There is a small bug in IntelliJ cucumber integration
+
+106
+00:08:14.847 --> 00:08:18.687
+Sometimes it doesn't tell cucumber where to find step definitions
+
+107
+00:08:19.455 --> 00:08:24.831
+Is it easy to work around just edit the Run configuration and make sure the blue field
+
+108
+00:08:25.343 --> 00:08:27.391
+Contains the value of your package
+
+109
+00:08:33.279 --> 00:08:35.071
+Now run cucumber again
+
+110
+00:08:35.583 --> 00:08:39.167
+This time the output is a little different
+
+111
+00:08:39.423 --> 00:08:45.567
+We now have a pending step onto skipped ones this means cucumber found
+
+112
+00:08:45.823 --> 00:08:48.383
+Step definitions and execute the first one
+
+113
+00:08:48.639 --> 00:08:53.759
+Naturalistic definition throes of pending exception which causes cucumber to stop
+
+114
+00:08:54.015 --> 00:08:58.111
+Skip the rest of the steps on Montwood scenario as pending
+
+115
+00:08:59.647 --> 00:09:01.695
+It's time to work on a solution
+
+116
+00:09:01.951 --> 00:09:04.511
+At this point we need to do a little Divine modeling
+
+117
+00:09:04.767 --> 00:09:10.911
+The words in the staff provided some good hints about some names that will appear in all the main model
+
+118
+00:09:11.423 --> 00:09:17.567
+A scenario mentions two people Lucy and Sean so it looks like we'll need a couple of person object
+
+119
+00:09:18.591 --> 00:09:21.919
+Each person will also need to know their own location
+
+120
+00:09:23.711 --> 00:09:27.551
+Cucumbers telling us to write the code we wish we had let's do it
+
+121
+00:09:28.575 --> 00:09:34.719
+Infamous step we need to create a couple of person object with a specified distance between them
+
+122
+00:09:34.975 --> 00:09:36.511
+We could write it like this
+
+123
+00:09:37.791 --> 00:09:42.399
+Stop by renaming the odd one parameter to something about your reflexes meaning
+
+124
+00:09:43.167 --> 00:09:44.959
+We'll call it distance
+
+125
+00:09:46.239 --> 00:09:50.335
+To keep things simple we're going to assume old people situation on the line
+
+126
+00:09:51.103 --> 00:09:53.663
+One-dimensional coordinate system
+
+127
+00:09:54.431 --> 00:09:57.503
+We can always introduce proper geolocations later
+
+128
+00:09:57.759 --> 00:10:02.111
+What play shown in the center and Lucy 15 minutes away from Sean
+
+129
+00:10:06.975 --> 00:10:10.559
+Notice that the number 15 does not pair anywhere knock code
+
+130
+00:10:10.815 --> 00:10:16.447
+The value 15 is automatically passed from The Collection step into the step definition
+
+131
+00:10:16.703 --> 00:10:22.335
+If you're curious D in the patent of the steppe definition
+
+132
+00:10:23.103 --> 00:10:26.943
+What explain regular expressions in detail in a future lesson
+
+133
+00:10:30.015 --> 00:10:32.319
+We can run the couch we just wrote
+
+134
+00:10:32.575 --> 00:10:34.879
+We need to fix the compilation errors
+
+135
+00:10:35.647 --> 00:10:38.207
+Best rated classical person
+
+136
+00:10:43.327 --> 00:10:45.631
+For the location
+
+137
+00:10:56.639 --> 00:10:58.431
+Let me run the scenario again
+
+138
+00:10:58.687 --> 00:11:00.735
+The first step is green
+
+139
+00:11:02.271 --> 00:11:07.391
+What's are the same flight to make the remaining Two Step past the main modeling
+
+140
+00:11:07.647 --> 00:11:12.255
+Right Dakota wish we had Isaac compile and run the scenario
+
+141
+00:11:14.303 --> 00:11:18.399
+In the Second Step definition we want to tell Sean to shout something
+
+142
+00:11:28.127 --> 00:11:33.503
+In order to send instructions to Shone we need to throw him in an instance variable
+
+143
+00:11:34.015 --> 00:11:38.623
+So that he'll be accessible from all of us that definitions like this
+
+144
+00:11:41.951 --> 00:11:45.023
+A person class needs a shout
+
+145
+00:11:45.535 --> 00:11:46.559
+That's not it
+
+146
+00:11:48.607 --> 00:11:50.655
+Don't worry about the implementation yet
+
+147
+00:11:50.911 --> 00:11:55.775
+Important thing right now is to discover the shape of out the main level
+
+148
+00:11:57.055 --> 00:12:03.199
+Elastic definition is why we implemented check or assertion of verified
+
+149
+00:12:03.455 --> 00:12:06.783
+Is exactly the same as what showing shouted
+
+150
+00:12:09.087 --> 00:12:11.647
+Once again we're going to write the code we wish we had
+
+151
+00:12:24.959 --> 00:12:29.055
+So we need to wait ask Lucy what messages she's heard
+
+152
+00:12:29.567 --> 00:12:33.407
+I also need to know what it was that short shouted
+
+153
+00:12:34.175 --> 00:12:40.319
+I can record what she wants Shout by storing it to the instance variable as the when
+
+154
+00:12:40.575 --> 00:12:41.855
+InStep runs
+
+155
+00:12:42.367 --> 00:12:48.511
+This is a common pain to using cucumber step definitions when you don't want to repeat the same test dates and different
+
+156
+00:12:48.767 --> 00:12:49.791
+Possible scenario
+
+157
+00:12:51.071 --> 00:12:54.143
+Now we can use that value in this session check
+
+158
+00:12:55.423 --> 00:12:59.775
+We also need to add a messages method in class
+
+159
+00:13:00.031 --> 00:13:01.311
+That do that now
+
+160
+00:13:05.663 --> 00:13:07.455
+This is great
+
+161
+00:13:07.967 --> 00:13:14.111
+Whatever we do baby got into our first failing test is a milestone seeing the test
+
+162
+00:13:14.367 --> 00:13:18.719
+Cruise that is capable of detecting errors in a code
+
+163
+00:13:18.975 --> 00:13:24.351
+Never trust an automated test that you haven't seen fail
+
+164
+00:13:25.887 --> 00:13:29.215
+Now all we have to do is write the code to make it pops
+
+165
+00:13:29.471 --> 00:13:31.007
+That's the easy path
+
+166
+00:13:32.543 --> 00:13:35.359
+In this case we're going to cheat
+
+167
+00:13:36.639 --> 00:13:39.711
+I have a 1 line fixed it will make the scenario Pais
+
+168
+00:13:40.479 --> 00:13:42.527
+Started particularly
+
+169
+00:13:42.783 --> 00:13:45.087
+Future-proof implementation
+
+170
+00:13:46.367 --> 00:13:47.903
+Can you guess what it is
+
+171
+00:13:51.231 --> 00:13:52.255
+I'll show you
+
+172
+00:13:54.047 --> 00:13:57.119
+I told you it wasn't very future-proof
+
+173
+00:13:57.887 --> 00:13:58.655
+Still
+
+174
+00:13:59.423 --> 00:14:03.007
+If I was such a pool implementation can pass our test
+
+175
+00:14:03.263 --> 00:14:05.823
+Shows us that we need to work on a text
+
+176
+00:14:06.335 --> 00:14:11.199
+Mo comprehensive set of scenario is what forces to write a better implementation
+
+177
+00:14:12.735 --> 00:14:15.551
+This is the essence of behavior driven development
+
+178
+00:14:15.807 --> 00:14:19.135
+Examples of behavior Drive the development
+
+179
+00:14:21.695 --> 00:14:27.839
+So we know we need more scenarios in a better solution instead of writing a to-do list that's right
+
+180
+00:14:28.095 --> 00:14:29.631
+Another failing scenario
+
+181
+00:14:32.447 --> 00:14:38.335
+Now let me come back to this code we can just run the test and keep them all remind us what we need to do next
+
+182
+00:14:38.847 --> 00:14:40.127
+With them for the day
+
+183
+00:14:40.639 --> 00:14:42.431
+Go make yourself a cup of tea

@@ -1,0 +1,1161 @@
+WEBVTT
+
+1
+00:00:14.592 --> 00:00:20.736
+Last time on cucumber school we showed you how to use example mapping to facilitate conversations
+
+2
+00:00:20.992 --> 00:00:25.344
+Between stakeholders the full starting work on a new user story
+
+3
+00:00:25.600 --> 00:00:31.744
+We finished the last name two technical note show me how to extract a letter of support code from your step definition
+
+4
+00:00:32.000 --> 00:00:36.352
+To keep your cucumber code easy and cost-effective to maintain
+
+5
+00:00:37.376 --> 00:00:43.520
+We're going to keep things technical in this lesson remember that book we spotted right back at the beginning of lesson 7
+
+6
+00:00:43.776 --> 00:00:48.896
+What I use was overcharged if they mentioned by several times in the same message
+
+7
+00:00:49.152 --> 00:00:52.480
+It's time to finally knuckle down and fix it
+
+8
+00:00:53.248 --> 00:00:59.392
+As we do so you're going to get some more experience of the inner and outer tdd Loops that we first introduced you to
+
+9
+00:00:59.648 --> 00:01:00.672
+Doing lesson 5
+
+10
+00:01:00.928 --> 00:01:06.816
+Will n about Moc objects and explore the difference between unit test and acceptance test
+
+11
+00:01:07.072 --> 00:01:08.864
+England the value of each
+
+12
+00:01:09.632 --> 00:01:13.984
+If you love someone who doesn't normally dive deep into code try not to worry
+
+13
+00:01:14.496 --> 00:01:20.640
+We'll keep the example for moving too fast and we hope you'll find an educational to see how different kinds of tea
+
+14
+00:01:20.896 --> 00:01:25.248
+Test complement each other and helping you build a quality product
+
+15
+00:01:26.528 --> 00:01:31.392
+Let's work outside in and stop by tidying up the gherkin specification
+
+16
+00:01:31.904 --> 00:01:37.024
+Right now the scenario was still in the rule form it was in when the book was first reported
+
+17
+00:01:37.536 --> 00:01:40.864
+For the name that references and ID and I'll bug tracking system
+
+18
+00:01:41.888 --> 00:01:45.984
+This doesn't make very good documentation about the intended Behavior
+
+19
+00:01:47.264 --> 00:01:51.872
+Using a Friends episode naming convention that we introduced in lesson 7
+
+20
+00:01:52.384 --> 00:01:55.712
+We can come up with a more expressive name for the scenario
+
+21
+00:01:56.480 --> 00:01:57.504
+How about
+
+22
+00:01:58.016 --> 00:02:02.880
+The one where Shawn mentions by several times in the same Shout
+
+23
+00:02:04.672 --> 00:02:07.232
+He might be worried about losing this bug ID
+
+24
+00:02:07.744 --> 00:02:09.024
+We could keep it
+
+25
+00:02:09.536 --> 00:02:10.560
+In a comment
+
+26
+00:02:11.072 --> 00:02:12.096
+Tag
+
+27
+00:02:12.864 --> 00:02:15.680
+Or in the description of the scenario if we wanted to
+
+28
+00:02:16.448 --> 00:02:20.288
+If your team like to keep track of such things feel free to do that
+
+29
+00:02:21.312 --> 00:02:23.616
+We prefer to consign the bug to history
+
+30
+00:02:23.872 --> 00:02:27.200
+My sister Alice is how the software behaves today
+
+31
+00:02:27.456 --> 00:02:29.504
+So how it got to be that way
+
+32
+00:02:31.552 --> 00:02:35.648
+We think the value is an example could be changed to make it to little more expressive
+
+33
+00:02:36.160 --> 00:02:42.304
+If we start showing up with a hundred credits and ending with 95 more clearly
+
+34
+00:02:42.560 --> 00:02:46.400
+Straits the rule that only five credit should be deducted
+
+35
+00:02:48.704 --> 00:02:54.848
+Talking of which that's also update the rule to make it explicit that you lose 5 credits
+
+36
+00:02:55.104 --> 00:02:55.616
+Shout
+
+37
+00:02:57.408 --> 00:02:58.432
+Good
+
+38
+00:02:59.200 --> 00:03:04.832
+No let's run our improved scenario using the to do tag and go hunting for that bug
+
+39
+00:03:06.880 --> 00:03:09.952
+Okay but we can see a scenario is failing
+
+40
+00:03:10.464 --> 00:03:12.512
+The where do we need to go to fix it
+
+41
+00:03:14.048 --> 00:03:20.192
+Luckily our system is pretty small and we remember that all the premium account behaviors implemented in the
+
+42
+00:03:20.448 --> 00:03:23.264
+Network class so that's going up there
+
+43
+00:03:24.800 --> 00:03:30.944
+Well that broadcast message pretty complex but I suppose The book must be in
+
+44
+00:03:31.200 --> 00:03:32.224
+Somewhere
+
+45
+00:03:32.480 --> 00:03:34.784
+Extreme pain it down with a unit test
+
+46
+00:03:36.576 --> 00:03:38.880
+Otero Daya
+
+47
+00:03:39.392 --> 00:03:44.768
+This file does not contain any tests for the premium account Behavior
+
+48
+00:03:45.024 --> 00:03:51.168
+It looks like we're not so cold hot shot ninja Rockstar subcontractor Stevie
+
+49
+00:03:51.424 --> 00:03:57.568
+Paxton the first version of Premium Accounts he drove everything from that one great big cucumber scenario
+
+50
+00:03:58.592 --> 00:04:00.896
+I never wrote any unit test
+
+51
+00:04:01.664 --> 00:04:03.200
+Why is this a problem
+
+52
+00:04:04.480 --> 00:04:09.600
+Well think about each automated-tests you write as a warning or that you'll fit into your system
+
+53
+00:04:10.112 --> 00:04:13.952
+Acceptance test a warning lights that make sense to business people
+
+54
+00:04:14.464 --> 00:04:20.607
+When they sell to tell you what functionality a user will not be able to enjoy because of the book
+
+55
+00:04:21.887 --> 00:04:27.775
+What two unit test does is get the program as an indication about why the book has occurred
+
+56
+00:04:28.543 --> 00:04:32.895
+I did lie whenever you see an exception tests warning lights Flash
+
+57
+00:04:33.151 --> 00:04:39.295
+That should be at least one corresponding unit test version 2 pointing the developers to the source of the problem
+
+58
+00:04:40.831 --> 00:04:46.207
+If you don't have any unit test for feature you left guessing where the problem lies
+
+59
+00:04:46.719 --> 00:04:48.255
+In a big system
+
+60
+00:04:48.511 --> 00:04:50.815
+This can be a serious waste of time
+
+61
+00:04:51.839 --> 00:04:57.215
+Set a responsible thing to do at this point it's a retrofit some unit test for the network cost
+
+62
+00:04:57.983 --> 00:05:03.615
+We'll start with its existing Behavior then going to test drive the behavior we need to fix our bug
+
+63
+00:05:04.639 --> 00:05:10.783
+Let's write a test case but deducting 5 credits when they would buy is mention once
+
+64
+00:05:12.831 --> 00:05:18.975
+Or existing test use a testable or muck object to represent the instance of person the network
+
+65
+00:05:19.231 --> 00:05:19.999
+Lab Rats with
+
+66
+00:05:20.767 --> 00:05:23.071
+So let's go with that try to do the same here
+
+67
+00:05:24.351 --> 00:05:27.679
+First we need to make object to represent Sean
+
+68
+00:05:29.727 --> 00:05:33.055
+I will need to broadcast a message containing the word by
+
+69
+00:05:35.103 --> 00:05:36.127
+Next
+
+70
+00:05:37.919 --> 00:05:42.015
+Well we need to assert that Sean is told to reduce his credits
+
+71
+00:05:43.551 --> 00:05:49.695
+And if the Ducks credits method here recording the credits Etta setting it to 5 less than the Quran
+
+72
+00:05:49.951 --> 00:05:56.095
+You need to stop the attribute get so it's a hundred credits and then check the sensors cold
+
+73
+00:05:56.351 --> 00:05:57.375
+Would 95
+
+74
+00:05:57.887 --> 00:05:59.423
+His how we do that
+
+75
+00:06:02.751 --> 00:06:04.799
+This test is a real pain to right
+
+76
+00:06:06.847 --> 00:06:09.407
+Objects are designed to
+
+77
+00:06:09.919 --> 00:06:13.247
+Are intended to be used when constructing new code
+
+78
+00:06:13.759 --> 00:06:18.111
+To throw together a lightweight sketch of a collaborating object
+
+79
+00:06:18.879 --> 00:06:21.183
+What you're focused on building a network
+
+80
+00:06:21.439 --> 00:06:24.255
+How do you think it needs to collaborate with a person
+
+81
+00:06:24.767 --> 00:06:28.863
+It would slow you down to have to go off until the actual person class
+
+82
+00:06:29.375 --> 00:06:35.007
+It's often quicker to use an object to hash out your idea of roughly what a person might look like
+
+83
+00:06:35.263 --> 00:06:38.591
+Leaving you to stay focused on the task at hand
+
+84
+00:06:39.359 --> 00:06:42.431
+As you do this you'll find yourself
+
+85
+00:06:42.687 --> 00:06:43.967
+As we just did
+
+86
+00:06:44.223 --> 00:06:48.831
+Having to specify how you want the two objects to interact
+
+87
+00:06:49.599 --> 00:06:55.743
+If you think about it this interaction the way they talk to each other out runtime
+
+88
+00:06:55.999 --> 00:06:59.071
+Is the true behavior of these objects
+
+89
+00:07:00.095 --> 00:07:06.239
+Remember back in less than 5 Loops explained that acceptance test help you
+
+90
+00:07:06.495 --> 00:07:08.287
+Build the right thing
+
+91
+00:07:08.799 --> 00:07:12.639
+And unit test help you build the thing right
+
+92
+00:07:13.151 --> 00:07:19.295
+In other words acceptance test help us explore the problem denied by unit test
+
+93
+00:07:19.551 --> 00:07:21.599
+Help us explore the solution
+
+94
+00:07:22.879 --> 00:07:28.767
+When you drive it development from test the unit test can give you feedback about the design of your solution
+
+95
+00:07:29.279 --> 00:07:35.423
+If it's easy to take an individual object and plug it into your test your design is likely to be nicely module
+
+96
+00:07:35.679 --> 00:07:38.751
+Which means it will be easier to change in the future
+
+97
+00:07:39.263 --> 00:07:44.639
+If it's awkward that's a signal there's a problem with your design
+
+98
+00:07:45.151 --> 00:07:49.247
+We call this listening to the test
+
+99
+00:07:51.551 --> 00:07:57.695
+What alternative to using marks will be to use a real instance of person instead of the Macaw check
+
+100
+00:07:59.231 --> 00:08:00.767
+This is very tempting
+
+101
+00:08:01.023 --> 00:08:07.167
+Attesting personal network is one integrated lump we don't have to fuss about exactly how the
+
+102
+00:08:07.423 --> 00:08:08.959
+Phoenix about Sean's credits
+
+103
+00:08:09.471 --> 00:08:13.567
+All we have to do is check how many credits he has left over at the end
+
+104
+00:08:14.847 --> 00:08:18.943
+This seductive solution papers over the cracks in our design
+
+105
+00:08:19.711 --> 00:08:25.855
+When you use mocs you put the microscope on the interaction between an object and his collaborators this gives you
+
+106
+00:08:26.111 --> 00:08:29.183
+Feedback about how couple these objects are
+
+107
+00:08:29.695 --> 00:08:35.071
+A lot of chatter going back and forth like this suggest that getting tangled up together
+
+108
+00:08:35.839 --> 00:08:41.983
+So the fact that it's okay to use max air is not because moxa bad because we're body using marks
+
+109
+00:08:43.007 --> 00:08:45.567
+It's feedback from the code
+
+110
+00:08:46.591 --> 00:08:50.431
+Let's listen to the test I tried to respond to this pain
+
+111
+00:08:50.687 --> 00:08:52.479
+Instead of ignoring it
+
+112
+00:08:54.015 --> 00:08:55.807
+Let's text talk a little bit
+
+113
+00:08:56.319 --> 00:09:00.159
+We're trying to fix that bug about multiple mentions of the word by
+
+114
+00:09:00.415 --> 00:09:06.303
+The first we're retrofitting unit test for the premium account behavior in the network class
+
+115
+00:09:07.071 --> 00:09:13.215
+It will be easier to see what Tessa missing if we reorganize the unit test find that works
+
+116
+00:09:13.471 --> 00:09:14.751
+Responsibilities
+
+117
+00:09:16.031 --> 00:09:18.591
+It basically fall into two categories
+
+118
+00:09:19.615 --> 00:09:25.759
+These ones here to do with the responsibility of broadcasting to listeners so let's group them in a different section
+
+119
+00:09:26.015 --> 00:09:27.039
+Novartis class
+
+120
+00:09:28.831 --> 00:09:32.927
+Now we have a new test which is about charging for shouts
+
+121
+00:09:34.207 --> 00:09:36.255
+This last one here is a bit weird
+
+122
+00:09:36.767 --> 00:09:39.583
+It's sort of about broadcasting to listeners
+
+123
+00:09:39.839 --> 00:09:43.167
+Potassium Salt Rock in it which needs further investigation
+
+124
+00:09:44.191 --> 00:09:50.335
+This test is quite secure and seems to be attempting to cover several aspects of networks behavior all at once
+
+125
+00:09:51.615 --> 00:09:57.503
+Best document those individual behaviors is new test when we can come back to deal with this one later
+
+126
+00:09:59.807 --> 00:10:05.951
+We can see will need something similar under the responsibility of broadcasting to listeners to Insha'Allah
+
+127
+00:10:06.207 --> 00:10:12.351
+Long messages broadcast will take with no credits so we can express that using a test annotated with
+
+128
+00:10:12.607 --> 00:10:14.399
+Ignore for the time being
+
+129
+00:10:15.167 --> 00:10:16.959
+We can fill this out later
+
+130
+00:10:18.751 --> 00:10:23.615
+It's clear will also need to test that we charge 2 credits for Nova long message
+
+131
+00:10:24.383 --> 00:10:26.943
+Let's add another ignore test that
+
+132
+00:10:29.503 --> 00:10:33.855
+What is those two tests implemented we won't need this obscure one anymore
+
+133
+00:10:34.367 --> 00:10:40.511
+We're not confident enough to just remove it until we've seen those test flushed out so we can mock is
+
+134
+00:10:40.767 --> 00:10:42.303
+Take a note
+
+135
+00:10:43.327 --> 00:10:46.911
+That will remind us we need to come back and clean this up soon
+
+136
+00:10:47.679 --> 00:10:53.567
+At this point it is becoming clear that network has too many responsibilities
+
+137
+00:10:54.335 --> 00:10:57.663
+We have two different sources of feedback telling us this
+
+138
+00:10:58.943 --> 00:11:03.807
+With a unit test laid out by responsibility we can see more clearly
+
+139
+00:11:04.063 --> 00:11:08.415
+That while broadcasting to listeners as a responsibility to fit
+
+140
+00:11:08.671 --> 00:11:14.047
+There's no real reason why the network needs to be responsible for charging for shouts
+
+141
+00:11:16.095 --> 00:11:17.119
+Secondly
+
+142
+00:11:17.375 --> 00:11:20.703
+The communication protocol between networking person
+
+143
+00:11:20.959 --> 00:11:24.287
+Exposed by the marks is very noisy
+
+144
+00:11:25.055 --> 00:11:31.199
+Play making lots of method calls to person in order to determine whether they can afford the shoutin to deduct
+
+145
+00:11:31.455 --> 00:11:37.599
+Payment first Sean Combs network broadcast
+
+146
+00:11:37.855 --> 00:11:43.999
+Network ask Sean how many credits he has 10 Network tell Sean the new Valley
+
+147
+00:11:44.255 --> 00:11:50.399
+Credits with a fee for the message deducted
+
+148
+00:11:50.655 --> 00:11:55.519
+How many credits he has again in order to check whether he can afford to send a message
+
+149
+00:11:56.799 --> 00:12:02.943
+We could get all sad and angry that if only we test-drove in this code in the first place
+
+150
+00:12:03.199 --> 00:12:04.223
+This beatbox Una
+
+151
+00:12:04.479 --> 00:12:06.015
+But that would be futile
+
+152
+00:12:06.271 --> 00:12:08.831
+It's not too late to clean his coat up
+
+153
+00:12:09.343 --> 00:12:14.719
+How about we make sure responsible for organizing his own payment
+
+154
+00:12:15.999 --> 00:12:20.351
+Instead of rewriting this code let's see if we can refactor it
+
+155
+00:12:20.863 --> 00:12:25.471
+When refactoring it's crucial Not To Break existing functionality
+
+156
+00:12:25.983 --> 00:12:30.079
+So rely on our tests to walnuts if we make a mistake
+
+157
+00:12:31.871 --> 00:12:33.919
+Wiccan small steps
+
+158
+00:12:34.431 --> 00:12:40.575
+We may temporarily break some unit tests at the implementation shift but the acceptance test
+
+159
+00:12:40.831 --> 00:12:42.879
+Should be passing all the way through
+
+160
+00:12:43.135 --> 00:12:45.183
+If everything goes according to plan
+
+161
+00:12:46.719 --> 00:12:47.487
+Ready
+
+162
+00:12:49.279 --> 00:12:53.631
+Will stop by moving the deduct credits method on two person
+
+163
+00:12:54.399 --> 00:13:00.543
+As a baby step will make it public so we can just continue to call it from networks broadcast message
+
+164
+00:13:00.799 --> 00:13:01.311
+For now
+
+165
+00:13:02.079 --> 00:13:04.383
+That should keep the acceptance Test passing
+
+166
+00:13:10.015 --> 00:13:10.783
+Good
+
+167
+00:13:12.063 --> 00:13:17.439
+Now let's make sure I'm responsible for deducting his own credit as he shouts
+
+168
+00:13:23.327 --> 00:13:29.471
+We can move over this whole responsibility of charging for shouts from the network unit tests to the
+
+169
+00:13:29.727 --> 00:13:30.751
+Pearson unit test
+
+170
+00:13:33.311 --> 00:13:35.871
+Will need to adjust a test like this
+
+171
+00:13:43.551 --> 00:13:45.599
+And we'll talk to Green
+
+172
+00:13:47.135 --> 00:13:48.671
+Let's be Factor symbol
+
+173
+00:13:49.183 --> 00:13:55.327
+Because all this code is running within the shelter object now we don't need to pass around this instance of person anymore
+
+174
+00:13:55.583 --> 00:13:58.655
+We can access the credits instance variable here directly
+
+175
+00:14:00.191 --> 00:14:03.007
+We can make deduct credits private now
+
+176
+00:14:04.543 --> 00:14:09.663
+We don't need to pass short enough around as a variable we can just do the logic in line here
+
+177
+00:14:17.599 --> 00:14:18.623
+Great
+
+178
+00:14:19.391 --> 00:14:22.975
+We still have these pending unit test we need to sort out
+
+179
+00:14:23.231 --> 00:14:28.607
+Let's talk in person by flushing out this test about charging for long messages
+
+180
+00:14:46.527 --> 00:14:47.551
+That's better
+
+181
+00:14:48.319 --> 00:14:51.903
+Let's just make it fail quickly to check and we can trust it
+
+182
+00:15:07.775 --> 00:15:08.799
+Okay
+
+183
+00:15:10.335 --> 00:15:13.663
+Now we can tackle these two pending unit testing Network
+
+184
+00:15:14.431 --> 00:15:18.271
+Let's step back for a second and consider the rule with implementing he
+
+185
+00:15:19.295 --> 00:15:25.183
+This original test was simply there to ensure that long messages were not broadcast
+
+186
+00:15:25.695 --> 00:15:29.279
+Remember we originally started out without Premium Accounts
+
+187
+00:15:30.303 --> 00:15:33.887
+With the addition of Premium Accounts the rule has changed
+
+188
+00:15:34.399 --> 00:15:40.543
+We will broadcast long messages but only if the person shouting has sufficient credits
+
+189
+00:15:41.823 --> 00:15:47.711
+Implemented We've Ended up with this mind-bending Boolean logic in the broadcast method
+
+190
+00:15:48.991 --> 00:15:50.783
+It doesn't have to be like this
+
+191
+00:15:51.039 --> 00:15:55.135
+This complexity is a sign that we haven't model the problem well enough yet
+
+192
+00:15:56.159 --> 00:16:02.303
+The cool that right at the end of lesson 7 we discovered a Known Unknown in Ark
+
+193
+00:16:02.559 --> 00:16:05.375
+Portland Maine and documented it with this question
+
+194
+00:16:05.887 --> 00:16:08.703
+What happens when you run out of credits
+
+195
+00:16:09.983 --> 00:16:15.871
+We know you can't send a long message when you run out of credits but what about a message containing the word by
+
+196
+00:16:16.639 --> 00:16:22.271
+Perhaps having a complete answer to this question will help us to resolve this complexity
+
+197
+00:16:23.295 --> 00:16:25.343
+Let's check without product owner
+
+198
+00:16:27.135 --> 00:16:31.231
+We use a scenario to frame the discussion with polar or product owner
+
+199
+00:16:32.767 --> 00:16:35.583
+Given Lucy and Sean are within range of each other
+
+200
+00:16:35.839 --> 00:16:37.887
+That's what these background steps do
+
+201
+00:16:38.655 --> 00:16:40.959
+Ishawna sportful credits
+
+202
+00:16:41.727 --> 00:16:44.799
+When Sean shouts message containing bye
+
+203
+00:16:46.847 --> 00:16:48.127
+Then what
+
+204
+00:16:49.151 --> 00:16:53.503
+Sean didn't have enough credit so presumably loose it does not hear his message
+
+205
+00:16:53.759 --> 00:16:55.039
+Is that right
+
+206
+00:16:56.319 --> 00:16:58.111
+Right cipolla
+
+207
+00:16:59.391 --> 00:17:04.255
+So in that case showing should still have his full credits correct
+
+208
+00:17:05.023 --> 00:17:06.815
+Right against espola
+
+209
+00:17:08.351 --> 00:17:14.495
+Okay thanks Paula so the rule is that will only send shouts that you can afford is that right
+
+210
+00:17:16.799 --> 00:17:22.943
+Correct cipolla person cops and the premium shout unless they have enough credits to pay for it
+
+211
+00:17:24.735 --> 00:17:30.111
+Now we understand the business rule let's automate this scenario and drive out the behavior
+
+212
+00:17:34.719 --> 00:17:40.863
+First we need to match this new Step by we checked Lucy does not hear Shawn's message
+
+213
+00:17:41.631 --> 00:17:44.447
+We have a very similar 1/2 a Larry
+
+214
+00:17:44.959 --> 00:17:48.799
+We can use a capture group to make it more generic
+
+215
+00:17:49.567 --> 00:17:55.711
+Instead of a wild-card though we can use pipes to specify the alternative values we
+
+216
+00:17:55.967 --> 00:17:56.735
+Stacked hair
+
+217
+00:17:58.271 --> 00:18:00.063
+We captured the listener name
+
+218
+00:18:00.319 --> 00:18:04.159
+Then use that here when fetching the instance of person
+
+219
+00:18:05.951 --> 00:18:06.719
+Right
+
+220
+00:18:13.375 --> 00:18:18.495
+Now we have a failing acceptance test we should be passing once we resolve this
+
+221
+00:18:18.751 --> 00:18:21.823
+Let's have a think about where this Behavior should go
+
+222
+00:18:23.359 --> 00:18:27.967
+If we give responsibility for checking affordability to the person doing the shouting
+
+223
+00:18:28.223 --> 00:18:31.039
+The network doesn't need to care about credits at all
+
+224
+00:18:31.295 --> 00:18:33.343
+Which will simplify things nicely
+
+225
+00:18:35.391 --> 00:18:38.207
+Let's start with a new unit test the person then
+
+226
+00:18:41.279 --> 00:18:44.095
+We'll set up showing with only one credit
+
+227
+00:18:44.351 --> 00:18:46.911
+Not enough to afford to send a long message
+
+228
+00:18:47.167 --> 00:18:51.007
+Assert that the broadcast message is not called on network
+
+229
+00:18:51.775 --> 00:18:54.335
+Then we try to shout along message
+
+230
+00:19:02.271 --> 00:19:08.415
+This fails of course because at the moment person doesn't make this check so the broadcast method is cool everyday
+
+231
+00:19:08.671 --> 00:19:09.183
+Time
+
+232
+00:19:10.207 --> 00:19:12.767
+We are red in the tdd cycle
+
+233
+00:19:13.023 --> 00:19:14.047
+Next stop
+
+234
+00:19:14.303 --> 00:19:15.071
+Green
+
+235
+00:19:16.095 --> 00:19:22.239
+To make this past we need to know how much the shout is going to cost before we send it
+
+236
+00:19:23.007 --> 00:19:26.591
+That knowledge is currently in the deduct credits method
+
+237
+00:19:26.847 --> 00:19:29.663
+Which actually does to Tosca the same time
+
+238
+00:19:29.919 --> 00:19:35.807
+It works out the cost of the message and it deducts that cost when the person's balance
+
+239
+00:19:37.599 --> 00:19:43.743
+Let's tease those two tests apart first calculating the cost of a shout then
+
+240
+00:19:43.999 --> 00:19:46.047
+To not cost from the credits
+
+241
+00:19:47.583 --> 00:19:51.679
+No we can extract a method that calculates the cost of the message
+
+242
+00:19:56.543 --> 00:20:01.663
+Then finally we can use that method to check whether the message is Affordable
+
+243
+00:20:09.599 --> 00:20:11.647
+And I unit tested passing
+
+244
+00:20:12.415 --> 00:20:13.439
+Correct
+
+245
+00:20:15.487 --> 00:20:20.351
+And I suppose our acceptance test for the affordability rule should be passing now too
+
+246
+00:20:21.119 --> 00:20:26.495
+It is a green so it's refactoring time again
+
+247
+00:20:26.751 --> 00:20:32.639
+Now we can give that Messi all tested networks unit test the treatment it deserves
+
+248
+00:20:33.151 --> 00:20:35.711
+Because this behavior is now in person
+
+249
+00:20:36.479 --> 00:20:38.527
+We won't be needing this pending test
+
+250
+00:20:39.551 --> 00:20:43.391
+Deleting code is my favorite kind of refactoring
+
+251
+00:20:43.903 --> 00:20:49.535
+Let's keep going on strip Buckle like crazy Boolean logic and network broadcast
+
+252
+00:20:50.303 --> 00:20:56.447
+I think we can just remove this whole clothes about the message being too short while having enough credits or whatever
+
+253
+00:20:56.703 --> 00:20:59.263
+Let's try it and see what the test tell us
+
+254
+00:21:00.799 --> 00:21:03.359
+Excellent much better
+
+255
+00:21:08.223 --> 00:21:11.039
+Now can we do any refactoring in network
+
+256
+00:21:12.063 --> 00:21:17.952
+This method would read a lot better if extractor method that returns only the listings within the range of the shelter
+
+257
+00:21:18.208 --> 00:21:19.488
+Let's do that
+
+258
+00:21:37.408 --> 00:21:42.784
+We don't need to use the shuttle location Tempe that evil either that's just in line it
+
+259
+00:21:43.552 --> 00:21:44.832
+Okay
+
+260
+00:21:45.088 --> 00:21:48.672
+The code is nice and clean and all I test the passing
+
+261
+00:21:48.928 --> 00:21:50.464
+Except for one
+
+262
+00:21:50.976 --> 00:21:52.256
+Stop bug
+
+263
+00:21:52.512 --> 00:21:56.864
+I can't escape this any longer that's traffic with a unit test
+
+264
+00:21:57.632 --> 00:22:01.984
+We know the responsibility for charging for shouts lies in person
+
+265
+00:22:02.240 --> 00:22:04.544
+So that's where to add the unit test
+
+266
+00:22:23.232 --> 00:22:26.304
+Have you already spotted why we need to make the change
+
+267
+00:22:27.328 --> 00:22:30.144
+Here and the cost of method
+
+268
+00:22:30.400 --> 00:22:35.520
+The code will at 5 credits the cost each time it finds the Woodbine the message
+
+269
+00:22:36.032 --> 00:22:38.080
+If we change the code like this
+
+270
+00:22:38.592 --> 00:22:40.384
+It should be working as expected
+
+271
+00:22:43.968 --> 00:22:44.992
+It is
+
+272
+00:22:45.248 --> 00:22:46.272
+Great stuff
+
+273
+00:22:47.040 --> 00:22:50.112
+Over with coldest video series cucumber School
+
+274
+00:22:50.368 --> 00:22:56.512
+You probably noticed by now that would teaching you a whole range of skills and ideas that we own the Cucumber
+
+275
+00:22:56.768 --> 00:22:58.560
+Betin use to develop software
+
+276
+00:22:59.584 --> 00:23:05.216
+Not just skills with cucumber but skills with a whole of behavior driven development
+
+277
+00:23:06.240 --> 00:23:11.360
+BTD blurs the lines between traditional roles like tester and developer
+
+278
+00:23:11.616 --> 00:23:17.760
+And all right deal well everyone on the team not just tested is responsible for quality
+
+279
+00:23:18.016 --> 00:23:21.600
+How many old try to test it as much as possible
+
+280
+00:23:22.624 --> 00:23:28.768
+Having good automated-tests freezer test is to be more interesting interactive exploratory
+
+281
+00:23:29.024 --> 00:23:29.792
+Testing
+
+282
+00:23:31.584 --> 00:23:36.192
+We use a test as a guide to help us design a solution that models the problem well
+
+283
+00:23:36.704 --> 00:23:42.592
+A better model in your solution can make a whole category of bugs go away forever
+
+284
+00:23:43.360 --> 00:23:49.504
+We saw that in this lesson for me move the responsibility for charging for shouts from Network to person
+
+285
+00:23:49.760 --> 00:23:55.904
+On the issues around what happened when you run out of credits suddenly became easy to resolve
+
+286
+00:23:57.440 --> 00:24:03.584
+Getting the right balance between fine-grained unit test embroider. Test
+
+287
+00:24:03.840 --> 00:24:08.960
+Is critically important to having fast useful feedback from your test Suite
+
+288
+00:24:09.472 --> 00:24:12.288
+Will explode is more in the next lesson
+
+289
+00:24:13.568 --> 00:24:14.848
+See you next time
+
+290
+00:24:15.360 --> 00:24:16.896
+Oncue. School
