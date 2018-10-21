@@ -11,7 +11,7 @@ Generating captions for Cucumber School videos!
 * Upload
 * Success!
 
-## Style Guideline
+## Style Guidelines
 
 Some notes taken from a couple different [style guidelines](http://bbc.github.io/subtitle-guidelines/) and decided on by myself.
 
