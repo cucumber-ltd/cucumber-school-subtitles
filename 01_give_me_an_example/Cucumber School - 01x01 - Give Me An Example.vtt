@@ -2,7 +2,7 @@ WEBVTT
 
 1
 00:00:15.360 --> 00:00:19.712
-80 Days stands for Behavior driven development
+BDD stands for Behavior Driven Development
 
 2
 00:00:20.480 --> 00:00:21.760
@@ -10,23 +10,17 @@ What does that mean
 
 3
 00:00:22.528 --> 00:00:24.832
-What does it mean to do bdd
+What does it mean to do BDD?
 
 4
-00:00:26.368 --> 00:00:28.160
-Hope your day is a process
-
-5
-00:00:28.416 --> 00:00:30.720
-Exploring discovering
-
-6
-00:00:30.976 --> 00:00:32.000
-Defining
+00:00:26.368 --> 00:00:32.000
+BDD is a process of exploring,
+discovering, defining,
 
 7
 00:00:32.256 --> 00:00:36.352
-And then finally driving out the desired behavior of a software system
+And then finally driving out the
+desired behavior of a software system
 
 8
 00:00:36.864 --> 00:00:38.400
@@ -42,47 +36,53 @@ And automated-tests
 
 11
 00:00:43.520 --> 00:00:49.664
-We use conversations about concrete examples to explore discover I'm finally illustrate our shared understand
+We use conversations about concrete
+examples to explore, discover, 
+
+11
+00:00:47.000 --> 00:00:49.664
+And finally illustrate our shared understanding
 
 12
 00:00:49.920 --> 00:00:52.224
-Stakeholders
+Of the problem we need to solve
+for our stakeholders
 
 13
 00:00:52.992 --> 00:00:53.504
-10
+Then
 
 14
 00:00:53.760 --> 00:00:59.904
-We are fine as examples in automated-tests that describe the desired behavior of a solution
-
+We refine those examples into automated-tests that describe the desired behavior of our solution
+ 
 15
 00:01:00.160 --> 00:01:02.208
-Dry the development of the system
+To drive the development of the system
 
 16
 00:01:03.744 --> 00:01:07.072
-Cucumber the Tulip facilitates BTD
+Cucumber is a tool facilitates BDD
 
 17
 00:01:07.840 --> 00:01:11.168
-Teach you about cucumber without teaching about bd2
+We can't teach you about Cucumber without teaching you about BDD, too
 
 18
 00:01:11.936 --> 00:01:13.728
-So that's what we're going to stop
+So that's what we're going to start
 
 19
 00:01:16.800 --> 00:01:19.872
-Let's start by defining what we mean by example
+Let's start by defining what we mean by a concrete example
 
 20
 00:01:20.640 --> 00:01:24.480
-Can you think of a concrete example of the last time you used a piece of software
+Can you think of a concrete example of the last time you used a piece of software?
 
 21
 00:01:24.992 --> 00:01:30.368
-Maybe not be using your smartphone or something you use on a daily basis on your desktop computer
+Maybe an app you often use on your smartphone or something you use on a daily basis on your desktop computer
 
 22
 00:01:31.136 --> 00:01:32.928
@@ -94,7 +94,7 @@ Now
 
 24
 00:01:36.512 --> 00:01:42.656
-I don't know what to tell him here inside this video but I'd be willing to that you didn't give me a call
+I've got no way to tell from here inside this video but I'd be willing to bet that you didn't give me a
 
 25
 00:01:42.912 --> 00:01:45.984
@@ -102,7 +102,10 @@ Concrete example of you using the software
 
 26
 00:01:46.752 --> 00:01:50.080
-You just wrote down the name of the program where they help you with using
+You just wrote down the name of the program or the app you were using
+
+For example, maybe you wrote down Twitter
+
 
 27
 00:01:57.248 --> 00:01:58.016
@@ -110,11 +113,13 @@ Let's try again
 
 28
 00:01:58.784 --> 00:02:04.928
-Give me a concrete example of the last time you use Twitter
+Give me a concrete example of the last time you used Twitter
 
 29
 00:02:05.184 --> 00:02:05.952
-Suppose that you had in mind
+Or whatever the app was you had in mind
+
+Ready? Go!
 
 30
 00:02:09.536 --> 00:02:10.304
@@ -126,11 +131,11 @@ Did you just write down a concrete example with details of what you were trying 
 
 32
 00:02:15.680 --> 00:02:16.960
-Iy you use the app
+And why you use the app?
 
 33
 00:02:17.984 --> 00:02:20.544
-What did you just write down the name of the feature
+Or did you just write down the name of the feature
 
 34
 00:02:21.568 --> 00:02:22.336
@@ -142,7 +147,7 @@ Read my messages on Twitter
 
 36
 00:02:27.200 --> 00:02:31.040
-This is still too abstract etching concrete is hard
+This is still too abstract getting concrete is hard
 
 37
 00:02:31.552 --> 00:02:34.624
@@ -162,7 +167,7 @@ Tell me about it every Last Detail
 
 41
 00:02:45.120 --> 00:02:46.144
-Is my example
+Here's my example
 
 42
 00:02:46.912 --> 00:02:50.240
@@ -170,15 +175,16 @@ Yesterday I was waiting for my regular train home from work
 
 43
 00:02:51.264 --> 00:02:57.408
-I have a half hour commute so I like to have something to read on the train because the train goes to a rural area weather
+I have a half hour commute so I like to have something to read on the train 
+
 
 44
 00:02:57.664 --> 00:02:58.944
-Signal
+Because the train goes to a rural area where the mobile signal is bad
 
 45
 00:02:59.456 --> 00:03:02.528
-I scan my Twitter feed and fight up eyebrows atop
+I scan my Twitter feed and fired up a browser tab
 
 46
 00:03:03.040 --> 00:03:06.368
@@ -186,15 +192,17 @@ With interesting looking articles to read before I get on the train
 
 47
 00:03:07.904 --> 00:03:12.000
-Most of the ossicles what about software development
+Most of the articles are about software development, but there were a couple about politics, too
 
 48
 00:03:12.512 --> 00:03:16.352
-Now it's okay we have a concrete example with low income tax
+Now we're talking
+
+we have a concrete example with loads of context
 
 49
 00:03:17.120 --> 00:03:18.912
-That really gives you something to work with
+That really gives us something to work with
 
 50
 00:03:19.936 --> 00:03:21.728
@@ -202,19 +210,19 @@ Now we're going to see how we use
 
 51
 00:03:21.984 --> 00:03:24.544
-These concrete examples and practice
+These concrete examples in practice
 
 52
 00:03:25.056 --> 00:03:27.360
-Prerequisite for doing bdd
+A prerequisite for doing BDD
 
 53
 00:03:27.616 --> 00:03:30.176
-Is to have a child process in place
+Is to have an agile process in place
 
 54
 00:03:31.200 --> 00:03:34.016
-BTD needs to be done just in time at the
+BBD needs to be done just in time at the
 
 55
 00:03:34.272 --> 00:03:35.808
@@ -230,7 +238,7 @@ If you try to have those conversations too far ahead of doing the work
 
 58
 00:03:45.024 --> 00:03:47.584
-You must have gotten most of what you talked about
+You'll have forgotten most of what you talked about
 
 59
 00:03:49.376 --> 00:03:53.472
@@ -238,31 +246,31 @@ So you need to have your work already broken down into user stories
 
 60
 00:03:53.728 --> 00:03:57.568
-I did at your house I started to Define acceptance criteria
+Ideally, you'll have also started to define acceptance criteria
 
 61
 00:03:57.824 --> 00:03:59.616
-Business rules for the stories
+Or business rules for the stories
 
 62
 00:04:00.640 --> 00:04:02.176
-But they don't need to be exhausted yet
+But they don't need to be exhaustive yet
 
 63
 00:04:02.688 --> 00:04:05.248
-Will flush them out during the BTD process
+Will flesh them out during the BBD process
 
 64
 00:04:06.528 --> 00:04:11.904
-Let's imagine we're building a point-of-sale system to an Electronics retailer Pixies
+Let's imagine we're building a point-of-sale system to an Electronics retailer Dixies
 
 65
 00:04:12.928 --> 00:04:14.464
-He's on next user story
+Here's our next user story
 
 66
 00:04:14.720 --> 00:04:20.863
-Process refund in order to satisfy customers statutory rights assistant
+Process refunds: in order to satisfy customers statutory rights, as an assistant
 
 67
 00:04:21.119 --> 00:04:22.911
@@ -270,15 +278,15 @@ I need to be able to process refunds
 
 68
 00:04:24.191 --> 00:04:28.031
-You don't need to prepare this story for development manifold recall
+In order to prepare this story for development we have what we call
 
 69
 00:04:28.287 --> 00:04:30.335
-Three Amigos mesa
+A Three Amigos meeting
 
 70
 00:04:30.847 --> 00:04:33.407
-Recorded
+We call it the Three Amigos because it involves
 
 71
 00:04:33.663 --> 00:04:35.711
@@ -294,11 +302,11 @@ Development
 
 74
 00:04:39.551 --> 00:04:40.575
-Product
+And product
 
 75
 00:04:41.855 --> 00:04:43.391
-Let's watch One in action
+Let's watch one in action
 
 76
 00:04:44.415 --> 00:04:46.719
@@ -306,11 +314,11 @@ The business rules to this story really simple
 
 77
 00:04:46.975 --> 00:04:51.327
-Any license can be returned within 14 days as long as the customer has a receipt
+Any item can be returned within 14 days as long as the customer has a receipt
 
 78
 00:04:51.583 --> 00:04:53.119
-Can you give me an example
+Can you give me an example?
 
 79
 00:04:53.375 --> 00:04:53.887
@@ -318,87 +326,94 @@ Okay
 
 80
 00:04:54.143 --> 00:04:57.471
-Calling the customer Boise Castle last week for us
+Collin the customer bought a kettle last week from us
 
 81
 00:04:57.727 --> 00:05:02.591
-When you go home even if the color didn't match his kitchen cabinets and he really didn't like it
+When he got home he realized the color didn't match his kitchen cabinets and he really didn't like it
 
 82
 00:05:02.847 --> 00:05:06.175
-I made it back to the store for refund
+Um, he's brought it back to the store for refund
 
 83
 00:05:06.687 --> 00:05:12.831
-He walks up to Sally a Judas I was instant and he asked her to process the refund
+He walks up to Sally, a junior sales assistant, and he asks her to process the refund
 
 84
 00:05:13.087 --> 00:05:15.391
-What's the outcome he supposed to test
+What's the outcome here?
+What are we supposed to test?
 
 85
 00:05:15.903 --> 00:05:20.767
-Well we need to increment the stock quantitative
+Well we need to increment the stock quantity for that item
 
 86
 00:05:21.023 --> 00:05:23.327
-So we know it's parked in our ementary
+So we know it's back in our inventory
 
 87
 00:05:23.583 --> 00:05:27.679
-I want anything else
+Ah right, anything else?
+
+No, no, I think that's all
 
 88
 00:05:27.935 --> 00:05:30.239
-What you calling David half-days restate
+What if Collin doesn't have his receipt?
 
 89
 00:05:30.751 --> 00:05:36.895
-Does Target have to send him hun well as you can process a refund with any Perfect Touch
+Does Sally have to send him home?
+
+Well a manager can process a refund with any proof of purchase
 
 90
 00:05:37.407 --> 00:05:40.479
-Call Entergy of bank statement for example
+Collin could use a bank statement for example
 
 91
 00:05:40.735 --> 00:05:44.831
-Sally can't do that so she would have to ask her boss
+But Sally can't do that so she would have to ask her boss
 
 92
 00:05:45.087 --> 00:05:50.463
-Right so that the customer must have proof is not just a receipt
+Right, so there are two rules here: The customer must have proof of purchase, not just a receipt
 
 93
 00:05:50.719 --> 00:05:56.607
-If I don't have the receipt that it must be authorized by manager right right
+And if they don't have their receipt that it must be authorized by a manager, right?
 
 94
 00:05:57.119 --> 00:05:59.423
-Forgetting something
+Aren't we forgetting something here?
 
 95
 00:06:00.191 --> 00:06:02.239
-Isn't calling supposed to get his money back
+Isn't Collin supposed to get his money back?
 
 96
 00:06:02.751 --> 00:06:08.895
-Oh oh oh yes of course and does the system need to notify anyone in the warehouse
+Oh! Uh, oh yes of course!
+
+And does the system need to notify anyone in the warehouse to come  pick up the kettle?
 
 97
 00:06:10.687 --> 00:06:16.831
-Yes I think that's supposed to go to this version of the story but I'll put it on
+Good idea, Tammy. Yes, I think that's out of our scope for this version of the story but. 
 
 98
 00:06:17.087 --> 00:06:18.879
-The Box looks for future education
+I'll put it on the backlog for something future iteration
 
 99
 00:06:22.463 --> 00:06:26.815
-As you can see the Three Amigos meeting raises lots of question
+As you can see the Three Amigos meeting raises lots of questions
 
 100
 00:06:27.583 --> 00:06:31.935
-It's a really useful way to discover assumptions and potential misunderstanding
+It's a really useful way to discover assumptions and potential misunderstandings
 
 101
 00:06:32.447 --> 00:06:37.311
@@ -406,15 +421,17 @@ It is also a great way to communicate requirements that somebody might have thou
 
 102
 00:06:37.567 --> 00:06:40.639
-Never explain to other people on the team
+But never explained clearly to other people on the team
 
 103
 00:06:41.663 --> 00:06:45.759
-Sometimes the Three Amigos why I question that nobody in the room knows the answer to
+Sometimes the Three Amigos will hit a question that nobody in the room knows the answer to
+
+These are also a valuable output from the meeting
 
 104
 00:06:49.599 --> 00:06:52.159
-Now you have a picture of what you know
+Now you have a picture of what you know and
 
 105
 00:06:53.695 --> 00:06:54.975
@@ -422,23 +439,23 @@ What you need to find out
 
 106
 00:06:56.767 --> 00:07:01.375
-Talking two examples is a great way to get everyone on the same page about what needs to be filled
+Talking through examples is a great way to get everyone on the same page about what needs to be built
 
 107
 00:07:02.911 --> 00:07:05.983
-What sultry mean
+One all Three Amigos are happy that they understand the story
 
 108
 00:07:06.239 --> 00:07:10.335
-And you can stop translating your examples into something that cucumber can understand
+then you can stop translating your examples into something that Cucumber can understand
 
 109
 00:07:11.871 --> 00:07:14.687
-He's one of our examples restaurants and cooking
+Here's one of our examples written out in Gherkin
 
 110
 00:07:14.943 --> 00:07:17.247
-The specification language for cucumber
+The specification language for Cucumber
 
 111
 00:07:19.807 --> 00:07:20.831
@@ -446,27 +463,23 @@ As you can see
 
 112
 00:07:21.087 --> 00:07:23.135
-Harkins almost like plain English
+Gherkin's almost like plain English
 
 113
 00:07:23.647 --> 00:07:28.255
-Have to use a few specialty words
+Have to use a few special key words
+
+So that Cucumber can understand it, too
 
 114
 00:07:29.023 --> 00:07:33.119
-Would like feature scenario given when and then
+Words like feature, scenario, given, when, and then
+
+You'll learn all about these soon
 
 115
-00:07:37.471 --> 00:07:43.615
-We can refine as many examples as we need into this form to create an executable spell
-
-116
-00:07:43.871 --> 00:07:44.639
-Pacification
-
-117
-00:07:44.895 --> 00:07:45.919
-Sarah software
+00:07:37.471 --> 00:07:45.919
+We can refine as many examples as we need into this form to create an executable specification for our software
 
 118
 00:07:46.943 --> 00:07:47.967
@@ -474,8 +487,8 @@ In the next lesson
 
 119
 00:07:48.223 --> 00:07:51.295
-You'll learn how to create your first cucumber scenario
+You'll learn how to create your first Cucumber scenario
 
 120
 00:07:51.551 --> 00:07:52.575
-An executed
+And execute it

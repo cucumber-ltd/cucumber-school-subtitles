@@ -15,10 +15,10 @@ Generating captions for Cucumber School videos!
 
 Some notes taken from a couple different [style guidelines](http://bbc.github.io/subtitle-guidelines/) and decided on by myself.
 
-* No ending punctuation(periods) except for question marks or exclamation points.
-* No more than 2 lines per caption frame
+* No ending periods.
+* Maximum of 2 lines per caption frame
 * Maximum of 40 characters per line
 * Minimum of 1.5 seconds of on screen time for shorter frames
-* BDD, Cucumber, and Gherkin must be capitalized
+* BDD, Cucumber, Gherkin, and Three Amigos must be capitalized
 * The first letter of every frame must be capitalized, regardless of where in a sentence the frame begins.
 * Based on the recommended rate of 160-180 words per minute, you should aim to leave a subtitle on screen for a minimum period of around 0.3 seconds per word (e.g. 1.2 seconds for a 4-word subtitle).
