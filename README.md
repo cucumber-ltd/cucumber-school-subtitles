@@ -4,11 +4,15 @@ Generating captions for Cucumber School videos!
 
 ## Steps
 
-* Use [autosub](https://github.com/agermanidis/autosub) for the initial generation of VTT files. Clean up will need to be done by hand.
+* Use [autosub](https://github.com/agermanidis/autosub) for the initial generation of VTT files.
   * Example: `autosub -F vtt 02_your_first_scenario/java/Cucumber\ School\ -\ 01x02\ -\ Your\ First\ Scenario\ \(Java\).mp4`
-* Run through video with caption file to clean up the inevitable errors. Misspellings, incorrect words, missing lines, and timing issues may all pop up.
+* Autosub uses the Google Web Speech API to generate the test in the files and it's always going to need cleaning up. Expect misspellings, incorrect words, missing lines, and timing issues to all be present. There are a couple different ways clean up can be done, but what I've started doing is:
+  * Run through the video with the caption file open to fix things like misspelled/incorrect words and missing dialogue without worrying about timing
+  * Run through again to fix timing, formatting, etc. Keep in mind the style guidelines below when doing this.
 * Use ffmpeg to combine the caption file with the video
+  * Command tbd
 * Upload
+  * Location tbd
 * Success!
 
 ## Style Guidelines
