@@ -23,6 +23,6 @@ Some notes taken from a couple different [style guidelines](http://bbc.github.io
 * The first letter of every frame must be capitalized, regardless of where in a sentence the frame begins.
 * BDD, Cucumber, Gherkin, Three Amigos, and any other named items must be capitalized
 * Maximum of 2 lines per caption frame
-* Maximum of 40 characters per line
+* Maximum of 40 characters per line (where possible)
 * Minimum of 1.5 seconds of on screen time for shorter frames
 * Based on the recommended rate of 160-180 words per minute, you should aim to leave a subtitle on screen for a minimum period of around 0.3 seconds per word (e.g. 1.2 seconds for a 4-word subtitle). This isn't a hard and fast rule, but if the caption frame doesn't seem like it's on the screen long enough to be easily read, try adjusting the times.
