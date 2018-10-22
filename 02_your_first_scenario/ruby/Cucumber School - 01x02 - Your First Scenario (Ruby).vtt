@@ -263,19 +263,19 @@ It needs us to provide it with some step definitions
 
 65
 00:05:37.151 --> 00:05:42.015
-Step definitions translate in the plain language using Gherkin
+Step definitions translate from the plain language you use in Gherkin
 
 66
 00:05:42.271 --> 00:05:43.295
-Entry code
+into code
 
 67
 00:05:44.319 --> 00:05:50.463
-When kicking a Runza step it looks for a step definition of matches the text in the step
+When Cucumber runs a step it looks for a step definition that matches the text in the step
 
 68
 00:05:51.487 --> 00:05:55.839
-If it finds one that executes the code in the steppe definition
+If it finds one then it executes the code in the step definition
 
 69
 00:05:56.095 --> 00:05:57.631
@@ -283,31 +283,31 @@ If it doesn't find one
 
 70
 00:05:58.143 --> 00:06:00.191
-Well you just see what happens
+Well you've just seen what happens
 
 71
 00:06:00.703 --> 00:06:06.847
-Cucumber Health Lake Prince house in code Snippets that we can use as a basis for new Step definitions
+Cucumber helpfully prints out some code snippets that we can use as a basis for new step definitions
 
 72
 00:06:07.103 --> 00:06:08.639
-Let's copy days
+Let's copy these
 
 73
 00:06:09.919 --> 00:06:16.063
-Pasting into a ruby file under new directory step definitions
+We'll paste them into a Ruby file under a new directory called step definitions
 
 74
 00:06:16.575 --> 00:06:18.623
-Underneath the feature directory
+Underneath the features directory
 
 75
 00:06:19.135 --> 00:06:22.463
-I'll just call it steps that I'll be
+I'll just call it 'steps.rb'
 
 76
 00:06:23.743 --> 00:06:25.279
-Now run Cucumber again
+Now run 'cucumber' again
 
 77
 00:06:25.791 --> 00:06:29.375
@@ -315,39 +315,35 @@ This time the output is a little different
 
 78
 00:06:29.887 --> 00:06:36.031
-We now have a pending step onto skipped ones
+We now have a pending step and two skipped ones
 
 79
 00:06:36.287 --> 00:06:38.847
-Set definitions that executes the first one
+This means Cucumber found all our step definitions and executed the first one
 
 80
 00:06:39.103 --> 00:06:45.247
-That first step definition throes of pending exception which causes Cucumber to stop skip the rest of this
+That first step definition throws of pending exception which causes Cucumber to stop, skip the rest of the steps
 
 81
 00:06:45.503 --> 00:06:48.575
-The steps with scenario as pending
+And mark the scenario as pending
 
 82
 00:06:49.855 --> 00:06:51.903
-It's time to work on a solution
+It's time to work on our solution
 
 83
 00:06:52.159 --> 00:06:54.975
-At this point we need to do a little Divine modeling
+At this point we need to do a little domain modeling
 
 84
 00:06:55.231 --> 00:07:01.119
-The words in the step provided some good hints about some names that will appear in all the main model
+The words in the step provid us some good hints about some names that will appear in our domain model
 
 85
-00:07:01.631 --> 00:07:07.775
-A scenario mentions two people Lucy and Sean so it looks like we'll need a couple of person object
-
-86
-00:07:08.031 --> 00:07:08.543
-List
+00:07:01.631 --> 00:07:08.543
+Our scenario mentions two people Lucy and Sean so it looks like we'll need a couple of person objects at least
 
 87
 00:07:08.799 --> 00:07:12.383
@@ -355,11 +351,13 @@ Each person will also need to know their own location
 
 88
 00:07:13.919 --> 00:07:17.759
-Cucumbers telling us to write the code we wish we had let's do it
+Cucumber is telling us to write the code we wish we had
+
+let's do it
 
 89
 00:07:18.527 --> 00:07:23.391
-Stop by renaming the odd one parameter to something about the reflexes meaning
+Start by renaming the 'arg1' parameter to something about the reflects its meaning
 
 90
 00:07:23.903 --> 00:07:25.951
@@ -367,11 +365,11 @@ We'll call it distance
 
 91
 00:07:27.487 --> 00:07:31.583
-To keep things simple we're going to assume old people situation on the line
+To keep things simple we're going to assume all people are situated on a line
 
 92
 00:07:32.351 --> 00:07:34.655
-One-dimensional coordinate system
+A one-dimensional coordinate system
 
 93
 00:07:35.423 --> 00:07:38.495
@@ -379,27 +377,27 @@ We can always introduce proper geolocations later
 
 94
 00:07:39.007 --> 00:07:43.359
-What play shown in the center and Lucy 15 minutes away from Sean
+We'll place Sean in the center and Lucy 15 metres away from Sean
 
 95
 00:07:45.407 --> 00:07:48.735
-Notice that the number 15 does not pair anywhere knock code
+Notice that the number 15 does not appear anywhere in our code
 
 96
 00:07:49.247 --> 00:07:54.879
-The value 15 is automatically passed from The Collection step into the step definition
+The value 15 is automatically passed from the Gherkin step into the step definition
 
 97
 00:07:55.135 --> 00:08:00.767
-If you're curious that's the backslash D in the pound of the steppe definition
+If you're curious that's the backslash D in the pattern of the step definition
 
 98
 00:08:01.535 --> 00:08:05.119
-What explain regular expressions in detail in a future lesson
+We'll explain regular expressions in detail in a future lesson
 
 99
 00:08:08.191 --> 00:08:14.079
-Infamous step we need to create a couple of personal checks with the specified distance between them
+To implement this step we need to create a couple of person objects with the specified distance between them
 
 100
 00:08:14.335 --> 00:08:15.871
@@ -411,39 +409,35 @@ Now we have two instances of person one representing Lucy
 
 102
 00:08:22.527 --> 00:08:24.319
-And 1 representing Sean
+And one representing Sean
 
 103
 00:08:24.831 --> 00:08:28.415
-If you run Cucumber will see a compilation of a ruby
+If you run Cucumber we'll see a compilation error from Ruby
 
 104
 00:08:28.671 --> 00:08:31.231
-We need to define a person class
+We need to define our person class
 
 105
 00:08:33.023 --> 00:08:36.351
-Let's give a solution to home by creating a lib directory
+Let's give our solution a home by creating a lib directory
 
 106
 00:08:36.607 --> 00:08:42.751
-Put Bachata application in a ruby file called shouting and not directory
+We'll put our Shouty application in a Ruby file called 'shouty.rb' in that directory
 
 107
 00:08:44.031 --> 00:08:46.591
-Create bad bones about person
+Create the bare bones of our person
 
 108
-00:08:47.103 --> 00:08:53.247
-Just enough to satisfy the API that we know we need from the code
-
-109
-00:08:53.503 --> 00:08:55.295
-Gnostic definitions
+00:08:47.103 --> 00:08:55.295
+Just enough to satisfy the API that we know we need from the code we've written in our step definitions
 
 110
 00:08:57.599 --> 00:09:02.719
-So now we'll just require the shout out application for my steps to avi file
+For now we'll just require the Shouty application from our 'steps.rb'
 
 111
 00:09:02.975 --> 00:09:07.327
