@@ -10,9 +10,9 @@ Generating captions for Cucumber School videos!
   * Using VLC, run through the video with the caption file open to fix things like misspelled/incorrect words and missing dialogue without worrying about timing
   * Run through again to fix timing, formatting, etc. Keep in mind the style guidelines below when doing this.
 * Use ffmpeg to combine the caption file with the video
-  * Command tbd
+  * Example: `ffmpeg -i "Cucumber School - 01x01 - Give Me An Example.mp4" -i "Cucumber School - 01x01 - Give Me An Example.vtt" -metadata:s:s:0 language=eng -c copy -c:s mov_text "Cucumber School - 01x01 - Give Me An Example - Captions.mp4"`
 * Upload
-  * Location tbd
+  * Location & process TBA
 * Success!
 
 ## Style Guidelines
