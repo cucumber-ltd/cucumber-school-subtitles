@@ -2,35 +2,38 @@ WEBVTT
 
 1
 00:00:14.848 --> 00:00:19.200
-Hello and welcome to the second lesson there at cucumber School
+Hello and welcome to the second lesson
+here at Cucumber School
 
 2
 00:00:19.712 --> 00:00:25.856
-Last time we learned how to use conversations about concrete examples to explode
+Last time we, learned how to use
+conversations about concrete examples to 
 
 3
 00:00:26.112 --> 00:00:27.648
-I decide what to build
+explore your problem domain
+and decide what to build
 
 4
 00:00:28.416 --> 00:00:34.560
-And this episode you learn how to describe those examples using the gherkin specification language
+In this episode you'll learn how to describe those examples using the Gherkin specification language
 
 5
 00:00:34.816 --> 00:00:36.864
-So that cucumber can run them
+So that Cucumber can run them
 
 6
 00:00:37.376 --> 00:00:42.240
-Then we'll drive out to solution using a failing cucumber scenario to guide us
+Then we'll drive out a solution using a failing Cucumber scenario to guide us
 
 7
 00:00:43.008 --> 00:00:48.640
-It's going to be a fair amount of programming in this episode on some object-oriented design as well
+It's going to be a fair amount of programming in this episode and some object-oriented design as well
 
 8
 00:00:48.896 --> 00:00:52.480
-We want this to feel real so will work on something fun
+We want this to feel real so we'll work on something fun
 
 9
 00:00:52.736 --> 00:00:55.040
@@ -38,15 +41,17 @@ A social networking application
 
 10
 00:00:55.808 --> 00:01:01.952
-Shawty is a social network that allows people who are physically close to communicate
+Shouty is a social network that allows people who are physically close to communicate
 
 11
 00:01:02.208 --> 00:01:08.352
-Just like people of cool ways communicated with the voices in the real well you can talk to her
+Just like people have always communicated with the voices
+
+In the real world you can talk to
 
 12
 00:01:08.608 --> 00:01:13.216
-Someone in the same room or across the street or even a hundred meters away from you in the park
+Someone in the same room or across the street or even a hundred meters away from you in a park
 
 13
 00:01:13.728 --> 00:01:15.520
@@ -54,7 +59,7 @@ If you shout
 
 14
 00:01:16.032 --> 00:01:17.312
-Fat Sheltie
+That's Shouty!
 
 15
 00:01:17.568 --> 00:01:22.944
@@ -62,19 +67,19 @@ What you saying this social network can only be heard by people who are nearby
 
 16
 00:01:24.480 --> 00:01:27.808
-Let's start with a very basic example of shot his behavior
+Let's start with a very basic example of Shouty's behavior
 
 17
 00:01:28.064 --> 00:01:31.648
-Something we might have discussed in The Three Amigos meeting
+Something we might have discussed in a Three Amigos meeting
 
 18
 00:01:33.440 --> 00:01:39.584
-Show me shoutouts free Bagels at Shawn's and Lucy the listener
+Sean the shouter shouts, "Free Bagels at Sean's!" and Lucy the listener
 
 19
 00:01:39.840 --> 00:01:45.984
-Mississippi Stud across the street from the store 15 meters away he is him she walks into Sean's car
+Who happens to be stood across the street from the store 15 meters away hears him she walks into Sean's
 
 20
 00:01:46.240 --> 00:01:49.056
@@ -82,7 +87,7 @@ Coffee shop and takes advantage of the offer
 
 21
 00:01:50.592 --> 00:01:55.200
-We can translate this into a gherkin scenario so that you can book and run it
+We can translate this into a Gherkin scenario so that Cucumber can run it
 
 22
 00:01:56.992 --> 00:01:58.272
@@ -90,15 +95,15 @@ Here's how that would look
 
 23
 00:01:59.552 --> 00:02:02.624
-You can see that a full Special K was being used to
+You can see that there are four special keywords being used here
 
 24
 00:02:02.880 --> 00:02:08.256
-Scenario just tells cucumber we're about to describe an example that it can execute
+Scenario just tells Cucumber we're about to describe an example that it can execute
 
 25
 00:02:09.280 --> 00:02:13.888
-Then you see the lines beginning with given when then
+Then you see the lines beginning with given, when, and  then
 
 26
 00:02:14.912 --> 00:02:15.936
@@ -106,19 +111,19 @@ Given
 
 27
 00:02:16.192 --> 00:02:19.008
-Is the context for the scenario
+is the context for the scenario
 
 28
 00:02:19.264 --> 00:02:25.152
-Putting the system into a specific State ready for the scenario to unfold
+We're putting the system into a specific state ready for the scenario to unfold
 
 29
 00:02:26.176 --> 00:02:28.224
-When is the option
+When is the action
 
 30
 00:02:28.992 --> 00:02:34.880
-Something that happens to the system that will cause something else to happen and outcome
+Something that happens to the system that will cause something else to happen: an outcome
 
 31
 00:02:36.416 --> 00:02:38.464
@@ -130,19 +135,19 @@ It's the behavior we expect from the system when this action happens in this con
 
 33
 00:02:46.144 --> 00:02:52.288
-You'll notice we submitted for my outcome anything about Lucy
+You'll notice we've omitted from our outcome anything about Lucy
 
 34
 00:02:52.544 --> 00:02:54.848
-Walking into Sean store making a purchase
+Walking into Sean's store making a purchase
 
 35
 00:02:55.360 --> 00:03:01.504
-Navigation is supposed to describe the behavior of the system should be distracting. Detailing Austin area
+Remember Gherkin is supposed to describe the behavior of the system it would be distracting to have that detail in our scenario
 
 36
 00:03:02.784 --> 00:03:08.928
-Each scenario has three ingredients a context and action and one or more
+Each scenario has these three ingredients: a context, an action, and one or more
 
 37
 00:03:09.184 --> 00:03:10.208
@@ -154,7 +159,7 @@ Together they describe one single aspect of the behavior of the system
 
 39
 00:03:17.888 --> 00:03:20.960
-Now that we translated are examples of cooking
+Now that we've translated are examples into Gherkin
 
 40
 00:03:21.216 --> 00:03:22.752
@@ -162,7 +167,7 @@ We can automate it
 
 41
 00:03:24.544 --> 00:03:30.688
-Before we get started make sure you have a modern version of Ruby installed I'm the Thunder Jam
+Before we get started make sure you have a modern version of Ruby installed and the Bundler gem
 
 42
 00:03:31.456 --> 00:03:33.504
@@ -170,39 +175,39 @@ Open a command prompt type
 
 43
 00:03:37.856 --> 00:03:42.976
-If you see an error message when you run these commands you'll need to fix your roof installation
+If you see an error message when you run these commands you'll need to fix your Ruby installation
 
 44
 00:03:44.256 --> 00:03:48.096
-Go back to the command prompt and create a new directory for a project
+Go back to the command prompt and create a new directory for our project
 
 45
 00:03:50.656 --> 00:03:55.520
-UCD to go into that directory and open it up in your editor
+Use 'cd' to go into that directory and open it up in your editor
 
 46
 00:03:57.312 --> 00:04:03.456
-Firstprogress gemfile that describes project
+First, we'll create a gemfile that describes the Ruby gems we need for our project
 
 47
 00:04:03.712 --> 00:04:09.088
-Will a cucumber and a speck expectations
+We'll add Cucumber and RSpec expectations
 
 48
 00:04:10.880 --> 00:04:16.000
-Now go back to the command line and run bundle install install these gems
+Now go back to the command line and run 'bundle install' to install these gems
 
 49
 00:04:17.536 --> 00:04:23.679
-Now we're ready if we run cucumber at this point the sea is telling us to create a feature
+Now we're ready. if we run Cucumber at this point you'll see its telling us to create a features
 
 50
 00:04:23.935 --> 00:04:24.703
-Is directory
+directory
 
 51
 00:04:24.959 --> 00:04:28.543
-Oster conventional place to store your gear can specifications
+That's the conventional place to store your Gherkin specifications
 
 52
 00:04:28.799 --> 00:04:30.079
@@ -210,55 +215,55 @@ Let's create one
 
 53
 00:04:32.639 --> 00:04:35.455
-Now we're ready to cry sophistry to file
+Now we're ready to create our first feature file
 
 54
 00:04:35.967 --> 00:04:39.551
-Call the file Shawty. Feature
+Call the file 'Shouty.feature'
 
 55
 00:04:41.599 --> 00:04:44.927
-All feature file start with a keyword feature
+All feature files start with the keyword 'feature'
 
 56
 00:04:45.439 --> 00:04:46.975
-Followed by name
+Followed by a name
 
 57
 00:04:47.231 --> 00:04:50.559
-Is it good convention to give it to 9 that matches the file name
+It's a good convention to give it a name that matches the file name
 
 58
 00:04:52.095 --> 00:04:54.399
-Now that's right out out first scenario
+Now let's write out our first scenario
 
 59
 00:05:08.479 --> 00:05:12.319
-Switch back to the command prompt and run cucumber
+Switch back to the command prompt and run 'cucumber'
 
 60
 00:05:13.343 --> 00:05:17.439
-You'll see cucumbers found a feature file and read it back to us
+You'll see Cucumber has found a feature file and read it back to us
 
 61
 00:05:17.695 --> 00:05:19.999
-We can see a summary of the results of the bottom
+We can see a summary of the results at the bottom
 
 62
 00:05:20.255 --> 00:05:25.119
-Three steps one scenario undefined
+Three steps, one scenario, all undefined
 
 63
 00:05:25.631 --> 00:05:31.775
-Undefined means you come it doesn't know what to do for any of the three steps we wrote Tanaka can scenario
+Undefined means Cucumber doesn't know what to do for any of the three steps we wrote in our Gherkin scenario
 
 64
 00:05:33.055 --> 00:05:36.895
-It needs us to provide it with some step definition
+It needs us to provide it with some step definitions
 
 65
 00:05:37.151 --> 00:05:42.015
-Step definitions translate in the plain language using gherkin
+Step definitions translate in the plain language using Gherkin
 
 66
 00:05:42.271 --> 00:05:43.295
@@ -302,7 +307,7 @@ I'll just call it steps that I'll be
 
 76
 00:06:23.743 --> 00:06:25.279
-Now run cucumber again
+Now run Cucumber again
 
 77
 00:06:25.791 --> 00:06:29.375
@@ -318,7 +323,7 @@ Set definitions that executes the first one
 
 80
 00:06:39.103 --> 00:06:45.247
-That first step definition throes of pending exception which causes cucumber to stop skip the rest of this
+That first step definition throes of pending exception which causes Cucumber to stop skip the rest of this
 
 81
 00:06:45.503 --> 00:06:48.575
@@ -410,7 +415,7 @@ And 1 representing Sean
 
 103
 00:08:24.831 --> 00:08:28.415
-If you run cucumber will see a compilation of a ruby
+If you run Cucumber will see a compilation of a ruby
 
 104
 00:08:28.671 --> 00:08:31.231
@@ -514,7 +519,7 @@ Astor wines that runs
 
 129
 00:10:41.791 --> 00:10:47.935
-This is a common pain to using cucumber step definitions when you don't want to repeat the same test dates and different
+This is a common pain to using Cucumber step definitions when you don't want to repeat the same test dates and different
 
 130
 00:10:48.191 --> 00:10:49.471
