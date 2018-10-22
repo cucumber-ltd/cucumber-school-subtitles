@@ -316,7 +316,7 @@ Let's imagine we're building a
 point-of-sale system for an electronics retailer
 
 64
-00:04:11.900 --> 00:04:12.504
+00:04:10.900 --> 00:04:12.504
 Dixies
 
 65
@@ -338,12 +338,12 @@ As a sales assistant
 I need to be able to process refunds
 
 68
-00:04:24.191 --> 00:04:28.031
+00:04:24.191 --> 00:04:28.050
 In order to prepare this story for
 development we have what we call
 
 69
-00:04:28.287 --> 00:04:30.335
+00:04:28.050 --> 00:04:30.335
 a Three Amigos meeting
 
 70
@@ -360,12 +360,12 @@ three different disciplines from the team
 Test
 
 73
-00:04:37.815 --> 00:04:39.139
+00:04:37.815 --> 00:04:39.200
 Development
 
 74
-00:04:39.251 --> 00:04:40.975
-And Product
+00:04:39.200 --> 00:04:40.975
+and Product
 
 75
 00:04:41.455 --> 00:04:43.391
@@ -395,12 +395,12 @@ Collin the customer bought
 a kettle last week from us
 
 81
-00:04:57.727 --> 00:05:00.591
+00:04:57.727 --> 00:05:00.700
 When he got home he realized the color
 didn't match his kitchen cabinets
 
 81
-00:05:00.627 --> 00:05:02.591
+00:05:00.700 --> 00:05:02.591
 and he really didn't like it
 
 82
@@ -414,7 +414,7 @@ He walks up to Sally,
 a junior sales assistant
 
 83
-00:05:09.256 --> 00:05:12.750
+00:05:09.250 --> 00:05:12.750
 and he asks her to process the refund
 
 84
@@ -423,12 +423,12 @@ What's the outcome here?
 What are we supposed to test?
 
 85
-00:05:15.903 --> 00:05:20.767
+00:05:15.903 --> 00:05:20.800
 Well we need to increment the
 stock quantity for that item
 
 86
-00:05:21.023 --> 00:05:23.327
+00:05:20.800 --> 00:05:23.327
 so we know it's back in our inventory
 
 87
@@ -466,7 +466,7 @@ she would have to ask her boss
 Right, so there are two rules here: 
 
 92
-00:05:46.401 --> 00:05:50.463
+00:05:46.400 --> 00:05:50.463
 The customer must have proof of purchase,
 not just a receipt
 
@@ -475,7 +475,7 @@ not just a receipt
 and if they don't have their receipt
 
 93
-00:05:52.001 --> 00:05:54.607
+00:05:52.000 --> 00:05:54.607
 then it must be authorized
 by a manager, right?
 
@@ -510,7 +510,7 @@ Yes, I think that's out of our scope
 for this version of the story
 
 98
-00:06:16.001 --> 00:06:18.879
+00:06:16.000 --> 00:06:18.879
 but I'll put it on the
 backlog for future iteration
 
@@ -529,12 +529,12 @@ assumptions and potential misunderstandings
 It is also a great way to communicate
 
 101
-00:06:34.301 --> 00:06:37.311
+00:06:34.300 --> 00:06:37.311
 requirements that somebody
 might have thought about
 
 102
-00:06:37.312 --> 00:06:40.639
+00:06:37.311 --> 00:06:40.639
 but never explained clearly to
 other people on the team
 
@@ -544,7 +544,7 @@ Sometimes the Three Amigos
 will hit a question
 
 103
-00:06:43.501 --> 00:06:45.759
+00:06:43.500 --> 00:06:45.759
 that nobody in the room
 knows the answer to
 
@@ -568,7 +568,7 @@ Talking through examples
 is a great way 
 
 106
-00:06:58.401 --> 00:07:01.500
+00:06:58.400 --> 00:07:01.500
 to get everyone on the same page
 about what needs to be built
 
@@ -578,7 +578,7 @@ Once all Three Amigos are happy
 that they understand the story
 
 108
-00:07:05.985 --> 00:07:10.335
+00:07:05.983 --> 00:07:10.335
 then you can start translating your examples
 into something that Cucumber can understand
 
@@ -604,7 +604,7 @@ Gherkin's almost like plain English
 We have to use a few special key words
 
 113
-00:07:25.601 --> 00:07:28.255
+00:07:25.600 --> 00:07:28.255
 so that Cucumber can understand it, too
 
 114
@@ -622,7 +622,7 @@ We can refine as many examples
 as we need into this form
 
 115
-00:07:41.501 --> 00:07:45.919
+00:07:41.500 --> 00:07:45.919
 to create an executable specification
 for our software
 
@@ -631,10 +631,14 @@ for our software
 In the next lesson
 
 119
-00:07:48.101 --> 00:07:51.450
+00:07:48.100 --> 00:07:51.450
 you'll learn how to create 
 your first Cucumber scenario
 
 120
 00:07:51.451 --> 00:07:52.800
 and execute it
+
+120
+00:07:54.000 --> 00:07:58.000
+Captions created by Jayson Smith
