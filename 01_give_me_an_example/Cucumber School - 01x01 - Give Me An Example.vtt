@@ -5,78 +5,78 @@ WEBVTT
 BDD stands for Behavior Driven Development
 
 2
-00:00:20.480 --> 00:00:21.760
+00:00:20.000 --> 00:00:21.760
 But what does that mean?
 
 3
-00:00:22.528 --> 00:00:24.832
+00:00:22.000 --> 00:00:24.832
 What does it mean to do BDD?
 
 4
-00:00:26.368 --> 00:00:32.000
+00:00:26.100 --> 00:00:32.100
 Well BDD is a process of exploring,
 discovering, defining,
 
 5
-00:00:32.256 --> 00:00:36.352
-And then finally driving out the
+00:00:32.100 --> 00:00:36.500
+and then finally driving out the
 desired behavior of a software system
 
 6
-00:00:36.864 --> 00:00:38.400
-Using conversations
+00:00:36.500 --> 00:00:38.655
+using conversations
 
 7
-00:00:38.656 --> 00:00:40.192
-Concrete examples
+00:00:38.655 --> 00:00:40.447
+concrete examples
 
 8
-00:00:40.448 --> 00:00:42.240
-And automated-tests
+00:00:40.447 --> 00:00:42.240
+and automated-tests
 
 9
-00:00:43.520 --> 00:00:46.864
+00:00:43.200 --> 00:00:46.800
 We use conversations about concrete
 examples to explore, discover,
 
 10
-00:00:47.000 --> 00:00:49.664
-And finally illustrate our
+00:00:46.800 --> 00:00:49.800
+and finally illustrate our
 shared understanding
 
 11
-00:00:49.920 --> 00:00:52.224
-Of the problem we need to solve
+00:00:49.800 --> 00:00:52.224
+of the problem we need to solve
 for our stakeholders
 
 12
-00:00:52.992 --> 00:00:55.300
+00:00:52.600 --> 00:00:55.350
 Then we refine those examples into
 
 13
-00:00:55.500 --> 00:00:59.904
-Automated-tests that describe the
+00:00:55.350 --> 00:00:59.600
+automated-tests that describe the
 desired behavior of our solution
- 
+
 14
-00:01:00.160 --> 00:01:02.208
-To drive the development of the system
+00:00:59.600 --> 00:01:02.208
+to drive the development of the system
 
 15
 00:01:03.744 --> 00:01:07.072
 Cucumber is a tool facilitates BDD
 
 17
-00:01:07.840 --> 00:01:11.168
+00:01:07.840 --> 00:01:11.600
 We can't teach you about Cucumber without
 teaching you about BDD, too
 
 18
-00:01:11.936 --> 00:01:13.728
-So that's what we're going to start
+00:01:11.600 --> 00:01:13.728
+so that's what we're going to start
 
 19
-00:01:16.800 --> 00:01:19.872
+00:01:16.300 --> 00:01:19.872
 Let's start by defining what we mean
 by a concrete example
 
@@ -91,8 +91,8 @@ Maybe an app you often use
 on your smartphone 
 
 22
-00:01:26.600 --> 00:01:30.368
-Or something you use on a daily basis
+00:01:26.500 --> 00:01:30.368
+or something you use on a daily basis
 on your desktop computer
 
 22
@@ -105,13 +105,13 @@ Now, I've got no way to tell
 from here inside this video
 
 24
-00:01:38.800 --> 00:01:42.150
-But I'd be willing to bet
+00:01:38.700 --> 00:01:42.150
+but I'd be willing to bet
 you didn't give me
 
 25
-00:01:42.200 --> 00:01:45.984
-A concrete example of
+00:01:42.150 --> 00:01:45.984
+a concrete example of
 you using the software
 
 26
@@ -128,7 +128,7 @@ For example, maybe you wrote down
 Twitter
 
 27
-00:01:57.248 --> 00:01:58.016
+00:01:57.150 --> 00:01:58.100
 Let's try again
 
 28
@@ -137,8 +137,8 @@ Give me a concrete example of the
 last time you used Twitter
 
 29
-00:02:03.300 --> 00:02:05.952
-Or whatever the app was you had in mind
+00:02:03.250 --> 00:02:05.952
+or whatever the app was you had in mind
 
 29
 00:02:06.000 --> 00:02:09.000
@@ -154,21 +154,22 @@ Did you just write down a
 concrete example with details of 
 
 32
-00:02:13.600 --> 00:02:16.960
-What you were trying to do at the time
-and why you use the app?
+00:02:13.524 --> 00:02:16.650
+what you were trying to do at the time
+and why you used the app
 
 33
-00:02:17.684 --> 00:02:20.544
-Or did you just write down the name of the feature?
+00:02:17.650 --> 00:02:20.544
+Or did you just write down
+the name of the feature
 
 34
 00:02:21.568 --> 00:02:22.336
-Like
+like
 
 35
 00:02:22.848 --> 00:02:25.152
-Read my messages on Twitter?
+read my messages on Twitter?
 
 36
 00:02:27.200 --> 00:02:29.200
@@ -184,12 +185,12 @@ If you just wrote down the name of the
 feature I want you to try again
 
 38
-00:02:35.136 --> 00:02:37.696
+00:02:35.136 --> 00:02:37.700
 Visualize a real moment in your life
 
 39
-00:02:37.952 --> 00:02:39.232
-When you use that feature
+00:02:37.701 --> 00:02:39.232
+when you use that feature
 
 40
 00:02:39.488 --> 00:02:42.304
@@ -200,7 +201,7 @@ Tell me about it in every last detail
 Here's my example
 
 42
-00:02:46.912 --> 00:02:50.240
+00:02:46.500 --> 00:02:50.240
 Yesterday I was waiting for my
 regular train home from work
 
@@ -210,18 +211,18 @@ I have a half hour commute so I like to
 have something to read on the train 
 
 44
-00:02:55.000 --> 00:02:59.000
+00:02:55.000 --> 00:02:59.400
 Because the train goes to a rural area
 where the mobile signal is bad
 
 45
-00:02:59.456 --> 00:03:02.528
+00:02:59.400 --> 00:03:02.800
 I scanned my Twitter feed and
 fired up a browser tab
 
 46
-00:03:03.040 --> 00:03:06.368
-With interesting looking articles
+00:03:02.800 --> 00:03:06.368
+with interesting looking articles
 to read before I get on the train
 
 47
@@ -230,60 +231,59 @@ Most of the articles are about
 software development
 
 47
-00:03:10.100 --> 00:03:12.000
+00:03:10.000 --> 00:03:12.000
 but there were a couple
 about politics, too
 
 48
-00:03:12.400 --> 00:03:13.352
-Now we're talking
-
+00:03:12.300 --> 00:03:13.500
+Now we're talking!
 
 48
-00:03:13.652 --> 00:03:16.900
+00:03:13.652 --> 00:03:17.000
 We have a concrete example with loads of context
 
 49
-00:03:17.120 --> 00:03:18.912
-That really gives us something to work with
+00:03:17.000 --> 00:03:18.912
+that really gives us something to work with
 
 50
-00:03:19.936 --> 00:03:21.728
+00:03:19.936 --> 00:03:21.800
 Now we're going to see how we use
 
 51
-00:03:21.984 --> 00:03:24.544
-These concrete examples in practice
+00:03:21.801 --> 00:03:24.544
+these concrete examples in practice
 
 52
-00:03:25.056 --> 00:03:27.360
+00:03:25.056 --> 00:03:27.400
 A prerequisite for doing BDD
 
 53
-00:03:27.616 --> 00:03:30.176
-Is to have an agile process in place
+00:03:27.401 --> 00:03:30.176
+is to have an agile process in place
 
 54
-00:03:31.200 --> 00:03:34.016
+00:03:31.200 --> 00:03:34.199
 BBD needs to be done just in time at the
 
 55
-00:03:34.272 --> 00:03:35.808
-Last responsible moment
+00:03:34.200 --> 00:03:35.998
+last responsible moment
 
 56
-00:03:36.064 --> 00:03:40.672
-Because we place a lot of emphasis on conversations
+00:03:35.999 --> 00:03:40.672
+because we place a lot of emphasis on conversations
 rather than trying to write everything down
 
 57
-00:03:41.696 --> 00:03:44.768
+00:03:41.696 --> 00:03:44.950
 If you try to have those conversations
 too far ahead of doing the work
 
 58
-00:03:45.024 --> 00:03:47.584
-You'll have forgotten most of
+00:03:44.951 --> 00:03:47.584
+you'll have forgotten most of
 what you talked about
 
 59
@@ -297,17 +297,17 @@ Ideally, you'll have also started to
 define acceptance criteria
 
 61
-00:03:57.824 --> 00:03:59.616
-Or business rules for the stories
+00:03:57.569 --> 00:03:59.616
+or business rules for those stories
 
 62
-00:04:00.640 --> 00:04:02.176
+00:04:00.617 --> 00:04:02.400
 But they don't need
 to be exhaustive yet
 
 63
-00:04:02.688 --> 00:04:05.248
-We'll flesh them out during
+00:04:02.400 --> 00:04:05.248
+we'll flesh them out during
 the BBD process
 
 64
@@ -316,24 +316,24 @@ Let's imagine we're building a
 point-of-sale system for an electronics retailer
 
 64
-00:04:11.000 --> 00:04:12.504
+00:04:11.900 --> 00:04:12.504
 Dixies
 
 65
 00:04:12.728 --> 00:04:14.464
-Here's our next user story
+Here's our next user story!
 
 66
 00:04:14.720 --> 00:04:15.900
 Process Refunds 
 
 66
-00:04:16.000 --> 00:04:18.750
+00:04:16.000 --> 00:04:18.800
 In order to satisfy
 customers statutory rights
 
 67
-00:04:19.000 --> 00:04:22.911
+00:04:18.800 --> 00:04:22.911
 As a sales assistant
 I need to be able to process refunds
 
@@ -344,15 +344,16 @@ development we have what we call
 
 69
 00:04:28.287 --> 00:04:30.335
-A Three Amigos meeting
+a Three Amigos meeting
 
 70
 00:04:30.847 --> 00:04:33.450
-We call it the Three Amigos because it involves
+We call it the Three Amigos
+because it involves
 
 71
 00:04:33.450 --> 00:04:35.711
-Three different disciplines from the team
+three different disciplines from the team
 
 72
 00:04:36.335 --> 00:04:37.803
@@ -364,7 +365,7 @@ Development
 
 74
 00:04:39.251 --> 00:04:40.975
-And product
+And Product
 
 75
 00:04:41.455 --> 00:04:43.391
@@ -372,11 +373,13 @@ Let's watch one in action
 
 76
 00:04:44.100 --> 00:04:46.719
-The business rules to this story really simple
+The business rules to this story
+are really simple
 
 77
 00:04:46.775 --> 00:04:51.427
-Any item can be returned within 14 days as long as the customer has a receipt
+Any item can be returned within 14 days
+as long as the customer has a receipt
 
 78
 00:04:51.583 --> 00:04:53.219
@@ -398,7 +401,7 @@ didn't match his kitchen cabinets
 
 81
 00:05:00.627 --> 00:05:02.591
-And he really didn't like it
+and he really didn't like it
 
 82
 00:05:02.700 --> 00:05:06.175
@@ -410,10 +413,9 @@ the store for refund
 He walks up to Sally,
 a junior sales assistant
 
-
 83
 00:05:09.256 --> 00:05:12.750
-And he asks her to process the refund
+and he asks her to process the refund
 
 84
 00:05:12.800 --> 00:05:15.391
@@ -427,7 +429,7 @@ stock quantity for that item
 
 86
 00:05:21.023 --> 00:05:23.327
-So we know it's back in our inventory
+so we know it's back in our inventory
 
 87
 00:05:23.583 --> 00:05:25.000
@@ -470,11 +472,11 @@ not just a receipt
 
 93
 00:05:50.464 --> 00:05:52.000
-And if they don't have their receipt
+and if they don't have their receipt
 
 93
 00:05:52.001 --> 00:05:54.607
-Then it must be authorized
+then it must be authorized
 by a manager, right?
 
 93
@@ -509,7 +511,7 @@ for this version of the story
 
 98
 00:06:16.001 --> 00:06:18.879
-But I'll put it on the
+but I'll put it on the
 backlog for future iteration
 
 99
@@ -528,12 +530,12 @@ It is also a great way to communicate
 
 101
 00:06:34.301 --> 00:06:37.311
-Requirements that somebody
+requirements that somebody
 might have thought about
 
 102
 00:06:37.312 --> 00:06:40.639
-But never explained clearly to
+but never explained clearly to
 other people on the team
 
 103
@@ -543,7 +545,7 @@ will hit a question
 
 103
 00:06:43.501 --> 00:06:45.759
-That nobody in the room
+that nobody in the room
 knows the answer to
 
 103
@@ -552,37 +554,42 @@ These are also a valuable output
 from the meeting
 
 104
-00:06:49.599 --> 00:06:52.159
+00:06:49.599 --> 00:06:53.500
 Now you have a clear picture
 of what you know and
 
 105
 00:06:53.695 --> 00:06:54.975
-What you need to find out
+what you need to find out
 
 106
-00:06:56.767 --> 00:07:01.375
+00:06:56.400 --> 00:06:58.400
 Talking through examples
 is a great way 
 
-To get everyone on the same page
+106
+00:06:58.401 --> 00:07:01.500
+to get everyone on the same page
 about what needs to be built
 
 107
-00:07:02.911 --> 00:07:05.983
-One all Three Amigos are happy that they understand the story
+00:07:02.400 --> 00:07:05.983
+Once all Three Amigos are happy
+that they understand the story
 
 108
-00:07:06.239 --> 00:07:10.335
-then you can stop translating your examples into something that Cucumber can understand
+00:07:05.985 --> 00:07:10.335
+then you can start translating your examples
+into something that Cucumber can understand
 
 109
-00:07:11.871 --> 00:07:14.687
-Here's one of our examples written out in Gherkin
+00:07:11.871 --> 00:07:14.940
+Here's one of our examples
+written out in Gherkin
 
 110
-00:07:14.943 --> 00:07:17.247
-The specification language for Cucumber
+00:07:14.943 --> 00:07:17.260
+the specification language for Cucumber
 
 111
 00:07:19.807 --> 00:07:20.831
@@ -593,29 +600,41 @@ As you can see
 Gherkin's almost like plain English
 
 113
-00:07:23.647 --> 00:07:28.255
-Have to use a few special key words
+00:07:23.400 --> 00:07:25.600
+We have to use a few special key words
 
-So that Cucumber can understand it, too
+113
+00:07:25.601 --> 00:07:28.255
+so that Cucumber can understand it, too
 
 114
 00:07:29.023 --> 00:07:33.119
-Words like feature, scenario, given, when, and then
+Words like feature, scenario,
+given, when, and then
 
+114
+00:07:33.500 --> 00:07:35.600
 You'll learn all about these soon
 
 115
-00:07:37.471 --> 00:07:45.919
-We can refine as many examples as we need into this form to create an executable specification for our software
+00:07:37.100 --> 00:07:41.500
+We can refine as many examples
+as we need into this form
+
+115
+00:07:41.501 --> 00:07:45.919
+to create an executable specification
+for our software
 
 118
-00:07:46.943 --> 00:07:47.967
+00:07:46.600 --> 00:07:48.100
 In the next lesson
 
 119
-00:07:48.223 --> 00:07:51.295
-You'll learn how to create your first Cucumber scenario
+00:07:48.101 --> 00:07:51.450
+you'll learn how to create 
+your first Cucumber scenario
 
 120
-00:07:51.551 --> 00:07:52.575
-And execute it
+00:07:51.451 --> 00:07:52.800
+and execute it

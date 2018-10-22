@@ -20,7 +20,7 @@ Generating captions for Cucumber School videos!
 Some notes taken from a couple different [style guidelines](http://bbc.github.io/subtitle-guidelines/) and decided on by myself.
 
 * No ending periods.
-* The first letter of every frame must be capitalized, regardless of where in a sentence the frame begins.
+* For sentences that span multiple caption frames, butt the timing of the ending and beginning of each frame together for a smoother experience. For example: Frame 1 end around 00:00:10.575 and extends across frames, so frame 2 should start at the same time.
 * BDD, Cucumber, Gherkin, Three Amigos, and any other named items must be capitalized
 * Maximum of 2 lines per caption frame
 * Maximum of 40 characters per line (where possible)
