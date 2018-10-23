@@ -1,172 +1,222 @@
 WEBVTT
 
 1
-00:00:14.848 --> 00:00:19.200
-Hello and welcome to the second lesson there at cucumber School
+00:00:14.700 --> 00:00:19.200
+Hello, and welcome to the second lesson
+here at Cucumber School
 
 2
-00:00:19.712 --> 00:00:25.856
-Last time we learned how to use conversations about concrete examples to explode
+00:00:19.712 --> 00:00:23.900
+Last time we learned how to use
+conversations about concrete examples
 
 3
-00:00:26.112 --> 00:00:27.648
-I decide what to build
+00:00:23.900 --> 00:00:27.648
+to explore your problem domain
+and decide what to build
 
 4
-00:00:28.416 --> 00:00:34.560
-And this episode you learn how to describe those examples using the gherkin specification language
+00:00:28.416 --> 00:00:32.816
+In this episode you'll learn how to
+describe those examples using the
 
 5
-00:00:34.816 --> 00:00:36.864
-So that cucumber can run them
+00:00:32.816 --> 00:00:36.864
+Gherkin specification language
+so that Cucumber can run them
 
 6
 00:00:37.376 --> 00:00:42.240
-Then we'll drive out to solution using a failing cucumber scenario to guide us
+Then, we'll drive out a solution using
+a failing Cucumber scenario to guide us
 
 7
-00:00:43.008 --> 00:00:48.640
-It's going to be a fair amount of programming in this episode on some object-oriented design as well
+00:00:43.008 --> 00:00:45.500
+There's going to be a fair amount
+of programming in this episode
+
+7
+00:00:45.500 --> 00:00:48.640
+and some object-oriented design as well
 
 8
 00:00:48.896 --> 00:00:52.480
-We want this to feel real so will work on something fun
+We want this to feel real,
+so we'll work on something fun
 
 9
-00:00:52.736 --> 00:00:54.784
-A social networking application
+00:00:52.736 --> 00:00:55.040
+A social networking application!
 
 10
-00:00:55.808 --> 00:01:01.952
-Shawty is a social network that allows people who are physically close to communicate
+00:00:55.808 --> 00:01:02.000
+Shouty is a social network that allows
+people who are physically close to communicate
 
 11
-00:01:02.208 --> 00:01:08.352
-Just like people are always communicated with the voices in the real world you can talk to some
+00:01:02.000 --> 00:01:04.500
+just like people have always communicated
+
+11
+00:01:04.500 --> 00:01:06.200
+with their voices
+
+11
+00:01:06.600 --> 00:01:08.300
+In the real world you can talk to someone
+
+11
+00:01:08.300 --> 00:01:09.900
+in the same room or across the street
 
 12
-00:01:08.608 --> 00:01:12.960
-One in the same room or across the street or even a hundred meters away from you in the park
+00:01:09.900 --> 00:01:13.700
+or even a hundred metres
+away from you in a park
 
 13
-00:01:13.472 --> 00:01:15.264
-If you shout
+00:01:13.700 --> 00:01:15.520
+if you shout
 
 14
-00:01:16.032 --> 00:01:22.176
-That's Shawty what you saying this social network can only be heard by people who are nearby
+00:01:16.032 --> 00:01:17.312
+That's Shouty!
 
 15
-00:01:24.480 --> 00:01:27.808
-Let's start with a very basic example of shot his behavior
+00:01:17.568 --> 00:01:22.944
+What you say in this social network
+can only be heard by people who are nearby
 
 16
-00:01:28.064 --> 00:01:31.648
-Something we might have discussed in The Three Amigos mating
+00:01:24.480 --> 00:01:27.808
+Let's start with a very basic example
+of Shouty's behaviour
 
 17
-00:01:33.440 --> 00:01:39.584
-Show me shoutouts free Bagels at Shawn's and Lucy the listener
+00:01:28.064 --> 00:01:31.648
+Something we might have discussed
+in a Three Amigos meeting
 
 18
-00:01:39.840 --> 00:01:45.984
-Mississippi Stud across the street from the store 15 meters away he is him she walks into Sean's coffee
+00:01:33.440 --> 00:01:37.500
+Sean the shouter shouts, 
+"Free bagels at Sean's!"
+
+18
+00:01:37.500 --> 00:01:39.000
+And Lucy the listener
 
 19
-00:01:46.240 --> 00:01:48.800
-Coffee shop and takes advantage of the offer
+00:01:39.000 --> 00:01:44.000
+who happens to be stood across the street
+from his store 15 metres away, hears him
 
 20
-00:01:50.592 --> 00:01:54.944
-We can translate this into a gherkin scenario so that you can look and run it
+00:01:44.400 --> 00:01:49.056
+She walks into Sean's coffee shop
+and takes advantage of the offer
 
 21
-00:01:56.992 --> 00:01:58.272
-Hazel that would look
+00:01:50.592 --> 00:01:55.200
+We can translate this into a Gherkin scenario
+so that Cucumber can run it
 
 22
-00:02:00.576 --> 00:02:03.648
-You can see that a full Special K was being used to
+00:01:56.992 --> 00:01:58.272
+Here's how that would look
 
 23
-00:02:03.904 --> 00:02:09.280
-Scenario just tells cucumber we're about to describe an example that it can execute
+00:01:59.552 --> 00:02:02.624
+You can see that there are four
+special keywords being used here
 
 24
-00:02:10.048 --> 00:02:14.912
-And you see the lines beginning with given when then
+00:02:02.880 --> 00:02:08.256
+Scenario just tells Cucumber we're about
+to describe an example that it can execute
 
 25
-00:02:15.936 --> 00:02:16.960
-Even
+00:02:09.280 --> 00:02:13.888
+Then you see the lines beginning with
+Given, When, and Then
 
 26
-00:02:17.216 --> 00:02:19.776
-Is the context for the scenario
-
-27
-00:02:20.288 --> 00:02:23.104
-Putting the system into a specific state
+00:02:14.912 --> 00:02:19.008
+Given is the context for the scenario
 
 28
-00:02:23.360 --> 00:02:26.176
-Ready for the scenario to unfold
+00:02:19.264 --> 00:02:25.152
+We're putting the system into a specific state
+ready for the scenario to unfold
 
 29
-00:02:26.944 --> 00:02:29.248
-When is the auction
+00:02:26.176 --> 00:02:28.224
+When is the action
 
 30
-00:02:30.016 --> 00:02:35.904
-Something that happens to the system that will cause something else to happen outcome
+00:02:28.992 --> 00:02:34.880
+Something that happens to the system that will
+cause something else to happen: an outcome
 
 31
-00:02:37.184 --> 00:02:39.488
+00:02:36.416 --> 00:02:38.464
 Then is the outcome
 
 32
-00:02:40.000 --> 00:02:46.144
-It's the behavior we expect from the system when this action happens in this context
+00:02:38.976 --> 00:02:45.120
+It's the behaviour we expect from the system
+when this action happens in this context
 
 33
-00:02:47.168 --> 00:02:53.312
-You'll notice we committed for my outcome anything about Lucy
+00:02:48.500 --> 00:02:51.950
+You'll notice we've omitted from our outcome
+anything about Lucy
 
 34
-00:02:53.568 --> 00:02:55.872
-Looking at DeSean store making a purchase
+00:02:51.950 --> 00:02:54.848
+walking into Sean's store and making a purchase
 
 35
-00:02:56.384 --> 00:03:02.528
-Navigation is supposed to describe the behavior of the system should be distracting. Detailing Austin area
+00:02:55.000 --> 00:02:57.800
+Remember Gherkin is supposed to
+describe the behaviour of the system
+
+35
+00:02:57.800 --> 00:03:01.600
+so it would be distracting to have
+that detail in our scenario
 
 36
-00:03:03.808 --> 00:03:09.952
-Each scenario has three ingredients a context and action and one or more
-
-37
-00:03:10.208 --> 00:03:11.232
-Outcomes
+00:03:02.600 --> 00:03:10.208
+Each scenario has these three ingredients:
+a context, an action, and one or more outcomes
 
 38
-00:03:11.744 --> 00:03:17.888
-Together they describe one single aspect of the behavior of the system
+00:03:10.720 --> 00:03:16.864
+Together, they describe one single aspect
+of the behaviour of the system
 
 39
-00:03:18.912 --> 00:03:21.984
-Now that we translated are examples of cooking
+00:03:17.600 --> 00:03:21.000
+Now that we've translated our
+example into Gherkin
 
 40
-00:03:22.240 --> 00:03:23.776
-We can automate it
+00:03:21.000 --> 00:03:22.752
+we can automate it
 
 41
-00:03:26.336 --> 00:03:32.480
-The easiest way to get started with cucumber for Java is to use a template project for the bills script that sets everything
+00:03:26.336 --> 00:03:30.000
+The easiest way to get started
+with Cucumber for Java is to
+
+41
+00:03:30.000 --> 00:03:32.480
+use a template project with a build script
 
 42
 00:03:32.736 --> 00:03:33.504
-Directly
+that sets everything up correctly
 
 43
 00:03:34.272 --> 00:03:37.088
@@ -174,51 +224,51 @@ You can download this template project from GitHub
 
 44
 00:03:37.856 --> 00:03:43.232
-Open your web browser and go to the
+Open your web browser and go to the 'cucumber-java-skeleton' project on github
 
 45
 00:03:44.000 --> 00:03:47.328
-If you're comfortable with it you can just clone the project
+If you're comfortable with git, you can just clone the project
 
 46
 00:03:47.840 --> 00:03:49.632
-If you need to get don't worry
+If you need to git don't worry
 
 47
 00:03:49.888 --> 00:03:51.680
-Will downloaded zip file instead
+we'll downloaded zip file instead
 
 48
 00:03:52.704 --> 00:03:57.568
-Releases and download the most recent that file that starts with a v
+Click releases and download the most recent that file that starts with a v
 
 49
 00:03:58.592 --> 00:04:02.176
-If you're on Windows take the zip file to download it
+If you're on Windows click the zip file to download it
 
 50
 00:04:02.944 --> 00:04:07.552
-If y'all know it's 10 just copy the link and download it was WK
+If you're on OSX or Linux, just copy the link and download it with wget
 
 51
 00:04:08.832 --> 00:04:14.976
-Windows extract a zip file by double-clicking on it or if you don't know it lyrics
+On Windows, extract the zip file by double-clicking on it or, if you're on OSX or Linux
 
 52
 00:04:15.232 --> 00:04:16.256
-Zip command
+Extract it with the unzip command
 
 53
 00:04:17.280 --> 00:04:21.887
-After extracting the zip file name the directory to Shawty
+After extracting the zip file, we'll rename the directory to 'shouty'
 
 54
 00:04:23.167 --> 00:04:26.751
-In your shell CD into the shouting directory
+In your shell, 'cd' into the shouty directory
 
 55
 00:04:27.519 --> 00:04:33.663
-The template project Maven and strips that makes it easier to get started with
+The template project contains Maven and Ant build scripts that makes it easier to get started with
 
 56
 00:04:33.919 --> 00:04:34.943
@@ -226,7 +276,7 @@ Cucumber for Java
 
 57
 00:04:35.711 --> 00:04:40.575
-Will be using Maven so if you haven't installed that's already now's a good time
+We'll be using Maven so if you haven't installed that already, now's a good time
 
 58
 00:04:41.599 --> 00:04:43.903
@@ -234,11 +284,11 @@ Let's take a look at what else is in this project
 
 59
 00:04:44.927 --> 00:04:48.255
-There is a main directory for application code
+There is a 'main' directory for application code
 
 60
 00:04:48.511 --> 00:04:51.071
-I test directory for a test code
+And a 'test' directory for test code
 
 61
 00:04:52.095 --> 00:04:54.655
@@ -246,55 +296,47 @@ Let's remove some of the files that come with the project
 
 62
 00:04:55.423 --> 00:05:01.055
-The news
+Remove 'Belly.java', 'Stepdefs.java', and 'Belly.feature'
 
 63
 00:05:01.567 --> 00:05:03.871
-We have a project
+Now we have a bare bones project
 
 64
 00:05:04.127 --> 00:05:07.711
-Building it from the ground up so you can see what is going on
+We'll be building it from the ground up so you can see what is going on
 
 65
 00:05:09.247 --> 00:05:14.367
-Before we have the project in iida to modify the name of the application
+Before we open the project in our IDE, we're going to modify the name of the application
 
 66
 00:05:14.623 --> 00:05:16.415
-Will use a text editor for this
+We'll use a text editor for this
 
 67
 00:05:16.671 --> 00:05:18.463
-I'm using the automatic
+I'm using the atom editor
 
 68
 00:05:18.719 --> 00:05:20.255
-You can use anything you like
+But you can use anything you like
 
 69
-00:05:21.279 --> 00:05:22.815
-Open Palm to XML
-
-70
-00:05:23.071 --> 00:05:26.399
-I change the group ID
-
-71
-00:05:26.911 --> 00:05:27.935
-A name
+00:05:21.279 --> 00:05:27.935
+Open 'pom.xml' and change the 'groupId', 'artifactId', and 'name'
 
 72
 00:05:29.471 --> 00:05:31.263
-Ready to start coding
+We're ready to start coding
 
 73
 00:05:32.031 --> 00:05:38.175
-Don't you use intellij-idea Community Edition because I was really nice cucumber integration built in
+We're going to use Intellij IDEA Community Edition because it has really nice cucumber integration built in
 
 74
 00:05:38.943 --> 00:05:43.295
-If you prefer to use a different ID
+If you prefer to use a different IDE
 
 75
 00:05:44.063 --> 00:05:48.415
