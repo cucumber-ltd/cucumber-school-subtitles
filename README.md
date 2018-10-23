@@ -2,6 +2,17 @@
 
 Generating captions for Cucumber School videos!
 
+## Vocabulary
+
+* **caption frame** - a set of text displayed between a start and end time in a video. Example:
+
+```
+2
+00:00:19.712 --> 00:00:23.900
+Last time we learned how to use
+conversations about concrete examples
+```
+
 ## Steps
 
 * Use [autosub](https://github.com/agermanidis/autosub) for the initial generation of VTT files.
@@ -20,9 +31,12 @@ Generating captions for Cucumber School videos!
 Some notes taken from a couple different [style guidelines](http://bbc.github.io/subtitle-guidelines/) and decided on by myself.
 
 * No ending periods.
-* For sentences that span multiple caption frames, butt the timing of the ending and beginning of each frame together for a smoother experience. For example: Frame 1 ends around 00:00:10.575 and extends across frames, so frame 2 should start at the same time.
+* Prefer to have one caption lead immediately into another where it makes sense. This is meant to make the caption reading experience less jarring and smoother. The start time of one frame should be the same as the frame that precedes it so that there is no 'flashing' as one caption disappears and the next appears. Cases when and when not to do this follow:
+  * Sentences that span multiple caption frames must be connected
+  * Sentences that are within approximately a second of one another should also be connected.
 * BDD, Cucumber, Gherkin, Three Amigos, and any other named items must be capitalized
 * Maximum of 2 lines per caption frame
 * Maximum of 50 characters per line, where possible, with preference toward shorter lines
 * Minimum of 1.5 seconds of on screen time for shorter frames if possible
-* Based on the recommended rate of 160-180 words per minute, you should aim to leave a subtitle on screen for a minimum period of around 0.3 seconds per word (e.g. 1.2 seconds for a 4-word subtitle). This isn't a hard and fast rule, but if the caption frame doesn't seem like it's on the screen long enough to be easily read, try adjusting the times.
+* For commands that are to be input, wrap them in 'single quotes'
+* For file names or other things like variables, if they are capitalized in the video, make them capital in the caption.

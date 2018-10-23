@@ -324,7 +324,8 @@ But you can use anything you like
 
 69
 00:05:21.279 --> 00:05:27.935
-Open 'pom.xml' and change the 'groupId', 'artifactId', and 'name'
+Open pom.xml and change the 
+groupId, artifactId, and name
 
 72
 00:05:29.471 --> 00:05:31.263
@@ -337,98 +338,139 @@ We're going to use Intellij IDEA Community Edition because it has really nice cu
 74
 00:05:38.943 --> 00:05:43.295
 If you prefer to use a different IDE
+such as Eclipse, that is fine too.
 
 75
 00:05:44.063 --> 00:05:48.415
-To open the project in IntelliJ just open the pumble XML file
+To open the project in IntelliJ
+just open the pom.xml file
 
 76
 00:05:52.255 --> 00:05:55.583
-Let's rename the package from skeleton to Shawty
+Let's rename the package
+from skeleton to shouty
 
 77
 00:05:56.095 --> 00:05:59.423
-IntelliJ you can redeem it by the recital menu
+In IntelliJ you can rename it
+via the Refactor menu
 
 78
-00:06:01.983 --> 00:06:07.103
-The first file we're going to create is a feature file by we will write a scenario
+00:06:01.983 --> 00:06:05.000
+The first file we're going to create
+is a feature file 
+
+78
+00:06:05.000 --> 00:06:07.103
+where we will write our first scenario
 
 79
 00:06:07.615 --> 00:06:13.247
-Where to file coach out of feature in the shanty directory under resources
+Create a file called shout.feature
+in the shouty directory, under resources
 
 80
 00:06:19.647 --> 00:06:23.231
-Now that we have a scenario it's time to run it
+Now that we have a scenario it's time to run it!
 
 81
 00:06:23.487 --> 00:06:28.095
-Switch back to the command prompt to run Maven test
+Switch back to the command prompt
+and run 'mvn clean test'
 
 82
 00:06:28.863 --> 00:06:31.167
-Mason will not download cucumber
+Maven will now download Cucumber
 
 83
 00:06:31.423 --> 00:06:35.007
-Impala code until cucumber to run the feature file
+Compile your code and tell Cucumber
+to run the feature file
 
 84
-00:06:36.031 --> 00:06:39.615
-You'll see that you can buy just found us eat your file and read it back to us
+00:06:36.031 --> 00:06:38.615
+You'll see that Cucumber has found
+our feature file
+
+84
+00:06:38.615 --> 00:06:39.615
+and read it back to us
 
 85
 00:06:41.151 --> 00:06:43.455
-We can see a summary of the results of the bottom
+We can see a summary of the results
+at the bottom
 
 86
 00:06:44.223 --> 00:06:48.831
-Three steps one scenario all undefined
+Three steps, one scenario, all undefined
 
 87
 00:06:50.111 --> 00:06:52.927
-Let's run the scenario again from inside IntelliJ
+Let's run the scenario again
+from inside IntelliJ
 
 88
 00:06:53.695 --> 00:06:57.279
-Select-A-Seat ufology is run from the context menu
+Select the feature file and choose run
+from the context menu
 
 89
 00:07:00.863 --> 00:07:02.655
 This will give you similar output
 
 90
-00:07:04.191 --> 00:07:10.335
-Undefined when she commits doesn't know what to do for any of the three steps Woodrow Tanaka can scenario
+00:07:04.191 --> 00:07:08.200
+Undefined means Cucumber doesn't know
+what to do for any of the three steps
+
+90
+00:07:08.200 --> 00:07:10.335
+we wrote in our Gherkin scenario
 
 91
 00:07:11.359 --> 00:07:14.943
 It needs us to provide some step definitions
 
 92
-00:07:15.199 --> 00:07:20.319
-Step definitions translate in the plain language using gherkin
+00:07:15.199 --> 00:07:18.500
+Step definitions translate
+from the plain language 
 
 93
-00:07:20.575 --> 00:07:21.599
-Entry code
+00:07:18.500 --> 00:07:21.599
+you use in Gherkin, into code
 
 94
-00:07:22.623 --> 00:07:28.767
-When kicking a Runza step it looks for a step definition of matches the text in the step
+00:07:22.623 --> 00:07:26.500
+When Cucumber runs a step
+it looks for a step definition
+
+67
+00:07:26.500 --> 00:07:28.767
+that matches the text in the step
 
 95
 00:07:29.535 --> 00:07:33.887
-If it finds one that executes the code in the steppe definition
+If it finds one, then it
+executes the code in the step definition
 
 96
-00:07:34.911 --> 00:07:38.495
-It doesn't find one well you just see what happens
+00:07:34.911 --> 00:07:36.000
+If it doesn't find one
+
+96
+00:07:36.000 --> 00:07:38.495
+well, you've just seen what happens
 
 97
-00:07:39.007 --> 00:07:44.895
-Breathing to help sleep
+00:07:39.007 --> 00:07:41.800
+Cucumber helpfully prints out
+some code snippets that we can use
+
+71
+00:07:41.800 --> 00:07:44.895
+as a basis for new step definitions
 
 98
 00:07:45.151 --> 00:07:46.687
@@ -436,7 +478,8 @@ Let's copy those
 
 99
 00:07:47.455 --> 00:07:51.295
-What creates a new class in the shanty package Bible paste those Snippets
+We'll creates a new class in the shanty package Bible paste those Snippets
+
 
 100
 00:07:51.807 --> 00:07:55.135
