@@ -2,7 +2,7 @@ WEBVTT
 
 1
 00:00:15.360 --> 00:00:19.712
-BDD stands for Behavior Driven Development
+BDD stands for Behaviour Driven Development
 
 2
 00:00:20.000 --> 00:00:21.760
@@ -20,7 +20,7 @@ discovering, defining,
 5
 00:00:32.100 --> 00:00:36.500
 and then finally driving out the
-desired behavior of a software system
+desired behaviour of a software system
 
 6
 00:00:36.500 --> 00:00:38.655
@@ -56,7 +56,7 @@ Then we refine those examples into
 13
 00:00:55.350 --> 00:00:59.600
 automated-tests that describe the
-desired behavior of our solution
+desired behaviour of our solution
 
 14
 00:00:59.600 --> 00:01:02.208
