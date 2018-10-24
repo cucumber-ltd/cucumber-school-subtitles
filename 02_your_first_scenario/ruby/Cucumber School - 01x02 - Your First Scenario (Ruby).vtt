@@ -17,7 +17,7 @@ and decide what to build
 
 4
 00:00:28.416 --> 00:00:32.816
-In this episode you'll learn how to
+In this episode, you'll learn how to
 describe those examples using the
 
 5
@@ -178,7 +178,7 @@ walking into Sean's store and making a purchase
 
 35
 00:02:55.000 --> 00:02:57.800
-Remember Gherkin is supposed to
+Remember, Gherkin is supposed to
 describe the behaviour of the system
 
 35
@@ -472,7 +472,7 @@ Let's do it!
 89
 00:07:18.500 --> 00:07:23.391
 Start by renaming the 'arg1' parameter
-to something about the reflects its meaning
+to something that better reflects its meaning
 
 90
 00:07:23.903 --> 00:07:25.951
