@@ -6,7 +6,7 @@ Hello, and welcome to the second lesson
 here at Cucumber School
 
 2
-00:00:19.712 --> 00:00:23.900
+00:00:19.600 --> 00:00:23.900
 Last time we learned how to use
 conversations about concrete examples
 
@@ -126,12 +126,12 @@ so that Cucumber can run it
 Here's how that would look
 
 23
-00:01:59.552 --> 00:02:02.624
+00:01:59.600 --> 00:02:03.100
 You can see that there are four
 special keywords being used here
 
 24
-00:02:02.880 --> 00:02:08.256
+00:02:03.100 --> 00:02:08.256
 Scenario just tells Cucumber we're about
 to describe an example that it can execute
 
@@ -163,26 +163,26 @@ cause something else to happen: an outcome
 Then is the outcome
 
 32
-00:02:38.976 --> 00:02:45.120
+00:02:38.976 --> 00:02:46.000
 It's the behaviour we expect from the system
 when this action happens in this context
 
 33
-00:02:48.500 --> 00:02:51.950
+00:02:49.200 --> 00:02:53.200
 You'll notice we've omitted from our outcome
 anything about Lucy
 
 34
-00:02:51.950 --> 00:02:54.848
+00:02:53.200 --> 00:02:56.200
 walking into Sean's store and making a purchase
 
 35
-00:02:55.000 --> 00:02:57.800
+00:02:56.200 --> 00:02:59.000
 Remember Gherkin is supposed to
 describe the behaviour of the system
 
 35
-00:02:57.800 --> 00:03:01.600
+00:02:59.000 --> 00:03:01.600
 so it would be distracting to have
 that detail in our scenario
 
@@ -333,7 +333,7 @@ We're ready to start coding
 
 73
 00:05:32.031 --> 00:05:38.175
-We're going to use Intellij IDEA Community Edition because it has really nice cucumber integration built in
+We're going to use IntelliJ IDEA Community Edition because it has really nice cucumber integration built in
 
 74
 00:05:38.943 --> 00:05:43.295
@@ -478,96 +478,144 @@ Let's copy those
 
 99
 00:07:47.455 --> 00:07:51.295
-We'll creates a new class in the shanty package Bible paste those Snippets
-
+We'll creates a new class in the shouty package where we'll paste those snippets
 
 100
 00:07:51.807 --> 00:07:55.135
-Make sure you created on the test and not mine
+Make sure you create it under test and not main
 
 101
 00:07:56.159 --> 00:07:59.743
-Is complaining that there was some unknown symbols
+Now IntelliJ's complaining that there are some unknown symbols
 
 102
 00:08:00.255 --> 00:08:02.303
-We need to add some info statements
+We need to add some import statements
 
 103
 00:08:02.815 --> 00:08:04.863
-Will do that for us
+Pressing alt-enter will do that for us
 
 104
 00:08:06.399 --> 00:08:08.703
-Pretend to the scenario and run it again
+Let's return to the scenario and run it again
 
 105
 00:08:11.007 --> 00:08:14.591
-There is a small bug in IntelliJ cucumber integration
+There is a small bug in IntelliJ's
+Cucumber integration
 
 106
 00:08:14.847 --> 00:08:18.687
-Sometimes it doesn't tell cucumber where to find step definitions
+Sometimes it doesn't tell Cucumber
+where to find step definitions
 
 107
-00:08:19.455 --> 00:08:24.831
-Is it easy to work around just edit the Run configuration and make sure the blue field
+00:08:19.100 --> 00:08:20.600
+This is easy to work around
+
+107
+00:08:20.600 --> 00:08:25.150
+Just edit the Run configuration
+and make sure the Glue field
 
 108
-00:08:25.343 --> 00:08:27.391
-Contains the value of your package
+00:08:25.150 --> 00:08:27.391
+contains the value of your package
 
 109
 00:08:33.279 --> 00:08:35.071
-Now run cucumber again
+Now run Cucumber again
 
 110
 00:08:35.583 --> 00:08:39.167
 This time the output is a little different
 
 111
-00:08:39.423 --> 00:08:45.567
-We now have a pending step onto skipped ones this means cucumber found
+00:08:39.423 --> 00:08:41.300
+We now have a pending step
+
+111
+00:08:41.300 --> 00:08:43.500
+and two skipped ones
 
 112
-00:08:45.823 --> 00:08:48.383
-Step definitions and execute the first one
+00:08:43.500 --> 00:08:45.383
+This means Cucumber found all our
+
+112
+00:08:45.383 --> 00:08:48.383
+step definitions and executed the first one
 
 113
-00:08:48.639 --> 00:08:53.759
-Naturalistic definition throes of pending exception which causes cucumber to stop
+00:08:48.639 --> 00:08:50.000
+But that first step definition
+
+113
+00:08:50.000 --> 00:08:52.000
+throws a Pending exception
 
 114
-00:08:54.015 --> 00:08:58.111
-Skip the rest of the steps on Montwood scenario as pending
+00:08:52.000 --> 00:08:53.500
+which causes Cucumber to stop
+
+114
+00:08:53.500 --> 00:08:55.100
+skip the rest of the steps
+
+81
+00:08:55.100 --> 00:08:58.111
+and mark the scenario as pending
 
 115
 00:08:59.647 --> 00:09:01.695
-It's time to work on a solution
+It's time to work on our solution
 
 116
 00:09:01.951 --> 00:09:04.511
-At this point we need to do a little Divine modeling
+At this point we need to do
+a little domain modeling
 
 117
 00:09:04.767 --> 00:09:10.911
-The words in the staff provided some good hints about some names that will appear in all the main model
+The words in the step
+provide us some good hints
+
+84
+00:06:58.000 --> 00:07:01.400
+about some names that
+will appear in our domain model
 
 118
-00:09:11.423 --> 00:09:17.567
-A scenario mentions two people Lucy and Sean so it looks like we'll need a couple of person object
+00:09:11.423 --> 00:09:14.000
+Our scenario mentions
+two people Lucy and Sean
+
+85
+00:09:14.000 --> 00:09:17.567
+so it looks like we'll need
+a couple of person objects at least
 
 119
 00:09:18.591 --> 00:09:21.919
-Each person will also need to know their own location
+Each person will also need to
+know their own location
 
 120
-00:09:23.711 --> 00:09:27.551
-Cucumbers telling us to write the code we wish we had let's do it
+00:09:23.711 --> 00:09:24.500
+Cucumber is telling us to
+write the code we wish we had
+
+120
+00:09:24.500 --> 00:09:27.551
+Let's do it!
 
 121
 00:09:28.575 --> 00:09:34.719
-Infamous step we need to create a couple of person object with a specified distance between them
+To implement this step we need to create 
+
+a couple of person objects
+with a specified distance between them
 
 122
 00:09:34.975 --> 00:09:36.511
@@ -575,7 +623,8 @@ We could write it like this
 
 123
 00:09:37.791 --> 00:09:42.399
-Stop by renaming the odd one parameter to something about your reflexes meaning
+Start by renaming the 'arg1' parameter
+to something about the reflects its meaning
 
 124
 00:09:43.167 --> 00:09:44.959
@@ -583,87 +632,106 @@ We'll call it distance
 
 125
 00:09:46.239 --> 00:09:50.335
-To keep things simple we're going to assume old people situation on the line
+To keep things simple 
+we're going to assume
+
+all people are situated on a line
 
 126
 00:09:51.103 --> 00:09:53.663
-One-dimensional coordinate system
+A one-dimensional coordinate system
 
 127
 00:09:54.431 --> 00:09:57.503
-We can always introduce proper geolocations later
+We can always introduce proper geo locations later
 
 128
 00:09:57.759 --> 00:10:02.111
-What play shown in the center and Lucy 15 minutes away from Sean
+We'll place Sean in the center
+
+and Lucy 15 metres away from Sean
 
 129
 00:10:06.975 --> 00:10:10.559
-Notice that the number 15 does not pair anywhere knock code
+Notice that the number 15
+does not appear anywhere in our code
 
 130
 00:10:10.815 --> 00:10:16.447
-The value 15 is automatically passed from The Collection step into the step definition
+The value 15 is automatically passed
+from the Gherkin step into the step definition
 
 131
 00:10:16.703 --> 00:10:22.335
-If you're curious D in the patent of the steppe definition
+If you're curious
+
+that's the '\d' in the
+pattern of the step definition
 
 132
 00:10:23.103 --> 00:10:26.943
-What explain regular expressions in detail in a future lesson
+We'll explain regular expressions
+in detail in a future lesson
 
 133
 00:10:30.015 --> 00:10:32.319
-We can run the couch we just wrote
+Before we can run the code we just wrote
 
 134
 00:10:32.575 --> 00:10:34.879
-We need to fix the compilation errors
+we need to fix the compilation errors
 
 135
 00:10:35.647 --> 00:10:38.207
-Best rated classical person
+Let's create a class called person
 
 136
 00:10:43.327 --> 00:10:45.631
-For the location
+Then we'll add a setter
+for the location
 
 137
-00:10:56.639 --> 00:10:58.431
-Let me run the scenario again
+00:10:56.639 --> 00:10:58.500
+When we run the scenario again
 
 138
-00:10:58.687 --> 00:11:00.735
-The first step is green
+00:10:58.500 --> 00:11:00.735
+the first step is green!
 
 139
 00:11:02.271 --> 00:11:07.391
-What's are the same flight to make the remaining Two Step past the main modeling
+We'll follow the same flow
+to make the remaining two steps pass
+
+do a little bit of domain modeling,
+write the code we wish we had,
 
 140
 00:11:07.647 --> 00:11:12.255
-Right Dakota wish we had Isaac compile and run the scenario
+make it compile, and run the scenario
 
 141
 00:11:14.303 --> 00:11:18.399
-In the Second Step definition we want to tell Sean to shout something
+In the second step definition,
+we want to tell Sean to shout something
 
 142
-00:11:28.127 --> 00:11:33.503
-In order to send instructions to Shone we need to throw him in an instance variable
+00:11:28.127 --> 00:11:33.750
+In order to send instructions to Sean,
+we need to store him in an instance variable
 
 143
-00:11:34.015 --> 00:11:38.623
-So that he'll be accessible from all of us that definitions like this
+00:11:33.750 --> 00:11:38.623
+so that he'll be accessible
+from all of our definitions, like this
 
 144
 00:11:41.951 --> 00:11:45.023
-A person class needs a shout
+Our Person class needs a 'shout' method
 
 145
 00:11:45.535 --> 00:11:46.559
-That's not it
+Let's add it!
 
 146
 00:11:48.607 --> 00:11:50.655
@@ -671,79 +739,100 @@ Don't worry about the implementation yet
 
 147
 00:11:50.911 --> 00:11:55.775
-Important thing right now is to discover the shape of out the main level
+The important thing right now is to
+discover the shape of our domain model
 
 148
 00:11:57.055 --> 00:12:03.199
-Elastic definition is why we implemented check or assertion of verified
+The last step definition is where
+we implement the check or assertion.
 
-149
+122
 00:12:03.455 --> 00:12:06.783
-Is exactly the same as what showing shouted
+We'll verify that what Lucy has heard
+
+123
+00:12:03.455 --> 00:12:06.783
+is exactly the same as what Sean shouted
 
 150
 00:12:09.087 --> 00:12:11.647
-Once again we're going to write the code we wish we had
+Once again we're going to
+write the code we wish we had
 
 151
-00:12:24.959 --> 00:12:29.055
-So we need to wait ask Lucy what messages she's heard
+00:12:24.959 --> 00:12:29.200
+So we need a way to ask Lucy
+what messages she's heard
 
 152
-00:12:29.567 --> 00:12:33.407
-I also need to know what it was that short shouted
+00:12:29.200 --> 00:12:33.407
+and we also need to know
+what it was that Sean shouted
 
 153
-00:12:34.175 --> 00:12:40.319
-I can record what she wants Shout by storing it to the instance variable as the when
+00:12:34.175 --> 00:12:39.500
+We can record what Sean shouts
+by storing it an instance variable
 
 154
-00:12:40.575 --> 00:12:41.855
-InStep runs
+00:12:39.500 --> 00:12:41.855
+as the When step runs
 
 155
-00:12:42.367 --> 00:12:48.511
-This is a common pain to using cucumber step definitions when you don't want to repeat the same test dates and different
+00:12:42.367 --> 00:12:45.000
+This is a common pattern to use
+in Cucumber step definitions
+
+155
+00:12:45.000 --> 00:12:48.000
+when you don't want to repeat
+the same test data in different 
 
 156
-00:12:48.767 --> 00:12:49.791
-Possible scenario
+00:12:48.000 --> 00:12:49.791
+parts of a scenario
 
 157
 00:12:51.071 --> 00:12:54.143
-Now we can use that value in this session check
+Now we can use that value in the assertion check
 
 158
 00:12:55.423 --> 00:12:59.775
-We also need to add a messages method in class
+We also need to add a 'messages heard'
+method to our Person class
 
 159
 00:13:00.031 --> 00:13:01.311
-That do that now
+Let's do that now
 
 160
 00:13:05.663 --> 00:13:07.455
-This is great
+This is great!
 
 161
 00:13:07.967 --> 00:13:14.111
-Whatever we do baby got into our first failing test is a milestone seeing the test
+Whenever we do BDD, getting to our
+first failing test is a milestone
 
 162
 00:13:14.367 --> 00:13:18.719
-Cruise that is capable of detecting errors in a code
+Seeing the test fail, proves that it is
+capable of detecting errors in our code
 
 163
 00:13:18.975 --> 00:13:24.351
-Never trust an automated test that you haven't seen fail
+Never trust an automated test that
+you haven't seen fail!
 
 164
 00:13:25.887 --> 00:13:29.215
-Now all we have to do is write the code to make it pops
+Now all we have to do is write
+the code to make it pass
 
 165
 00:13:29.471 --> 00:13:31.007
-That's the easy path
+That's the easy bit!
 
 166
 00:13:32.543 --> 00:13:35.359
@@ -751,19 +840,20 @@ In this case we're going to cheat
 
 167
 00:13:36.639 --> 00:13:39.711
-I have a 1 line fixed it will make the scenario Pais
+We have a one line fix that will
+make the scenario pass
 
 168
 00:13:40.479 --> 00:13:42.527
-Started particularly
+It's not a particularly
 
 169
 00:13:42.783 --> 00:13:45.087
-Future-proof implementation
+future-proof implementation
 
 170
 00:13:46.367 --> 00:13:47.903
-Can you guess what it is
+Can you guess what it is?
 
 171
 00:13:51.231 --> 00:13:52.255
@@ -771,48 +861,60 @@ I'll show you
 
 172
 00:13:54.047 --> 00:13:57.119
-I told you it wasn't very future-proof
+Hmm, there. I told you it
+wasn't very future-proof!
 
 173
-00:13:57.887 --> 00:13:58.655
-Still
-
-174
-00:13:59.423 --> 00:14:03.007
-If I was such a pool implementation can pass our test
+00:13:57.887 --> 00:14:03.007
+Still, the fact that such a poor
+implementation can pass our tests
 
 175
-00:14:03.263 --> 00:14:05.823
-Shows us that we need to work on a text
+00:14:03.007 --> 00:14:05.823
+shows us that we need to work on our tests
 
 176
 00:14:06.335 --> 00:14:11.199
-Mo comprehensive set of scenario is what forces to write a better implementation
+A more comprehensive set of scenarios would
+
+force us to write a better implementation
 
 177
 00:14:12.735 --> 00:14:15.551
-This is the essence of behavior driven development
+This is the essence of
+behaviour-driven development
 
 178
 00:14:15.807 --> 00:14:19.135
-Examples of behavior Drive the development
+Examples of behaviour drive the development
 
 179
 00:14:21.695 --> 00:14:27.839
-So we know we need more scenarios in a better solution instead of writing a to-do list that's right
+So we know we need more scenarios
+and a better solution
 
 180
 00:14:28.095 --> 00:14:29.631
-Another failing scenario
+Instead of writing a note on our to-do list
+
+let's write another failing scenario
 
 181
 00:14:32.447 --> 00:14:38.335
-Now let me come back to this code we can just run the test and keep them all remind us what we need to do next
+Now when we come back to this code
+we can just run the tests
+
+and Cucumber will remind us
+what we need to do next
 
 182
 00:14:38.847 --> 00:14:40.127
-With them for the day
+We're done for the day!
 
 183
 00:14:40.639 --> 00:14:42.431
 Go make yourself a cup of tea
+
+164
+00:14:44.000 --> 00:14:16.000
+Captions created by Jayson Smith for Cucumber Ltd.

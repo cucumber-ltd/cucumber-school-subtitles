@@ -6,7 +6,7 @@ Hello, and welcome to the second lesson
 here at Cucumber School
 
 2
-00:00:19.712 --> 00:00:23.900
+00:00:19.600 --> 00:00:23.900
 Last time we learned how to use
 conversations about concrete examples
 
@@ -163,7 +163,7 @@ cause something else to happen: an outcome
 Then is the outcome
 
 32
-00:02:38.976 --> 00:02:45.120
+00:02:38.976 --> 00:02:45.400
 It's the behaviour we expect from the system
 when this action happens in this context
 
@@ -362,7 +362,7 @@ executes the code in the step definition
 
 69
 00:05:56.095 --> 00:05:58.000
-If it doesn't find one,
+If it doesn't find one
 
 70
 00:05:58.000 --> 00:06:00.191
@@ -641,8 +641,8 @@ Don't worry about the implementation yet
 
 121
 00:10:02.450 --> 00:10:07.487
-The important thing right now
-is to discover the shape of our domain model
+The important thing right now is to
+discover the shape of our domain model
 
 122
 00:10:08.767 --> 00:10:12.500
@@ -651,12 +651,11 @@ we implement the check or assertion.
 
 122
 00:10:13.000 --> 00:10:15.500
-We'll verify that what Lucy has heard,
+We'll verify that what Lucy has heard
 
 123
 00:10:15.500 --> 00:10:18.495
-is exactly the same
-as what Sean shouted
+is exactly the same as what Sean shouted
 
 124
 00:10:20.500 --> 00:10:23.359
@@ -702,7 +701,8 @@ Now we can use that value in the assertion check
 
 132
 00:10:54.847 --> 00:10:59.199
-We also need to add a 'messages_heard' method to our Person class
+We also need to add a 'messages_heard'
+method to our Person class
 
 133
 00:10:59.711 --> 00:11:00.991
