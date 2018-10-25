@@ -890,352 +890,352 @@ When Sean shouts message containing bye
 
 223
 00:18:15.167 --> 00:18:16.191
-10
-
 224
+
+225
 00:18:16.959 --> 00:18:17.983
 Then what
 
-225
+226
 00:18:19.007 --> 00:18:23.359
 Sean doesn't have enough credit so presumably Lucy does not hear his message
 
-226
+227
 00:18:23.615 --> 00:18:24.895
 Is that right
 
-227
+228
 00:18:26.175 --> 00:18:27.967
 Right cesspool
 
-228
+229
 00:18:29.247 --> 00:18:34.111
 So in that case showing should still have his full credits correct
 
-229
+230
 00:18:34.879 --> 00:18:36.671
 Right against is puller
 
-230
+231
 00:18:38.463 --> 00:18:44.607
 Okay thanks Paula so the rule is that will only send shouts that you can afford is that right
 
-231
+232
 00:18:46.655 --> 00:18:52.799
 Correct cipolla a person cops and the premium shout unless they have enough credits to pay for it
 
-232
+233
 00:18:54.847 --> 00:18:59.967
 Now we understand the business rule that Sotomayor this scenario and drive out the behavior
 
-233
+234
 00:19:01.503 --> 00:19:07.647
 First we need to match this nustep why we checked Lucy does not hear Shawn's message
 
-234
+235
 00:19:08.415 --> 00:19:11.231
 We have a very similar 1/2 a Larry
 
-235
+236
 00:19:11.743 --> 00:19:15.583
 We can use a capture group to make it more generic
 
-236
+237
 00:19:16.351 --> 00:19:22.495
 Instead of a wild-card though we can use pipes to specify the alternative values we
 
-237
+238
 00:19:25.055 --> 00:19:26.847
 We capture the listener name
 
-238
+239
 00:19:27.103 --> 00:19:30.943
 Then use that here when fetching the instance of person
 
-239
+240
 00:19:32.735 --> 00:19:33.503
 Right
 
-240
+241
 00:19:33.759 --> 00:19:38.623
 Now we have a failing acceptance test what should be passing once we resolve this
 
-241
+242
 00:19:38.879 --> 00:19:41.951
 Let's have a think about where this Behavior should go
 
-242
+243
 00:19:43.487 --> 00:19:48.095
 If we give responsibility for checking affordability to the person doing the shouting
 
-243
+244
 00:19:48.351 --> 00:19:51.167
 The network doesn't need to care about credits at all
 
-244
+245
 00:19:51.423 --> 00:19:53.471
 Which will simplify things nicely
 
-245
+246
 00:19:55.519 --> 00:19:58.335
 That start with a new unit test the person then
 
-246
+247
 00:20:01.407 --> 00:20:04.223
 We'll set up showing with only one credit
 
-247
+248
 00:20:04.479 --> 00:20:07.039
 Not enough to afford to send a long message
 
-248
+249
 00:20:07.295 --> 00:20:11.135
 Assert that the broadcast method is not called on network
 
-249
+250
 00:20:11.903 --> 00:20:14.463
 Then we try to shout along message
 
-250
+251
 00:20:17.791 --> 00:20:23.935
 This fails of course because of the moment person doesn't make this check so the broadcast method is cold every time
 
-251
+252
 00:20:24.191 --> 00:20:24.703
 Time
 
-252
+253
 00:20:25.471 --> 00:20:28.287
 We are red in the tdd cycle
 
-253
+254
 00:20:28.543 --> 00:20:29.567
 Next stop
 
-254
+255
 00:20:29.823 --> 00:20:30.591
 Green
 
-255
+256
 00:20:31.615 --> 00:20:37.759
 To make this past we need to know how much the shout is going to cost before we send it
 
-256
+257
 00:20:38.527 --> 00:20:42.111
 That knowledge is currently in the deduct credits method
 
-257
+258
 00:20:42.367 --> 00:20:45.183
 Which actually does to Tosca the same time
 
-258
+259
 00:20:45.439 --> 00:20:51.071
 It works out the cost of the message and it deducts that cost when the person's balance
 
-259
+260
 00:20:52.863 --> 00:20:59.007
 Let's tease those two tests apart first calculating the cost of the shout then
 
-260
+261
 00:20:59.263 --> 00:21:01.311
 Not cost from the credits
 
-261
+262
 00:21:03.103 --> 00:21:07.199
 No we can extract a method that calculates the cost of the message
 
-262
+263
 00:21:08.479 --> 00:21:13.599
 Then finally we can use that method to check whether the message is Affordable
 
-263
+264
 00:21:21.536 --> 00:21:23.840
 And I unit tests passing
 
-264
+265
 00:21:24.608 --> 00:21:25.632
 Great
 
-265
+266
 00:21:27.424 --> 00:21:32.544
 And I suppose our acceptance test for the affordability rule should be passing now too
 
-266
+267
 00:21:33.312 --> 00:21:38.176
 It is a green so it's refactoring time again
 
-267
+268
 00:21:38.688 --> 00:21:44.576
 Now we can give some SEL test and networks unit test the treatment it deserves
 
-268
+269
 00:21:45.088 --> 00:21:47.648
 Because this behavior is now in person
 
-269
+270
 00:21:48.160 --> 00:21:50.464
 We won't be needing this pending test
 
-270
+271
 00:21:51.232 --> 00:21:53.792
 And we don't need to still credits here anymore
 
-271
+272
 00:21:55.840 --> 00:21:59.680
 Deleting code is my favorite kind of refactoring
 
-272
+273
 00:22:00.192 --> 00:22:05.824
 Let's keep going on strip Buckle like crazy Boolean logic and network broadcast
 
-273
+274
 00:22:06.592 --> 00:22:12.736
 I think we can just remove this whole clothes about the message being too short while having enough credits or whatever
 
-274
+275
 00:22:12.992 --> 00:22:15.552
 Let's try it and see what the test tell us
 
-275
+276
 00:22:17.088 --> 00:22:19.648
 Excellent much better
 
-276
+277
 00:22:20.416 --> 00:22:23.232
 Now can we do any refactoring in network
 
-277
+278
 00:22:24.256 --> 00:22:30.400
 This method would read a lot better if extractor method that returns only the listings within the range of the shelter
 
-278
+279
 00:22:30.656 --> 00:22:31.424
 Let's do that
 
-279
+280
 00:22:41.408 --> 00:22:46.784
 We don't need to use the shuttle location Tempe variable either that's just in line it
 
-280
+281
 00:22:47.552 --> 00:22:52.672
 Okay the code is nice and clean and all I test the passing
 
-281
+282
 00:22:52.928 --> 00:22:54.464
 Except the one
 
-282
+283
 00:22:54.720 --> 00:22:56.000
 Thug
 
-283
+284
 00:22:56.512 --> 00:23:00.864
 I can't escape this any longer that's traffic with a unit test
 
-284
+285
 00:23:01.632 --> 00:23:05.984
 We know the responsibility for charging for shouts lies in person
 
-285
+286
 00:23:06.240 --> 00:23:08.544
 So that's where to add the unit test
 
-286
+287
 00:23:22.368 --> 00:23:25.440
 Have you already spotted why we need to make the change
 
-287
+288
 00:23:26.208 --> 00:23:29.280
 Here and the cost of method
 
-288
+289
 00:23:29.536 --> 00:23:34.656
 The code will at 5 credits the cost each time it finds the Woodbine the message
 
-289
+290
 00:23:35.168 --> 00:23:37.216
 If we change the code like this
 
-290
+291
 00:23:37.728 --> 00:23:39.520
 I should be working as expected
 
-291
+292
 00:23:47.200 --> 00:23:49.760
 It is great stuff
 
-292
+293
 00:23:50.272 --> 00:23:53.600
 Although we call this video series cucumber School
 
-293
+294
 00:23:53.856 --> 00:24:00.000
 You probably noticed by now that would teaching you a whole range of skills and ideas that we own the Cucumber
 
-294
+295
 00:24:00.256 --> 00:24:02.048
 The team use to develop software
 
-295
+296
 00:24:03.072 --> 00:24:04.864
 Not just skills with cucumber
 
-296
+297
 00:24:05.120 --> 00:24:08.704
 Best kills with a whole of behavior driven development
 
-297
+298
 00:24:09.728 --> 00:24:14.592
 BTD blurs the lines between traditional roles like tester and developer
 
-298
+299
 00:24:14.848 --> 00:24:20.992
 And all right deal well everyone on the team not just tested is responsible for quality
 
-299
+300
 00:24:21.248 --> 00:24:24.832
 How many oil try to test it as much as possible
 
-300
+301
 00:24:25.856 --> 00:24:32.000
 Having good automated-tests freeze-up test is to be more interesting interactive Explorer
 
-301
+302
 00:24:32.256 --> 00:24:33.024
 Battery testing
 
-302
+303
 00:24:34.816 --> 00:24:39.680
 We use a test as a guide to help us design a solution that models the problem well
 
-303
+304
 00:24:40.192 --> 00:24:46.080
 A better model in your solution can make a whole category of bugs go away forever
 
-304
+305
 00:24:46.848 --> 00:24:52.992
 We saw that in this lesson for me move the responsibility for charging for shouts from Network to person
 
-305
+306
 00:24:53.248 --> 00:24:59.392
 On the issues around what happened when you run out of credits suddenly became easy to resolve
 
-306
+307
 00:25:00.928 --> 00:25:07.072
 Getting the right balance between fine-grained unit tests i'm broader. Tests
 
-307
+308
 00:25:07.328 --> 00:25:12.192
 Is critically important to having fast useful feedback from your test Suite
 
-308
+309
 00:25:12.704 --> 00:25:15.520
 Will explode is more in the next lesson
 
-309
+310
 00:25:17.056 --> 00:25:18.336
 See you next time
 
-310
+311
 00:25:18.848 --> 00:25:20.128
 Oncue. School

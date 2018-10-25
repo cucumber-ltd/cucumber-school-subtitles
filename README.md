@@ -20,6 +20,7 @@ conversations about concrete examples
 * Autosub uses the Google Web Speech API to generate the test in the files and it's always going to need cleaning up. Expect misspellings, incorrect words, missing lines, and timing issues to all be present. There are a couple different ways clean up can be done, but what I've started doing is:
   * Using VLC, run through the video with the caption file open to fix things like misspelled/incorrect words and missing dialogue without worrying about timing
   * Run through again to fix timing, formatting, etc. Keep in mind the style guidelines below when doing this.
+  * To fix caption frame numbering for a particular file run `FILENAME=[path to file] make renumber` otherwise `make renumber` will fix all files in the project
 * Use ffmpeg to combine the caption file with the video
   * Example: `ffmpeg -i "Cucumber School - 01x01 - Give Me An Example.mp4" -i "Cucumber School - 01x01 - Give Me An Example.vtt" -metadata:s:s:0 language=eng -c copy -c:s mov_text "Cucumber School - 01x01 - Give Me An Example - Captions.mp4"`
 * Upload

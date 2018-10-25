@@ -410,184 +410,184 @@ That last command tells us that cucumber didn't fail it exited with an exit stat
 
 103
 00:07:50.783 --> 00:07:51.551
-0
-
 104
+
+105
 00:07:51.807 --> 00:07:53.599
 Which means success
 
-105
+106
 00:07:54.623 --> 00:07:56.159
 Now that's running with strict
 
-106
+107
 00:07:57.951 --> 00:08:01.023
 This time the exit status was won
 
-107
+108
 00:08:01.279 --> 00:08:03.583
 Indicating that cucumber failed
 
-108
+109
 00:08:04.607 --> 00:08:06.143
 Why is this interesting
 
-109
+110
 00:08:06.399 --> 00:08:06.911
 Well
 
-110
+111
 00:08:07.167 --> 00:08:13.311
 If you run cucumber on a continuous integration server it will fail the build if there are undefined a pending steps
 
-111
+112
 00:08:14.335 --> 00:08:15.615
 That's pretty handy
 
-112
+113
 00:08:16.127 --> 00:08:21.503
 Cucumber is first and foremost a tool of facilitates a common understanding between people on a project
 
-113
+114
 00:08:22.271 --> 00:08:24.575
 Imagine our customers with cats
 
-114
+115
 00:08:24.831 --> 00:08:28.927
 We can write a fish in English but the cats would obviously not understand that
 
-115
+116
 00:08:30.207 --> 00:08:33.791
 Will know the cat speak low cat but English
 
-116
+117
 00:08:34.559 --> 00:08:38.399
 Sophie's would have to look like this in order for cats to understand
 
-117
+118
 00:08:41.215 --> 00:08:46.591
 We tell cucumber what language to use by adding a language common to the top of the file
 
-118
+119
 00:08:47.103 --> 00:08:52.991
 Cucumber support service 60 different spoken languages thanks to contributions from people I'm cats
 
-119
+120
 00:08:53.247 --> 00:08:54.271
 The world
 
-120
+121
 00:08:55.551 --> 00:09:01.695
 You can get a list of all the supported languages with Dash Dash i18n
 
-121
+122
 00:09:01.951 --> 00:09:02.463
 Help
 
-122
+123
 00:09:04.255 --> 00:09:07.839
 To see the translation of gherkin keywords for particular language
 
-123
+124
 00:09:08.095 --> 00:09:11.167
 Just replace help with the language code
 
-124
+125
 00:09:11.935 --> 00:09:12.959
 For example
 
-125
+126
 00:09:13.215 --> 00:09:16.031
 Dash dash I 18 hi
 
-126
+127
 00:09:16.543 --> 00:09:17.311
 Fendi
 
-127
+128
 00:09:17.823 --> 00:09:22.175
 It would be tedious if you had to write out these configuration options every time you run a cucumber
 
-128
+129
 00:09:22.943 --> 00:09:23.967
 Make this easier
 
-129
+130
 00:09:24.223 --> 00:09:27.039
 You can write the options in a file to keep them both pickup
 
-130
+131
 00:09:28.063 --> 00:09:30.623
 You can use the Cucumber yellow file
 
-131
+132
 00:09:30.879 --> 00:09:35.743
 Define one or more profiles that describe a set of configuration options for cucumber
 
-132
+133
 00:09:36.511 --> 00:09:37.535
 For example
 
-133
+134
 00:09:38.047 --> 00:09:44.191
 We can define a death profile that runs only the focus scenarios and uses the progress for my phone
 
-134
+135
 00:09:46.239 --> 00:09:51.103
 Then we use the data profile option to choose this profile when running cucumber
 
-135
+136
 00:09:52.639 --> 00:09:56.991
 To change the default Behavior cucumber change the default profile
 
-136
+137
 00:09:58.015 --> 00:10:00.319
 Let's make cucumber strict by default
 
-137
+138
 00:10:02.879 --> 00:10:09.023
 Is common for teens to have a number of profiles to find usually for the different environments where cucumber runs
 
-138
+139
 00:10:10.047 --> 00:10:15.679
 You can have a CI profile to behave differently to the ones you use on your death machines for example
 
-139
+140
 00:10:15.935 --> 00:10:18.239
 Tomato cucumber really useful to team
 
-140
+141
 00:10:18.751 --> 00:10:22.079
 It's good to spend time learning the details of how to configure it
 
-141
+142
 00:10:22.591 --> 00:10:23.615
 And this lesson
 
-142
+143
 00:10:23.871 --> 00:10:27.967
 We gave you a tour of almost all of cucumbers configuration options
 
-143
+144
 00:10:28.991 --> 00:10:33.087
 You learned how to fill two scenarios by name line number what time
 
-144
+145
 00:10:34.111 --> 00:10:36.415
 You don't have to fool my cucumbers output
 
-145
+146
 00:10:36.671 --> 00:10:40.511
 And you don't have to write your scenarios in different spoken languages
 
-146
+147
 00:10:42.047 --> 00:10:46.911
 You will soon learn how to set up different configurations for use by a whole team
 
-147
+148
 00:10:47.935 --> 00:10:50.239
 That's all for this lesson if you come to school
 
-148
+149
 00:10:51.007 --> 00:10:52.287
 See you next time

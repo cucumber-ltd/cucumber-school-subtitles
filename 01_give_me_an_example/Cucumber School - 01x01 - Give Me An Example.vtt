@@ -66,31 +66,31 @@ to drive the development of the system
 00:01:03.744 --> 00:01:07.072
 Cucumber is a tool facilitates BDD
 
-17
+16
 00:01:07.840 --> 00:01:11.600
 We can't teach you about Cucumber without
 teaching you about BDD, too
 
-18
+17
 00:01:11.600 --> 00:01:13.728
 so that's what we're going to start
 
-19
+18
 00:01:16.300 --> 00:01:19.872
 Let's start by defining what we mean
 by a concrete example
 
-20
+19
 00:01:20.640 --> 00:01:24.480
 Can you think of a concrete example of
 the last time you used a piece of software?
 
-21
+20
 00:01:24.992 --> 00:01:26.500
 Maybe an app you often use
 on your smartphone 
 
-22
+21
 00:01:26.500 --> 00:01:30.368
 or something you use on a daily basis
 on your desktop computer
@@ -119,526 +119,526 @@ you using the software
 You just wrote down the name of
 the program or the app you were using
 
-26
+27
 00:01:51.480 --> 00:01:54.080
 For example, maybe you wrote down
 
-26
+28
 00:01:54.380 --> 00:01:56.850
 Twitter
 
-27
+29
 00:01:57.150 --> 00:01:58.100
 Let's try again
 
-28
+30
 00:01:58.784 --> 00:02:03.250
 Give me a concrete example of the
 last time you used Twitter
 
-29
+31
 00:02:03.250 --> 00:02:05.952
 or whatever the app was you had in mind
 
-29
+32
 00:02:06.000 --> 00:02:09.000
 Ready? Go!
 
-30
+33
 00:02:09.536 --> 00:02:10.304
 Let's see
 
-31
+34
 00:02:10.816 --> 00:02:13.524
 Did you just write down a
 concrete example with details of 
 
-32
+35
 00:02:13.524 --> 00:02:16.650
 what you were trying to do at the time
 and why you used the app
 
-33
+36
 00:02:17.650 --> 00:02:20.544
 Or did you just write down
 the name of the feature
 
-34
+37
 00:02:21.568 --> 00:02:22.336
 like
 
-35
+38
 00:02:22.848 --> 00:02:25.152
 read my messages on Twitter?
 
-36
+39
 00:02:27.200 --> 00:02:29.200
 This is still too abstract 
 
-36
+40
 00:02:29.300 --> 00:02:31.040
 Getting concrete is hard!
 
-37
+41
 00:02:31.552 --> 00:02:34.624
 If you just wrote down the name of the
 feature I want you to try again
 
-38
+42
 00:02:35.136 --> 00:02:37.700
 Visualize a real moment in your life
 
-39
+43
 00:02:37.701 --> 00:02:39.232
 when you use that feature
 
-40
+44
 00:02:39.488 --> 00:02:42.304
 Tell me about it in every last detail
 
-41
+45
 00:02:45.000 --> 00:02:46.144
 Here's my example
 
-42
+46
 00:02:46.500 --> 00:02:50.240
 Yesterday I was waiting for my
 regular train home from work
 
-43
+47
 00:02:51.150 --> 00:02:54.800
 I have a half hour commute so I like to
 have something to read on the train 
 
-44
+48
 00:02:55.000 --> 00:02:59.400
 Because the train goes to a rural area
 where the mobile signal is bad
 
-45
+49
 00:02:59.400 --> 00:03:02.800
 I scanned my Twitter feed and
 fired up a browser tab
 
-46
+50
 00:03:02.800 --> 00:03:06.368
 with interesting looking articles
 to read before I get on the train
 
-47
+51
 00:03:07.904 --> 00:03:10.000
 Most of the articles are about
 software development
 
-47
+52
 00:03:10.000 --> 00:03:12.000
 but there were a couple
 about politics, too
 
-48
+53
 00:03:12.300 --> 00:03:13.500
 Now we're talking!
 
-48
+54
 00:03:13.652 --> 00:03:17.000
 We have a concrete example with loads of context
 
-49
+55
 00:03:17.000 --> 00:03:18.912
 that really gives us something to work with
 
-50
+56
 00:03:19.936 --> 00:03:21.800
 Now we're going to see how we use
 
-51
+57
 00:03:21.801 --> 00:03:24.544
 these concrete examples in practice
 
-52
+58
 00:03:25.056 --> 00:03:27.400
 A prerequisite for doing BDD
 
-53
+59
 00:03:27.401 --> 00:03:30.176
 is to have an agile process in place
 
-54
+60
 00:03:31.200 --> 00:03:34.199
 BBD needs to be done just in time at the
 
-55
+61
 00:03:34.200 --> 00:03:35.998
 last responsible moment
 
-56
+62
 00:03:35.999 --> 00:03:40.672
 because we place a lot of emphasis on conversations
 rather than trying to write everything down
 
-57
+63
 00:03:41.696 --> 00:03:44.950
 If you try to have those conversations
 too far ahead of doing the work
 
-58
+64
 00:03:44.951 --> 00:03:47.584
 you'll have forgotten most of
 what you talked about
 
-59
+65
 00:03:49.376 --> 00:03:53.472
 So you need to have your work already
 broken down into user stories
 
-60
+66
 00:03:53.728 --> 00:03:57.568
 Ideally, you'll have also started to
 define acceptance criteria
 
-61
+67
 00:03:57.569 --> 00:03:59.616
 or business rules for those stories
 
-62
+68
 00:04:00.617 --> 00:04:02.400
 But they don't need
 to be exhaustive yet
 
-63
+69
 00:04:02.400 --> 00:04:05.248
 we'll flesh them out during
 the BBD process
 
-64
+70
 00:04:06.528 --> 00:04:10.900
 Let's imagine we're building a
 point-of-sale system for an electronics retailer
 
-64
+71
 00:04:10.900 --> 00:04:12.504
 Dixies
 
-65
+72
 00:04:12.728 --> 00:04:14.464
 Here's our next user story!
 
-66
+73
 00:04:14.720 --> 00:04:15.900
 Process Refunds 
 
-66
+74
 00:04:16.000 --> 00:04:18.800
 In order to satisfy
 customers statutory rights
 
-67
+75
 00:04:18.800 --> 00:04:22.911
 As a sales assistant
 I need to be able to process refunds
 
-68
+76
 00:04:24.191 --> 00:04:28.050
 In order to prepare this story for
 development we have what we call
 
-69
+77
 00:04:28.050 --> 00:04:30.335
 a Three Amigos meeting
 
-70
+78
 00:04:30.847 --> 00:04:33.450
 We call it the Three Amigos
 because it involves
 
-71
+79
 00:04:33.450 --> 00:04:35.711
 three different disciplines from the team
 
-72
+80
 00:04:36.335 --> 00:04:37.803
 Test
 
-73
+81
 00:04:37.815 --> 00:04:39.200
 Development
 
-74
+82
 00:04:39.200 --> 00:04:40.975
 and Product
 
-75
+83
 00:04:41.455 --> 00:04:43.391
 Let's watch one in action
 
-76
+84
 00:04:44.100 --> 00:04:46.719
 The business rules to this story
 are really simple
 
-77
+85
 00:04:46.775 --> 00:04:51.427
 Any item can be returned within 14 days
 as long as the customer has a receipt
 
-78
+86
 00:04:51.583 --> 00:04:53.219
 Can you give me an example?
 
-79
+87
 00:04:53.275 --> 00:04:54.000
 Okay
 
-80
+88
 00:04:54.001 --> 00:04:57.471
 Collin the customer bought
 a kettle last week from us
 
-81
+89
 00:04:57.727 --> 00:05:00.700
 When he got home he realized the color
 didn't match his kitchen cabinets
 
-81
+90
 00:05:00.700 --> 00:05:02.591
 and he really didn't like it
 
-82
+91
 00:05:02.700 --> 00:05:06.175
 Um, he's brought it back to
 the store for refund
 
-83
+92
 00:05:06.200 --> 00:05:9.250
 He walks up to Sally,
 a junior sales assistant
 
-83
+93
 00:05:09.250 --> 00:05:12.750
 and he asks her to process the refund
 
-84
+94
 00:05:12.800 --> 00:05:15.391
 What's the outcome here?
 What are we supposed to test?
 
-85
+95
 00:05:15.903 --> 00:05:20.800
 Well we need to increment the
 stock quantity for that item
 
-86
+96
 00:05:20.800 --> 00:05:23.327
 so we know it's back in our inventory
 
-87
+97
 00:05:23.583 --> 00:05:25.000
 Ah right, anything else?
 
-87
+98
 00:05:25.001 --> 00:05:27.679
 No, no, I think that's all
 
-88
+99
 00:05:27.800 --> 00:05:30.300
 What if Collin doesn't have his receipt?
 
-89
+100
 00:05:30.350 --> 00:05:32.000
 Does Sally have to send him home?
 
-89
+101
 00:05:32.150 --> 00:05:37.300
 Well, a manager can process a refund
 with any proof of purchase
 
-90
+102
 00:05:37.407 --> 00:05:40.490
 Collin could use a bank statement for example?
 
-91
+103
 00:05:40.500 --> 00:05:44.831
 But Sally can't do that so
 she would have to ask her boss
 
-92
+104
 00:05:44.900 --> 00:05:46.400
 Right, so there are two rules here: 
 
-92
+105
 00:05:46.400 --> 00:05:50.463
 The customer must have proof of purchase,
 not just a receipt
 
-93
+106
 00:05:50.464 --> 00:05:52.000
 and if they don't have their receipt
 
-93
+107
 00:05:52.000 --> 00:05:54.607
 then it must be authorized
 by a manager, right?
 
-93
+108
 00:05:54.608 --> 00:05:56.607
 Oh, oh right! Exactly!
 
-94
+109
 00:05:56.800 --> 00:05:59.423
 Aren't we forgetting something here?
 
-95
+110
 00:06:00.191 --> 00:06:02.239
 Isn't Collin supposed to get his money back?
 
-96
+111
 00:06:02.300 --> 00:06:05.200
 Oh! Uh, oh yes of course!
 
-96
+112
 00:06:05.201 --> 00:06:10.000
 And does the system need to notify anyone
 in the warehouse to come pick up the kettle?
 
-97
+113
 00:06:10.300 --> 00:06:11.500
 Good idea, Tammy.
 
-97
+114
 00:06:11.600 --> 00:06:16.000
 Yes, I think that's out of our scope
 for this version of the story
 
-98
+115
 00:06:16.000 --> 00:06:18.879
 but I'll put it on the
 backlog for future iteration
 
-99
+116
 00:06:22.300 --> 00:06:26.815
 As you can see the Three Amigos meeting
 raises lots of questions
 
-100
+117
 00:06:27.583 --> 00:06:31.935
 It's a really useful way to discover
 assumptions and potential misunderstandings
 
-101
+118
 00:06:32.447 --> 00:06:34.300
 It is also a great way to communicate
 
-101
+119
 00:06:34.300 --> 00:06:37.311
 requirements that somebody
 might have thought about
 
-102
+120
 00:06:37.311 --> 00:06:40.639
 but never explained clearly to
 other people on the team
 
-103
+121
 00:06:41.300 --> 00:06:43.500
 Sometimes the Three Amigos
 will hit a question
 
-103
+122
 00:06:43.500 --> 00:06:45.759
 that nobody in the room
 knows the answer to
 
-103
+123
 00:06:46.100 --> 00:06:49.000
 These are also a valuable output
 from the meeting
 
-104
+124
 00:06:49.599 --> 00:06:53.500
 Now you have a clear picture
 of what you know and
 
-105
+125
 00:06:53.695 --> 00:06:54.975
 what you need to find out
 
-106
+126
 00:06:56.400 --> 00:06:58.400
 Talking through examples
 is a great way 
 
-106
+127
 00:06:58.400 --> 00:07:01.500
 to get everyone on the same page
 about what needs to be built
 
-107
+128
 00:07:02.400 --> 00:07:05.983
 Once all Three Amigos are happy
 that they understand the story
 
-108
+129
 00:07:05.983 --> 00:07:10.335
 then you can start translating your examples
 into something that Cucumber can understand
 
-109
+130
 00:07:11.871 --> 00:07:14.940
 Here's one of our examples
 written out in Gherkin
 
-110
+131
 00:07:14.943 --> 00:07:17.260
 the specification language for Cucumber
 
-111
+132
 00:07:19.807 --> 00:07:20.831
 As you can see
 
-112
+133
 00:07:21.087 --> 00:07:23.135
 Gherkin's almost like plain English
 
-113
+134
 00:07:23.400 --> 00:07:25.600
 We have to use a few special key words
 
-113
+135
 00:07:25.600 --> 00:07:28.255
 so that Cucumber can understand it, too
 
-114
+136
 00:07:29.023 --> 00:07:33.119
 Words like feature, scenario,
 given, when, and then
 
-114
+137
 00:07:33.500 --> 00:07:35.600
 You'll learn all about these soon
 
-115
+138
 00:07:37.100 --> 00:07:41.500
 We can refine as many examples
 as we need into this form
 
-115
+139
 00:07:41.500 --> 00:07:45.919
 to create an executable specification
 for our software
 
-118
+140
 00:07:46.600 --> 00:07:48.100
 In the next lesson
 
-119
+141
 00:07:48.100 --> 00:07:51.450
 you'll learn how to create 
 your first Cucumber scenario
 
-120
+142
 00:07:51.451 --> 00:07:52.800
 and execute it
 
-120
+143
 00:07:54.000 --> 00:07:58.000
 Captions created by Jayson Smith for Cucumber Ltd.
