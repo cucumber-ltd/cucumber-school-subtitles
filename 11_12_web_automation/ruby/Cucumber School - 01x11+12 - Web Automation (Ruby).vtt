@@ -320,11 +320,11 @@ for automating our application
 
 81
 00:06:34.495 --> 00:06:40.639
-The strategy that talks directly to the cold tonight model gives his fast feedback and lets his test with a heart
+The strategy that talks directly to the domain model gives us fast feedback and lets us test where the heart
 
 82
 00:06:40.895 --> 00:06:42.943
-To the applications behaviors implemented
+of the application's behaviour is implemented
 
 83
 00:06:43.711 --> 00:06:49.855
@@ -412,7 +412,7 @@ We might have written scenario like this instead
 
 104
 00:08:18.943 --> 00:08:21.759
-This scenario doesn't illustrate the behavior very well
+This scenario doesn't illustrate the behaviour very well
 
 105
 00:08:22.527 --> 00:08:27.903
@@ -524,7 +524,7 @@ This means the investment to put into writing your scenarios face back over and 
 
 132
 00:10:09.535 --> 00:10:13.631
-Reusing to validate the behavior of the application from these different perspectives
+Reusing to validate the behaviour of the application from these different perspectives
 
 133
 00:10:14.399 --> 00:10:20.031
@@ -820,7 +820,7 @@ Then we'll be able to have two different strategies for checking the messages to
 
 206
 00:15:08.287 --> 00:15:12.895
-Once we have a failing test for the web strategy we can drive out the behavior
+Once we have a failing test for the web strategy we can drive out the behaviour
 
 207
 00:15:13.407 --> 00:15:15.967
@@ -964,7 +964,7 @@ It's on some unit test for the weather out now
 
 242
 00:17:32.927 --> 00:17:39.071
-That way if this behavior of a slipped loose in the future there will be a unit test pointing us to exactly why we need to
+That way if this behaviour of a slipped loose in the future there will be a unit test pointing us to exactly why we need to
 
 243
 00:17:39.327 --> 00:17:40.351
@@ -1256,7 +1256,7 @@ Just enough to give you confidence the thing is working
 
 315
 00:23:28.512 --> 00:23:31.328
-When you drive most of your behavior through the GUI
+When you drive most of your behaviour through the GUI
 
 316
 00:23:31.584 --> 00:23:33.120

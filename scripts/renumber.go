@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -11,33 +12,29 @@ import (
 )
 
 func main() {
-	files, err := filesToProcess()
-	if err != nil {
-		panic(err)
-	}
+	var files []string
 
-	err = processFiles(files)
-	if err != nil {
-		panic(err)
-	}
-}
-
-func filesToProcess() ([]string, error) {
 	if len(os.Args) > 1 && os.Args[1] != "" {
 		absFile, err := filepath.Abs(os.Args[1])
 		if err != nil {
-			return nil, err
+			fmt.Println(err)
+			os.Exit(1)
 		}
-
-		return []string{absFile}, nil
+		files = []string{absFile}
+	} else {
+		fmt.Println("no file provided, processing directory")
+		files = directoryVTTFiles()
 	}
 
-	return directoryVTTFiles(), nil
+	err := processFiles(files)
+	if err != nil {
+		fmt.Println(err)
+		os.Exit(1)
+	}
 }
 
 func directoryVTTFiles() []string {
 	searchDir, _ := os.Getwd()
-
 	var fileList []string
 	err := filepath.Walk(searchDir, func(path string, f os.FileInfo, err error) error {
 		if strings.Contains(path, ".vtt") {
@@ -55,9 +52,9 @@ func directoryVTTFiles() []string {
 func processFiles(files []string) error {
 	for _, file := range files {
 		// read the file
-		fileData, err := read(file)
+		fileData, err := os.Open(file)
 		if err != nil {
-			return err
+			return fmt.Errorf("unable to open file %s error: %v", file, err)
 		}
 		defer fileData.Close()
 
@@ -68,15 +65,19 @@ func processFiles(files []string) error {
 		}
 
 		// write the file
-		fmt.Println("Writing to:", filepath.Base(file))
-		write(file, renumberedFile)
+		fmt.Println("Writing to file " + filepath.Base(file))
+		if err := ioutil.WriteFile(file, renumberedFile, 0777); err != nil {
+			return fmt.Errorf("unable to write to file %v", err)
+		}
+
+		return nil
 	}
 
 	return nil
 }
 
-func renumberFile(fileData *os.File) ([]byte, error) {
-	scanner := bufio.NewScanner(fileData)
+func renumberFile(r io.Reader) ([]byte, error) {
+	scanner := bufio.NewScanner(r)
 	scanner.Split(bufio.ScanLines)
 
 	frameTracker := 1
@@ -96,22 +97,6 @@ func renumberFile(fileData *os.File) ([]byte, error) {
 	}
 
 	return fileOutData, nil
-}
-
-func read(fileLocation string) (*os.File, error) {
-	fileData, err := os.Open(fileLocation)
-	if err != nil {
-		return nil, fmt.Errorf("unable to open file %s error: %v", fileLocation, err)
-	}
-
-	return fileData, nil
-}
-
-func write(fileLocation string, data []byte) error {
-	if err := ioutil.WriteFile(fileLocation, data, 0777); err != nil {
-		return fmt.Errorf("unable to write to file %v", err)
-	}
-	return nil
 }
 
 func toByteSlice(in interface{}) []byte {
