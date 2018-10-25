@@ -11,19 +11,28 @@ import (
 )
 
 func main() {
-	files := filesToProcess()
-	err := processFiles(files)
+	files, err := filesToProcess()
+	if err != nil {
+		panic(err)
+	}
+
+	err = processFiles(files)
 	if err != nil {
 		panic(err)
 	}
 }
 
-func filesToProcess() []string {
+func filesToProcess() ([]string, error) {
 	if len(os.Args) > 1 && os.Args[1] != "" {
-		return []string{os.Args[1]}
+		absFile, err := filepath.Abs(os.Args[1])
+		if err != nil {
+			return nil, err
+		}
+
+		return []string{absFile}, nil
 	}
 
-	return directoryVTTFiles()
+	return directoryVTTFiles(), nil
 }
 
 func directoryVTTFiles() []string {
@@ -59,7 +68,7 @@ func processFiles(files []string) error {
 		}
 
 		// write the file
-		fmt.Println("Writing to:", file)
+		fmt.Println("Writing to:", filepath.Base(file))
 		write(file, renumberedFile)
 	}
 
