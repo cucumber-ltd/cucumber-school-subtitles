@@ -62,7 +62,7 @@ In this episode, we'll review the code that's just been written for the first it
 
 17
 00:01:22.944 --> 00:01:26.784
-and show you how to use Selenium Webdriver
+and show you how to use Selenium WebDriver
 
 18
 00:01:27.296 --> 00:01:33.440
@@ -90,7 +90,7 @@ test suites that cost too much to maintain
 
 24
 00:01:55.712 --> 00:01:59.296
-because all their cucumber scenarios go through the UI
+because all their Cucumber scenarios go through the UI
 
 25
 00:02:00.064 --> 00:02:01.856
@@ -190,103 +190,101 @@ but the implementation is quite different
 
 48
 00:04:09.856 --> 00:04:16.000
-In the sean_shout method rather than calling the person to main object directly to show the message
+In the sean_shout method, rather than calling the Person domain object directly to shout the message
 
 49
 00:04:16.768 --> 00:04:22.911
-The web will coolest visit method to open the homepage of Sean then post the message into
+The WebWorld calls this visit method to open the homepage as Sean then posts the message into
 
 50
 00:04:23.167 --> 00:04:23.935
-To the shop phone
+the shout form
 
 51
 00:04:25.215 --> 00:04:29.823
-Well I have these new message visit fill in a click button come from
+Where have these new methods visit fill_in, and click_button come from?
 
 52
 00:04:30.847 --> 00:04:32.639
-That provided by capybara
+They're provided by Capybara
 
 53
 00:04:32.895 --> 00:04:38.527
-Which is at the life of Ruby Lively that wraps selenium-webdriver in a user-friendly package
+which is a delightful Ruby library that wraps Selenium WebDriver in a user-friendly package
 
 54
 00:04:39.039 --> 00:04:42.623
-I know you're almost drowning in buswell to this point don't worry
+I know you're almost drowning in buzzwords to this point
 
 55
 00:04:43.391 --> 00:04:46.719
-Clear up disinterment let's continue with the tour
+Don't worry- we'll clear this up in a moment
+
+Let's continue with the tour
 
 56
 00:04:48.255 --> 00:04:52.607
-Down here we examine the value of the shouty test depth environment variable
+Down here, we examine the value of the shouty_test_depth environment variable
 
 57
 00:04:52.863 --> 00:04:54.143
-If its web
+If its 'web'
 
 58
 00:04:54.399 --> 00:04:58.751
-Wheel of capybara configure it for selenium how to boot Apple web app
+we load Capybara, configure it for Selenium, tell it how to boot up our web app
 
 59
 00:04:59.263 --> 00:05:04.127
-And finally tell cucumber to use the web world in the step definitions
+and finally tell Cucumber to use the WebWorld in the step definitions
 
 60
 00:05:05.151 --> 00:05:09.247
-He'll tentative of course it's just to use the two main world as normal
+The alternative, of course, iss just to use the DomainWorld as normal
 
 61
 00:05:09.759 --> 00:05:13.599
-Let's walkthrough what happens when a scenario runs using the web world
+Let's walk through what happens when a scenario runs using the WebWorld
 
 62
 00:05:14.367 --> 00:05:18.207
-When cucumber runs de Chao shouts free Bagel step
+When Cucumber runs the "Sean shouts Free Bagels" step
 
 63
 00:05:18.719 --> 00:05:22.559
-It searches for the corresponding step definition and executes it
+it searches for the corresponding step definition and executes it
 
 64
 00:05:23.583 --> 00:05:28.703
-Now the code in that step definition calls the show and Shout method on the world
+Now the code in that step definition calls the sean_shout method on the World
 
 65
 00:05:28.959 --> 00:05:34.079
-Which in turn caused the visit method on capybara to open the homepage of Sean
+which in turn calls the visit method on Capybara to open the homepage as Sean
 
 66
 00:05:34.847 --> 00:05:38.943
-Capybara will now tell selenium-webdriver to open a browser that URL
+Capybara will now tell Selenium WebDriver to open a browser at that URL
 
 67
 00:05:39.455 --> 00:05:42.783
-Selenium tell Firefox what it needs to do
+Selenium tells Firefox what it needs to do
 
 68
 00:05:43.295 --> 00:05:47.903
-And when the browser opens at URL website will get to request for the page
+and when the browser opens that URL, our website will get a request for the page
 
 69
 00:05:48.159 --> 00:05:51.487
-They ran to the page on the server and the browser displays it
+We render the page on the server and the browser displays it
 
 70
-00:05:52.511 --> 00:05:53.279
-Next
-
-71
-00:05:53.535 --> 00:05:57.887
-The world asks capybara to fill out and submit the shout form
+00:05:52.511 --> 00:05:57.887
+Next, the world asks Capybara to fill out and submit the shout form
 
 72
 00:05:58.399 --> 00:06:03.519
-Which caused it to give instructions to selenium which in turn causes button Clicks in the browser
+which causes it to give instructions to Selenium, which in turn causes button clicks in the browser
 
 73
 00:06:04.287 --> 00:06:05.567
@@ -294,11 +292,11 @@ The form is submitted
 
 74
 00:06:06.079 --> 00:06:08.127
-The server Kohl's Dakota Maine
+the server calls the core domain
 
 75
 00:06:08.383 --> 00:06:09.663
-To broadcast a shout
+to broadcast a shout
 
 76
 00:06:14.527 --> 00:06:15.807
@@ -306,11 +304,11 @@ In contrast
 
 77
 00:06:16.063 --> 00:06:20.159
-But the main Wheels implementation of short shout Kohl's at the Maine Mall directory
+the DomainWorld implementation of sean_shout calls the domain model directly.
 
 78
 00:06:21.183 --> 00:06:25.535
-Noticed this is exactly the same code as the web server uses
+Notice this is exactly the same code as the web server uses
 
 79
 00:06:27.583 --> 00:06:31.679
@@ -318,7 +316,7 @@ Using multiple worlds like this allows us to choose the strategy
 
 80
 00:06:31.935 --> 00:06:33.727
-The ultimate cigar application
+for automating our application
 
 81
 00:06:34.495 --> 00:06:40.639
@@ -626,7 +624,7 @@ The weather
 
 157
 00:12:02.687 --> 00:12:08.831
-Which exposes chassis code 9 of the web for users will selenium Webdriver to interact with
+Which exposes chassis code 9 of the web for users will Selenium WebDriver to interact with
 
 158
 00:12:09.599 --> 00:12:11.391
@@ -634,7 +632,7 @@ And that the main world
 
 159
 00:12:11.647 --> 00:12:14.463
-Which lets cucumber Drive the application directly
+Which lets Cucumber Drive the application directly
 
 160
 00:12:15.487 --> 00:12:18.559
@@ -902,11 +900,11 @@ That's a shooting each message will be an element with a message class on it
 
 226
 00:16:32.255 --> 00:16:35.839
-We can ask capybara to give us all the elements with that class
+We can ask Capybara to give us all the elements with that class
 
 227
 00:16:36.863 --> 00:16:43.007
-That gives is a list of capybara HTML nodes which we can then transform into a list of that text come
+That gives is a list of Capybara HTML nodes which we can then transform into a list of that text come
 
 228
 00:16:43.263 --> 00:16:43.775
@@ -998,7 +996,7 @@ Will use a live record drug test to make requests of the web app
 
 250
 00:18:13.375 --> 00:18:19.519
-Unload the response into a capybara HTML document so we can make queries and assertions about HTML
+Unload the response into a Capybara HTML document so we can make queries and assertions about HTML
 
 251
 00:18:19.775 --> 00:18:21.055
@@ -1370,7 +1368,7 @@ How about the scenario about the listener being out of range
 
 343
 00:25:19.104 --> 00:25:21.920
-Brisket bath in a web deps cucumber run
+Brisket bath in a web deps Cucumber run
 
 344
 00:25:22.688 --> 00:25:25.504
@@ -1482,11 +1480,11 @@ Core acceptance test is very similar
 
 371
 00:27:06.880 --> 00:27:08.672
-I wish a lot to cucumber instead
+I wish a lot to Cucumber instead
 
 372
 00:27:09.952 --> 00:27:16.096
-Now for the web acceptance test we just need to Shell out to cucumber this time set to sharetea test
+Now for the web acceptance test we just need to Shell out to Cucumber this time set to sharetea test
 
 373
 00:27:16.352 --> 00:27:17.632
@@ -1642,7 +1640,7 @@ By pushing as many tests as you can down to the lowest level
 
 411
 00:29:53.280 --> 00:29:59.424
-The responsibility for the health and well-being of the world's cucumber sweets rest with you now
+The responsibility for the health and well-being of the world's Cucumber sweets rest with you now
 
 412
 00:30:00.448 --> 00:30:03.008
@@ -1690,7 +1688,7 @@ Will take care of itself
 
 423
 00:30:36.544 --> 00:30:38.848
-Goodbye from all of us on cucumber School
+Goodbye from all of us on Cucumber School
 
 424
 00:30:39.360 --> 00:30:40.896
