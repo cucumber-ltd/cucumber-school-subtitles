@@ -2,39 +2,39 @@ WEBVTT
 
 1
 00:00:14.592 --> 00:00:17.920
-Welcome to the final lesson in this series of cucumber School
+Welcome to the final lesson in this series of Cucumber School
 
 2
 00:00:18.432 --> 00:00:24.576
-Avatar series we try to cover all the important techniques and Concepts we think you need to become a 6
+Over the series we've tried to cover all the important techniques and concepts we think you need to become a
 
 3
 00:00:24.832 --> 00:00:27.136
-Successful Behavior driven development
+successful behaviour-driven developer
 
 4
 00:00:28.160 --> 00:00:31.488
-We told you how to break down requirements with example mapping
+We've taught you how to break down requirements with example mapping
 
 5
 00:00:32.000 --> 00:00:35.584
-And how to express those examples as good can scenarios
+and how to express those examples as Gherkin scenarios
 
 6
 00:00:36.096 --> 00:00:39.680
-Wait explain the importance of keeping a features of readable
+We've explained the importance of keeping your features readable
 
 7
 00:00:39.936 --> 00:00:44.544
-I show you how to write great flexible step definitions to help you achieve that goal
+and shown you how to write great, flexible, step definitions to help you achieve that goal
 
 8
 00:00:45.824 --> 00:00:51.968
-We've also explore the difference between acceptance test and unit test and demonstrated how they
+We've also explored the difference between acceptance tests and unit tests and demonstrated how the
 
 9
 00:00:52.224 --> 00:00:58.368
-Outside in approach to software development Works using both types of tests to drive out the solution to a stay
+outside in approach to software development works using both types of tests to drive out the solution to your
 
 10
 00:00:58.624 --> 00:00:59.648
@@ -42,59 +42,55 @@ Stakeholders problems
 
 11
 00:01:01.696 --> 00:01:04.512
-One glaring Omission from the story so far however
+One glaring omission from the story so far however
 
 12
 00:01:04.768 --> 00:01:08.352
-Is that I was shouting solution is nothing more than a domain model
+is that our shouty solution is nothing more than a domain model
 
 13
 00:01:09.376 --> 00:01:12.192
-It doesn't have any way for you to interact with it
+It doesn't have any way for a user to interact with it
 
 14
-00:01:12.960 --> 00:01:13.728
-Well
-
-15
-00:01:13.984 --> 00:01:15.776
-That's all about to change
+00:01:12.960 --> 00:01:15.776
+Well that's all about to change
 
 16
 00:01:16.544 --> 00:01:22.688
-In this episode will review the code is just been written for the first iteration of shanties web user into
+In this episode, we'll review the code that's just been written for the first iteration of Shouty's web user interface
 
 17
 00:01:22.944 --> 00:01:26.784
-Face I show you how to use selenium Webdriver
+and show you how to use Selenium Webdriver
 
 18
 00:01:27.296 --> 00:01:33.440
-Browser automation library to run a cucumber scenarios through that user interface
+a browser automation library to run our Cucumber scenarios through that user interface
 
 19
 00:01:34.464 --> 00:01:40.608
-We think it would be irresponsible to teach you how to use selenium without also teaching you about the ads
+We think it would be irresponsible to teach you how to use Selenium without also teaching you about the Agile
 
 20
 00:01:40.864 --> 00:01:43.680
-Dial testing pyramid and its nemesis
+testing pyramid and its nemesis
 
 21
 00:01:44.192 --> 00:01:45.984
-The testing ice cream cone
+the testing ice cream cone
 
 22
 00:01:46.752 --> 00:01:52.896
-We've come across too many teams who have ended up with miserably slow unreliable
+We've come across too many teams who have ended up with miserably slow, unreliable
 
 23
 00:01:53.152 --> 00:01:55.456
-Hi sweets that cost too much to maintain
+test suites that cost too much to maintain
 
 24
 00:01:55.712 --> 00:01:59.296
-Because all that cucumber scenarios go through the UI
+because all their cucumber scenarios go through the UI
 
 25
 00:02:00.064 --> 00:02:01.856
@@ -102,11 +98,11 @@ It doesn't have to be this way
 
 26
 00:02:02.112 --> 00:02:03.392
-And in this episode
+and in this episode
 
 27
 00:02:03.648 --> 00:02:05.696
-Will show you how to avoid this trap
+we'll show you how to avoid this trap
 
 28
 00:02:06.720 --> 00:02:12.864
@@ -114,83 +110,87 @@ Let's start by walking you through the changes that have been happening in the c
 
 29
 00:02:13.632 --> 00:02:19.520
-Shawty now has a simple web UI which displays a former user can shout a message
+Shouty now has a simple web UI which displays a form where a user can shout a message
 
 30
 00:02:20.288 --> 00:02:22.848
-It won't win any awards for Style just yet
+It won't win any awards for style just yet
 
 31
 00:02:23.104 --> 00:02:25.152
-But it should be functional at least
+but it should be functional at least
 
 32
 00:02:26.432 --> 00:02:32.576
-We can let cucumber put the new web app through its Paces by setting the shouty test debt
+We can let Cucumber put the new web app through its paces by setting the 'shouty_test_depth'
 
 33
 00:02:32.832 --> 00:02:36.416
-Environment variable to web when we were in cucumber
+environment variable to 'web' when we run Cucumber
 
 34
 00:02:37.952 --> 00:02:42.816
-This setting causes the scenarios to be run through the browser by selenium
+This setting causes the scenarios to be run through the browser via Selenium
 
 35
 00:02:43.072 --> 00:02:48.448
-If you watch closely you can see the message being typed into the format it runs
+and if you watch closely, you can see the message being typed into the format it runs
 
 36
 00:02:49.472 --> 00:02:55.616
-You can see its way slow it to run the scenarios for eyebrows up around a minute
+You can see it's way slower to run the scenarios via a browser
+
+around a minute
 
 37
 00:03:21.472 --> 00:03:27.616
-Luckily we still have our original much faster version of the acceptance test that go directly to the domain model
+Luckily, we still have our original, much faster, version of the acceptance tests that go directly to the domain model
 
 38
 00:03:28.384 --> 00:03:30.432
-Please run in less than a second
+These run in less than a second
 
 39
 00:03:31.200 --> 00:03:35.552
-We can run this version by setting shouty test that to something else
+We can run this version by setting 'shouty_test_depth' to something else
 
 40
 00:03:35.808 --> 00:03:37.856
-Just leaving it out all together
+or just leaving it out altogether
 
 41
 00:03:39.392 --> 00:03:43.488
-Nice so we have the best of both worlds it seems
+Nice!
+
+So we have the best of both worlds it seems
 
 42
 00:03:44.512 --> 00:03:48.096
-Let's have a look at how the spin implemented in the features
+Let's have a look at how this has been implemented in the features
 
 43
 00:03:49.632 --> 00:03:54.496
-In this world Abby file here we now have two separate modules being defined
+In this world.rb file here we now have two separate modules being defined
 
 44
 00:03:54.752 --> 00:04:00.896
-Original Shawty world has been renamed to Domaine world and a new web world has B
+Our original ShoutyWorld has been renamed to DomainWorld
 
 45
 00:04:01.152 --> 00:04:01.664
-Been added
+and a new WebWorld has been added
 
 46
 00:04:02.176 --> 00:04:06.272
-Webwork at exactly the same methods of the original two main world
+WebWorld has exactly the same methods as the original DomainWorld
 
 47
 00:04:06.528 --> 00:04:08.832
-The implementation is quite different
+but the implementation is quite different
 
 48
 00:04:09.856 --> 00:04:16.000
-In the Chao Chao method rather than calling the person to main object directly to show the message
+In the sean_shout method rather than calling the person to main object directly to show the message
 
 49
 00:04:16.768 --> 00:04:22.911
