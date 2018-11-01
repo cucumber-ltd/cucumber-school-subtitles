@@ -38,6 +38,6 @@ Some notes taken from a couple different [style guidelines](http://bbc.github.io
 * BDD, Cucumber, Gherkin, Three Amigos, and any other named items must be capitalized
 * Maximum of 2 lines per caption frame
 * Maximum of 50 characters per line, where possible, with preference toward shorter lines
-* Minimum of 1.5 seconds of on screen time for shorter frames if possible
+* Minimum of 1 seconds of on screen time for shorter frames if possible
 * For commands that are to be input, wrap them in 'single quotes'
 * For file names or other things like variables, if they are capitalized in the video, make them capital in the caption.

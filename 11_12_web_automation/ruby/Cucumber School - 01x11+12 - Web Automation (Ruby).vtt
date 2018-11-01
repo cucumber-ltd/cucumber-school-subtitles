@@ -2,330 +2,441 @@ WEBVTT
 
 1
 00:00:14.592 --> 00:00:17.920
-Welcome to the final lesson in this series of Cucumber School
+Welcome to the final lesson in
+this series of Cucumber School
 
 2
-00:00:18.432 --> 00:00:24.576
-Over the series we've tried to cover all the important techniques and concepts we think you need to become a
+00:00:18.432 --> 00:00:21.800
+Over the series we've tried to cover
+all the important techniques
 
-3
-00:00:24.832 --> 00:00:27.136
+2
+00:00:21.800 --> 00:00:27.136
+and concepts we think you need to become a
 successful behaviour-driven developer
 
 4
-00:00:28.160 --> 00:00:31.488
-We've taught you how to break down requirements with example mapping
+00:00:28.00 --> 00:00:31.750
+We've taught you how to break down
+requirements with example mapping
 
 5
-00:00:32.000 --> 00:00:35.584
-and how to express those examples as Gherkin scenarios
+00:00:31.750 --> 00:00:35.750
+and how to express those examples
+as Gherkin scenarios
 
 6
-00:00:36.096 --> 00:00:39.680
-We've explained the importance of keeping your features readable
+00:00:35.750 --> 00:00:39.750
+We've explained the importance of
+keeping your features readable
 
 7
-00:00:39.936 --> 00:00:44.544
-and shown you how to write great, flexible, step definitions to help you achieve that goal
+00:00:39.750 --> 00:00:44.544
+and shown you how to write great, flexible,
+step definitions to help you achieve that goal
 
 8
-00:00:45.824 --> 00:00:51.968
-We've also explored the difference between acceptance tests and unit tests and demonstrated how the
+00:00:45.500 --> 00:00:50.250
+We've also explored the difference between
+acceptance tests and unit tests
+
+8
+00:00:50.250 --> 00:00:54.750
+and demonstrated how the outside in
+approach to software development works
 
 9
-00:00:52.224 --> 00:00:58.368
-outside in approach to software development works using both types of tests to drive out the solution to your
+00:00:54.750 --> 00:00:58.200
+using both types of tests
+to drive out the solution to your
 
 10
-00:00:58.624 --> 00:00:59.648
-Stakeholders problems
+00:00:58.200 --> 00:00:59.648
+stakeholders problems
 
 11
-00:01:01.696 --> 00:01:04.512
-One glaring omission from the story so far however
+00:01:01.400 --> 00:01:04.600
+One glaring omission from
+the story so far however
 
 12
-00:01:04.768 --> 00:01:08.352
-is that our shouty solution is nothing more than a domain model
+00:01:04.600 --> 00:01:08.500
+is that our shouty solution is
+nothing more than a domain model
 
 13
-00:01:09.376 --> 00:01:12.192
-It doesn't have any way for a user to interact with it
+00:01:09.150 --> 00:01:12.192
+It doesn't have any way for
+a user to interact with it
 
 14
-00:01:12.960 --> 00:01:15.776
-Well that's all about to change
+00:01:12.600 --> 00:01:15.776
+Well, that's all about to change
 
 16
-00:01:16.544 --> 00:01:22.688
-In this episode, we'll review the code that's just been written for the first iteration of Shouty's web user interface
+00:01:16.544 --> 00:01:19.600
+In this episode, we'll review
+the code that's just been written
+
+16
+00:01:19.600 --> 00:01:22.900
+for the first iteration of
+Shouty's web user interface
 
 17
-00:01:22.944 --> 00:01:26.784
+00:01:22.900 --> 00:01:26.784
 and show you how to use Selenium WebDriver
 
 18
 00:01:27.296 --> 00:01:33.440
-a browser automation library to run our Cucumber scenarios through that user interface
+a browser automation library to run our
+Cucumber scenarios through that user interface
 
 19
-00:01:34.464 --> 00:01:40.608
-We think it would be irresponsible to teach you how to use Selenium without also teaching you about the Agile
+00:01:34.464 --> 00:01:38.000
+We think it would be irresponsible
+to teach you how to use Selenium
 
-20
-00:01:40.864 --> 00:01:43.680
+19
+00:01:38.000 --> 00:01:44.000
+without also teaching you about the Agile
 testing pyramid and its nemesis
 
 21
-00:01:44.192 --> 00:01:45.984
+00:01:44.000 --> 00:01:45.984
 the testing ice cream cone
 
 22
-00:01:46.752 --> 00:01:52.896
-We've come across too many teams who have ended up with miserably slow, unreliable
+00:01:46.500 --> 00:01:50.200
+We've come across too many teams
+who have ended up with
 
 23
-00:01:53.152 --> 00:01:55.456
-test suites that cost too much to maintain
+00:01:50.200 --> 00:01:55.550
+miserably slow, unreliable test suites
+that cost too much to maintain
 
 24
-00:01:55.712 --> 00:01:59.296
-because all their Cucumber scenarios go through the UI
+00:01:55.550 --> 00:01:59.296
+because all their Cucumber scenarios
+go through the UI
 
 25
-00:02:00.064 --> 00:02:01.856
+00:02:00.064 --> 00:02:02.000
 It doesn't have to be this way
 
 26
-00:02:02.112 --> 00:02:03.392
+00:02:02.000 --> 00:02:03.500
 and in this episode
 
 27
-00:02:03.648 --> 00:02:05.696
+00:02:03.500 --> 00:02:05.696
 we'll show you how to avoid this trap
 
 28
-00:02:06.720 --> 00:02:12.864
-Let's start by walking you through the changes that have been happening in the code base while we've been away
+00:02:06.500 --> 00:02:10.000
+Let's start by walking you through
+the changes that have been happening
+
+28
+00:02:10.000 --> 00:02:12.864
+in the code base while we've been away
 
 29
-00:02:13.632 --> 00:02:19.520
-Shouty now has a simple web UI which displays a form where a user can shout a message
+00:02:13.500 --> 00:02:17.750
+Shouty now has a simple web UI
+which displays a form where
+
+29
+00:02:17.750 --> 00:02:19.520
+a user can shout a message
 
 30
-00:02:20.288 --> 00:02:22.848
+00:02:20.150 --> 00:02:23.000
 It won't win any awards for style just yet
 
 31
-00:02:23.104 --> 00:02:25.152
+00:02:23.000 --> 00:02:25.152
 but it should be functional at least
 
 32
-00:02:26.432 --> 00:02:32.576
-We can let Cucumber put the new web app through its paces by setting the 'shouty_test_depth'
+00:02:26.432 --> 00:02:29.100
+We can let Cucumber put the
+new web app through its paces
 
 33
-00:02:32.832 --> 00:02:36.416
-environment variable to 'web' when we run Cucumber
+00:02:29.100 --> 00:02:34.750
+by setting the 'shouty_test_depth'
+environment variable to 'web'
+
+33
+00:02:34.750 --> 00:02:36.416
+when we run Cucumber
 
 34
-00:02:37.952 --> 00:02:42.816
-This setting causes the scenarios to be run through the browser via Selenium
+00:02:37.700 --> 00:02:43.000
+This setting causes the scenarios
+to be run through the browser via Selenium
 
 35
-00:02:43.072 --> 00:02:48.448
-and if you watch closely, you can see the message being typed into the format it runs
+00:02:43.000 --> 00:02:44.750
+and if you watch closely,
+
+35
+00:02:44.750 --> 00:02:48.448
+you can see the message being typed
+into the form as it runs
 
 36
-00:02:49.472 --> 00:02:55.616
-You can see it's way slower to run the scenarios via a browser
+00:02:49.472 --> 00:02:53.500
+You can see it's way slower
+to run the scenarios via browser
 
+36
+00:02:53.500 --> 00:02:55.616
 around a minute
 
 37
-00:03:21.472 --> 00:03:27.616
-Luckily, we still have our original, much faster, version of the acceptance tests that go directly to the domain model
+00:03:21.472 --> 00:03:25.800
+Luckily, we still have our original,
+much faster version of the acceptance tests
+
+37
+00:03:25.800 --> 00:03:27.616
+that go directly to the domain model
 
 38
 00:03:28.384 --> 00:03:30.432
 These run in less than a second
 
 39
-00:03:31.200 --> 00:03:35.552
-We can run this version by setting 'shouty_test_depth' to something else
+00:03:31.200 --> 00:03:35.600
+We can run this version by setting
+'shouty_test_depth' to something else
 
 40
-00:03:35.808 --> 00:03:37.856
+00:03:35.600 --> 00:03:37.856
 or just leaving it out altogether
 
 41
-00:03:39.392 --> 00:03:43.488
+00:03:39.250 --> 00:03:40.700
 Nice!
 
+41
+00:03:40.700 --> 00:03:43.488
 So we have the best of both worlds it seems
 
 42
-00:03:44.512 --> 00:03:48.096
-Let's have a look at how this has been implemented in the features
+00:03:44.300 --> 00:03:48.096
+Let's have a look at how this
+has been implemented in the features
 
 43
-00:03:49.632 --> 00:03:54.496
-In this world.rb file here we now have two separate modules being defined
+00:03:49.500 --> 00:03:54.496
+In this world.rb file here
+we now have two separate modules being defined
 
 44
-00:03:54.752 --> 00:04:00.896
-Our original ShoutyWorld has been renamed to DomainWorld
+00:03:54.752 --> 00:03:58.750
+Our original ShoutyWorld has been
+renamed to DomainWorld
 
 45
-00:04:01.152 --> 00:04:01.664
+00:03:58.750 --> 00:04:01.664
 and a new WebWorld has been added
 
 46
-00:04:02.176 --> 00:04:06.272
-WebWorld has exactly the same methods as the original DomainWorld
+00:04:02.176 --> 00:04:06.350
+WebWorld has exactly the same
+methods as the original DomainWorld
 
 47
-00:04:06.528 --> 00:04:08.832
+00:04:06.350 --> 00:04:08.832
 but the implementation is quite different
 
 48
-00:04:09.856 --> 00:04:16.000
-In the sean_shout method, rather than calling the Person domain object directly to shout the message
+00:04:09.856 --> 00:04:11.500
+In the sean_shout method
+
+48
+00:04:11.500 --> 00:04:16.400
+rather than calling the Person domain object
+directly to shout the message
 
 49
-00:04:16.768 --> 00:04:22.911
-The WebWorld calls this visit method to open the homepage as Sean then posts the message into
+00:04:16.400 --> 00:04:21.300
+the WebWorld calls this visit method
+to open the homepage as Sean
 
 50
-00:04:23.167 --> 00:04:23.935
+00:04:21.300 --> 00:04:24.000
+then posts the message into
 the shout form
 
 51
-00:04:25.215 --> 00:04:29.823
-Where have these new methods visit fill_in, and click_button come from?
+00:04:25.000 --> 00:04:29.823
+Where have these new methods
+visit, fill_in, and click_button come from?
 
 52
-00:04:30.847 --> 00:04:32.639
+00:04:30.847 --> 00:04:32.800
 They're provided by Capybara
 
 53
-00:04:32.895 --> 00:04:38.527
-which is a delightful Ruby library that wraps Selenium WebDriver in a user-friendly package
+00:04:32.800 --> 00:04:36.300
+which is a delightful Ruby library
+that wraps Selenium WebDriver
+
+53
+00:04:36.300 --> 00:04:38.527
+in a user-friendly package
 
 54
-00:04:39.039 --> 00:04:42.623
-I know you're almost drowning in buzzwords to this point
+00:04:39.039 --> 00:04:41.750
+I know you're almost drowning
+in buzzwords at this point
 
 55
-00:04:43.391 --> 00:04:46.719
+00:04:41.750 --> 00:04:45.000
 Don't worry- we'll clear up this in a moment
 
+55
+00:04:45.000 --> 00:04:46.800
 Let's continue with the tour
 
 56
-00:04:48.255 --> 00:04:52.607
-Down here, we examine the value of the shouty_test_depth environment variable
+00:04:48.150 --> 00:04:52.607
+Down here, we examine the value of
+the shouty_test_depth environment variable
 
 57
-00:04:52.863 --> 00:04:54.143
+00:04:52.863 --> 00:04:54.250
 If it's 'web'
 
 58
-00:04:54.399 --> 00:04:58.751
-we load Capybara, configure it for Selenium, tell it how to boot up our web app
+00:04:54.250 --> 00:04:58.751
+we load Capybara, configure it for Selenium,
+tell it how to boot up our web app
 
 59
 00:04:59.263 --> 00:05:04.127
-then finally tell Cucumber to use the WebWorld in the step definitions
+then finally, tell Cucumber to use
+the WebWorld in the step definitions
 
 60
-00:05:05.151 --> 00:05:09.247
-The alternative, of course, iss just to use the DomainWorld as normal
+00:05:05.151 --> 00:05:09.500
+The alternative, of course,
+is just to use the DomainWorld as normal
 
 61
-00:05:09.759 --> 00:05:13.599
-Let's walk through what happens when a scenario runs using the WebWorld
+00:05:09.500 --> 00:05:13.599
+Let's walk through what happens
+when a scenario runs using the WebWorld
 
 62
-00:05:14.367 --> 00:05:18.207
-When Cucumber runs the 'Sean shouts, "Free bagels!"' step
+00:05:14.200 --> 00:05:18.500
+When Cucumber runs the
+'Sean shouts, "Free bagels!"' step
 
 63
-00:05:18.719 --> 00:05:22.559
-it searches for the corresponding step definition and executes it
+00:05:18.500 --> 00:05:22.559
+it searches for the corresponding
+step definition and executes it
 
 64
-00:05:23.583 --> 00:05:28.703
-Now, the code in that step definition calls the sean_shout method on the World
+00:05:23.350 --> 00:05:28.750
+Now, the code in that step definition
+calls the sean_shout method on the World
 
 65
-00:05:28.959 --> 00:05:34.079
-which in turn calls the visit method on Capybara to open the homepage as Sean
+00:05:28.750 --> 00:05:34.079
+which in turn calls the visit method
+on Capybara to open the homepage as Sean
 
 66
-00:05:34.847 --> 00:05:38.943
-Capybara will now tell Selenium WebDriver to open a browser at that URL
+00:05:34.847 --> 00:05:39.250
+Capybara will now tell Selenium WebDriver
+to open a browser at that URL
 
 67
-00:05:39.455 --> 00:05:42.783
+00:05:39.250 --> 00:05:43.000
 Selenium tells Firefox what it needs to do
 
 68
-00:05:43.295 --> 00:05:47.903
-and when the browser opens that URL, our website will get a request for the page
+00:05:43.000 --> 00:05:48.000
+and when the browser opens that URL,
+our website will get a request for the page
 
 69
-00:05:48.159 --> 00:05:51.487
-We render the page on the server and the browser displays it
+00:05:48.000 --> 00:05:51.487
+we render the page on the server
+and the browser displays it
 
 70
-00:05:52.511 --> 00:05:57.887
-Next, the World asks Capybara to fill out and submit the shout form
+00:05:52.250 --> 00:05:58.000
+Next, the World asks Capybara to fill out
+and submit the shout form
 
 72
-00:05:58.399 --> 00:06:03.519
-which causes it to give instructions to Selenium, which in turn causes button clicks in the browser
+00:05:58.000 --> 00:06:03.519
+which causes it to give instructions to Selenium,
+which in turn causes button clicks in the browser
 
 73
-00:06:04.287 --> 00:06:05.567
+00:06:04.287 --> 00:06:05.750
 The form is submitted
 
 74
-00:06:06.079 --> 00:06:09.663
+00:06:05.750 --> 00:06:09.663
 the server calls the core domain
 to broadcast a shout
 
 76
-00:06:14.527 --> 00:06:15.807
+00:06:14.527 --> 00:06:16.000
 In contrast
 
 77
-00:06:16.063 --> 00:06:20.159
-the DomainWorld implementation of sean_shout calls the domain model directly.
+00:06:16.000 --> 00:06:20.159
+the DomainWorld implementation of sean_shout
+calls the domain model directly.
 
 78
 00:06:21.183 --> 00:06:25.535
-Notice this is exactly the same code as the web server uses
+Notice this is exactly the same code
+as the web server uses
 
 79
-00:06:27.583 --> 00:06:31.679
-Using multiple worlds like this allows us to choose the strategy
+00:06:27.300  --> 00:06:31.750
+Using multiple worlds like this
+allows us to choose the strategy
 
 80
-00:06:31.935 --> 00:06:33.727
+00:06:31.750 --> 00:06:33.727
 for automating our application
 
 81
-00:06:34.495 --> 00:06:40.639
-The strategy that talks directly to the core domain model gives us fast feedback and lets us test where the heart
+00:06:34.495 --> 00:06:37.500
+The strategy that talks directly
+to the core domain model
+
+81
+00:06:37.500 --> 00:06:40.000
+gives us fast feedback
+and lets us test where the
 
 82
-00:06:40.895 --> 00:06:42.943
-of the application's behaviour is implemented
+00:06:40.000 --> 00:06:42.943
+heart of the application's
+behaviour is implemented
 
 83
-00:06:43.711 --> 00:06:49.855
-We've now added a second strategy that allows us to prove this behavior still works when presented via the web UI
+00:06:43.711 --> 00:06:46.750
+We've now added a second strategy
+that allows us to prove this behavior
+
+83
+00:06:46.750 --> 00:06:49.855
+still works when presented via the web UI
 
 84
 00:06:50.879 --> 00:06:52.927
@@ -333,250 +444,334 @@ You might be wondering why we need both?
 
 85
 00:06:53.439 --> 00:06:57.279
-Why didn't we just start driving our way in from the web UI in the beginning?
+Why didn't we just start driving our way in
+from the web UI in the beginning?
 
 86
-00:06:59.071 --> 00:07:04.447
-We found the focusing on driving out a domain model from our scenarios first
+00:06:59.071 --> 00:07:04.200
+We found that focusing on driving out
+a domain model from our scenarios first
 
 87
-00:07:04.959 --> 00:07:06.495
-modeling by example
+00:07:04.200 --> 00:07:07.100
+modelling by example
 
 88
-00:07:07.263 --> 00:07:11.615
-gives us fast feedback about the understanding of new problem domains
+00:07:07.100 --> 00:07:11.615
+gives us fast feedback about
+our understanding of new problem domains
 
 89
-00:07:12.127 --> 00:07:18.271
-We don't get distracted by solution domain complexities like web servers, HTML, and so on
+00:07:12.127 --> 00:07:15.100
+We don't get distracted by
+solution domain complexities like
+
+89
+00:07:15.100 --> 00:07:18.400
+web servers, HTML, and so on
 
 90
-00:07:18.527 --> 00:07:21.855
-while we're still just trying to understand the core of the problem
+00:07:18.400 --> 00:07:21.855
+while we're still just trying to understand
+the core of the problem
 
 91
 00:07:23.135 --> 00:07:29.279
-In the long run, we also find that staying focused on the core domain helps us build scenario that are more stable
+In the long run, we also find that
+staying focused on the core domain
 
 92
-00:07:29.535 --> 00:07:30.815
-over time
+00:07:27.000 --> 00:07:30.815
+helps us build scenarios that are
+more stable over time
 
 93
-00:07:31.839 --> 00:07:37.471
-User interfaces tend to change a lot more often that the core business rules of the domain
+00:07:31.839 --> 00:07:34.750
+User interfaces tend to change
+a lot more often than
+
+93
+00:07:34.750 --> 00:07:37.471
+the core business rules of the domain
 
 94
-00:07:39.263 --> 00:07:42.847
-Building scenarios that make sense even without a user interface
+00:07:39.263 --> 00:07:42.000
+Building scenarios that make sense
+even without a user interface
 
 95
-00:07:43.103 --> 00:07:46.175
-also helps us to avoid our tests from becoming too
+00:07:43.000 --> 00:07:46.400
+also helps us to avoid
+our tests from becoming too
 
 96
-00:07:46.431 --> 00:07:47.711
+00:07:46.400 --> 00:07:47.711
 Imperative
 
 97
-00:07:48.735 --> 00:07:54.879
-Most teams who write and run their cukes against the user interface, end it with a lot of incidental detail
+00:07:48.735 --> 00:07:52.100
+Most teams who write and run their cukes
+against the user interface
 
 98
-00:07:55.135 --> 00:07:57.951
+00:07:52.100 --> 00:07:58.100
+end it with a lot of incidental detail
 in their scenarios about the UI interaction
 
 99
-00:07:58.207 --> 00:07:59.743
+00:07:58.100 --> 00:07:59.743
 Solution domain stuff
 
 100
-00:08:00.767 --> 00:08:03.071
+00:08:00.767 --> 00:08:03.100
 These scenarios are poor documentation
 
 101
-00:08:03.839 --> 00:08:09.983
-They're too busy talking about how the user performs a task rather than what the user is trying to achieve
+00:08:03.600 --> 00:08:07.200
+They're too busy talking about
+how the user performs a task
+
+101
+00:08:07.200 --> 00:08:11.100
+rather than what the user is trying to achieve
 
 102
-00:08:11.263 --> 00:08:12.287
+00:08:11.100 --> 00:08:12.400
 For example
 
 103
-00:08:12.799 --> 00:08:15.103
-We might have written the scenario like this instead
+00:08:12.400 --> 00:08:15.103
+we might have written the scenario like this instead
 
 104
-00:08:18.943 --> 00:08:21.759
+00:08:18.700 --> 00:08:21.759
 This scenario doesn't illustrate the behaviour very well
 
 105
-00:08:22.527 --> 00:08:27.903
-If you didn't know anything about Shouty and were trying to understand it through the examples written like this
+00:08:22.400 --> 00:08:26.000
+If you didn't know anything about Shouty
+and were trying to understand it
 
 106
-00:08:28.159 --> 00:08:29.439
+00:08:26.000 --> 00:08:29.600
+through the examples written like this
 you'd have a tough time
 
 107
-00:08:30.463 --> 00:08:32.511
-It makes for a lousy documentation
+00:08:30.300 --> 00:08:32.511
+It makes for lousy documentation
 
 108
-00:08:34.303 --> 00:08:36.863
+00:08:34.303 --> 00:08:37.000
 Notice how the language used in this scenario
 
 109
-00:08:37.119 --> 00:08:39.679
+00:08:37.000 --> 00:08:39.850
 the URLs, the CSS selectors
 
 110
-00:08:39.935 --> 00:08:46.079
-evening the filling in fields and clicking of buttons is from the solution domain. not the problem domain
+00:08:39.850 --> 00:08:42.500
+even the filling in fields
+and clicking of buttons
+
+110
+00:08:42.500 --> 00:08:46.079
+is from the solution domain,
+not the problem domain
 
 111
-00:08:47.103 --> 00:08:50.943
-It tells you nothing about your team's ubiquitous language
+00:08:47.000 --> 00:08:50.943
+It tells you nothing about
+your team's ubiquitous language
 
 112
-00:08:52.735 --> 00:08:53.503
-Finally
-
-113
-00:08:53.759 --> 00:08:55.039
-this scenario is brittle
+00:08:52.600 --> 00:08:55.039
+Finally, this scenario is brittle
 
 114
-00:08:55.551 --> 00:08:59.647
-If you need to change the details of the interaction for sending a shout
+00:08:55.400 --> 00:08:59.850
+If you need to change the details
+of the interaction for sending a shout
 
 115
-00:08:59.903 --> 00:09:01.695
+00:08:59.850 --> 00:09:01.750
 such as the way you authenticate
 
 116
-00:09:01.951 --> 00:09:05.535
-you'd need to come back and change every scenario that involves shouting
+00:09:01.750 --> 00:09:05.535
+you'd need to come back
+and change every scenario that involves shouting
 
 117
-00:09:06.047 --> 00:09:08.351
+00:09:06.000 --> 00:09:08.351
 By pushing the how down
 
 118
-00:09:08.863 --> 00:09:11.423
+00:09:08.863 --> 00:09:12.447
 your scenarios will remain truer
-
-119
-00:09:11.679 --> 00:09:12.447
 for longer
 
 120
-00:09:13.471 --> 00:09:19.615
-The opposite of the imperative style where we express the scenarios using problem domain language is known as a
+00:09:13.471 --> 00:09:16.800
+The opposite of the imperative style,
+where we express the scenarios
+
+120
+00:09:16.800 --> 00:09:19.800
+using problem domain language is known as a
 
 121
-00:09:19.871 --> 00:09:21.407
+00:09:19.800 --> 00:09:21.407
 Declarative Style
 
 122
-00:09:21.919 --> 00:09:28.063
-In the style, we try to describe what the user is trying to achieve rather than how they do it
+00:09:21.919 --> 00:09:26.000
+In this style, we try to describe
+what the user is trying to achieve
+
+122
+00:09:26.000 --> 00:09:28.063
+rather than how they do it
 
 123
-00:09:29.599 --> 00:09:33.183
-Thanks to the declarative style we've been using through the rest of the series
+00:09:29.400 --> 00:09:33.350
+Thanks to the declarative style
+we've been using through the rest of the series
 
 124
-00:09:33.439 --> 00:09:38.303
-we were able to easily swap in a different strategy for automating our application through the web
+00:09:33.350 --> 00:09:36.500
+we were able to easily swap in a
+different strategy for automating
 
 125
-00:09:38.559 --> 00:09:40.863
-without changing us specifications
+00:09:36.500 --> 00:09:40.863
+our application through the web
+without changing our specifications
 
 126
-00:09:41.887 --> 00:09:47.263
-If there are other interfaces to our application like a rest API or a mobile app
+00:09:41.887 --> 00:09:44.000
+If there are other interfaces to our
+application
+
+126
+00:09:44.000 --> 00:09:47.600
+like a rest API or a mobile app
 
 127
-00:09:47.775 --> 00:09:53.919
-we can continue to use this pattern adding new strategies that run our scenarios through these new layers of the
+00:09:47.600 --> 00:09:51.000
+we can continue to use this pattern,
+adding new strategies
 
 128
-00:09:54.175 --> 00:09:54.687
-stack
+00:09:51.000 --> 00:09:54.687
+that run our scenarios through
+these new layers of the stack
 
 129
-00:09:55.967 --> 00:09:56.735
-Remember
-
-130
-00:09:56.991 --> 00:10:02.367
-each of these strategies uses exactly the same scenarios and step definitions
+00:09:55.800 --> 00:10:02.367
+Remember, each of these strategies uses
+exactly the same scenarios and step definitions
 
 131
-00:10:03.135 --> 00:10:09.279
-This means the investment to put into writing your scenarios pays back over and over
+00:10:03.135 --> 00:10:09.000
+This means the investment you put into
+writing your scenarios pays back over and over
 
 132
-00:10:09.535 --> 00:10:13.631
-As you reuse them to validate the behaviour of the application from these different perspectives
+00:10:09.000 --> 00:10:11.800
+as you reuse them to validate
+the behaviour of the application
+
+132
+00:10:11.800 --> 00:10:13.631
+from these different perspectives
 
 133
-00:10:14.399 --> 00:10:20.031
-This is a major advantage of having pushed the details of how Sean shouts down into a helper method
+00:10:14.399 --> 00:10:18.500
+This is a major advantage of having
+pushed the details of how Sean shouts
+
+133
+00:10:18.500 --> 00:10:20.031
+down into a helper method
 
 134
-00:10:20.799 --> 00:10:26.431
-If this detail was still up in the step definition, or worse, in the scenario itself
+00:10:20.799 --> 00:10:23.000
+If this detail was still up
+in the step definition
 
 135
-00:10:26.687 --> 00:10:28.479
+00:10:23.000 --> 00:10:28.500
+or worse, in the scenario itself,
 we wouldn't have this flexibility
 
 136
-00:10:29.759 --> 00:10:35.903
-In general the structure emerging in our application and test code is called a ports and adapters architecture or
+00:10:29.500 --> 00:10:33.200
+In general, the structure emerging
+in our application and test code
+
+136
+00:10:33.200 --> 00:10:36.700
+is called a ports and adapters architecture, or
 
 137
-00:10:36.159 --> 00:10:38.719
-hexagonal architecture
+00:10:36.700 --> 00:10:38.719
+Hexagonal Architecture
 
 138
-00:10:39.487 --> 00:10:45.119
-You can think of ports and adapters as a direct analogy to physical devices with plugs and sockets
+00:10:39.487 --> 00:10:42.350
+You can think of ports and adapters
+as a direct analogy
+
+138
+00:10:42.350 --> 00:10:45.119
+to physical devices with plugs and sockets
 
 139
-00:10:45.887 --> 00:10:52.031
-For example the HDMI port on this laptop lets me plug in any kind of display that also has a HDMI
+00:10:45.887 --> 00:10:48.300
+For example,
+the HDMI port on this laptop
 
 140
-00:10:52.287 --> 00:10:52.799
-port
+00:10:48.300 --> 00:10:52.799
+lets me plug in any kind of display
+that also has a HDMI port
 
 141
 00:10:53.567 --> 00:10:58.175
-If I need to use a VGA display I can use an adapter between the two
+If I need to use a VGA display,
+I can use an adapter between the two
 
 142
-00:10:59.711 --> 00:11:01.503
+00:10:59.711 --> 00:11:01.900
 In a hexagonal architecture
 
 143
-00:11:02.015 --> 00:11:05.087
-the inner hexagon contain your core business logic
+00:11:01.900 --> 00:11:05.087
+the inner hexagon contains
+your core business logic
 
 144
-00:11:06.111 --> 00:11:10.975
-this is where the if statements that deliver the most value to your stakeholders should live
+00:11:06.000 --> 00:11:10.250
+This is where the if statements that
+deliver the most value to your stakeholders
+
+144
+00:11:10.250 --> 00:11:11.100
+should live
 
 145
-00:11:12.255 --> 00:11:18.399
-The inner hexagon knows nothing about the outside world: your web servers, your databases, your email sending service
+00:11:12.255 --> 00:11:14.900
+The inner hexagon knows nothing about
+the outside world:
+
+145
+00:11:14.900 --> 00:11:18.550
+your web servers, your databases,
+your email sending service
 
 146
-00:11:18.655 --> 00:11:20.447
+00:11:18.550 --> 00:11:20.447
 or your enterprise message bus
 
 147
@@ -589,11 +784,17 @@ We expose this core behavior via one or more ports
 
 149
 00:11:29.663 --> 00:11:33.503
-A port is really just a protocol, an API if you like
+A port is really just a protocol,
+an API if you like
 
 150
-00:11:34.271 --> 00:11:40.415
-Any component who understands that protocol can then plug in and interact with the core through the port
+00:11:34.271 --> 00:11:38.150
+Any component who understands that protocol
+can then plug in and interact
+
+150
+00:11:38.150 --> 00:11:40.415
+with the core through the port
 
 151
 00:11:41.439 --> 00:11:43.743
@@ -601,71 +802,94 @@ We call that component an adapter
 
 152
 00:11:43.999 --> 00:11:48.863
-It's the adapter's job to expose the core domain logic to the outside world
+It's the adapter's job to expose
+the core domain logic to the outside world
 
 153
-00:11:49.887 --> 00:11:52.703
+00:11:49.887 --> 00:11:52.800
 In Shouty, there's just one port
 
 154
-00:11:52.959 --> 00:11:57.311
-The API to our domain model made up of the Person and Network classes
+00:11:52.800 --> 00:11:57.311
+the API to our domain model
+made up of the Person and Network classes
 
 155
-00:11:58.079 --> 00:12:01.151
-We've plugged in two different adapters to this little port:
+00:11:58.000 --> 00:12:01.500
+We've plugged in two different adapters
+to this little port:
 
 156
-00:12:01.663 --> 00:12:02.431
+00:12:01.500 --> 00:12:02.500
 the WebApp
 
 157
-00:12:02.687 --> 00:12:08.831
-which exposes Shouty's core domain over the web for users (or Selenium WebDriver) to interact with
+00:12:02.500 --> 00:12:05.150
+which exposes Shouty's core domain
+over the web
+
+157
+00:12:05.150 --> 00:12:08.831
+for users (or Selenium WebDriver)
+to interact with
 
 158
-00:12:09.599 --> 00:12:11.391
-and the DomainWorld
+00:12:09.500 --> 00:12:11.500
+And the DomainWorld
 
 159
-00:12:11.647 --> 00:12:14.463
-which lets Cucumber drive the application directly
+00:12:11.500 --> 00:12:14.463
+which lets Cucumber
+drive the application directly
 
 160
 00:12:15.487 --> 00:12:18.559
-Both clients of the same API
-
+Both are clients of the same API
+---
 161
 00:12:20.863 --> 00:12:25.727
-The hexagonal architecture is a terrific fit for teams who care about testability
+The hexagonal architecture
+is a terrific fit
+
+for teams who care about testability
 
 162
 00:12:25.983 --> 00:12:32.127
-In fact, it was invented precisely to allow for testability, back in the days when thick client GUIs were
+In fact, it was invented precisely
+to allow for testability
 
 163
 00:12:32.383 --> 00:12:33.919
+back in the days when thick client GUIs weres
 impossible to automate
 
 164
 00:12:34.431 --> 00:12:40.575
-By separating the core domain logic from the GUI, these TDD pioneers were able to plug
+By separating the core domain logic
+from the GUI
 
 165
 00:12:40.831 --> 00:12:42.879
+these TDD pioneers were able to plug
 their tests into the same port is the GUI
 
 166
 00:12:43.135 --> 00:12:45.951
-and still test most of the application's behaviour
+and still test most of
+the application's behaviour
 
 167
 00:12:47.487 --> 00:12:50.559
-If you have the discipline to keep your code separated like this
+If you have the discipline
+to keep your code separated like this
 
 168
 00:12:50.815 --> 00:12:56.959
-you benefit by being able to run the tests against the most business-valuable lines of code in your codebase.
+you benefit by being able to
+run the tests
+
+against the most business-valuable
+lines of code in your codebase
 
 169
 00:12:57.215 --> 00:12:57.983
@@ -677,11 +901,15 @@ in the shortest amount of time
 
 171
 00:13:01.823 --> 00:13:05.151
-Tests that hit pure business logic can run lightning fast
+Tests that hit pure business logic
+can run lightning fast
 
 172
 00:13:05.407 --> 00:13:11.039
-meaning it's cheap to get really thorough feedback about whether that logic is behaving correctly
+meaning it's cheap to get
+really thorough feedback
+
+about whether that logic is behaving correctly
 
 173
 00:13:12.831 --> 00:13:14.367
@@ -689,7 +917,8 @@ Let's get back to the code
 
 174
 00:13:15.135 --> 00:13:19.487
-To give us a way to test the app manually, the Shouty developers have kindly added this
+To give us a way to test the app manually,
+the Shouty developers have kindly added this
 
 175
 00:13:19.743 --> 00:13:21.535
@@ -697,19 +926,24 @@ config.ru file
 
 176
 00:13:21.791 --> 00:13:25.631
-which starts the web server pre-configured with some familiar test dates
+which starts the web server pre-configured
+with some familiar test dates
 
 177
 00:13:26.655 --> 00:13:30.751
-This means we're able to test the web app without having to create accounts for people
+This means we're able to test
+the web app without having
 
 178
 00:13:31.263 --> 00:13:32.799
+to create accounts for people
 a future we don't have yet!
+
 
 179
 00:13:34.079 --> 00:13:37.407
-So we should be able to open our browser tab as Sean
+So we should be able to
+open our browser tab as Sean
 
 180
 00:13:37.919 --> 00:13:39.455
@@ -723,7 +957,7 @@ send a shout from Sean
 00:13:42.271 --> 00:13:46.367
 refresh Lucy's page and see- 
 
-wait a minute
+wait a minute!
 
 183
 00:13:46.879 --> 00:13:48.415
