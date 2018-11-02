@@ -1445,237 +1445,290 @@ that checks for messages heard
 will do that check in a consistent way
 
 277
-00:20:43.135 --> 00:20:49.279
+00:20:43.000 --> 00:20:48.000
 This is just a matter of finding each call
 to ask a Person domain object for messages_heard
 
 278
-00:20:49.535 --> 00:20:51.071
-and converting it to use our new helper method instead
+00:20:48.000 --> 00:20:51.071
+and converting it to use
+our new helper method instead
 
 279
 00:20:54.399 --> 00:20:56.959
 Let's run all the scenarios in the shout feature
 
 280
-00:21:01.311 --> 00:21:01.823
+00:21:01.100 --> 00:21:02.150
 Great
 
 281
-00:21:02.335 --> 00:21:03.871
+00:21:02.150 --> 00:21:03.871
 it looks like we're done
 
 282
-00:21:05.151 --> 00:21:06.687
+00:21:05.000 --> 00:21:06.750
 If we look at the other feature
 
 283
-00:21:06.943 --> 00:21:12.319
-premium accounts, we can see that there’s
+00:21:06.750 --> 00:21:08.150
+Premium accounts
+
+283
+00:21:08.150 --> 00:21:12.319
+we can see that there’s
 a similar problem to the one we’ve just resolved
 
 284
-00:21:13.087 --> 00:21:14.367
+00:21:12.900 --> 00:21:14.450
 This last step
 
 285
-00:21:14.623 --> 00:21:17.440
+00:21:14.450 --> 00:21:17.800
 'Then Sean should have n credits'
 
 286
-00:21:17.952 --> 00:21:24.096
-goes direct to the domain model to check Sean’s credits,
-rather than having that extra layer of indirection
+00:21:17.800 --> 00:21:21.000
+goes direct to the domain model
+to check Sean’s credits
+
+286
+00:21:21.000 --> 00:21:23.800
+rather than having that
+extra layer of indirection
 
 287
-00:21:24.352 --> 00:21:27.424
+00:21:23.800 --> 00:21:27.424
 that would allow us to use a domain
 or a web strategy for the check
 
 288
-00:21:28.448 --> 00:21:34.592
-It will be useful practice for you to go through
-and apply exactly what we just did to this step definition
+00:21:28.448 --> 00:21:31.700
+It will be useful practice for you
+to go through and apply
+
+288
+00:21:31.700 --> 00:21:34.592
+exactly what we just did to this step definition
 
 289
-00:21:35.616 --> 00:21:37.920
+00:21:35.500 --> 00:21:37.920
 We'll leave that as an exercise for you
 
 290
-00:21:40.224 --> 00:21:42.272
-Let's fast-forward to the point where this is done
+00:21:40.000 --> 00:21:42.272
+Let's fast-forward to the point
+where this is done
 
 291
-00:21:43.808 --> 00:21:49.952
-Now we can run all of our scenarios at both levels
+00:21:43.808 --> 00:21:47.500
+Now, we can run all of our scenarios
+at both levels
 
 292
-00:21:50.208 --> 00:21:50.976
-against the domain, and against the web UI. 
+00:21:47.500 --> 00:21:50.976
+against the domain, and against the web UI
 
 293
-00:21:52.256 --> 00:21:53.792
+00:21:52.100 --> 00:21:53.792
 This is awesome!
 
 294
-00:21:55.328 --> 00:21:56.096
+00:21:55.100 --> 00:21:56.300
 Isn't it?
 
 295
-00:21:56.864 --> 00:22:00.448
-We've talked a lot about the benefits of automated testing in this series
+00:21:56.700 --> 00:22:00.700
+We've talked a lot about the benefits of
+automated tests in this series
 
 296
-00:22:00.960 --> 00:22:05.056
+00:22:00.700 --> 00:22:05.056
 but let’s consider the flip side for a moment,
 and look at the costs
 
 297
-00:22:06.592 --> 00:22:10.176
-Every automated test in your system comes at a cost
+00:22:06.500 --> 00:22:10.176
+Every automated test in your system
+comes at a cost
 
 298
-00:22:10.944 --> 00:22:13.504
-You have the cost of writing it in the first place
+00:22:10.700 --> 00:22:13.800
+You have the cost of 
+writing it in the first place
 
 299
-00:22:14.016 --> 00:22:16.832
+00:22:13.800 --> 00:22:16.500
 the cost of waiting for it to run each time
 
 300
-00:22:17.344 --> 00:22:21.696
-the cost of changing it for the
+00:22:16.500 --> 00:22:22.000
+the cost of changing it when the
 desired behaviour of the application changes
 
 301
-00:22:22.208 --> 00:22:26.304
-and the cost of debugging it when it fails for no good reason
+00:22:22.000 --> 00:22:26.304
+and the cost of debugging it
+when it fails for no good reason
 
 302
-00:22:27.840 --> 00:22:33.472
-When the majority of your tests hit the application through the user interface, you get a great benefit
+00:22:27.840 --> 00:22:31.000
+When the majority of your tests hit
+the application through the user interface
+
+302
+00:22:31.000 --> 00:22:33.500
+you get a great benefit
 
 303
-00:22:33.728 --> 00:22:37.824
-rom knowing that each scenario is using the system exactly as a user would
+00:22:33.500 --> 00:22:37.824
+from knowing that each scenario
+is using the system exactly as a user would
 
 304
-00:22:38.848 --> 00:22:42.432
-Yet the downside is that these tests are much slower to run
+00:22:38.848 --> 00:22:42.700
+Yet the downside is that
+these tests are much slower to run
 
 305
-00:22:42.944 --> 00:22:44.736
+00:22:42.700 --> 00:22:44.736
 and are often also much less reliable
 
 306
-00:22:46.272 --> 00:22:51.904
-A well-known metaphor to help you think about this problem is the agile testing pyramid
+00:22:46.272 --> 00:22:50.000
+A well-known metaphor to help you
+think about this problem is the
+
+306
+00:22:50.000 --> 00:22:52.000
+Agile Testing Pyramid
 
 307
-00:22:52.928 --> 00:22:57.280
+00:22:52.800 --> 00:22:57.500
 At the base of the pyramid,
 you have a large number of unit tests
 
 308
-00:22:57.792 --> 00:23:03.936
+00:22:57.500 --> 00:23:03.936
 shallow tests that directly hit isolated,
 individual classes and modules in your solution
 
 309
-00:23:05.728 --> 00:23:08.288
+00:23:05.728 --> 00:23:08.400
 The pyramid gets narrower as you go up
 
 310
-00:23:08.544 --> 00:23:12.128
+00:23:08.400 --> 00:23:12.250
 indicating that as the depth of tests increases
 
 311
-00:23:12.384 --> 00:23:14.176
+00:23:12.250 --> 00:23:14.176
 the less of them you should have
 
 312
-00:23:14.688 --> 00:23:20.064
-At the very top of the pyramid, where the tests that go right through the whole application stack
+00:23:14.500 --> 00:23:17.800
+At the very top of the pyramid,
+where the tests go right through
+
+312
+00:23:17.800 --> 00:23:20.600
+the whole application stack
 
 313
-00:23:20.832 --> 00:23:22.368
-You want as few as possible
+00:23:20.600 --> 00:23:22.368
+you want as few as possible
 
 314
-00:23:23.392 --> 00:23:26.720
-Just enough to give you confidence the thing is working
+00:23:23.250 --> 00:23:26.720
+Just enough to give you confidence
+the thing is working
 
 315
-00:23:28.512 --> 00:23:31.328
-When you drive most of your behaviour through the GUI
+00:23:28.512 --> 00:23:31.450
+When you drive most of
+your behaviour through the GUI
 
 316
-00:23:31.584 --> 00:23:33.120
-you end up with the opposite
+00:23:31.450 --> 00:23:33.250
+you end up with the opposite -
 
 317
-00:23:33.376 --> 00:23:36.192
+00:23:33.250 --> 00:23:36.192
 more of a testing ice cream cone
 
 318
-00:23:36.960 --> 00:23:39.776
-I love an ice cream on a hot summer’s day
+00:23:36.800 --> 00:23:39.900
+Now I love an ice cream on a hot summer’s day
 
 319
-00:23:40.032 --> 00:23:42.336
+00:23:39.900 --> 00:23:42.450
 but when your test suite looks like this
 
 320
-00:23:42.592 --> 00:23:48.736
+00:23:42.450 --> 00:23:46.100
 you’re waiting hours for test results,
 and there are generally at least
 
 321
-00:23:48.992 --> 00:23:50.272
+00:23:46.100 --> 00:23:50.272
 one or two random failures in every build
 
 322
-00:23:52.576 --> 00:23:55.904
-Although we have the choice to run every Shouty scenario through the GUI
+00:23:52.450 --> 00:23:56.050
+Although we have the choice to
+run every Shouty scenario through the GUI
 
 323
-00:23:56.160 --> 00:24:00.256
-the agile testing pyramid tells us that would be a bad idea
+00:23:56.050 --> 00:24:00.300
+the Agile Testing Pyramid tells us
+that would be a bad idea
 
 324
-00:24:01.536 --> 00:24:07.424
-We need to select a few representative or key examples to run through the web UI
+00:24:01.300 --> 00:24:07.500
+We need to select a few representative or
+key examples to run through the web UI
 
 325
-00:24:07.680 --> 00:24:09.728
+00:24:07.500 --> 00:24:09.728
 and run the rest through the domain
 
 326
-00:24:11.008 --> 00:24:13.056
+00:24:10.700 --> 00:24:13.056
 How do we choose those key examples?
 
 327
 00:24:14.592 --> 00:24:17.408
-Let’s try and think about what could possibly go wrong
+Let’s try and think about
+what could possibly go wrong
 
 328
-00:24:18.176 --> 00:24:22.784
-We want to identify the minimum number of scenarios that would give us confidence the system is working
+00:24:18.176 --> 00:24:21.500
+We want to identify the minimum number of
+scenarios that would give us confidence
+
+328
+00:24:21.500 --> 00:24:22.784
+the system is working
 
 329
-00:24:23.552 --> 00:24:28.928
-Remember both our core domain and our web server are protected by their own unit tests
+00:24:23.552 --> 00:24:26.600
+Remember: both our core domain
+and our web server
+
+329
+00:24:26.600 --> 00:24:29.000
+are protected by their own unit tests
 
 330
-00:24:29.184 --> 00:24:32.000
-so we just need a few checks for basic correctness.
+00:24:29.000 --> 00:24:32.000
+so we just need a few checks for basic correctness
 
 331
-00:24:32.512 --> 00:24:35.328
+00:24:32.450 --> 00:24:35.400
 Would it be enough to just test this scenario
 
 332
-00:24:35.584 --> 00:24:37.632
+00:24:35.400 --> 00:24:37.632
 the one where the listener is within range?
 
 333
@@ -1683,12 +1736,18 @@ the one where the listener is within range?
 If we did that, what could possibly go wrong?
 
 334
-00:24:43.264 --> 00:24:49.408
-With our tester’s hat on, we can imagine a bug where the web server’s template didn’t render multiple messages
+00:24:43.264 --> 00:24:46.300
+With our tester’s hat on
+we can imagine a bug where
+
+334
+00:24:46.300 --> 00:24:49.408
+the web server’s template
+didn’t render multiple messages
 
 335
-00:24:50.176 --> 00:24:52.224
-this scenario only works for one
+00:24:50.000 --> 00:24:52.300
+This scenario only works for one
 
 336
 00:24:53.248 --> 00:24:57.088
@@ -1696,7 +1755,7 @@ So we could add this scenario,
 the one where there are two shouts
 
 337
-00:24:57.856 --> 00:25:00.672
+00:24:57.700 --> 00:25:00.672
 Yet we’d easily catch that bug in manual testing
 
 338
@@ -1706,14 +1765,15 @@ a unit test on the web server
 
 339
 00:25:05.024 --> 00:25:08.352
-So we don’t need to run this as a full-stack test every time
+So we don’t need to run this as a
+full-stack test every time
 
 340
-00:25:09.120 --> 00:25:10.144
+00:25:09.120 --> 00:25:10.300
 In fact
 
 341
-00:25:10.656 --> 00:25:12.960
+00:25:10.300 --> 00:25:12.960
 to do so would be wasteful
 
 342
