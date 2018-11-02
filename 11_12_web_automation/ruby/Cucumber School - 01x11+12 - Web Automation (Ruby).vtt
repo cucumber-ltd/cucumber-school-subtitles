@@ -307,7 +307,7 @@ Let's continue with the tour
 56
 00:04:48.150 --> 00:04:52.607
 Down here, we examine the value of
-the shouty_test_depth environment variable
+the 'shouty_test_depth' environment variable
 
 57
 00:04:52.863 --> 00:04:54.250
@@ -1778,21 +1778,25 @@ to do so would be wasteful
 
 342
 00:25:14.752 --> 00:25:18.336
-How about the scenario about the listener being out of range?
+How about the scenario about
+the listener being out of range?
 
 343
-00:25:19.104 --> 00:25:21.920
+00:25:19.000 --> 00:25:22.300
 If we skip that in our web-depth Cucumber run
 
 344
-00:25:22.688 --> 00:25:25.504
-would we leave ourselves vulnerable to a dangerous bug?
+00:25:22.300 --> 00:25:25.504
+would we leave ourselves vulnerable
+to a dangerous bug?
 
 345
-00:25:27.040 --> 00:25:33.184
+00:25:27.040 --> 00:25:30.300
 Well, it’s true that if people heard messages
 that were not meant for them
 
+345
+00:25:30.300 --> 00:25:33.184
 it could make us look pretty bad
 
 346
@@ -1800,15 +1804,16 @@ it could make us look pretty bad
 How likely is this to happen?
 
 347
-00:25:37.024 --> 00:25:39.072
+00:25:37.024 --> 00:25:39.250
 That logic is all in the core domain
 
 348
-00:25:39.584 --> 00:25:43.168
-the web server just renders the messages returned by the core
+00:25:39.250 --> 00:25:43.168
+the web server just renders
+the messages returned by the core
 
 349
-00:25:43.936 --> 00:25:47.520
+00:25:43.750 --> 00:25:47.520
 So there’s almost a zero risk of
 this bug ever leaking out
 
@@ -1818,46 +1823,52 @@ Again, a full-stack test for this
 behaviour would be wasteful
 
 351
-00:25:54.432 --> 00:26:00.576
-Although the same goes for the logic about a long message, we know that there’s potential for there to be bugs in the interaction
+00:25:54.300 --> 00:25:57.000
+Although the same goes for
+the logic about a long message
+
+351
+00:25:57.000 --> 00:26:00.650
+we know that there’s potential for
+there to be bugs in the interaction
 
 352
-00:26:00.832 --> 00:26:03.136
+00:26:00.650 --> 00:26:03.200
 of the UI for longer messages
 
 353
-00:26:03.392 --> 00:26:05.440
+00:26:03.200 --> 00:26:05.440
 so it makes sense for us to run this one
 
 354
-00:26:06.208 --> 00:26:08.512
+00:26:06.208 --> 00:26:09.200
 Let’s mark it up as @high-risk
 
 355
-00:26:09.024 --> 00:26:13.120
+00:26:09.200 --> 00:26:13.120
 and mark the one where the listener is
 within range as @high-impact
 
 356
-00:26:13.888 --> 00:26:15.680
+00:26:13.700 --> 00:26:15.680
 We’ll explain those terms in a moment
 
 357
-00:26:16.960 --> 00:26:23.872
-Now we can run the tests at the top of our pyramid
-using those tags and the web test-depth setting
+00:26:16.800 --> 00:26:23.872
+Now, we can run the tests at the top of our pyramid
+using those tags and the web test depth setting
 
 359
-00:26:24.640 --> 00:26:29.504
+00:26:24.500 --> 00:26:29.504
 Now we have three different levels of tests
 in our pyramid that we want to run to check our code
 
 360
-00:26:29.760 --> 00:26:31.040
+00:26:29.760 --> 00:26:31.150
 The unit tests
 
 361
-00:26:31.296 --> 00:26:36.672
+00:26:31.150 --> 00:26:36.672
 the core domain acceptance tests,
 and the key examples running as full-stack tests
 
@@ -1880,67 +1891,67 @@ unit test, core acceptance tests,
 and web acceptance tests
 
 368
-00:26:58.944 --> 00:27:00.736
+00:26:58.944 --> 00:27:00.800
 Unit tests is easy to implement
 
 369
-00:27:00.992 --> 00:27:02.784
+00:27:00.800 --> 00:27:02.784
 We just shell out to RSpec
 
 370
-00:27:04.320 --> 00:27:06.368
+00:27:04.320 --> 00:27:06.700
 Core acceptance tests is very similar
 
 371
-00:27:06.880 --> 00:27:08.672
-but we shell out to cucumber instead
+00:27:06.700 --> 00:27:08.672
+but we shell out to Cucumber instead
 
 372
-00:27:09.952 --> 00:27:16.096
+00:27:09.952 --> 00:27:13.500
 Now for the web acceptance tests
 we just need to shell out to Cucumber
 
 373
-00:27:16.352 --> 00:27:17.632
-but this time set the
-shouty_test_depth environment variable
+00:27:13.500 --> 00:27:17.750
+but this time set the 'shouty_test_depth'
+environment variable
 
 374
-00:27:17.888 --> 00:27:20.192
+00:27:17.750 --> 00:27:20.192
 and pass the tags configuration switch
 
-There
-
 375
-00:27:20.704 --> 00:27:23.264
+00:27:20.600 --> 00:27:23.450
 Now when we run `rake` from the command-line
 
 376
-00:27:23.520 --> 00:27:26.080
+00:27:23.450 --> 00:27:26.200
 it runs all three layers of our testing pyramid
 
 377
-00:27:26.336 --> 00:27:27.872
+00:27:26.200 --> 00:27:27.872
 starting from the bottom up
 
 378
-00:27:33.504 --> 00:27:34.528
+00:27:33.350 --> 00:27:34.528
 One last thing
 
 379
-00:27:35.296 --> 00:27:39.904
+00:27:35.296 --> 00:27:40.050
 When we automate web pages, we need to
 refer to user interface elements and actions
 
 380
-00:27:40.160 --> 00:27:42.720
+00:27:40.050 --> 00:27:42.720
 buttons, links, text, clicks, etc
 
 381
-00:27:43.488 --> 00:27:48.864
+00:27:43.488 --> 00:27:47.400
 This is solution domain jargon
 we’ve managed to keep out of our scenarios
 
+381
+00:27:47.400 --> 00:27:48.864
 and that’s good!
 
 382
@@ -1948,45 +1959,58 @@ and that’s good!
 But it has to go somewhere
 
 383
-00:27:52.704 --> 00:27:58.848
+00:27:52.600 --> 00:27:55.500
 On larger projects, it becomes useful
 to create abstractions called
 
+383
+00:27:55.500 --> 00:27:58.850
 page objects to represent
 the things being filled in
 
 384
-00:27:59.104 --> 00:28:00.640
+00:27:58.850 --> 00:28:00.700
 clicked, and examined for content
 
 385
-00:28:01.152 --> 00:28:07.296
-For example, we might have a homepage object with a method called shout that encapsulated the calls
+00:28:01.152 --> 00:28:02.500
+For example, we might have
+
+385
+00:28:02.500 --> 00:28:07.400
+a homepage object with a method
+called shout that encapsulated the calls
 
 386
-00:28:07.552 --> 00:28:09.856
+00:28:07.400 --> 00:28:09.856
 to interact with the elements on the web page
 
 387
-00:28:10.368 --> 00:28:12.672
+00:28:10.368 --> 00:28:12.900
 This allows you to easily reuse code
 
 388
-00:28:13.184 --> 00:28:14.976
+00:28:12.900 --> 00:28:14.976
 and keep it easy to read
 
 389
-00:28:16.000 --> 00:28:22.144
-You can easily build page objects on your own, but if you’re feeling lazy there are a few libraries that reduce the amount of boilerplate code
+00:28:16.000 --> 00:28:19.200
+You can easily build page objects on your own,
+but if you’re feeling lazy
+
+389
+00:28:19.200 --> 00:28:22.200
+there are a few libraries that
+reduce the amount of boilerplate code
 
 390
-00:28:22.400 --> 00:28:23.168
+00:28:22.200 --> 00:28:23.300
 you need to write
 
 391
-00:28:23.424 --> 00:28:28.032
-Jeff “Cheezy” Morgan’s page-objects gem
-is a popular choice.
+00:28:23.300 --> 00:28:28.032
+Jeff “Cheezy” Morgan’s 'page-objects' gem
+is a popular choice
 
 392
 00:28:29.568 --> 00:28:34.944
