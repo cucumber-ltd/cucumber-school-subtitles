@@ -1061,31 +1061,38 @@ Let’s remedy this situation by
 pushing the code in this step definition
 
 204
-00:15:00.450 --> 00:15:01.887
+00:15:00.450 --> 00:15:02.000
 into a helper method
 
 205
-00:15:02.655 --> 00:15:07.007
-Then we’ll be able to have two different strategies
-for checking the messages that a user has heard
+00:15:02.655 --> 00:15:04.800
+Then we’ll be able to have
+two different strategies
+
+205
+00:15:04.800 --> 00:15:07.007
+for checking the messages
+that a user has heard
 
 206
-00:15:08.100 --> 00:15:12.000
+00:15:08.100 --> 00:15:11.500
 Once we have a failing test for
 the web strategy, we can
 
 207
-00:15:12.000 --> 00:15:15.967
+00:15:11.500 --> 00:15:15.967
 drive out the behaviour in the UI
 to display the user’s messages
 
 208
 00:15:16.800 --> 00:15:19.807
-We’ll focus on a single scenario while we do this work
+We’ll focus on a single scenario
+while we do this work
 
 209
-00:15:20.700 --> 00:15:24.000
-Once we’ve got that one passing to our satisfaction
+00:15:20.500 --> 00:15:24.000
+Once we’ve got that one passing
+to our satisfaction
 
 210
 00:15:24.000 --> 00:15:27.231
@@ -1102,20 +1109,16 @@ where Lucy hears Sean
 is a good place to start
 
 212
-00:15:35.423 --> 00:15:38.600
+00:15:35.300 --> 00:15:38.600
 Let's extract a method, messages heard by,
 from the body of the step definition
 
 213
-00:15:38.600 --> 00:15:40.175
-and put it on our
-
-214
-00:15:40.175 --> 00:15:41.311
-DomainWorld
+00:15:38.600 --> 00:15:41.311
+and put it in our DomainWorld
 
 215
-00:15:49.247 --> 00:15:50.783
+00:15:49.150 --> 00:15:52.500
 That scenario is still passing, good
 
 216
@@ -1124,39 +1127,50 @@ Now, when we run it through the web
 
 217
 00:15:56.250 --> 00:15:58.975
-we’re shown we need to add that method to the WebWorld
+we’re shown we need to add
+that method to the WebWorld
 
 218
 00:16:00.767 --> 00:16:02.815
 How will we fetch the messages heard?
 
 219
-00:16:03.583 --> 00:16:07.679
-The first thing we’ll need to do is log in, to make sure we’re reading the messages for the correct user
+00:16:03.583 --> 00:16:05.000
+The first thing we’ll need to do is log in
+
+219
+00:16:05.000 --> 00:16:07.679
+to make sure we’re reading the messages
+for the correct user
 
 220
 00:16:08.447 --> 00:16:10.751
-So we can re-use this helper method we’ve already built
+So we can re-use this
+helper method we’ve already built
 
 221
 00:16:11.775 --> 00:16:15.615
-Now we’ll need to scrape the messages off the HTML page
+Now, we’ll need to
+scrape the messages off the HTML page
 
 222
 00:16:16.127 --> 00:16:19.967
-Remember we’re going test-first here, so we don’t have this markup yet
+Remember we’re going test-first here,
+so we don’t have this markup yet
 
 223
-00:16:20.735 --> 00:16:22.015
+00:16:20.500 --> 00:16:22.100
 That's not a problem
 
 224
-00:16:22.271 --> 00:16:25.343
-we can use the test to help us design what the markup should look like
+00:16:22.100 --> 00:16:25.343
+We can use the test to help us design
+what the markup should look like
 
 225
 00:16:26.879 --> 00:16:31.487
-Let’s assume that each message will be in an element with a message class on it
+Let’s assume that each message will be
+an element with a message class on it
 
 226
 00:16:32.255 --> 00:16:35.839
@@ -1164,37 +1178,41 @@ We can ask Capybara to give us all
 the elements with that class
 
 227
-00:16:36.863 --> 00:16:43.007
-That gives us a list of Capybara HTML nodes which
+00:16:36.700 --> 00:16:40.100
+That gives us a list of
+Capybara HTML nodes which
 
 228
-00:16:43.263 --> 00:16:43.775
+00:16:40.100 --> 00:16:43.775
 we can then transform into
 a list of their text content
 
 229
-00:16:44.799 --> 00:16:46.335
+00:16:44.400 --> 00:16:46.335
 Let's watch this test fail
 
 230
-00:16:50.175 --> 00:16:51.455
+00:16:50.000 --> 00:16:52.000
 That looks OK.
 
 231
-00:16:52.223 --> 00:16:54.527
+00:16:52.000 --> 00:16:54.600
 Let's play fake it till you make it
 
 232
-00:16:54.783 --> 00:16:57.599
-just to check this assertion is doing the right thing
+00:16:54.600 --> 00:16:57.599
+just to check this assertion
+is doing the right thing
 
 233
-00:16:58.111 --> 00:17:01.951
-We’ll hard-code the HTML we want into the template, here
+00:16:58.000 --> 00:17:01.951
+We’ll hard-code the HTML we want
+into the template, here
 
 234
-00:17:04.511 --> 00:17:07.583
-This gives us a chance to talk with our designer about the markup
+00:17:04.300 --> 00:17:07.583
+That gives us a chance to
+talk with our designer about the markup
 
 235
 00:17:08.095 --> 00:17:12.959
@@ -1202,145 +1220,178 @@ We go over for a chat and he loves it,
 so we can press on!
 
 238
-00:17:15.007 --> 00:17:18.591
-The next step is to make the HTML template dynamic
+00:17:15.007 --> 00:17:18.700
+The next step is to
+make the HTML template dynamic
 
 239
-00:17:18.847 --> 00:17:22.687
-and have it display the list of
-actual messages heard by the user
+00:17:18.700 --> 00:17:22.687
+and have it display the actual list of
+messages heard by the user
 
 240
-00:17:23.455 --> 00:17:29.599
+00:17:23.455 --> 00:17:27.000
 We could continue using the
 Cucumber scenario to drive this out 
 
+240
+00:17:27.000 --> 00:17:29.300
 but it would be better to zoom in and focus
 
 241
-00:17:29.855 --> 00:17:31.903
+00:17:29.300 --> 00:17:31.903
 on some unit tests for the web app now
 
 242
-00:17:32.927 --> 00:17:39.071
+00:17:32.800 --> 00:17:36.100
 That way, if this behaviour ever
 slips loose in the future
 
 243
-00:17:39.327 --> 00:17:40.351
+00:17:36.100 --> 00:17:40.351
 there will be a unit test pointing us
 to exactly where we need to go to fix it
 
 244
-00:17:41.631 --> 00:17:45.471
-Luckily the web app has already been built with some unit tests around it
+00:17:41.500 --> 00:17:45.471
+Luckily the web app has already been built
+with some unit tests around it
 
 245
-00:17:47.519 --> 00:17:51.615
-These tests load the Sinatra web app in isolation
+00:17:47.450 --> 00:17:51.700
+These tests load the
+Sinatra web app in isolation
 
 246
-00:17:51.871 --> 00:17:55.455
-passing in a hash of people that just contains test doubles
+00:17:51.700 --> 00:17:55.455
+passing it a hash of people that
+just contains test doubles
 
 247
-00:17:56.223 --> 00:18:02.367
-We could have used real instances from our domain model,
+00:17:56.223 --> 00:17:59.000
+We could have used real instances
+from our domain model
+
+247
+00:17:59.000 --> 00:18:00.600
 but as we explained in the last episode
 
 248
-00:18:02.623 --> 00:18:07.231
-using test doubles helps us to see the protocol on the port between the web app adapter and our core domain
+00:18:00.600 --> 00:18:04.500
+using test doubles helps us
+to see the protocol on the port
+
+248
+00:18:04.500 --> 00:18:07.231
+between the web app adapter
+and our core domain
 
 249
-00:18:09.023 --> 00:18:12.863
-We use a library called rack-test to make requests to the web app
+00:18:09.023 --> 00:18:13.000
+We use a library called rack/test
+to make requests to the web app
 
 250
-00:18:13.375 --> 00:18:19.519
-and load the response into a Capybara HTML document, so we can make queries and assertions about the HTML
+00:18:13.000 --> 00:18:16.800
+and load the response into
+a Capybara HTML document
+
+250
+00:18:16.800 --> 00:18:19.650
+so we can make queries
+and assertions about the HTML
 
 251
-00:18:19.775 --> 00:18:21.055
+00:18:19.650 --> 00:18:21.055
 in the response if we want to
 
 252
-00:18:22.591 --> 00:18:24.639
-The tests are organised by request
+00:18:22.591 --> 00:18:24.750
+The tests are organized by request
 
 253
-00:18:25.151 --> 00:18:29.503
+00:18:24.750 --> 00:18:29.503
 so that when we run them, we get some
 nice documentation about how the app behaves
 
 254
-00:18:30.783 --> 00:18:36.927
+00:18:30.783 --> 00:18:32.600
 We need a new test for the GET request 
 
+254
+00:18:32.600 --> 00:18:37.000
 which simulates the situation where
-Lucy has heard a couple of messages
+Lucy has heard a couple of messages...
 
 255
-00:18:41.791 --> 00:18:43.583
+00:18:41.500 --> 00:18:43.583
 and views her homepage
 
 256
 00:18:44.607 --> 00:18:48.959
-We’d expect to be able to find the message text in each of the message elements
+We’d expect to be able to find the message text
+in each of the message elements
 
 257
-00:18:51.775 --> 00:18:53.055
+00:18:51.775 --> 00:18:53.150
 When we run this
 
 258
-00:18:53.311 --> 00:18:56.895
+00:18:53.150 --> 00:18:56.895
 it fails because we’re just hard-coding
 the message at the moment
 
 259
-00:18:57.407 --> 00:18:59.199
+00:18:57.300 --> 00:18:59.199
 Let's TDD our solution
 
 260
-00:19:01.247 --> 00:19:07.391
+00:19:01.150 --> 00:19:04.500
 If you’d like to try this yourself,
 just pause the video here
 
+260
+00:19:04.500 --> 00:19:07.450
 and see if you can figure out what
 to do next, before we show you
 
 261
-00:19:10.463 --> 00:19:16.095
+00:19:10.350 --> 00:19:14.000
 Starting in the template, we can look
 for a local variable
 
-let’s call it messages heard
+261
+00:19:14.000 --> 00:19:16.150
+let’s call it messages_heard
 
 262
-00:19:16.351 --> 00:19:17.887
+00:19:16.150 --> 00:19:17.887
 and iterate over it
 
 263
-00:19:18.399 --> 00:19:20.959
+00:19:18.250 --> 00:19:20.959
 For each message, we’ll write a message element
 
+263
+00:19:26.000 --> 00:19:27.000
 There. 
 
 264
 00:19:28.127 --> 00:19:31.455
-Now we need to set up messages Hood variable for the template
-
-265
-00:19:32.223 --> 00:19:35.039
 Now we need to set that
 messages heard variable for the template
 
+265
+00:19:32.150 --> 00:19:35.039
+We do that from within the
+GET request handler in the web app
+
 266
-00:19:36.319 --> 00:19:38.367
+00:19:36.250 --> 00:19:38.500
 We need to get the messages heard for the user
 
 267
-00:19:38.623 --> 00:19:44.255
+00:19:38.500 --> 00:19:44.255
 which we can fetch from the @people hash,
 using the name param as the key to find them
 
@@ -1354,15 +1405,15 @@ to the view template in this locals hash
 Let's give that a try
 
 270
-00:20:13.951 --> 00:20:14.719
+00:20:13.850 --> 00:20:15.000
 Great!
 
 271
 00:20:15.999 --> 00:20:17.791
-Suddenly everything is green
+Suddenly, everything is green!
 
 272
-00:20:19.327 --> 00:20:24.191
+00:20:19.250 --> 00:20:24.191
 Try a quick manual test for yourself,
 creating a couple of tabs as Sean and Lucy
 
@@ -1371,17 +1422,26 @@ creating a couple of tabs as Sean and Lucy
 and satisfy yourself that it’s working now
 
 274
-00:20:28.031 --> 00:20:33.151
-Now that we’ve proved our messages_heard_by method
+00:20:27.900 --> 00:20:30.200
+Now that we’ve proved our
+messages_heard_by method
+
+274
+00:20:30.200 --> 00:20:33.300
 works for both domain and web strategies
 
 275
-00:20:33.407 --> 00:20:39.551
-let’s use that method in all the step definitions,
-so that every scenario that checks for messages heard
+00:20:33.300 --> 00:20:36.000
+let’s use that method in
+all the step definitions
+
+275
+00:20:36.000 --> 00:20:39.500
+so that every scenario
+that checks for messages heard
 
 276
-00:20:39.807 --> 00:20:42.111
+00:20:39.500 --> 00:20:42.111
 will do that check in a consistent way
 
 277
