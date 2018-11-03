@@ -2,79 +2,76 @@ WEBVTT
 
 1
 00:00:15.616 --> 00:00:18.688
-Welcome back to the lesson of cucumber School
+Welcome back to the 3rd lesson of Cucumber School
 
 2
 00:00:19.200 --> 00:00:20.992
-I hope you having fun
+I hope you having fun!
 
 3
 00:00:22.272 --> 00:00:26.624
-Last time we showed you the fundamental components of a cucumber test Suite
+Last time we showed you the
+fundamental components of a Cucumber test suite
 
 4
 00:00:27.392 --> 00:00:30.208
-And how we use them to drive out to solution
+and how we use them to drive out a solution
 
 5
 00:00:30.464 --> 00:00:31.744
 Test first
 
 6
-00:00:33.024 --> 00:00:36.864
-First we specified the behavior we wanted
-
-7
-00:00:37.120 --> 00:00:41.728
-Using a gherkin scenario and I fit your file
+00:00:33.024 --> 00:00:41.728
+First we specified the behaviour we wanted,
+using a Gherkin scenario in a feature file
 
 8
 00:00:42.752 --> 00:00:48.896
-Tell me right step definitions to translate the plain English from a scenario
+Then we wrote step definitions in Ruby
+to translate the plain english
 
 9
 00:00:49.152 --> 00:00:50.944
-Concrete actions in code
+from our scenario into concrete actions in code
 
 10
 00:00:52.480 --> 00:00:57.856
-Step definitions then exercised a very basic domain model
+The step definitions then exercised our
+very basic domain model
 
 11
 00:00:58.368 --> 00:01:00.160
-Ashanti application
+for the Shouty application
 
 12
-00:01:01.696 --> 00:01:07.840
-We tend to think of the code that actually Polk surround of the system as distinct from the stepdad
-
-13
-00:01:08.096 --> 00:01:08.864
-Definitions
+00:01:01.696 --> 00:01:08.864
+We tend to think of the code that
+actually pokes around with the system as distinct
 
 14
 00:01:09.120 --> 00:01:12.960
-So we throw in an extra box labeled ultimation code
+from the step definitions so we’ve drawn an
+extra box labelled “automation code” for this
 
 15
 00:01:16.032 --> 00:01:19.616
-Automation code to do almost anything to your application
+Automation code can do almost anything to your application:
 
 16
 00:01:20.128 --> 00:01:26.272
-It can drive a web browser around your site like HTTP requests to a rest API
+it can drive a web browser around your site
+make HTTP requests to a REST API
 
 17
-00:01:26.528 --> 00:01:28.832
-Or that you've already seen
-
-18
-00:01:29.088 --> 00:01:31.136
-Driving to Maine Mall directory
+00:01:26.528 --> 00:01:31.136
+or -- as you’ve already seen --
+drive a domain model directly
 
 19
 00:01:32.160 --> 00:01:35.744
-Automation code is a big topic that will come back to
+Automation code is a big topic
+that we’ll come back to
 
 20
 00:01:36.512 --> 00:01:40.096
@@ -82,183 +79,184 @@ First we want to concentrate on step definitions
 
 21
 00:01:40.864 --> 00:01:46.752
-Good step definitions are important because they enable the readability of your scenarios
+Good step definitions are important because
+they enable the readability of your scenarios
 
 22
 00:01:47.520 --> 00:01:51.616
-The better you are matching plain language phrases from gherkin
+The better you are at matching
+plain language phrases from Gherkin
 
 23
 00:01:51.872 --> 00:01:56.224
-The more expressive you can be when writing scenarios
+the more expressive you can be
+when writing scenarios
 
 24
 00:01:56.736 --> 00:02:01.856
-Things to do this well refer to that features as living documentation
+Teams who do this well refer to their
+features as living documentation -
 
 25
 00:02:02.112 --> 00:02:05.952
-Specification document that never goes out of date
+a specification document that
+never goes out of date
 
 26
 00:02:06.464 --> 00:02:12.608
-Can cucumber we use regular Expressions to match plain language phrases from good in steps
+In Cucumber we use regular expressions to match
+plain language phrases from Gherkin steps
 
 27
 00:02:14.400 --> 00:02:18.240
-Regular expressions of quiet and intimidating reputation
+Regular expressions have quite an
+intimidating reputation
 
 28
 00:02:18.752 --> 00:02:19.776
-It's fine
+In fact, there are only a handful of patterns
 
 29
 00:02:20.544 --> 00:02:26.688
-Early houses with ponds you need to be able to do almost anything with regular Expressions no need to be
+you need to learn to be able to
+do almost anything with regular expressions
 
 30
 00:02:27.968 --> 00:02:30.528
-Will cover all of those patterns in this lesson
+No need to be scared. We’ll cover
+all of those patterns in this lesson
 
 31
 00:02:31.040 --> 00:02:34.112
-Let's look at the shouty scenario from the last lesson
+Let’s look at the Shouty scenario
+from the last lesson
 
 32
 00:02:35.136 --> 00:02:37.696
-Askew. stops to execute this feature
+As Cucumber starts to execute this feature,
 
 33
-00:02:37.952 --> 00:02:40.768
-It will come to the first step of the scenario
-
-34
-00:02:41.280 --> 00:02:44.352
-Even Lucy is 15 meters from Sean
+00:02:37.952 --> 00:02:44.352
+it will come to the first step of the scenario
+“Given Lucy is 15 metres from Sean”
 
 35
-00:02:44.608 --> 00:02:46.144
-Say to itself
-
-36
-00:02:46.400 --> 00:02:46.912
-Now
-
-37
-00:02:47.424 --> 00:02:50.496
-Do I have any step definitions that match the phrase
+00:02:44.608 --> 00:02:50.496
+and say to itself “now - do I have any
+step definitions that match the phrase
 
 38
 00:02:50.752 --> 00:02:53.568
-Lucy is 15 meters from Sean
+Lucy is 15 metres from Sean?”
 
 39
-00:02:55.616 --> 00:02:59.456
-The most simple regular expression that would match that step
-
-40
-00:02:59.712 --> 00:03:00.736
-Is this one
+00:02:55.616 --> 00:03:00.736
+The most simple regular expression that
+would match that step is this one
 
 41
 00:03:02.528 --> 00:03:04.064
-That's pretty simple as net
+That’s pretty simple isn’t it?
 
 42
 00:03:05.088 --> 00:03:07.392
-Regular Expressions it just patents
+Regular expressions are just patterns,
 
 43
-00:03:07.648 --> 00:03:10.208
-And the most simple pattern you can use
-
-44
-00:03:10.464 --> 00:03:12.000
-Is a perfect match
+00:03:07.648 --> 00:03:12.000
+and the most simple pattern
+you can use is a perfect match
 
 45
 00:03:14.048 --> 00:03:18.144
-In Java we can use this pattern to make a step definition like this
+In Java, we can use this pattern
+to make a step definition like this
 
 46
 00:03:20.704 --> 00:03:24.288
-We is an annotation to link the regular expression to the Java method
+We use an annotation to link the
+regular expression to the Java method
 
 47
 00:03:25.056 --> 00:03:27.104
-We can call him at advisory like
+We can call the method whatever we like,
 
 48
 00:03:27.616 --> 00:03:30.432
-But it makes sense that would be something meaningful
+but it make sense to
+have it be something meaningful
 
 49
 00:03:31.968 --> 00:03:35.808
-We use underscores rather than the standard camelcase naming
+We use underscores rather than
+the standard camelcase naming
 
 50
 00:03:36.064 --> 00:03:39.136
-So that the method reads just like a sentence
+so that the method reads like a sentence
 
 51
-00:03:40.672 --> 00:03:41.696
-Note to self
-
-52
-00:03:41.952 --> 00:03:46.304
-Unlike the snippet generated by cucumber that we use in the previous lesson
+00:03:40.672 --> 00:03:49.632
+Notice that, unlike the snippet generated
+by Cucumber that we used in the previous lesson
 
 53
-00:03:46.560 --> 00:03:49.632
-List of definition doesn't take an argument
+00:03:46.560 --> 
+this step definition doesn’t take an argument
 
 54
 00:03:50.912 --> 00:03:56.544
-The counter interesting values mustard definitions we can use with cold a capture group
+To capture interesting values
+from our step definitions
+
+we can use what’s called a capture group
 
 55
 00:03:57.568 --> 00:04:02.688
-You just surround the interesting past the patent with parentheses like this
+You just surround the interesting part
+of the pattern with parentheses, like this
 
 56
 00:04:04.224 --> 00:04:06.784
-Now what capturing that value is an argument
+Now we’re capturing that value as an argument
 
 57
 00:04:07.808 --> 00:04:12.416
-The value 15 will be passed to a code automatically by cucumber
+The value 15 will be passed
+to our code automatically by Cucumber
 
 58
 00:04:14.720 --> 00:04:17.024
-That's not much better yet though
+That’s not much better yet though -
 
 59
 00:04:17.536 --> 00:04:22.911
-Step definition that specifies a distance of 15 meters
+this step definition will only match
+if the step specifies a distance of 15 metres
 
 60
 00:04:23.423 --> 00:04:28.543
-They want to set Lucy and showing a different distance apart is Cottonwood match
+If we want to set Lucy and Sean
+a different distance apart
+
+this pattern won’t match
 
 61
 00:04:29.311 --> 00:04:32.127
-Let's try and see
+Let's try it and see
 
 62
-00:04:32.639 --> 00:04:33.663
-Yep
-
-63
-00:04:34.175 --> 00:04:37.247
-It showing the step is undefined
+00:04:32.639 --> 00:04:37.247
+Yep, it’s showing this step as undefined.
 
 64
 00:04:37.503 --> 00:04:39.039
-That's not much juice
+So that’s not much use
 
 65
 00:04:39.551 --> 00:04:43.903
-We need to make our regular expression a little bit more flexible
+We need to make our regular expression
+a little bit more flexible
 
 66
 00:04:44.671 --> 00:04:47.487
@@ -266,43 +264,45 @@ We can do this using a wildcard
 
 67
 00:04:49.791 --> 00:04:54.399
-There are a few different ways to specify wildcard in a regular expression
+There are a few different ways to specify
+a wildcard in a regular expression
 
 68
 00:04:55.167 --> 00:04:57.727
-What are the simplest is alternation
+One of the simplest is alternation,
+where we express different options
 
 69
 00:04:57.983 --> 00:05:02.335
-Express different options separated by a pipe character
+separated by a pipe character (|), like this
 
 70
 00:05:05.919 --> 00:05:08.735
-Now we could use either those bodies in the step
+Now we could use either of those
+values in the step
 
 71
-00:05:08.991 --> 00:05:11.039
-And this definition of Steel match
-
-72
-00:05:11.551 --> 00:05:13.343
-And passed the body to a code
+00:05:08.991 --> 00:05:13.343
+and this definition will match,
+and pass the value into our code
 
 73
 00:05:14.367 --> 00:05:18.207
-Alternation is useful when you have a fixed set of values
+Alternation is useful when
+you have a fixed set of values
 
 74
 00:05:18.719 --> 00:05:21.791
-Normally you want something a bit looser
+but normally you’ll want something a bit looser
 
 75
 00:05:24.095 --> 00:05:26.655
-Adult is a meta character
+The dot (.) is a metacharacter
 
 76
 00:05:27.679 --> 00:05:30.751
-Which means it has magical powers in a regular expression
+which means it has magical powers
+in a regular expression
 
 77
 00:05:31.519 --> 00:05:35.871
@@ -310,59 +310,54 @@ It means match any single character
 
 78
 00:05:36.895 --> 00:05:39.711
-So we could change ISTEP definition to this instead
+so we could change our step definition
+to this instead
 
 79
 00:05:41.759 --> 00:05:45.599
-Now will not just that with any two digit distance
+Now we’ll match a step with
+any two-digit distance
 
 80
 00:05:46.367 --> 00:05:49.439
-That's an improvement but we can still do better
+That’s an improvement,
+but we can still do better
 
 81
-00:05:50.207 --> 00:05:54.303
-Remember this. Will match any character tool
-
-82
-00:05:54.815 --> 00:05:57.631
-So would also much lettuce as well as numbers
+00:05:50.207 --> 00:05:57.631
+Remember the dot will match any character at all
+so it would also match letters as well as numbers 
 
 83
 00:05:58.399 --> 00:06:00.191
-Come back to this problem in a minute
+We’ll come back to this problem in a minute
 
 84
 00:06:00.447 --> 00:06:04.799
-Will pressing is it limited to only using two digit distances
+More pressing is that we are limited
+to using two-digit distances
 
 85
-00:06:05.311 --> 00:06:08.639
-What if we wanted to place them to me apart
-
-86
-00:06:08.895 --> 00:06:10.175
-Or 100
+00:06:05.311 --> 00:06:10.175
+What if we wanted to place them
+2 metres apart, or 100?
 
 87
-00:06:11.711 --> 00:06:14.271
-To fix that we need to use
-
-88
-00:06:14.783 --> 00:06:16.063
-A modifier
+00:06:11.711 --> 00:06:16.063
+To fix that, we need to use a modifier
 
 89
 00:06:20.159 --> 00:06:25.791
-Is regular Expressions a repetition modifier comes after attacked
+In regular expressions, a repetition modifier
+comes after a character and tells us 
 
 90
 00:06:26.047 --> 00:06:29.119
-And tells us how many times. Card to canapea
+how many times that character can appear
 
 91
 00:06:29.631 --> 00:06:32.191
-The most flexible modifiers the star
+The most flexible modifier is the star (*)
 
 92
 00:06:33.215 --> 00:06:34.751
@@ -370,43 +365,39 @@ We could use it like this
 
 93
 00:06:36.543 --> 00:06:40.383
-Install means any number of times
+The star means any number of times
 
 94
 00:06:40.639 --> 00:06:46.527
-So don't * means any character any number of times
+so dot-star (.*) means any character
+any number of times
 
 95
 00:06:47.295 --> 00:06:48.831
-Pretty flexible
+That’s pretty flexible!
 
 96
-00:06:49.599 --> 00:06:50.879
-Chile
-
-97
-00:06:51.135 --> 00:06:53.695
-Maybe a bit too flexible
+00:06:49.599 --> 00:06:53.695
+Actually, maybe a bit too flexible
 
 98
 00:06:54.207 --> 00:06:58.047
-Remember that. Will match any character including lattice
+Remember the dot will match any character,
+including letters
 
 99
 00:06:58.559 --> 00:07:02.911
-For the star we could my end up matching a step like this
+Combined with the star,
+we could end up matching a step like this:
 
 100
-00:07:05.215 --> 00:07:11.359
-I talked to would gobble up everything up until the words meet us
-
-101
-00:07:11.615 --> 00:07:12.639
-From Sean
+00:07:05.215 --> 00:07:12.639
+Our capture would gobble up everything
+up until the words metres from Sean
 
 102
 00:07:13.919 --> 00:07:16.735
-Look up what's up distance argument ends up as
+Look what our distance argument ends up as!
 
 103
 00:07:18.527 --> 00:07:20.319
@@ -414,55 +405,66 @@ We need to be more specific
 
 104
 00:07:21.087 --> 00:07:25.439
-Luckily adult isn't the only special character we can use
+Luckily the dot isn’t the only
+special character we can use
 
 105
 00:07:28.255 --> 00:07:32.607
-Regular Expressions allow you to define character classes
+Regular expressions allow you
+to define character classes
 
 106
 00:07:33.375 --> 00:07:39.519
-Time to toss is a range of taxes one of which must match that point in the
+A character class is
+a range of characters,
 
 107
 00:07:39.775 --> 00:07:40.543
-Patton
+one of which must match at
+that point in the pattern
 
 108
 00:07:41.311 --> 00:07:45.919
-You just place all of the acceptable times together inside square bracket
+You just place all of the acceptable characters
+together inside square brackets
 
 109
 00:07:46.431 --> 00:07:52.575
-So we can replace a dog with a character class that accept any single digit from
+So we can replace our dot with
+a character class that accepts
 
 110
 00:07:52.831 --> 00:07:55.391
-0 to 9
+any single digit from 0 to 9, like this
 
 111
 00:08:02.815 --> 00:08:08.959
-Now accepting any digit from 0 to 9 any number of times but we can do both
+Now we’re accepting any digit from 0-9
+any number of times
 
 112
 00:08:10.751 --> 00:08:13.055
-With A continuous range of characters
+But we can do better than that
 
 113
 00:08:13.567 --> 00:08:15.871
-We don't need to specify each one
+With a continuous range of characters
+we don’t need to specify each one
 
 114
 00:08:16.639 --> 00:08:20.479
-That works just the same on reserve it better
+That works just the same, and reads a bit better
 
 115
 00:08:22.015 --> 00:08:28.159
-Contact two classes like digits that are few short and character classes that you can use
+For common character classes like digits
+
+there are a few shorthand character classes
+you can use
 
 116
 00:08:29.439 --> 00:08:32.767
-Four digits you can use a box last day
+For digits, you can use a backslash-d (\d)
 
 117
 00:08:34.559 --> 00:08:37.375
@@ -470,79 +472,78 @@ When we write a regular expression in Java
 
 118
 00:08:37.631 --> 00:08:43.775
-We have to escape backslashes and double quotes with an additional backslash
+we have to escape backslashes and double quotes
+with an additional backslash
 
 119
-00:08:44.287 --> 00:08:46.591
-So when you see Tupac slashes
-
-120
-00:08:46.847 --> 00:08:48.895
-Think of them as a single one
+00:08:44.287 --> 00:08:48.895
+So when you see two backslashes,
+think of them as a single one
 
 121
 00:08:49.663 --> 00:08:53.503
-Maybe you find that's just made your regular expression will cryptic
+Maybe you find that’s just made your
+regular expression more cryptic
 
 122
 00:08:54.015 --> 00:08:59.135
-It's something of a matter of taste but there are only a few of these to learn if you're interested
+It’s something of a matter of taste
+
+but there are only a few of these
+to learn if you’re interested
 
 123
 00:08:59.903 --> 00:09:01.951
-Are the most useful one
+Here are the most useful ones:
 
 124
 00:09:03.743 --> 00:09:05.791
-Today's 4-Digit
+\d is for digit
 
 125
 00:09:07.071 --> 00:09:10.655
-W is for word character
+w is for word character
 
 126
-00:09:12.191 --> 00:09:15.775
-Backslash s is for white space
-
-127
-00:09:16.031 --> 00:09:17.823
-Space a tab
-
-128
-00:09:18.335 --> 00:09:19.615
-Caroline bright
+00:09:12.191 --> 00:09:19.615
+\s is for whitespace: a space,
+a tab or a line break
 
 129
 00:09:22.687 --> 00:09:26.271
-The star modifier has a Supple flow
+The star modifier has a subtle flaw:
 
 130
 00:09:27.551 --> 00:09:33.439
-Any number of times includes zero time
+any number of times includes zero
 
 131
 00:09:34.207 --> 00:09:38.559
-We don't want to match distances with 0 digits in them
+We don’t want to match distances with
+zero digits in them
 
 132
 00:09:41.375 --> 00:09:44.703
-This time cucumber throws an error and fails ISTEP
+This time Cucumber throws an error
+and fails our step!
 
 133
 00:09:45.215 --> 00:09:48.799
-It doesn't know how to convert an empty string into an integer
+It doesn’t know how to convert
+an empty string into an integer!
 
 134
 00:09:49.311 --> 00:09:53.663
-To fix this we can use the plus modifier
+To fix this, we can use the plus (+) modifier
 
 135
 00:09:54.431 --> 00:10:00.319
-That means at least once which is more suitable in this situation
+That means at least once
+which is more suitable in this situation
 
 136
 00:10:03.647 --> 00:10:06.975
-Now that is pretty water type
+Now this is pretty watertight
 
 137
 00:10:07.999 --> 00:10:10.303
@@ -550,67 +551,77 @@ We took quite a long time to get here
 
 138
 00:10:10.815 --> 00:10:16.959
-On the journey we passed through almost every feature regular Expressions Ever Need
+On the journey we passed through almost every feature but on the journey we passed through almost
+every feature of regular expressions
 
 139
 00:10:17.215 --> 00:10:18.495
-What whiskey
+you’ll ever need to work with Cucumber
 
 140
 00:10:19.519 --> 00:10:22.591
-No just a couple mole we want to tell you about
+There are just a couple more
+we want to tell you about
 
 141
 00:10:23.615 --> 00:10:28.223
-Don't go thinking you're limited to capturing just one argument from a staff
+Don’t go thinking you’re limited to
+capturing just one argument from a step
 
 142
 00:10:29.247 --> 00:10:34.367
-You can use the parentheses as many times as you like in your possum
+You can use the parentheses as many times
+as you like in your pattern
 
 143
 00:10:35.135 --> 00:10:41.279
-For example we could make the names of the people and I stepped into arguments like this
+For example, we could make the names of the people
+in our step into arguments, like this
+
 
 144
 00:10:44.095 --> 00:10:49.471
-Note to self we haven't use quotation marks to surround up couches anywhere in this lesson
+Notice that we haven’t used quotation marks ("")
+to surround our captures 
 
 145
 00:10:51.519 --> 00:10:56.639
-There's nothing mandatory about doing that it's just a convention that many people like to use
+There’s nothing mandatory about that -
+it’s just a convention many people like to use
 
 146
 00:10:56.895 --> 00:11:00.991
-But as long as you use a capture group in your regular expression
+but as long as you use a capture group
+in your regular expression
 
 147
 00:11:01.247 --> 00:11:04.831
-You can blow past you the captured value as an argument
+Cucumber will pass you the captured value
+as an argument
 
 148
 00:11:06.623 --> 00:11:12.767
-Low is important to try to use consistent terminology in your gherkin scenarios to help develop
+Although it’s important to try to use
+consistent terminology in our Gherkin scenarios
 
 149
 00:11:13.023 --> 00:11:15.839
-The ubiquitous language realtor Maine
+to help develop the
+ubiquitous language of your domain
 
 150
-00:11:16.863 --> 00:11:19.423
-He also wants to know is to read naturally
-
-151
-00:11:19.935 --> 00:11:22.495
-Which means allowing a bit of flexibility
+00:11:16.863 --> 00:11:22.495
+we also want scenarios to read naturally
+which means allowing a bit of flexibility
 
 152
 00:11:24.031 --> 00:11:30.175
-Ideally the language used in scenario should never be constrained by your step definition
+Ideally, the language used in scenarios should
+never be constrained by your step definitions
 
 153
 00:11:31.455 --> 00:11:35.551
-Otherwise they'll end up sounding like they were written by robot
+Otherwise they’ll end up sounding like they were written by robots
 
 154
 00:11:36.831 --> 00:11:39.647
@@ -618,99 +629,96 @@ One common example is the problem of plurals
 
 155
 00:11:40.927 --> 00:11:45.023
-Suppose we want to place Lucy and Sean just one meter apart
+Suppose we want to place Lucy and Sean
+just 1 metre apart
 
 156
 00:11:46.047 --> 00:11:48.351
-Which Step would not match
+This step would not match
 
 157
-00:11:49.887 --> 00:11:52.447
-Because we use the singular meter
-
-158
-00:11:52.703 --> 00:11:55.263
-Instead of a plural meters
+00:11:49.887 --> 00:11:55.263
+Because we’ve used the singular “metre”
+instead of the plural “metres”
 
 159
 00:11:55.519 --> 00:11:57.311
-We don't have a match
+we don’t have a match
 
 160
 00:11:58.079 --> 00:11:59.615
-What's a pain
+What a pain!
 
 161
 00:12:00.895 --> 00:12:01.919
-Sienna
+Fear not
 
 162
 00:12:02.687 --> 00:12:08.831
-We can use another modify the? The Mob vs us auction
+We can use another modifier,
+the question mark (?), to mark the “s” as optional
 
 163
 00:12:10.367 --> 00:12:11.647
-He is hot look
+Here's how that looks
 
 164
 00:12:14.207 --> 00:12:19.583
-? is one way to smooth off some of the rough edges in your regular expression
+The question mark is one way to
+smooth off some of the rough edges
+
+in your regular expressions
 
 165
-00:12:21.375 --> 00:12:22.399
-Another trick
-
-166
-00:12:22.655 --> 00:12:25.983
-Is the use of a non capturing group
+00:12:21.375 --> 00:12:25.983
+Another trick is to use a non-capturing group
 
 167
 00:12:29.823 --> 00:12:32.127
-Suppose somebody wants to write this step
+Suppose someone wanted to write this step
 
 168
 00:12:34.687 --> 00:12:38.015
-The fact that Lucy is standing in particular
+The fact that Lucy is standing
+doesn't particularly matter
 
 169
 00:12:38.527 --> 00:12:42.367
-The people writing this stuff like the way read someone to keep it
+but the people writing this step
+like the way it reads, and want to keep it
 
 170
-00:12:44.159 --> 00:12:46.975
-We can change our regular expression to allow for both
-
-171
-00:12:47.487 --> 00:12:48.255
-I guess
+00:12:44.159 --> 00:12:48.255
+We can change our regular expression
+to allow for both, like this
 
 172
 00:12:51.071 --> 00:12:54.655
-This is exactly the same as the ultimates we used earlier
+This is the same as the
+alternates we used earlier
 
 173
 00:12:55.679 --> 00:12:59.775
-Here's a list of alternate phrases separated by a pipe
+We use a list of alternate phrases
+separated by a pipe
 
 174
 00:13:00.799 --> 00:13:04.383
-It's time we start with the question mark colon
+This time we start with
+the question-mark-colon (?:)
 
 175
 00:13:04.639 --> 00:13:07.711
-Indicate that the group is known capturing
+to indicate that the group is non-capturing
 
 176
-00:13:08.223 --> 00:13:10.015
-Otherwise
-
-177
-00:13:10.271 --> 00:13:13.087
-Which pasta value of whichever alternate match
+00:13:08.223 --> 00:13:13.087
+Otherwise we’d be passed the value of
+whichever alternate matched
 
 178
 00:13:13.343 --> 00:13:15.391
-Which isn't ready interesting to us
+which isn’t really interesting to us
 
 179
 00:13:18.207 --> 00:13:19.487
@@ -718,99 +726,92 @@ One final thing
 
 180
 00:13:19.999 --> 00:13:24.351
-You might have noticed that the Snippets cucumber prince outfit undefined step
+You might have noticed that the snippets
+Cucumber prints out for undefined steps
 
 181
-00:13:24.863 --> 00:13:26.143
-Stop with the current
-
-182
-00:13:26.399 --> 00:13:27.935
-And with a dollar
+00:13:24.863 --> 00:13:27.935
+start with a caret (^) and end with a dollar ($)
 
 183
 00:13:29.215 --> 00:13:32.031
-Post-traumatic hard cuz it cold anchors
+These two metacharacters are called anchors
 
 184
 00:13:32.543 --> 00:13:38.687
-Because they used to tie down the regular expression pots in the beginning and end of the street
+because they’re used to tie down
+the regular expression to the
 
 185
 00:13:38.943 --> 00:13:40.223
-Nothing matched on
+beginning and end of the string they match on
 
 186
-00:13:41.503 --> 00:13:43.039
-You don't have to use them
-
-187
-00:13:43.295 --> 00:13:47.135
-Because I'm fine leaving the market this example so far
+00:13:41.503 --> 00:13:47.135
+You don’t have to use them, and we’ve got on fine
+leaving them out of this example so far
 
 188
-00:13:48.415 --> 00:13:50.463
-Illustrate why we need them
-
-189
-00:13:50.975 --> 00:13:52.511
-Considered this stat
+00:13:48.415 --> 00:13:52.511
+To illustrate why we need them,
+consider this step
 
 190
 00:13:56.607 --> 00:14:00.191
-Because we have an uncut down the end of apothem of the dollar
+Because we haven’t anchored down the
+end of our pattern with a dollar
 
 191
 00:14:00.447 --> 00:14:02.751
-Pitbull happily much this step
+it will happily match this step, even though
+it has that bit about Dave at the end
 
 192
-00:14:03.263 --> 00:14:06.079
-Including not but about Dave at the end
-
-193
-00:14:09.407 --> 00:14:13.247
-I didn't anxious to the beginning and end of your patent
+00:14:03.263 --> 00:14:13.247
+Adding anchors to the beginning and end
+of your pattern
 
 194
 00:14:13.503 --> 00:14:17.087
-Prevents this kind of nasty little accident
+prevents this kind of nasty little accident
 
 195
-00:14:22.207 --> 00:14:25.791
-When cucumber couches an argument from your step
-
-196
-00:14:26.303 --> 00:14:28.863
-It's always a string by default
+00:14:22.207 --> 00:14:28.863
+When Cucumber captures an argument from your step
+it’s always a string by default
 
 197
 00:14:29.375 --> 00:14:34.495
-Even if you've used a digit character class in the regular expression
+even if you’ve used a digit character class
+in the regular expression
 
 198
 00:14:35.263 --> 00:14:41.407
-Cucumber smart enough to convert a string into the declared type of the method parameter
+Cucumber is smart enough to convert that string
+into the declared type of the method parameter
 
 199
 00:14:42.431 --> 00:14:46.527
-Cucumber can't convert strings into any of Java's number types
+Cucumber can convert strings into
+any of Java’s number types
 
 200
 00:14:46.783 --> 00:14:51.647
-It can even convert into enum values and dates
+It can even convert into enum values and dates!
 
 201
 00:14:52.159 --> 00:14:56.255
-Wow that was a pretty deep dive into regular expression
+Well that was a pretty deep dive
+into regular expressions!
 
 202
 00:14:57.023 --> 00:14:59.071
-What you've learned in this lesson
+With what you’ve learned in this lesson
 
 203
 00:14:59.327 --> 00:15:03.935
-You'll be able to match any phrase you say Annika can step without fear
+you’ll be able to match any phrase
+you see in a Gherkin step without fear
 
 204
 00:15:04.959 --> 00:15:07.519
@@ -818,28 +819,28 @@ This will help you keep your scenario is readable
 
 205
 00:15:08.031 --> 00:15:12.127
-I keep your business stakeholders engaged in the PD process
+and keep your business stakeholders
+engaged in the BDD process
 
 206
 00:15:15.711 --> 00:15:18.783
-Would love to hear your feedback about cucumber School
+We’d love to hear your feedback
+about Cucumber School
 
 207
-00:15:19.807 --> 00:15:21.087
-If you love it
-
-208
-00:15:21.343 --> 00:15:27.487
-Feel free to tweet about this and mention cucumber bdd in your tweets if your
+00:15:19.807 --> 00:15:27.487
+If you love it, feel free to tweet about us
+and mention @cucumberbdd in your tweet if you like
 
 209
-00:15:29.535 --> 00:15:31.839
-If there's anything you'd like to improve them
-
-210
-00:15:32.095 --> 00:15:34.655
-Or any specific things you want to tell us
+00:15:29.535 --> 00:15:34.655
+If there’s anything you’d like us to improve on
+or any specific things you want to tell us
 
 211
 00:15:35.423 --> 00:15:40.799
-Please email hello at cucumber adult Pro to start the conversation
+please email hello@cucumber.pro to start the conversation
+
+212
+00:15:42.000 --> 00:15:44.000
+Captions created by Jayson Smith for Cucumber Ltd.

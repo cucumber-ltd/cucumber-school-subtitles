@@ -279,7 +279,7 @@ but normally you’ll want something a bit looser
 
 69
 00:05:10.015 --> 00:05:12.575
-The dot is a metacharacter
+The dot (.) is a metacharacter
 
 70
 00:05:13.343 --> 00:05:16.671
@@ -468,7 +468,7 @@ Here are the most useful ones:
 
 114
 00:08:38.655 --> 00:08:42.239
-w is for word character
+\w is for word character
 
 115
 00:08:43.775 --> 00:08:51.199
@@ -536,7 +536,7 @@ in our step into arguments, like this
 
 131
 00:10:06.207 --> 00:10:11.839
-Notice that we haven’t used quotation marks
+Notice that we haven’t used quotation marks ("")
 to surround our captures 
 
 132
@@ -610,8 +610,8 @@ Fear not
 
 149
 00:11:24.799 --> 00:11:31.455
-We can use another modifier, the question mark,
-to mark the “s” as optional
+We can use another modifier,
+the question mark (?), to mark the “s” as optional
 
 151
 00:11:32.479 --> 00:11:33.759
@@ -815,7 +815,7 @@ you see in a Gherkin step without fear
 
 205
 00:15:21.855 --> 00:15:24.415
-his will help you keep your scenarios readable
+This will help you keep your scenarios readable
 
 206
 00:15:24.927 --> 00:15:29.023
