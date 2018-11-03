@@ -2,11 +2,44 @@
 
 Generating captions for Cucumber School videos!
 
+## Status
+
+| Video | Language | Initial Run | Main Run | Polish Run | Captions in Video | Complete |
+|:-----:|:--------:|:-----------:|:--------:|:----------:|-------------------|----------|
+| 01    |          | √           | √        |            | √                 |          |
+| 02    |          |             |          |            |                   |          |
+|       | Ruby     | √           | √        |            |                   |          |
+|       | Java     | √           | √        |            |                   |          |
+| 03    |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 04    |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 05    |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 06    |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 07    |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 08    |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 09-10 |          |             |          |            |                   |          |
+|       | Ruby     |             |          |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+| 11-12 |          |             |          |            |                   |          |
+|       | Ruby     | √           | √        |            |                   |          |
+|       | Java     |             |          |            |                   |          |
+
 ## Vocabulary
 
 * **caption frame** - a set of text displayed between a start and end time in a video. Example:
 
-```
+```text
 2
 00:00:19.712 --> 00:00:23.900
 Last time we learned how to use
