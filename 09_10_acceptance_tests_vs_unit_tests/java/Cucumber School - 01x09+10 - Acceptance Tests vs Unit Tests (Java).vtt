@@ -2,27 +2,31 @@ WEBVTT
 
 1
 00:00:14.592 --> 00:00:20.736
-Last time on cucumber school we showed you how to use example mapping to facilitate conversations
+Last time on Cucumber school we showed you how to use example mapping to facilitate conversations
 
 2
 00:00:20.992 --> 00:00:25.344
-Between stakeholders the full starting work on a new user story
+between stakeholders before starting work on a new user story
 
 3
 00:00:25.600 --> 00:00:31.744
-We finished the last name two technical note show me how to extract a letter of support code from your step definition
+We finished the lesson on a technical note, showing you how to extract a layer of support code from your step definitions
 
 4
 00:00:32.000 --> 00:00:36.352
-To keep your cucumber code easy and cost-effective to maintain
+to keep your Cucumber code easy - and cost-effective - to maintain
 
 5
 00:00:37.376 --> 00:00:43.520
-We're going to keep things technical in this lesson remember that book we spotted right back at the beginning of lesson 7
+We’re going to keep things technical in this lesson.
+
+Remember that bug we spotted right back at
+the beginning of lesson seven
 
 6
 00:00:43.776 --> 00:00:48.896
-What I use was overcharged if they mentioned by several times in the same message
+where the user was over-charged if they mentioned “buy”
+several times in the same message?
 
 7
 00:00:49.152 --> 00:00:52.480
@@ -30,119 +34,125 @@ It's time to finally knuckle down and fix it
 
 8
 00:00:53.248 --> 00:00:59.392
-As we do so you're going to get some more experience of the inner and outer tdd Loops that we first introduced you to
+As we do so, you’re going to get
+some more experience of the
 
 9
 00:00:59.648 --> 00:01:00.672
-Doing lesson 5
+inner and outer TDD loops that
+we first introduced you to in lesson five
 
 10
 00:01:00.928 --> 00:01:06.816
-Will n about Moc objects and explore the difference between unit test and acceptance test
+We’ll learn about mock objects, and explore the difference between unit tests and acceptance tests
 
 11
 00:01:07.072 --> 00:01:08.864
-England the value of each
+and learn the value of each
 
 12
 00:01:09.632 --> 00:01:13.984
-If you love someone who doesn't normally dive deep into code try not to worry
+If you’re someone who doesn’t normally dive deep into code, try not to worry
 
 13
 00:01:14.496 --> 00:01:20.640
-We'll keep the example for moving too fast and we hope you'll find an educational to see how different kinds of tea
+We’ll keep the example from moving too fast,
+and we hope you’ll find it educational to see
+
+how different kinds of tests
+complement each other in helping you
 
 14
 00:01:20.896 --> 00:01:25.248
-Test complement each other and helping you build a quality product
+to build a quality product
 
 15
 00:01:26.528 --> 00:01:31.392
-Let's work outside in and stop by tidying up the gherkin specification
+Let’s work outside-in and start by tidying up the Gherkin specification
 
 16
 00:01:31.904 --> 00:01:37.024
-Right now the scenario was still in the rule form it was in when the book was first reported
+Right now, the scenario is still in the raw form it was in when the bug was first reported
 
 17
 00:01:37.536 --> 00:01:40.864
-For the name that references and ID and I'll bug tracking system
+with a name that references an ID in our bug tracking system
 
 18
 00:01:41.888 --> 00:01:45.984
-This doesn't make very good documentation about the intended Behavior
+This doesn’t make for very good documentation about the intended behaviour
 
 19
 00:01:47.264 --> 00:01:51.872
-Using a Friends episode naming convention that we introduced in lesson 7
+Using our Friends Episode naming convention that we introduced in lesson 7
 
 20
 00:01:52.384 --> 00:01:55.712
-We can come up with a more expressive name for the scenario
+we can come up with a more expressive name for this scenario
 
 21
 00:01:56.480 --> 00:01:57.504
-How about
+How about:
 
 22
 00:01:58.016 --> 00:02:02.880
-The one where Shawn mentions by several times in the same Shout
+the one where Sean mentions “buy”
+several times in the same shout?
 
 23
 00:02:04.672 --> 00:02:07.232
-He might be worried about losing this bug ID
+You might be worried about losing this bug ID
 
 24
 00:02:07.744 --> 00:02:09.024
-We could keep it
+We could keep it in
 
 25
-00:02:09.536 --> 00:02:10.560
-In a comment
-
-26
-00:02:11.072 --> 00:02:12.096
-Tag
-
-27
-00:02:12.864 --> 00:02:15.680
-Or in the description of the scenario if we wanted to
+00:02:09.536 --> 00:02:15.680
+a comment, a tag, or in the description
+of the Scenario if we wanted to
 
 28
 00:02:16.448 --> 00:02:20.288
-If your team like to keep track of such things feel free to do that
+If your team likes to keep track of such things,
+feel free to do that
 
 29
 00:02:21.312 --> 00:02:23.616
-We prefer to consign the bug to history
+We’d prefer to consign the bug to history -
 
 30
 00:02:23.872 --> 00:02:27.200
-My sister Alice is how the software behaves today
+what matters to us
+is how the software behaves today, 
 
 31
 00:02:27.456 --> 00:02:29.504
-So how it got to be that way
+not how it got to be that way
 
 32
 00:02:31.552 --> 00:02:35.648
-We think the value is an example could be changed to make it to little more expressive
+We think the values in the example could be
+changed to make it a little more expressive
 
 33
 00:02:36.160 --> 00:02:42.304
-If we start showing up with a hundred credits and ending with 95 more clearly
+If we start Sean off with 100 credits,
+and end him with 95
 
 34
 00:02:42.560 --> 00:02:46.400
-Straits the rule that only five credit should be deducted
+it more clearly illustrates the rule that
+only five credits should be deducted
 
 35
 00:02:48.704 --> 00:02:54.848
-Talking of which that's also update the rule to make it explicit that you lose 5 credits
+Talking of which
 
 36
 00:02:55.104 --> 00:02:55.616
-Shout
+let’s also update the rule to make it explicit
+that you lose 5 credits per shout
 
 37
 00:02:57.408 --> 00:02:58.432
@@ -150,191 +160,223 @@ Good
 
 38
 00:02:59.200 --> 00:03:04.832
-No let's run our improved scenario using the to do tag and go hunting for that bug
+Now let’s run our improved scenario,
+using the @todo tag, and go hunting for that bug
 
 39
 00:03:06.880 --> 00:03:09.952
-Okay but we can see a scenario is failing
+OK, well we can see our scenario failing
 
 40
 00:03:10.464 --> 00:03:12.512
-The where do we need to go to fix it
+but where do we need to go to fix it?
 
 41
 00:03:14.048 --> 00:03:20.192
-Luckily our system is pretty small and we remember that all the premium account behaviors implemented in the
+Luckily, our system is pretty small,
+and we remember that all the
 
 42
 00:03:20.448 --> 00:03:23.264
-Network class so that's going up there
+premium account behaviour is implemented in
+the Network class, so let’s go and look there
 
 43
-00:03:24.800 --> 00:03:30.944
-Well that broadcast message pretty complex but I suppose The book must be in
-
-44
-00:03:31.200 --> 00:03:32.224
-Somewhere
+00:03:24.800 --> 00:03:32.224
+Well, that broadcast method is pretty complex,
+but I suppose the bug must be in there somewhere
 
 45
 00:03:32.480 --> 00:03:34.784
-Extreme pain it down with a unit test
+Let’s try to pin it down with a unit test
 
 46
 00:03:36.576 --> 00:03:38.880
-Otero Daya
+Oh dear, oh dear:
 
 47
 00:03:39.392 --> 00:03:44.768
-This file does not contain any tests for the premium account Behavior
+This file does not contain any tests for the premium account behaviour!
 
 48
 00:03:45.024 --> 00:03:51.168
-It looks like we're not so cold hot shot ninja Rockstar subcontractor Stevie
+It looks like when that so-called
+hot-shot ninja rockstar subcontractor, Stevie
 
 49
 00:03:51.424 --> 00:03:57.568
-Paxton the first version of Premium Accounts he drove everything from that one great big cucumber scenario
+hacked in the first version of premium accounts,
+he drove everything from that
 
 50
 00:03:58.592 --> 00:04:00.896
-I never wrote any unit test
+one great big Cucumber scenario,
+and never wrote any unit tests
 
 51
 00:04:01.664 --> 00:04:03.200
-Why is this a problem
+Why is this a problem?
 
 52
 00:04:04.480 --> 00:04:09.600
-Well think about each automated-tests you write as a warning or that you'll fit into your system
+Well, think about each automated test you write
+as warning light that you’re fitting to your system
 
 53
 00:04:10.112 --> 00:04:13.952
-Acceptance test a warning lights that make sense to business people
+Acceptance tests are warning lights
+that make sense to business people:
 
 54
-00:04:14.464 --> 00:04:20.607
-When they sell to tell you what functionality a user will not be able to enjoy because of the book
+00:04:14.464 --> 00:04:16.000
+when they fail,
+
+54
+00:04:16.000 --> 00:04:20.607
+they tell you what functionality a user
+will not be able to enjoy because of the bug
 
 55
 00:04:21.887 --> 00:04:27.775
-What two unit test does is get the program as an indication about why the book has occurred
+What a unit test does is give the programmers
+an indication about why the bug has occurred
 
 56
 00:04:28.543 --> 00:04:32.895
-I did lie whenever you see an exception tests warning lights Flash
+Ideally, whenever you see an acceptance test’s
+warning light flash
 
 57
 00:04:33.151 --> 00:04:39.295
-That should be at least one corresponding unit test version 2 pointing the developers to the source of the problem
+there should be at least one corresponding
+unit test flashing too,
+
+pointing the developers to the source of the problem
 
 58
 00:04:40.831 --> 00:04:46.207
-If you don't have any unit test for feature you left guessing where the problem lies
+If you don’t have any unit tests,
+you’re left guessing where the problem lies
 
 59
-00:04:46.719 --> 00:04:48.255
-In a big system
-
-60
-00:04:48.511 --> 00:04:50.815
-This can be a serious waste of time
+00:04:46.719 --> 00:04:50.815
+In a big system,
+this can be a serious waste of time
 
 61
 00:04:51.839 --> 00:04:57.215
-Set a responsible thing to do at this point it's a retrofit some unit test for the network cost
+So the responsible thing to do at this point is to
+retrofit some unit tests for the Network class
 
 62
 00:04:57.983 --> 00:05:03.615
-We'll start with its existing Behavior then going to test drive the behavior we need to fix our bug
+We’ll start with its existing behaviour,
+then go on to test-drive the
+
+behaviour we need to fix our bug
 
 63
 00:05:04.639 --> 00:05:10.783
-Let's write a test case but deducting 5 credits when they would buy is mention once
+Let’s write a test case for deducting five credits
+when the word “buy” is mentioned once
 
 64
 00:05:12.831 --> 00:05:18.975
-Or existing test use a testable or muck object to represent the instance of person the network
+All our existing tests use a
+test double or mock object
 
 65
 00:05:19.231 --> 00:05:19.999
-Lab Rats with
+to represent the instance of Person
+that the Network collaborates with
 
 66
 00:05:20.767 --> 00:05:23.071
-So let's go with that try to do the same here
+So let’s go with that and try to do the same here
 
 67
 00:05:24.351 --> 00:05:27.679
-First we need to make object to represent Sean
+First we need a mock object to represent Sean
 
 68
 00:05:29.727 --> 00:05:33.055
-I will need to broadcast a message containing the word by
+And we’ll need to broadcast a
+message containing the word “buy”
 
 69
 00:05:35.103 --> 00:05:36.127
-Next
+What next?
 
 70
 00:05:37.919 --> 00:05:42.015
-Well we need to assert that Sean is told to reduce his credits
+Well we need to assert that Sean is told
+to reduce his credits
 
 71
 00:05:43.551 --> 00:05:49.695
-And if the Ducks credits method here recording the credits Etta setting it to 5 less than the Quran
+In the deductCredits method here,
+we’re calling the credits setter
+
+setting it to five less than the current value
 
 72
 00:05:49.951 --> 00:05:56.095
-You need to stop the attribute get so it's a hundred credits and then check the sensors cold
+So we need to stub the attribute getter with
+say 100 credits, and then check
 
 73
 00:05:56.351 --> 00:05:57.375
-Would 95
+that the setter is called with 95
 
 74
 00:05:57.887 --> 00:05:59.423
-His how we do that
+Here's how we do that
 
 75
 00:06:02.751 --> 00:06:04.799
-This test is a real pain to right
+This test is a real pain to write
 
 76
 00:06:06.847 --> 00:06:09.407
-Objects are designed to
+Mock objects are a design tool
 
 77
 00:06:09.919 --> 00:06:13.247
-Are intended to be used when constructing new code
+They’re intended to be used when
+constructing new code
 
 78
 00:06:13.759 --> 00:06:18.111
-To throw together a lightweight sketch of a collaborating object
+to throw together a lightweight sketch of a collaborating object
 
 79
 00:06:18.879 --> 00:06:21.183
-What you're focused on building a network
+When you’re focused on building a Network
 
 80
 00:06:21.439 --> 00:06:24.255
-How do you think it needs to collaborate with a person
+and you think it needs to
+collaborate with a Person
 
 81
 00:06:24.767 --> 00:06:28.863
-It would slow you down to have to go off until the actual person class
+it would slow you down to have to stop
+and go off to build the actual Person class
 
 82
 00:06:29.375 --> 00:06:35.007
-It's often quicker to use an object to hash out your idea of roughly what a person might look like
+It’s often quicker to use a mock object to
+hash out your idea of roughly
+
+what Person might look like
 
 83
 00:06:35.263 --> 00:06:38.591
-Leaving you to stay focused on the task at hand
+leaving you to stay focussed on the task at hand
 
 84
 00:06:39.359 --> 00:06:42.431
-As you do this you'll find yourself
+As you do this, you’ll find yourself -
 
 85
 00:06:42.687 --> 00:06:43.967
@@ -342,59 +384,69 @@ As we just did
 
 86
 00:06:44.223 --> 00:06:48.831
-Having to specify how you want the two objects to interact
+having to specify how you want the two objects to interact
 
 87
 00:06:49.599 --> 00:06:55.743
-If you think about it this interaction the way they talk to each other out runtime
+If you think about it, this interaction -
+the way they talk to each other at runtime -
 
 88
 00:06:55.999 --> 00:06:59.071
-Is the true behavior of these objects
+is the true behaviour of these objects
 
 89
 00:07:00.095 --> 00:07:06.239
-Remember back in less than 5 Loops explained that acceptance test help you
+Remember back in lesson 5, Loops,
+where we explained that acceptance tests
 
 90
-00:07:06.495 --> 00:07:08.287
-Build the right thing
-
-91
-00:07:08.799 --> 00:07:12.639
-And unit test help you build the thing right
+00:07:06.495 --> 00:07:12.639
+help you build the right thing,
+and unit tests help you build the thing right?
 
 92
 00:07:13.151 --> 00:07:19.295
-In other words acceptance test help us explore the problem denied by unit test
+In other words, acceptance tests help us to
+explore the problem domain,
 
 93
 00:07:19.551 --> 00:07:21.599
-Help us explore the solution
+and unit tests help us to explore the solution
 
 94
 00:07:22.879 --> 00:07:28.767
-When you drive it development from test the unit test can give you feedback about the design of your solution
+When you drive your development from tests,
+the unit tests can give you feedback
+
+about the design of your solution
 
 95
 00:07:29.279 --> 00:07:35.423
-If it's easy to take an individual object and plug it into your test your design is likely to be nicely module
+If it’s easy to take an individual object and
+plug it into your tests
+
+your design is likely to be nicely modular,
 
 96
 00:07:35.679 --> 00:07:38.751
-Which means it will be easier to change in the future
+which means it will be easier to change in the future
 
 97
 00:07:39.263 --> 00:07:44.639
-If it's awkward that's a signal there's a problem with your design
+If it’s awkward, that’s a signal
+there’s a problem with your design
 
 98
 00:07:45.151 --> 00:07:49.247
-We call this listening to the test
+We call this listening to the tests
 
 99
 00:07:51.551 --> 00:07:57.695
-What alternative to using marks will be to use a real instance of person instead of the Macaw check
+One alternative to using mocks would be to
+use a real instance of Person
+
+instead of the mock object
 
 100
 00:07:59.231 --> 00:08:00.767
@@ -402,11 +454,13 @@ This is very tempting
 
 101
 00:08:01.023 --> 00:08:07.167
-Attesting personal network is one integrated lump we don't have to fuss about exactly how the
+By testing Person and Network
+as one integrated lump,
 
 102
 00:08:07.423 --> 00:08:08.959
-Phoenix about Sean's credits
+we don’t have to fuss about exactly
+how they communicate about Sean’s credits
 
 103
 00:08:09.471 --> 00:08:13.567
@@ -414,71 +468,79 @@ All we have to do is check how many credits he has left over at the end
 
 104
 00:08:14.847 --> 00:08:18.943
-This seductive solution papers over the cracks in our design
+But this seductive solution papers over
+the cracks in our design
 
 105
 00:08:19.711 --> 00:08:25.855
-When you use mocs you put the microscope on the interaction between an object and his collaborators this gives you
+When you use mocks, you put the microscope on the
+interaction between an object and its collaborators
 
 106
 00:08:26.111 --> 00:08:29.183
-Feedback about how couple these objects are
+This gives you feedback about
+how coupled those objects are
 
 107
 00:08:29.695 --> 00:08:35.071
-A lot of chatter going back and forth like this suggest that getting tangled up together
+A lot of chatter going back and forth like this
+suggests they’re getting tangled up together
 
 108
 00:08:35.839 --> 00:08:41.983
-So the fact that it's okay to use max air is not because moxa bad because we're body using marks
+So the fact that it’s awkward to use mocks here
+is not because mocks are bad
+
+or because we’re bad at using mocks:
 
 109
 00:08:43.007 --> 00:08:45.567
-It's feedback from the code
+it’s feedback from the code
 
 110
-00:08:46.591 --> 00:08:50.431
-Let's listen to the test I tried to respond to this pain
-
-111
-00:08:50.687 --> 00:08:52.479
-Instead of ignoring it
+00:08:46.591 --> 00:08:52.479
+Let’s listen to the tests and try to respond
+to this pain instead of ignoring it
 
 112
 00:08:54.015 --> 00:08:55.807
-Let's text talk a little bit
+Let’s take stock a little bit
 
 113
 00:08:56.319 --> 00:09:00.159
-We're trying to fix that bug about multiple mentions of the word by
+We’re trying to fix that bug about
+multiple mentions of the word “buy”
 
 114
 00:09:00.415 --> 00:09:06.303
-The first we're retrofitting unit test for the premium account behavior in the network class
+but first we’re retrofitting unit tests for the premium account behaviour in the Network class
 
 115
 00:09:07.071 --> 00:09:13.215
-It will be easier to see what Tessa missing if we reorganize the unit test find that works
+It will be easier to see what tests are missing
+if we reorganize the unit tests by
 
 116
 00:09:13.471 --> 00:09:14.751
-Responsibilities
+Network’s responsibilities
 
 117
 00:09:16.031 --> 00:09:18.591
-It basically fall into two categories
+They basically fall into two categories
 
 118
 00:09:19.615 --> 00:09:25.759
-These ones here to do with the responsibility of broadcasting to listeners so let's group them in a different section
+These ones here are to do with the
+responsibility of broadcasting to listeners
 
 119
 00:09:26.015 --> 00:09:27.039
-Novartis class
+so let’s group them in a different section
+of our test class
 
 120
 00:09:28.831 --> 00:09:32.927
-Now we have a new test which is about charging for shouts
+Now we have our new test, which is about charging for shouts
 
 121
 00:09:34.207 --> 00:09:36.255
@@ -486,31 +548,44 @@ This last one here is a bit weird
 
 122
 00:09:36.767 --> 00:09:39.583
-It's sort of about broadcasting to listeners
+It’s sort of about broadcasting to listeners
 
 123
 00:09:39.839 --> 00:09:43.167
-Potassium Salt Rock in it which needs further investigation
+but it has this odd hack in it
+which needs further investigation
 
 124
 00:09:44.191 --> 00:09:50.335
-This test is quite secure and seems to be attempting to cover several aspects of networks behavior all at once
+This test is quite obscure,
+and seems to be attempting to cover
+
+several aspects of Network’s behaviour
+all at once
 
 125
 00:09:51.615 --> 00:09:57.503
-Best document those individual behaviors is new test when we can come back to deal with this one later
+Let’s document those individual behaviours
+as new tests and we can come back
+
+to deal with this one later
 
 126
 00:09:59.807 --> 00:10:05.951
-We can see will need something similar under the responsibility of broadcasting to listeners to Insha'Allah
+We can see we’ll need something similar
+
+under the responsibility of
+broadcasting to listeners,
 
 127
 00:10:06.207 --> 00:10:12.351
-Long messages broadcast will take with no credits so we can express that using a test annotated with
+to ensure long messages aren’t broadcast for
+people with no credits,
 
 128
 00:10:12.607 --> 00:10:14.399
-Ignore for the time being
+so we can express that using
+a test annotated with @Ignore for the time being
 
 129
 00:10:15.167 --> 00:10:16.959
@@ -518,59 +593,64 @@ We can fill this out later
 
 130
 00:10:18.751 --> 00:10:23.615
-It's clear will also need to test that we charge 2 credits for Nova long message
+It’s clear we’ll also need to test that we charge two credits for an over-long message
 
 131
 00:10:24.383 --> 00:10:26.943
-Let's add another ignore test that
+Let's add another ignores test for that
 
 132
 00:10:29.503 --> 00:10:33.855
-What is those two tests implemented we won't need this obscure one anymore
+Once those two tests are implemented,
+we won’t need this obscure one any more
 
 133
 00:10:34.367 --> 00:10:40.511
-We're not confident enough to just remove it until we've seen those test flushed out so we can mock is
+We’re not confident enough to just remove it
+until we’ve seen those tests fleshed out
 
 134
 00:10:40.767 --> 00:10:42.303
-Take a note
+so we can mark it as ignore for now
 
 135
 00:10:43.327 --> 00:10:46.911
-That will remind us we need to come back and clean this up soon
+That will remind us we need to
+come back and clean this up soon
 
 136
 00:10:47.679 --> 00:10:53.567
-At this point it is becoming clear that network has too many responsibilities
+At this point it is becoming clear that
+Network has too many responsibilities
 
 137
 00:10:54.335 --> 00:10:57.663
-We have two different sources of feedback telling us this
+We have two different sources of feedback
+telling us this
 
 138
 00:10:58.943 --> 00:11:03.807
-With a unit test laid out by responsibility we can see more clearly
+With the unit tests laid out by responsibility
+we can see more clearly
 
 139
 00:11:04.063 --> 00:11:08.415
-That while broadcasting to listeners as a responsibility to fit
+that while broadcasting to listeners
+is a responsibility that fits
 
 140
 00:11:08.671 --> 00:11:14.047
-There's no real reason why the network needs to be responsible for charging for shouts
+there’s no real reason why the Network
+needs be responsible for charging for shouts
 
 141
 00:11:16.095 --> 00:11:17.119
-Secondly
-
-142
-00:11:17.375 --> 00:11:20.703
-The communication protocol between networking person
+Secondly, the communication protocol
+between Network and Person
 
 143
 00:11:20.959 --> 00:11:24.287
-Exposed by the marks is very noisy
+exposed by the mocks, is very noisy:
 
 144
 00:11:25.055 --> 00:11:31.199
@@ -842,7 +922,7 @@ Correct cipolla person cops and the premium shout unless they have enough credit
 
 211
 00:17:24.735 --> 00:17:30.111
-Now we understand the business rule let's automate this scenario and drive out the behavior
+Now we understand the business rule let's automate this scenario and drive out the behaviour
 
 212
 00:17:34.719 --> 00:17:40.863
@@ -990,7 +1070,7 @@ Now we can give that Messi all tested networks unit test the treatment it deserv
 
 248
 00:20:33.151 --> 00:20:35.711
-Because this behavior is now in person
+Because this behaviour is now in person
 
 249
 00:20:36.479 --> 00:20:38.527
@@ -1090,7 +1170,7 @@ Great stuff
 
 273
 00:22:47.040 --> 00:22:50.112
-Over with coldest video series cucumber School
+Over with coldest video series Cucumber School
 
 274
 00:22:50.368 --> 00:22:56.512
@@ -1102,7 +1182,7 @@ Betin use to develop software
 
 276
 00:22:59.584 --> 00:23:05.216
-Not just skills with cucumber but skills with a whole of behavior driven development
+Not just skills with Cucumber but skills with a whole of behaviour driven development
 
 277
 00:23:06.240 --> 00:23:11.360
