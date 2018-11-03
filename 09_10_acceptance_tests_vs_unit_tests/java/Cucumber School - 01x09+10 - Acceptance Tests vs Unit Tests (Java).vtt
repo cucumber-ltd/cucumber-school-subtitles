@@ -654,91 +654,110 @@ exposed by the mocks, is very noisy:
 
 144
 00:11:25.055 --> 00:11:31.199
-Play making lots of method calls to person in order to determine whether they can afford the shoutin to deduct
+we’re making lots of method calls to Person
+in order to determine whether they can
+
+afford the shout and to deduct payment
 
 145
 00:11:31.455 --> 00:11:37.599
-Payment first Sean Combs network broadcast
+First Sean calls Network#broadcast
 
 146
 00:11:37.855 --> 00:11:43.999
-Network ask Sean how many credits he has 10 Network tell Sean the new Valley
+then Network asks Sean how many credits he has
 
 147
 00:11:44.255 --> 00:11:50.399
-Credits with a fee for the message deducted
+then Network tells Sean
+
+the new value of his credits,
+with the fee for the message deducted
 
 148
 00:11:50.655 --> 00:11:55.519
-How many credits he has again in order to check whether he can afford to send a message
+then Network asks Sean
+how many credits he has again,
+
+in order to check whether he can afford
+to send the message!
 
 149
 00:11:56.799 --> 00:12:02.943
-We could get all sad and angry that if only we test-drove in this code in the first place
+We could get all sad and angry that if only
 
 150
 00:12:03.199 --> 00:12:04.223
-This beatbox Una
+we’d test-driven this code in the first place
 
 151
 00:12:04.479 --> 00:12:06.015
-But that would be futile
+we might have got this feedback sooner,
+but that would be futile:
 
 152
 00:12:06.271 --> 00:12:08.831
-It's not too late to clean his coat up
+it's not too late to clean this code up!
 
 153
 00:12:09.343 --> 00:12:14.719
-How about we make sure responsible for organizing his own payment
+How about we make Sean responsible for
+organising his own payment?
 
 154
 00:12:15.999 --> 00:12:20.351
-Instead of rewriting this code let's see if we can refactor it
+Instead of rewriting this code
+let’s see if we can refactor it
 
 155
 00:12:20.863 --> 00:12:25.471
-When refactoring it's crucial Not To Break existing functionality
+When refactoring, it’s crucial not to
+break existing functionality
 
 156
 00:12:25.983 --> 00:12:30.079
-So rely on our tests to walnuts if we make a mistake
+so we’ll rely on our tests to warn us
+if we make a mistake
 
 157
 00:12:31.871 --> 00:12:33.919
-Wiccan small steps
+We’ll work in small steps
 
 158
 00:12:34.431 --> 00:12:40.575
-We may temporarily break some unit tests at the implementation shift but the acceptance test
+We may temporarily break some unit tests
+as the implementation shifts
 
 159
 00:12:40.831 --> 00:12:42.879
-Should be passing all the way through
+but the acceptance tests should be
+passing all the way through
 
 160
 00:12:43.135 --> 00:12:45.183
-If everything goes according to plan
+if everything goes according to plan
 
 161
 00:12:46.719 --> 00:12:47.487
-Ready
+Ready?
 
 162
 00:12:49.279 --> 00:12:53.631
-Will stop by moving the deduct credits method on two person
+We’ll start by moving the
+deductCredits method onto Person
 
 163
 00:12:54.399 --> 00:13:00.543
-As a baby step will make it public so we can just continue to call it from networks broadcast message
+As a baby-step, we’ll make it public,
+so we can just continue to call it
 
 164
 00:13:00.799 --> 00:13:01.311
-For now
+from Network’s broadcast method for now
 
 165
 00:13:02.079 --> 00:13:04.383
-That should keep the acceptance Test passing
+That should keep the acceptance tests passing
 
 166
 00:13:10.015 --> 00:13:10.783
@@ -746,35 +765,42 @@ Good
 
 167
 00:13:12.063 --> 00:13:17.439
-Now let's make sure I'm responsible for deducting his own credit as he shouts
+Now let’s make Sean responsible for
+deducting his own credits, as he shouts
 
 168
 00:13:23.327 --> 00:13:29.471
-We can move over this whole responsibility of charging for shouts from the network unit tests to the
+We can move over this whole responsibility of
+charging for shouts from the network specs
 
 169
 00:13:29.727 --> 00:13:30.751
-Pearson unit test
+to the person specs
 
 170
 00:13:33.311 --> 00:13:35.871
-Will need to adjust a test like this
+We’ll need to adjust the test like this...
 
 171
 00:13:43.551 --> 00:13:45.599
-And we'll talk to Green
+and we’re back to green!
 
 172
 00:13:47.135 --> 00:13:48.671
-Let's be Factor symbol
+Let’s refactor some more
 
 173
 00:13:49.183 --> 00:13:55.327
-Because all this code is running within the shelter object now we don't need to pass around this instance of person anymore
+Because all this code is running
+within the shouter object now
+
+we don’t need to pass around this
+instance of Person anymore
 
 174
 00:13:55.583 --> 00:13:58.655
-We can access the credits instance variable here directly
+and we can access the
+credits instance variable here, directly
 
 175
 00:14:00.191 --> 00:14:03.007
@@ -782,19 +808,25 @@ We can make deduct credits private now
 
 176
 00:14:04.543 --> 00:14:09.663
-We don't need to pass short enough around as a variable we can just do the logic in line here
+We don’t need to pass short enough
+around as a variable
+
+we can just do the logic inline here
 
 177
 00:14:17.599 --> 00:14:18.623
-Great
+Great, now the code in Network#broadcast
+is much cleaner
 
 178
 00:14:19.391 --> 00:14:22.975
-We still have these pending unit test we need to sort out
+We still have these pending unit tests
+we need to sort out
 
 179
 00:14:23.231 --> 00:14:28.607
-Let's talk in person by flushing out this test about charging for long messages
+Let’s start in Person, by fleshing out
+this test about charging for long messages
 
 180
 00:14:46.527 --> 00:14:47.551
@@ -802,367 +834,413 @@ That's better
 
 181
 00:14:48.319 --> 00:14:51.903
-Let's just make it fail quickly to check and we can trust it
+Let’s just make it fail quickly, to check that we can trust it
 
 182
 00:15:07.775 --> 00:15:08.799
-Okay
+Okay,
 
 183
 00:15:10.335 --> 00:15:13.663
-Now we can tackle these two pending unit testing Network
+now we can tackle these two
+ignored unit tests in Network
 
 184
 00:15:14.431 --> 00:15:18.271
-Let's step back for a second and consider the rule with implementing he
+Let’s step back for a second
+and consider the rule we’re implementing here
 
 185
 00:15:19.295 --> 00:15:25.183
-This original test was simply there to ensure that long messages were not broadcast
+This original unit test was simply there
+to ensure that long messages were not broadcast:
 
 186
 00:15:25.695 --> 00:15:29.279
-Remember we originally started out without Premium Accounts
+remember we originally started out without premium accounts
 
 187
 00:15:30.303 --> 00:15:33.887
-With the addition of Premium Accounts the rule has changed
+With the addition of premium accounts,
+the rule has changed:
 
 188
 00:15:34.399 --> 00:15:40.543
-We will broadcast long messages but only if the person shouting has sufficient credits
+We will broadcast long messages,
+but only if the person shouting
+
+has sufficient credits
 
 189
 00:15:41.823 --> 00:15:47.711
-Implemented We've Ended up with this mind-bending Boolean logic in the broadcast method
+To implement it, we’ve ended up with
+this mind-bending boolean logic
+
+in the broadcast method
 
 190
 00:15:48.991 --> 00:15:50.783
-It doesn't have to be like this
+It doesn’t have to be like this
 
 191
 00:15:51.039 --> 00:15:55.135
-This complexity is a sign that we haven't model the problem well enough yet
+This complexity is a sign that
+we haven’t modelled the problem well enough yet
 
 192
 00:15:56.159 --> 00:16:02.303
-The cool that right at the end of lesson 7 we discovered a Known Unknown in Ark
+Recall that right at the end of lesson 7,
+we discovered a
 
 193
 00:16:02.559 --> 00:16:05.375
-Portland Maine and documented it with this question
+known unknown in our problem domain
+and documented it with this question:
 
 194
 00:16:05.887 --> 00:16:08.703
-What happens when you run out of credits
+what happens when you run out of credits? 
 
 195
 00:16:09.983 --> 00:16:15.871
-We know you can't send a long message when you run out of credits but what about a message containing the word by
+We know you can’t send a long message when
+you run out of credits
+
+but what about a message
+containing the word ‘buy’?
 
 196
 00:16:16.639 --> 00:16:22.271
-Perhaps having a complete answer to this question will help us to resolve this complexity
+Perhaps having a complete answer to this question
+will help us to resolve this complexity
 
 197
 00:16:23.295 --> 00:16:25.343
-Let's check without product owner
+Let’s check with our product owner
 
 198
 00:16:27.135 --> 00:16:31.231
-We use a scenario to frame the discussion with polar or product owner
+We use a scenario to frame the discussion
+with Paula, our product owner
 
 199
 00:16:32.767 --> 00:16:35.583
-Given Lucy and Sean are within range of each other
+Given Lucy and Sean are
+within range of each other -
 
 200
 00:16:35.839 --> 00:16:37.887
-That's what these background steps do
+that’s what these background steps do -
 
 201
 00:16:38.655 --> 00:16:40.959
-Ishawna sportful credits
+and Sean has bought 4 credits,
 
 202
-00:16:41.727 --> 00:16:44.799
-When Sean shouts message containing bye
-
-203
-00:16:46.847 --> 00:16:48.127
-Then what
+00:16:41.727 --> 00:16:48.127
+when Sean shouts a message
+containing the word “buy” then… what?
 
 204
 00:16:49.151 --> 00:16:53.503
-Sean didn't have enough credit so presumably loose it does not hear his message
+Sean doesn’t have enough credits,
+so presumably Lucy does not hear his message
 
 205
 00:16:53.759 --> 00:16:55.039
-Is that right
+is that right?
 
 206
 00:16:56.319 --> 00:16:58.111
-Right cipolla
+Right, says Paula
 
 207
 00:16:59.391 --> 00:17:04.255
-So in that case showing should still have his full credits correct
+And so in that case, Sean should
+still have his four credits, correct?
 
 208
 00:17:05.023 --> 00:17:06.815
-Right against espola
+Right again, says Paula
 
 209
 00:17:08.351 --> 00:17:14.495
-Okay thanks Paula so the rule is that will only send shouts that you can afford is that right
+OK, thanks Paula.
+
+So the rule is that we’ll only
+send shouts that you can afford
+
+Is that right?
 
 210
 00:17:16.799 --> 00:17:22.943
-Correct cipolla person cops and the premium shout unless they have enough credits to pay for it
+Correct! says Paula.
+
+A person can’t send a premium shout
+unless they have enough credits to pay for it
 
 211
 00:17:24.735 --> 00:17:30.111
-Now we understand the business rule let's automate this scenario and drive out the behaviour
+Now we understand the business rule,
+let’s automate this scenario
+
+and drive out the behaviour
 
 212
 00:17:34.719 --> 00:17:40.863
-First we need to match this new Step by we checked Lucy does not hear Shawn's message
+First we need to match this new step
+where we check Lucy does not hear Sean’s message
 
 213
 00:17:41.631 --> 00:17:44.447
-We have a very similar 1/2 a Larry
+We have a very similar one here for Larry.
 
 214
 00:17:44.959 --> 00:17:48.799
 We can use a capture group to make it more generic
 
 215
-00:17:49.567 --> 00:17:55.711
-Instead of a wild-card though we can use pipes to specify the alternative values we
+00:17:49.567 --> 00:17:56.735
+Instead of a wildcard though,
 
-216
-00:17:55.967 --> 00:17:56.735
-Stacked hair
+we can use pipes to specify
+the alternative values we expect here
 
 217
 00:17:58.271 --> 00:18:00.063
-We captured the listener name
+We capture the listener name,
 
 218
 00:18:00.319 --> 00:18:04.159
-Then use that here when fetching the instance of person
+then use that here
+when fetching the instance of Person
 
 219
-00:18:05.951 --> 00:18:06.719
-Right
-
-220
-00:18:13.375 --> 00:18:18.495
-Now we have a failing acceptance test we should be passing once we resolve this
+00:18:05.951 --> 00:18:18.49500:18:06.719
+Right, now we have a failing acceptance test
+which should be passing once we’ve resolved this
 
 221
 00:18:18.751 --> 00:18:21.823
-Let's have a think about where this Behavior should go
+Let’s have a think about where
+this behaviour should go
 
 222
 00:18:23.359 --> 00:18:27.967
-If we give responsibility for checking affordability to the person doing the shouting
+If we give the responsibility for checking
+affordability to the Person doing the shouting
 
 223
 00:18:28.223 --> 00:18:31.039
-The network doesn't need to care about credits at all
+then Network doesn’t need to
+care about credits at all
 
 224
 00:18:31.295 --> 00:18:33.343
-Which will simplify things nicely
+which will simplify things nicely
 
 225
 00:18:35.391 --> 00:18:38.207
-Let's start with a new unit test the person then
+Let’s start with a new unit test for Person then
 
 226
 00:18:41.279 --> 00:18:44.095
-We'll set up showing with only one credit
+We’ll set up Sean with only one credit -
 
 227
 00:18:44.351 --> 00:18:46.911
-Not enough to afford to send a long message
+not enough to afford to send a long message -
 
 228
 00:18:47.167 --> 00:18:51.007
-Assert that the broadcast message is not called on network
+and assert that the broadcast method
+is not called on Network
 
 229
 00:18:51.775 --> 00:18:54.335
-Then we try to shout along message
+Then we try to shout the long message
 
 230
 00:19:02.271 --> 00:19:08.415
-This fails of course because at the moment person doesn't make this check so the broadcast method is cool everyday
+This fails of course, because at the moment
+Person doesn’t make this check
 
 231
 00:19:08.671 --> 00:19:09.183
-Time
+so the broadcast method is called every time
 
 232
 00:19:10.207 --> 00:19:12.767
-We are red in the tdd cycle
+We’re at Red in the TDD cycle
 
 233
-00:19:13.023 --> 00:19:14.047
-Next stop
-
-234
-00:19:14.303 --> 00:19:15.071
-Green
+00:19:13.023 --> 00:19:15.071
+Next stop: green!
 
 235
 00:19:16.095 --> 00:19:22.239
-To make this past we need to know how much the shout is going to cost before we send it
+To make this pass we need to know
+how much the shout is going to cost
+
+before we send it
 
 236
-00:19:23.007 --> 00:19:26.591
-That knowledge is currently in the deduct credits method
-
-237
-00:19:26.847 --> 00:19:29.663
-Which actually does to Tosca the same time
+00:19:23.007 --> 00:19:29.663
+That knowledge is in the deductCredits method
+which actually does two tasks at the same time:
 
 238
 00:19:29.919 --> 00:19:35.807
-It works out the cost of the message and it deducts that cost when the person's balance
+it works out the cost of the message, and
+it deducts that cost from the person’s balance
 
 239
 00:19:37.599 --> 00:19:43.743
-Let's tease those two tests apart first calculating the cost of a shout then
+Let’s tease those two tasks apart,
+first calculating the cost of the shout
 
 240
 00:19:43.999 --> 00:19:46.047
-To not cost from the credits
+then deducting that cost from the credits
 
 241
 00:19:47.583 --> 00:19:51.679
-No we can extract a method that calculates the cost of the message
+Now we can extract a method that calculates
+the cost of the message
 
 242
 00:19:56.543 --> 00:20:01.663
-Then finally we can use that method to check whether the message is Affordable
+Then finally we can use that method
+to check whether the message is affordable
 
 243
 00:20:09.599 --> 00:20:11.647
-And I unit tested passing
+and our unit test is passing
 
 244
 00:20:12.415 --> 00:20:13.439
-Correct
+Great
 
 245
 00:20:15.487 --> 00:20:20.351
-And I suppose our acceptance test for the affordability rule should be passing now too
+And I suppose our acceptance test for
+the affordability rule should be passing now too 
 
 246
 00:20:21.119 --> 00:20:26.495
-It is a green so it's refactoring time again
+It is!
+
+We’re green, so it’s refactoring time again! 
 
 247
 00:20:26.751 --> 00:20:32.639
-Now we can give that Messi all tested networks unit test the treatment it deserves
+Now we can give that messy old test in
+Network’s unit tests the treatment it deserves
 
 248
 00:20:33.151 --> 00:20:35.711
-Because this behaviour is now in person
+because this behaviour is now on Person
 
 249
 00:20:36.479 --> 00:20:38.527
-We won't be needing this pending test
+We won’t be needing this pending test
 
 250
 00:20:39.551 --> 00:20:43.391
-Deleting code is my favorite kind of refactoring
+Deleting code is my favourite
+kind of refactoring!
 
 251
 00:20:43.903 --> 00:20:49.535
-Let's keep going on strip Buckle like crazy Boolean logic and network broadcast
+Let’s keep going and strip back all that
+crazy boolean login in Network#broadcast
 
 252
 00:20:50.303 --> 00:20:56.447
-I think we can just remove this whole clothes about the message being too short while having enough credits or whatever
+I think we can just remove this whole clause
+about the message being too short
+
+or having enough credits or whatever
 
 253
 00:20:56.703 --> 00:20:59.263
-Let's try it and see what the test tell us
+Let’s try it and see what the tests tell us
 
 254
 00:21:00.799 --> 00:21:03.359
-Excellent much better
+Excellent, much better!
 
 255
 00:21:08.223 --> 00:21:11.039
-Now can we do any refactoring in network
+Now, can we do any refactoring in Network?
 
 256
 00:21:12.063 --> 00:21:17.952
-This method would read a lot better if extractor method that returns only the listings within the range of the shelter
+This method would read a lot better if
+we extract a method that returns only
+
+the listeners within range of the shouter
 
 257
 00:21:18.208 --> 00:21:19.488
-Let's do that
+Let’s do that
 
 258
 00:21:37.408 --> 00:21:42.784
-We don't need to use the shuttle location Tempe that evil either that's just in line it
+We don’t need to use this shouterLocation
+temporary variable either
+
+Let’s inline it
 
 259
-00:21:43.552 --> 00:21:44.832
-Okay
-
-260
-00:21:45.088 --> 00:21:48.672
-The code is nice and clean and all I test the passing
+00:21:43.552 --> 00:21:48.672
+OK. The code is nice and clean,
+and all our tests are passing... 
 
 261
 00:21:48.928 --> 00:21:50.464
-Except for one
+except for one:
 
 262
 00:21:50.976 --> 00:21:52.256
-Stop bug
+that bug!
 
 263
 00:21:52.512 --> 00:21:56.864
-I can't escape this any longer that's traffic with a unit test
+It can’t escape us any longer.
+Let's trap it with a unit test
 
 264
 00:21:57.632 --> 00:22:01.984
-We know the responsibility for charging for shouts lies in person
+We know the responsibility for charging
+for shouts lies in Person
 
 265
 00:22:02.240 --> 00:22:04.544
-So that's where to add the unit test
+so that’s where to add the unit test
 
 266
 00:22:23.232 --> 00:22:26.304
-Have you already spotted why we need to make the change
+Have you already spotted
+where we need to make the change? 
 
 267
 00:22:27.328 --> 00:22:30.144
-Here and the cost of method
+Here, in the cost_of(message) method,
 
 268
 00:22:30.400 --> 00:22:35.520
-The code will at 5 credits the cost each time it finds the Woodbine the message
+the code will add five credits to the cost
+each time it finds the word “buy” in the message
 
 269
-00:22:36.032 --> 00:22:38.080
-If we change the code like this
-
-270
-00:22:38.592 --> 00:22:40.384
-It should be working as expected
+00:22:36.032 --> 00:22:40.384
+If we change the code like this,
+it should be working as expected
 
 271
 00:22:43.968 --> 00:22:44.992
-It is
+It is!
 
 272
 00:22:45.248 --> 00:22:46.272
@@ -1170,72 +1248,90 @@ Great stuff
 
 273
 00:22:47.040 --> 00:22:50.112
-Over with coldest video series Cucumber School
+Although we’ve called this
+video series Cucumber School
 
 274
 00:22:50.368 --> 00:22:56.512
-You probably noticed by now that would teaching you a whole range of skills and ideas that we own the Cucumber
+you’ve probably noticed by now
+that we’re teaching you
 
 275
 00:22:56.768 --> 00:22:58.560
-Betin use to develop software
+a whole range of skills and ideas that
+we on the Cucumber team use to develop software
 
 276
 00:22:59.584 --> 00:23:05.216
-Not just skills with Cucumber but skills with a whole of behaviour driven development
+Not just skills with Cucumber,
+but skills with the whole of
+
+Behaviour-Driven Development
 
 277
 00:23:06.240 --> 00:23:11.360
-BTD blurs the lines between traditional roles like tester and developer
+BDD blurs the lines between traditional roles
+like tester and developer
 
 278
 00:23:11.616 --> 00:23:17.760
-And all right deal well everyone on the team not just tested is responsible for quality
+In our ideal world,
+everyone on the team - not just testers -
 
 279
 00:23:18.016 --> 00:23:21.600
-How many old try to test it as much as possible
+is responsible for quality, and we all
+try to test it as much as possible
 
 280
 00:23:22.624 --> 00:23:28.768
-Having good automated-tests freezer test is to be more interesting interactive exploratory
+Having good automated tests
+frees up testers to do more
 
 281
 00:23:29.024 --> 00:23:29.792
-Testing
+interesting, interactive, exploratory testing
 
 282
 00:23:31.584 --> 00:23:36.192
-We use a test as a guide to help us design a solution that models the problem well
+We use our tests as a guide to help us
+design a solution that models the problem well
 
 283
 00:23:36.704 --> 00:23:42.592
-A better model in your solution can make a whole category of bugs go away forever
+A better model in your solution can make
+whole categories of bugs go away forever
 
 284
 00:23:43.360 --> 00:23:49.504
-We saw that in this lesson for me move the responsibility for charging for shouts from Network to person
+We saw that in this lesson
+
+when we moved the responsibility
+for charging for shouts from Network to Person
 
 285
 00:23:49.760 --> 00:23:55.904
-On the issues around what happened when you run out of credits suddenly became easy to resolve
+and the issues around what happened when you run out of credit suddenly became easy to resolve
 
 286
 00:23:57.440 --> 00:24:03.584
-Getting the right balance between fine-grained unit test embroider. Test
+Getting the right balance between
+
+fine-grained unit tests and
+broader full-stack tests
 
 287
 00:24:03.840 --> 00:24:08.960
-Is critically important to having fast useful feedback from your test Suite
+is critically important to having fast, useful feedback from your test suite
 
 288
 00:24:09.472 --> 00:24:12.288
-Will explode is more in the next lesson
+We’ll explore this more in the next lesson
 
 289
-00:24:13.568 --> 00:24:14.848
-See you next time
+00:24:13.568 --> 00:24:16.896
+See you next time, on Cucumber School
 
 290
-00:24:15.360 --> 00:24:16.896
-Oncue. School
+00:24:16.000 --> 00:24:18.000
+Captions created by Jayson Smith for Cucumber Ltd.
