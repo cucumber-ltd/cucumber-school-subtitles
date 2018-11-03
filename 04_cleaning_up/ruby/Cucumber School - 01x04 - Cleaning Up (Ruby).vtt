@@ -2,291 +2,307 @@ WEBVTT
 
 1
 00:00:15.360 --> 00:00:18.432
-Hello and welcome back to cucumber School
+Hello, and welcome back to Cucumber School
 
 2
 00:00:18.688 --> 00:00:24.832
-Last time we talked about the importance of having readable scenarios and you learn some new skills
+Last time we talked about the importance of
+having readable scenarios
 
 3
 00:00:25.088 --> 00:00:27.904
-Regular Expressions to help you achieve that goal
+and you learned some new skills with
+regular expressions to help you achieve that goal
 
 4
 00:00:28.416 --> 00:00:34.560
-Those skills will give you the confidence to write scenario is exactly the way you want knowing you'll be able to match that
+Those skills will give you the confidence
+to write scenarios exactly the way you want
 
 5
 00:00:34.816 --> 00:00:37.888
-Second steps easily from your step definition code
+knowing you’ll be able to match the Gherkin steps easily from your step definition code
 
 6
 00:00:39.424 --> 00:00:45.568
-We emphasized readability because from our experience writing gherkin scenarios is a soft
+We emphasise readability because
 
 7
 00:00:45.824 --> 00:00:48.128
-Square design activity
+from our experience writing Gherkin scenarios
+is a software design activity
 
 8
-00:00:48.896 --> 00:00:55.040
-Cucumber was created to bridge the communication gap between business to mine experts and development
-
-9
-00:00:55.296 --> 00:00:55.808
-Teams
+00:00:48.896 --> 00:00:55.808
+Cucumber was created to bridge the communication gap
+between business domain experts and development teams
 
 10
 00:00:56.320 --> 00:01:02.464
-When you collaborate with the main exposed to describe behavior and good-looking you're expressing the groups
+When you collaborate with domain experts
+to describe behaviour in Gherkin
 
 11
 00:01:02.720 --> 00:01:05.536
-Chad understanding of the problem you need to solve
+you’re expressing the group’s shared understanding
+of the problem you need to solve
 
 12
-00:01:05.792 --> 00:01:11.936
-The words you use in your scenarios can I have a deep impact on the way to stuff
-
-13
-00:01:12.192 --> 00:01:13.216
-Far as designed
+00:01:05.792 --> 00:01:13.216
+The words you use in your scenarios can have
+a deep impact on the way the software is designed
 
 14
 00:01:13.472 --> 00:01:15.776
-I will see you in later episodes
+as we’ll see in later episodes
 
 15
 00:01:16.288 --> 00:01:22.432
-Tamiflu and you become in writing cooking the more useful until it becomes to help you
+The more fluent you become in writing Gherkin,
+
+the more useful a tool it becomes
+to help you facilitate this communication
 
 16
 00:01:22.688 --> 00:01:28.832
-Facilitate this communication keeping us in our as readable made you can get feedback at any time
+Keeping your scenarios readable means
+you can get feedback at any time
 
 17
 00:01:29.088 --> 00:01:35.232
-About whether you're building the right thing of a time your features become
+about whether you’re building the right thing
 
 18
 00:01:35.488 --> 00:01:38.560
-Living documentation about your system
+Over time, your features become
+living documentation about your system
 
 19
 00:01:38.816 --> 00:01:44.960
-We cannot emphasize enough how important it is to see your scenarios is more
+We can’t emphasize enough how important it is
+to see your scenarios as more than just tests
 
 20
 00:01:45.216 --> 00:01:51.360
-Then just tests maintaining a living document was both ways you'll drive yourself Lucian 2
+Maintaining a living document works both ways:
 
 21
 00:01:51.616 --> 00:01:57.760
-Design for your scenarios but you may also have to update you again to reflect the things you learn as you feel this
+you’ll drive your solution design
+from your scenarios
+
+but you may also have to update your Gherkin
+to reflect the things you learn
+
+as you build the solution
 
 22
 00:01:58.016 --> 00:02:04.160
-Solution the stands back and forth between features and solution code is what PDT is Olaf
+This dance back and forth between features
+and solution code is what BDD is all about
 
 23
-00:02:04.416 --> 00:02:09.024
-About today we learn about feature descriptions
-
-24
-00:02:09.280 --> 00:02:10.816
-The background keyword
+00:02:04.416 --> 00:02:10.816
+Today, we’ll learn about
+feature descriptions, the Background keyword
 
 25
 00:02:11.072 --> 00:02:15.936
-What about keeping cenario's and code up-to-date with your current understanding of the project
-
-26
-00:02:16.960 --> 00:02:17.984
-First
+and about keeping scenarios and code up-to-date
+with your current understanding of the project
 
 27
-00:02:18.240 --> 00:02:21.312
-Let's catch up with what's been happening on the Shanti project
+00:02:16.960 --> 00:02:21.312
+First, let’s catch up with what’s been happening on the Shouty project
 
 28
-00:02:23.616 --> 00:02:25.152
-While we were away
-
-29
-00:02:25.408 --> 00:02:29.504
-The developers of shouty I've been busy working on the code
+00:02:23.616 --> 00:02:29.504
+While we were away, the developers of Shouty
+have been busy working on the code. 
 
 30
 00:02:30.784 --> 00:02:32.576
-Let's have a look at what they've been up to
+Let’s have a look at what they’ve been up to
 
 31
 00:02:35.392 --> 00:02:37.440
-We'll start out by running cucumber
+We’ll start out by running Cucumber
 
 32
 00:02:39.744 --> 00:02:40.768
-Right
+Great!
 
 33
 00:02:41.024 --> 00:02:43.584
-It looks like both decent or is it working now
+It looks like both these scenarios
+are working now -
 
 34
 00:02:44.608 --> 00:02:48.960
-Both two different messages that shown shouts of being hurt by Lucy
+both the different messages that Sean shouts
+are being heard by Lucy
 
 35
-00:02:50.496 --> 00:02:51.776
-Let's dig into the code
-
-36
-00:02:52.032 --> 00:02:54.336
-And see how these steps have been automated
+00:02:50.496 --> 00:02:54.366
+Let’s dig into the code
+and see how these steps have been automated
 
 37
-00:02:57.152 --> 00:02:58.944
-In the steppe definition layer
-
-38
-00:02:59.200 --> 00:03:01.760
-We can see that the new classes been defined
+00:02:57.152 --> 00:03:01.760
+In the step definition layer,
+we can see that a new class has been defined
 
 39
 00:03:02.272 --> 00:03:03.552
-The network
+the Network
 
 40
 00:03:04.832 --> 00:03:07.136
-The creating an instance of a network here
+We’re creating an instance of the network here
 
 41
 00:03:08.928 --> 00:03:14.304
-Then we pass that Network instance to each of the person instances we create here
+Then we pass that network instance to each
+of the Person instances we create here
 
 42
-00:03:15.584 --> 00:03:19.424
-So both instances of person depend on the same instance
-
-43
-00:03:19.680 --> 00:03:20.704
-I'm Network
+00:03:15.584 --> 00:03:20.704
+So both instances of Person depend on
+the same instance of network
 
 44
 00:03:22.496 --> 00:03:26.592
-The network is what allows people to send messages to one another
+The Network is what allows people
+to send messages to one another
 
 45
-00:03:27.360 --> 00:03:29.152
-There's also a new folder here
-
-46
-00:03:29.408 --> 00:03:30.944
-Spec
+00:03:27.360 --> 00:03:30.944
+There’s also a new folder here, spec
 
 47
 00:03:31.456 --> 00:03:36.320
-This contains unit tests for the classes and not the main model
+This contains unit tests for the classes
+in our domain model
 
 48
 00:03:37.344 --> 00:03:43.488
-Does inetworks back and a person's back unit tests
+There’s a network spec and a person spec
 
 49
 00:03:43.744 --> 00:03:49.888
-Fine grain test Define precise behavior of each of these classes will talk more about
+Unit tests are fine-grained tests that define the
+precise behaviour of each of those classes
 
 50
 00:03:50.144 --> 00:03:51.424
-Listen to Future lesson
+We’ll talk more about this in a future lesson but
 
 51
 00:03:51.680 --> 00:03:54.496
-The feel free to have a poke around in there in the meantime
+feel free to have a poke around
+in there in the meantime
 
 52
 00:03:55.008 --> 00:04:00.128
-You can use the aspect command to run the tests
+You can use the `rspec` command to run the tests
 
 53
 00:04:00.384 --> 00:04:06.528
-Prospect is a lovely job of formatting output to tell us the responsibilities of each of these objects
+RSpec does a lovely job of
+
+formatting the output to tell us
+the responsibilities of each of these objects
 
 54
 00:04:09.088 --> 00:04:11.392
-The first thing I noticed coming back to the code
+The first thing I notice coming back to the code
 
 55
 00:04:11.648 --> 00:04:17.791
-Is that a feature file is still talking about the distance between Lucy and Sean but we have an Icee implemented
+is that the feature file is still talking about
+the distance between Lucy and Sean
 
 56
 00:04:18.047 --> 00:04:24.191
-Any Behavior around that yet this was all the time we have an idea for a new face
+but we haven’t actually implemented
+any behaviour around that yet
 
 57
 00:04:24.447 --> 00:04:24.959
-Feature
+This happens to us all the time -
+we have an idea for a new feature
 
 58
 00:04:25.215 --> 00:04:31.359
-But then we find the problem is too complex to solve all at once so we break it down into smaller steps
+but then we find the problem is
+too complex to solve all at once
+
+so we break it down into simpler steps
 
 59
 00:04:31.615 --> 00:04:37.759
-If we're not careful little bits of the original idea can we left around like clutter in the scenarios
+If we’re not careful, little bits of that
+original idea can be left around like clutter
+
+in the scenarios and in the code
 
 60
 00:04:38.015 --> 00:04:44.159
-And then the code that close I can get in the way especially if plans change
+That clutter can get in the way, especially if plans change
 
 61
 00:04:46.207 --> 00:04:51.839
-We're definitely going to develop this Behavior but we decided to defer it to our next iteration
+We’re definitely going to develop this behaviour
+but we’ve decided to defer it to our next iteration
 
 62
 00:04:52.095 --> 00:04:57.471
-Constellation is just focused on broadcasting messages between the people on the network
+Our current solution is just focused
+on broadcasting messages between
+
+the people on the network
 
 63
 00:04:58.495 --> 00:05:02.335
-Let's clean up the feature to reflect. Current understanding
+Let’s clean up the feature to
+reflect that current understanding
 
 64
 00:05:04.895 --> 00:05:10.271
-How to defeat chicky would we have a space in a gherkin document to write any arbitrary text that we like
+After the feature keyword, we have space
+in a Gherkin document
+
+to write any arbitrary text that we like
 
 65
 00:05:11.039 --> 00:05:17.183
-The coldest the features description this is a great place to write up any notes or the details
+We call this the feature’s description
 
 66
 00:05:17.439 --> 00:05:20.255
-Picantes leave expression examples
+This is a great place to write up any notes
+or other details that
+
+can’t easily be expressed in examples
 
 67
 00:05:20.511 --> 00:05:26.143
-You might have links to Wiki Pages or issue trackers what's the wireframes for example
+You might have links to wiki pages
+or issue trackers, or to wireframes
 
 68
-00:05:28.959 --> 00:05:33.055
-You can buy anything you like in here as long as you don't mention the magic word
-
-69
-00:05:33.311 --> 00:05:35.103
-Scenario
+00:05:28.959 --> 00:05:35.103
+You can put anything you like in here, as long
+as you don’t mention the magic word scenario
 
 70
-00:05:36.639 --> 00:05:39.199
-Common thing to do here for a new feature
-
-71
-00:05:39.455 --> 00:05:42.015
-It's all right out that uses story we're working on
+00:05:36.639 --> 00:05:42.015
+A common thing to do here for a new feature
+is write out the user story we’re working on
 
 72
 00:05:42.527 --> 00:05:45.087
-This is a good place to stop so let's do that
+This is a good place to start, so let’s do that
 
 73
 00:05:53.023 --> 00:05:53.535
@@ -298,59 +314,54 @@ Now we have an overarching story to guide us as we go
 
 75
 00:06:00.191 --> 00:06:06.335
-Something we really like to put into the description of the acceptance criteria all business rules
+Something we really like to put into the description
+are the acceptance criteria or business rules
 
 76
 00:06:06.847 --> 00:06:08.127
-We're trying to implement
+we’re trying to implement
 
 77
 00:06:10.175 --> 00:06:12.479
-And this case we can explain that
+In this case, we can explain that,
 
 78
 00:06:12.991 --> 00:06:18.111
-For the time being we broadcasting 200 uses irrespective of distance
+for the time being, we’re broadcasting to
+all users, irrespective of distance
 
 79
 00:06:20.159 --> 00:06:23.487
-Because we know it will need to filter by proximity later
+Because we know we’ll need to
+filter by proximity - later -
 
 80
 00:06:23.999 --> 00:06:28.863
-We can also write a to-do list here so it's clear that we do intend to get to that soon
+we can also write a todo list here so it’s clear
+that we do intend to get to that soon
 
 81
-00:06:31.423 --> 00:06:32.959
-Changing the description
-
-82
-00:06:33.215 --> 00:06:36.287
-Doesn't change anything about how cucumber will run this feature
+00:06:31.423 --> 00:06:36.287
+Changing the description doesn’t change anything
+about how Cucumber will run this feature
 
 83
 00:06:37.055 --> 00:06:43.199
-It just helps the human beings reading this document to understand more of what you understand
+It just helps the human beings reading this document
+to understand more of what you understand 
 
 84
 00:06:43.455 --> 00:06:45.759
-About the system You're Building
+about the system you’re building
 
 85
-00:06:46.015 --> 00:06:47.295
-The step
-
-86
-00:06:47.551 --> 00:06:50.623
-Given Lucy is 15 meters from Sean
-
-87
-00:06:50.879 --> 00:06:51.903
-Is misleading
+00:06:46.015 --> 00:06:51.903
+The step “Given Lucy is 15m from Sean” is misleading
 
 88
 00:06:52.415 --> 00:06:57.023
-Since the distance between the two people is not yet relevant in our current model
+since the distance between the two people
+is not yet relevant in our current model
 
 89
 00:06:57.535 --> 00:06:58.815
@@ -358,95 +369,106 @@ We have this code here
 
 90
 00:06:59.327 --> 00:07:01.631
-I moved to methadone person
+a move to method on Person
 
 91
 00:07:01.887 --> 00:07:05.215
-Dustin Cole from the step definition but doesn't actually do anything
+that’s being called from the step definition but doesn’t actually do anything
 
 92
 00:07:06.751 --> 00:07:11.871
-Let's simplify this code to do just what it needs to do right now I know more
+Let’s simplify this code to do just what
+it needs to do right now, and no more
 
 93
 00:07:12.127 --> 00:07:16.479
-We can start from the scenario by changing the single-step
+We can start from the scenario by
+changing this single step 
 
 94
 00:07:16.735 --> 00:07:18.783
-To express what's actually going on
+to express what’s actually going on
 
 95
-00:07:19.039 --> 00:07:24.415
-But welcome one scenario was a time I don't date the other one was for happy with this one
-
-96
-00:07:31.839 --> 00:07:32.607
-That
+00:07:19.039 --> 00:07:32.607
+We’ll work on one scenario at a time, and update
+the other one once we’re happy with this one
 
 97
-00:07:32.863 --> 00:07:34.399
-Now we have two steps
-
-98
-00:07:34.655 --> 00:07:36.191
-H creating a person
+00:07:32.863 --> 00:07:36.191
+Now we have two steps, each creating a person
 
 99
 00:07:36.703 --> 00:07:40.799
-Notice was starting to reveal some more vodka main language here
+Notice we’re starting to reveal some more of
+our domain language here:
 
 100
-00:07:41.567 --> 00:07:43.359
-We've introduced the words person
-
-101
-00:07:43.871 --> 00:07:44.895
-Name
+00:07:41.567 --> 00:07:44.895
+we’ve introduced the words Person and name
 
 102
 00:07:46.431 --> 00:07:52.063
-Persons already popped about the main language so it's nice to have that revealed in the language of the scenario
+Person is already a part of our domain language,
+so it’s nice to have that revealed
+
+in the language of the scenario
 
 103
 00:07:53.599 --> 00:07:56.927
-Name May welder coming out your beautiful person soon
+Name may well become an attribute
+of our person soon
 
 104
 00:07:57.183 --> 00:08:01.279
-So it's also useful to have that surface so we can get feedback about it from the team
+so it’s also useful to have that surfaced so
+we can get feedback about it from the team
 
 105
 00:08:04.095 --> 00:08:07.935
-One thing with loss by doing this is the idea that eventually
+One thing we’ve lost by doing this
+is the idea that, eventually
 
 106
 00:08:08.191 --> 00:08:11.519
-The two people need to be close to each other for the message to be transmitted
+the two people will need to be close to each other
+for the message to be transmitted
 
 107
 00:08:12.543 --> 00:08:15.871
-We definitely wouldn't remove detail like that unilaterally
+We definitely wouldn’t remove
+detail like that unilaterally
 
 108
 00:08:16.127 --> 00:08:21.247
-Without discussing it with the other people who were in The Three Amigos mating with us when the example was written
+without discussing it with the other people
+who were in the three amigos meeting with us
+
+when the example was written
 
 109
 00:08:22.527 --> 00:08:28.671
-In this case is why was adding it to the to-do list above we decided to update the names of the existing cenarios
+In this case, as well as adding it
+to the TODO list above
+
+we’ve decided to update the names of
+the existing scenarios
 
 110
 00:08:28.927 --> 00:08:33.023
-I'm about to couple of new empty scenarios to remind us to implement that bag you later
+and write a couple of new empty scenarios
+to remind us to implement that behaviour later
 
 111
 00:08:34.815 --> 00:08:40.703
-Now the cynara name is make sense I mean what's a reminder of future scenarios will need to implement
+Now the scenario names make sense
+
+and we’ve got a reminder of
+future scenarios we’ll need to implement
 
 112
 00:08:41.215 --> 00:08:42.239
-Let's Press On
+Let's press on
 
 113
 00:08:43.519 --> 00:08:48.383
