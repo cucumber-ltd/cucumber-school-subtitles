@@ -48,11 +48,11 @@ Captions and videos go through a number of statuses in their life cycle and will
 
 * **Initial Run** - Running through the base autosub output to fix words that are wrong, missing, or phrases that are missing. This is meant to get the captions to match the script's wording without the primary focus being timing or lines.
 * **Main Run** - This step's goal is to get the caption frames timed correctly and broken out into ways that flow well. `make renumber` should be run at the end of this step.
-* **Polish Run** - This is the final step for the caption files, meant to ensure that timings and flow are correct before being added to the video.
+* **Final Run** - This is the final step for the caption files, meant to ensure that timings and flow are correct before being added to the video.
 * **Captions in Video** - This step is when `make embed [path]` should be run with the path being the directory the video and the caption file are located in. **TODO: Write embed step**
 * **Complete** - 🎉
 
-| Video | Language | Initial Run | Main Run | Polish Run | Captions in Video | Complete |
+| Video | Language | Initial Run | Main Run | Final Run | Captions in Video | Complete |
 |:-----:|:--------:|:-----------:|:--------:|:----------:|-------------------|----------|
 | 01    |          | √           | √        |            | √                 |          |
 | 02    |          |             |          |            |                   |          |
