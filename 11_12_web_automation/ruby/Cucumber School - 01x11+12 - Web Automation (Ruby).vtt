@@ -1973,12 +1973,12 @@ the things being filled in
 clicked, and examined for content
 
 385
-00:28:01.152 --> 00:28:02.500
-For example, we might have
+00:28:01.152 --> 00:28:02.700
+For example, we might have a
 
 385
-00:28:02.500 --> 00:28:07.400
-a homepage object with a method
+00:28:02.700 --> 00:28:07.400
+homepage object with a method
 called shout that encapsulated the calls
 
 386
@@ -2013,47 +2013,57 @@ Jeff “Cheezy” Morgan’s 'page-objects' gem
 is a popular choice
 
 392
-00:28:29.568 --> 00:28:34.944
-The page objects pattern is a great fit for keeping your web automation code tidy
+00:28:29.400 --> 00:28:35.000
+The page objects pattern is a great fit
+for keeping your web automation code tidy
 
 393
-00:28:35.200 --> 00:28:42.368
-but we strongly recommend that you try to push as many of your tests down the pyramid first
+00:28:35.000 --> 00:28:38.600
+but we strongly recommend that you try to
+
+393
+00:28:38.600 --> 00:28:42.368
+push as many of your tests
+down the pyramid first
 
 395
-00:28:43.392 --> 00:28:48.512
-You can use page objects together with the hexagonal architecture pattern we’ve shown you in this episode
+00:28:43.200 --> 00:28:47.000
+You can use page objects together with
+the hexagonal architecture pattern
 
 396
-00:28:48.768 --> 00:28:51.328
- so that when you do need to hit the web UI
+00:28:47.000 --> 00:28:51.600
+we’ve shown you in this episode
+so that when you do need to hit the web UI
 
 397
-00:28:51.840 --> 00:28:54.144
+00:28:51.600 --> 00:28:54.144
 you do that through neat and tidy code
 
 398
-00:28:54.912 --> 00:28:57.728
+00:28:54.700 --> 00:28:57.800
 That's it kids, school's out!
 
 400
-00:28:57.984 --> 00:29:00.800
+00:28:57.800 --> 00:29:00.800
 Time to step out into the real world
 
 401
-00:29:02.080 --> 00:29:06.944
-This has been an intense episode, and we’ve thrown a lot of new concepts at you
+00:29:01.800--> 00:29:07.000
+This has been an intense episode,
+and we’ve thrown a lot of new concepts at you -
 
 402
-00:29:07.712 --> 00:29:12.832
+00:29:07.500 --> 00:29:12.832
 the hexagonal architecture, the strategy pattern and the agile testing pyramid
 
 403
-00:29:14.112 --> 00:29:20.256
-Please take time to watch this video over a few times until you understand these concepts
+00:29:14.000 --> 00:29:20.400
+Please take time to watch this video over
+a few times until you understand these concepts
 
 404
-00:29:20.512 --> 00:29:23.072
+00:29:20.400 --> 00:29:23.072
 and study the exercises and reflection questions
 
 405
@@ -2062,68 +2072,75 @@ We want you to remember that acceptance tests
 don’t have to be full-stack tests
 
 406
-00:29:31.520 --> 00:29:33.312
+00:29:30.300 --> 00:29:33.500
 In fact, it’s often a mistake if they are
 
 407
-00:29:34.848 --> 00:29:40.224
-Don’t fall into the trap of building another yet testing ice cream cone for your project
+00:29:34.500 --> 00:29:40.224
+Don’t fall into the trap of building yet another
+testing ice cream cone for your project
 
 408
-00:29:40.992 --> 00:29:47.136
-Have developers and testers work side-by-side to maximise the value you get from your testing
+00:29:40.800 --> 00:29:43.800
+Have developers and testers
+work side-by-side
+
+408
+00:29:43.800 --> 00:29:47.800
+to maximize the value you get
+from your testing investment
 
 409
-00:29:47.392 --> 00:29:52.256
-investment by pushing as many tests
+00:29:47.800 --> 00:29:52.256
+by pushing as many tests
 as you can down to the lowest level
 
 411
-00:29:53.280 --> 00:29:59.424
+00:29:53.200 --> 00:29:59.424
 The responsibility for the health and wellbeing
 of the world’s Cucumber suites rests with you now
 
 412
-00:30:00.448 --> 00:30:03.008
+00:30:00.300 --> 00:30:03.200
 Use your knowledge wisely!
 
 413
-00:30:05.824 --> 00:30:10.432
-If you remember one thing from the video series,
-remember this:
+00:30:05.600 --> 00:30:10.432
+If you remember one thing from
+the video series, remember this:
 
 415
-00:30:11.456 --> 00:30:14.528
-the software you write
-is just a model-
+00:30:11.456 --> 00:30:15.000
+The software you write is just a model -
 
 417
-00:30:15.552 --> 00:30:19.392
-A model of your team's understanding
+00:30:15.000 --> 00:30:19.392
+a model of your team's understanding
 of the problem domain
 
 418
-00:30:20.672 --> 00:30:22.976
+00:30:20.672 --> 00:30:23.100
 The better that understanding is
 
 419
-00:30:23.232 --> 00:30:25.280
+00:30:23.100 --> 00:30:25.280
 the better the software will be
 
 420
 00:30:26.304 --> 00:30:30.400
-Put your effort into understanding the problem together,
+Put your effort into understanding
+the problem together,
 
 421
 00:30:30.912 --> 00:30:34.240
 and the software will take care of itself
 
 423
-00:30:36.544 --> 00:30:38.848
+00:30:36.400 --> 00:30:39.000
 Goodbye from all of us on Cucumber School
 
 424
-00:30:39.360 --> 00:30:40.896
+00:30:39.000 --> 00:30:40.896
 and have fun out there!
 
 424
