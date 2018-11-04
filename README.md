@@ -66,7 +66,7 @@ Captions and videos go through a number of statuses in their life cycle and will
 |       | Java     | √           |          |            |                   |          |
 | 05    |          |             |          |            |                   |          |
 |       | Ruby     |             |          |            |                   |          |
-|       | Java     |             |          |            |                   |          |
+|       | Java     | √           |          |            |                   |          |
 | 06    |          |             |          |            |                   |          |
 |       | Ruby     |             |          |            |                   |          |
 |       | Java     |             |          |            |                   |          |
