@@ -2,47 +2,55 @@ WEBVTT
 
 1
 00:00:14.848 --> 00:00:17.152
-Welcome back to cucumber School
+Welcome back to Cucumber School
 
 2
 00:00:17.920 --> 00:00:24.064
-Last time we went from cleaning up the shotty features to keep them in sync with the current states to the project
+Last time we worked on cleaning up the
+Shouty features to keep them in sync
+
+with the current status of the project
 
 3
 00:00:24.832 --> 00:00:30.464
-We strip the scenarios back to only specify the behavior of passing messages between people
+We stripped the scenarios back to only specify
+the behaviour of passing messages between people
 
 4
 00:00:31.232 --> 00:00:35.328
-We made it clear that the proximity rule had not yet been implemented
+We made it clear that the proximity rule
+had not yet been implemented
 
 5
 00:00:36.864 --> 00:00:43.008
-You remember from the regular expressions lesson how important it is to be expressive in your scenarios
+You’ll remember from the
+regular expressions lesson 
+
+how important it is to be
+expressive in your scenarios
 
 6
 00:00:43.264 --> 00:00:44.800
-I keep them readable
+and keep them readable
 
 7
 00:00:45.824 --> 00:00:51.968
-And this episode we going to learn some new tricks with keratin that will give you even more flexibility
+In this episode we’re going to learn some
+new tricks with Gherkin that will give you
 
 8
 00:00:52.224 --> 00:00:54.016
-About how you write scenarios
+even more flexibility about
+how you write scenarios
 
 9
-00:00:55.552 --> 00:00:56.832
-Once again
-
-10
-00:00:57.088 --> 00:00:58.624
-The Shanty Pixies
+00:00:55.552 --> 00:00:58.624
+Once again, the Shouty pixies --
 
 11
 00:00:58.880 --> 00:01:05.024
-I mean the shotty developers having hard work implementing a proximity rule
+Umm... -- I mean the Shouty developers -- have been
+hard at work implementing that proximity rule
 
 12
 00:01:06.304 --> 00:01:08.352
@@ -50,63 +58,71 @@ Let's have a look at how they got on
 
 13
 00:01:11.680 --> 00:01:17.824
-Right so those two scenarios we just left as placeholders the one by the listener
+Right, so those two scenarios we just left as just placeholders:
 
 14
 00:01:18.080 --> 00:01:24.224
-Is within range and the one where the listener is out of range having flushed out on app
+the one where the listener is within range
+and the one where the listener is out of range
 
 15
 00:01:24.480 --> 00:01:24.992
-Passing
+have been fleshed out, and are passing
 
 16
 00:01:25.760 --> 00:01:27.040
-Fantastic
+Fantastic!
 
 17
 00:01:28.320 --> 00:01:32.160
-Let's review the changes to the feature file and more detail
+Let’s review the changes to
+the feature file in more detail
 
 18
 00:01:34.208 --> 00:01:36.256
-We now have full scenarios
+We now have four scenarios: 
 
 19
 00:01:36.512 --> 00:01:41.888
-Original two from the last time we looked at the code and two new ones
+our original two from the last time we
+looked at the code, and the two new ones
 
 20
 00:01:42.656 --> 00:01:47.264
-With the two new ones fleshed-out we can say that the first scenario we wrote
+With the two new ones fleshed out
+we can see that the first scenario we wrote -
 
 21
-00:01:47.520 --> 00:01:49.824
-The one where they listen to hear the message
-
-22
-00:01:50.080 --> 00:01:52.128
-Is identical to the third one
+00:01:47.520 --> 00:01:52.128
+the one where the listener hears a message -
+is identical to the third one -
 
 23
 00:01:52.384 --> 00:01:55.200
-The 1Weather listener is within range
+the one where the listener is within range
 
 24
 00:01:56.480 --> 00:01:59.296
-Keeping excess cenarios is wasteful
+Keeping excess scenarios is wasteful:
 
 25
 00:02:00.576 --> 00:02:04.416
-They clutter up your feet two files distracting your readers
+they clutter up your feature files,
+distracting your readers
 
 26
 00:02:05.440 --> 00:02:11.584
-When you run your features as tests excess cenarios make them take longer to run than necessary
+When you run your features as tests
+
+excess scenarios make them
+take longer to run than necessary
 
 27
 00:02:13.376 --> 00:02:19.520
-The one where the listener is within range is a perfectly good way of checking that the message has been sent correctly
+The one where the listener is within range
+
+is a perfectly good way of checking that
+the message has been sent correctly
 
 28
 00:02:20.544 --> 00:02:22.080
@@ -114,211 +130,240 @@ Let's remove the other one
 
 29
 00:02:24.640 --> 00:02:29.504
-Similarly we no longer really need to be testing multiple messages
+Similarly, we no longer really need
+to be testing multiple messages
 
 30
-00:02:30.272 --> 00:02:36.416
-We use the test to triangulate and forces to replace the hard-coded
-
-31
-00:02:36.672 --> 00:02:37.696
-Message output
+00:02:30.272 --> 00:02:37.696
+We used this test to triangulate and
+force us to replace the hard-coded message output
 
 32
 00:02:37.952 --> 00:02:39.744
-With a proper implementation
+with a proper implementation
 
 33
 00:02:40.512 --> 00:02:44.096
-Now we have a demand model that uses a variable for the message
+Now we have a domain model that uses
+a variable for the message
 
 34
-00:02:44.352 --> 00:02:47.424
-Does an insignificant chance of this Behavior regressing
-
-35
-00:02:47.680 --> 00:02:50.240
-So we can safely remove the test
+00:02:44.352 --> 00:02:50.240
+there's an insignificant chance of this behaviour
+regressing, so we can safely remove the test
 
 36
 00:02:51.776 --> 00:02:56.384
-So now we're down to two scenarios that illustrate this rule about proximity
+So now we’re down to two scenarios
+that illustrate this rule about proximity:
 
 37
 00:02:57.152 --> 00:02:59.712
-The one with the listener is within range
+the one where the listener is within range
 
 38
 00:03:00.224 --> 00:03:03.296
-And the one where the listener is out of range
+and the one where the listener is out of range
 
 39
-00:03:04.064 --> 00:03:10.208
-Will using two different listeners Lucy is always within range and Larry
-
-40
-00:03:10.464 --> 00:03:11.232
-His note
+00:03:04.064 --> 00:03:11.232
+We’re using two different listeners, Lucy,
+who’s always within range, and Larry, who’s not
 
 41
 00:03:11.744 --> 00:03:14.048
-It's always show on who's doing the shouting
+It’s always Sean who’s doing the shouting
 
 42
 00:03:14.560 --> 00:03:18.144
-We create all three people here in the background
+We create all three people here, in the background
 
 43
 00:03:18.912 --> 00:03:21.728
-Notice that we also specify the range hair
+Notice that we also specify the range here
 
 44
 00:03:22.240 --> 00:03:24.800
-We could have just had coded it within the system
+We could have just hard-coded it within the system
+but having it documented here in the scenario
 
 45
 00:03:25.056 --> 00:03:31.200
-Having a documented here in this scenario helps to make the behavior with specified much easier to understand
+helps to make the behaviour we’ve specified
+much easier to understand
 
 46
 00:03:31.968 --> 00:03:38.112
-A happy side effect is that in order to set the range from a scenario we have to make it to confirm
+A happy side-effect is that,
+in order to set the range from our scenario
 
 47
 00:03:38.368 --> 00:03:40.160
-Terrible property of the system
+we’ve had to make it a configurable property
+of the system
 
 48
 00:03:40.672 --> 00:03:46.816
-So if a business stakeholders ever change their minds about the range we won't have to go hunting around in the code so why we talk
+So if our business stakeholders ever
+change their minds about the range
+
+we won’t have to go hunting around in the code
+for where we’d hard-coded it
 
 49
 00:03:47.072 --> 00:03:51.680
-Not coded it notice how the steps that create the three people are very similar
+Notice how the steps that create the three people
+are very similar
 
 50
 00:03:53.472 --> 00:03:59.616
-Let me see steps like this given when then syntax starts to feel a bit clunky
+When we see steps like this, Gherkin’s
+Given When Then syntax starts to feel a bit clunky
 
 51
 00:04:01.408 --> 00:04:04.736
-Imagine if we could just write out a table like this
+Imagine if we could just write out a table,
+like this
 
 52
 00:04:18.047 --> 00:04:21.631
-Well we're in luck you can
+Well, we’re in luck. You can!
 
 53
 00:04:22.655 --> 00:04:28.799
-Duncan has a special syntax called data tables that allows you to specify tablet
+Gherkin has a special syntax called Data Tables
+that allows you to specify tabular data for a step
 
 54
 00:04:29.055 --> 00:04:34.431
-Data for step using pipe characters to mop the boundary between cells
+using pipe characters to mark the
+boundary between cells
 
 55
 00:04:38.271 --> 00:04:44.415
-Has he can say the step definition of Felicity takes a single argument which has this coming to explains
+As you can see, the step definition
+implicitly takes a single argument
 
 56
 00:04:44.671 --> 00:04:47.743
-Is a cucumber API datatable
+which as this comment explains is a
+cucumber.api.DataTable
 
 57
 00:04:48.511 --> 00:04:52.607
-This object has a rich API for using the tabular data
+This object has a rich API for using
+the tabular data
 
 58
 00:04:53.375 --> 00:04:58.495
-At its most basic the table is just a two-dimensional array of arrays
+At its most basic, the table is just a
+two-dimensional array of arrays
 
 59
 00:05:08.479 --> 00:05:11.551
-You can also turn the table into a list of map
+You can also turn the table into a List of Map
 
 60
 00:05:11.807 --> 00:05:17.951
-Where the first row is used for the map keys at each following row is used for the map values
+where the first row is used for the map keys
+and each following row is used for the map values
 
 61
 00:05:19.487 --> 00:05:25.631
-Now we can easily answer right over these maps and turn them into instances of person
+Now we can easily iterate over these maps
+and turn them into instances of Person
 
 62
 00:05:36.383 --> 00:05:41.759
-Without done we can delete our old step definition which is now unused
+With that done, we can delete our
+old step definition, which is now unused
 
 63
 00:05:47.391 --> 00:05:53.535
-Cucumber strips pull the white space surrounding each cell so we can have a nice neat table into cooking but still
+Cucumber strips all the white space
+surrounding each cell
+
+so we can have a nice neat table in the
+Gherkin but still get
 
 64
 00:05:53.791 --> 00:05:56.351
-Clean values in the steppe definition underneath
+clean values in the step definition underneath
 
 65
 00:05:59.679 --> 00:06:05.823
-Note to self still have to convert the location from a string to an integer because cucumber a cop know that's the type of file you in
+Notice we’ve still had to convert the location
+from a string to an integer
 
 66
 00:06:06.079 --> 00:06:06.847
-Dinner table
+because Cucumber can’t know that’s the type
+of value in our table
 
 67
 00:06:07.871 --> 00:06:12.223
-If you have a class that has the same field names at the header Row in the table
+If you have a class that has the same
+field names as the header row in the tables
 
 68
 00:06:12.479 --> 00:06:17.343
-You can have cucumber automatically convert the table into a list of. Class
+you can have Cucumber automatically convert the table into a list of that class
 
 69
 00:06:17.855 --> 00:06:23.999
-If a person object has name and location fields and didn't take it in terms of networking its Constructor
+If our Person object had name and location fields
+
+and didn’t take an instance of Network
+in its constructor
 
 70
 00:06:24.255 --> 00:06:28.607
-We could automatically create instances of person from the stable
+we could automatically create instances of Person from this table
 
 71
 00:06:29.375 --> 00:06:31.679
-Things aren't always that simple
+But things aren’t always that simple
 
 72
 00:06:32.703 --> 00:06:38.847
-Instead will Define a simple whereabouts class to represent the data in the table
+Instead, we’ll define a simple Whereabouts class
+to represent the data in the table
 
 73
 00:06:40.127 --> 00:06:46.015
-Flea medicine in a class to the steppe definition class as it doesn't fall apart about codomain
+We’ve made it an inner class to
+the step definition class
+
+as it doesn’t form part of our core domain
 
 74
-00:06:46.783 --> 00:06:52.927
-Now we can use the as list method on the data table to convert the table into a list of
-
-75
-00:06:53.183 --> 00:06:54.207
-Whereabouts
+00:06:46.783 --> 00:06:54.207
+Now we can use the asList method on the DataTable
+to convert the table into a list of Whereabouts
 
 76
 00:06:55.487 --> 00:06:59.583
-In fact you don't have to explicitly convert the table to a list
+In fact, you don’t have to explicitly convert
+the table to a list
 
 77
 00:06:59.839 --> 00:07:05.983
-If you declare your parameter as a generic list cucumber will automatically convert the table into
+If you declare your table parameter
+as a generic list
 
 78
 00:07:06.239 --> 00:07:08.543
-To the list of the generic type for you
+Cucumber will automatically convert the table
+into a list of the generic type for you
 
 79
 00:07:09.567 --> 00:07:15.711
-Now the way you specified this data is okay but it's quite hard to visualize but
+Now the way we’ve specified this data is OK,
+but it’s quite hard to visualise where
 
 80
 00:07:15.967 --> 00:07:17.503
-Age of the papers stud
+each of the people is stood
 
 81
 00:07:18.015 --> 00:07:21.599
@@ -326,39 +371,35 @@ It might be better to express it like this instead
 
 82
 00:07:22.879 --> 00:07:24.671
-Do you like that better
+Do you like that better?
 
 83
 00:07:25.439 --> 00:07:29.535
-You too but you're worried I will handle it and I step definition
+You do, but you’re worried how
+we’ll handle it in our step definition? 
 
 84
-00:07:30.559 --> 00:07:31.839
-See a note
-
-85
-00:07:32.095 --> 00:07:34.399
-Cucumber has you covered
+00:07:30.559 --> 00:07:34.399
+Fear not. Cucumber has you covered
 
 86
-00:07:35.935 --> 00:07:38.495
+00:07:35.935 --> 00:07:41.311
 If you annotate the method parameter
-
-87
-00:07:38.751 --> 00:07:41.311
-With a transpose annotation
+with the @Transpose annotation
 
 88
 00:07:41.823 --> 00:07:46.687
-Cucumber water in each row into a column before passing it to the steppe definition
+Cucumber will turn each row into a column
+before passing it to the step definition
 
 89
 00:07:47.967 --> 00:07:54.111
-You can also call the transpose method on the data table directly to explicitly create a new Tron
+You can also call the transpose method on
+a DataTable to explicitly create
 
 90
 00:07:54.367 --> 00:07:55.647
-Transpose datatable
+a new transposed DataTable
 
 91
 00:08:04.863 --> 00:08:08.959
