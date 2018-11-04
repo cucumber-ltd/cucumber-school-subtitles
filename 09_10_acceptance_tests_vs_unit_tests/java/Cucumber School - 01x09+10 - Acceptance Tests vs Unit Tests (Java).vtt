@@ -2,30 +2,41 @@ WEBVTT
 
 1
 00:00:14.592 --> 00:00:20.736
-Last time on Cucumber school we showed you how to use example mapping to facilitate conversations
+Last time on Cucumber School
+
+we showed you how to use
+example mapping to facilitate conversations
 
 2
 00:00:20.992 --> 00:00:25.344
-between stakeholders before starting work on a new user story
+between stakeholders before starting workon a new user story
 
 3
 00:00:25.600 --> 00:00:31.744
-We finished the lesson on a technical note, showing you how to extract a layer of support code from your step definitions
+We finished the lesson on a technical note,
+showing you how to extract
+
+a layer of support code from your
+step definitions
 
 4
 00:00:32.000 --> 00:00:36.352
-to keep your Cucumber code easy - and cost-effective - to maintain
+to keep your Cucumber code easy -
+and cost-effective - to maintain
 
 5
 00:00:37.376 --> 00:00:43.520
-We’re going to keep things technical in this lesson.
+We’re going to keep things technical
+in this lesson.
 
 Remember that bug we spotted right back at
 the beginning of lesson seven
 
 6
 00:00:43.776 --> 00:00:48.896
-where the user was over-charged if they mentioned “buy”
+where the user was over-charged
+if they mentioned “buy”
+
 several times in the same message?
 
 7
@@ -35,16 +46,19 @@ It's time to finally knuckle down and fix it
 8
 00:00:53.248 --> 00:00:59.392
 As we do so, you’re going to get
-some more experience of the
+some more experience
 
 9
 00:00:59.648 --> 00:01:00.672
-inner and outer TDD loops that
+of the inner and outer TDD loops that
 we first introduced you to in lesson five
 
 10
 00:01:00.928 --> 00:01:06.816
-We’ll learn about mock objects, and explore the difference between unit tests and acceptance tests
+We’ll learn about mock objects,
+and explore the difference between
+
+unit tests and acceptance tests
 
 11
 00:01:07.072 --> 00:01:08.864
@@ -52,7 +66,8 @@ and learn the value of each
 
 12
 00:01:09.632 --> 00:01:13.984
-If you’re someone who doesn’t normally dive deep into code, try not to worry
+If you’re someone who doesn’t normally
+dive deep into code, try not to worry
 
 13
 00:01:14.496 --> 00:01:20.640
@@ -68,27 +83,33 @@ to build a quality product
 
 15
 00:01:26.528 --> 00:01:31.392
-Let’s work outside-in and start by tidying up the Gherkin specification
+Let’s work outside-in and start by
+tidying up the Gherkin specification
 
 16
 00:01:31.904 --> 00:01:37.024
-Right now, the scenario is still in the raw form it was in when the bug was first reported
+Right now, the scenario is still in the raw form
+it was in when the bug was first reported
 
 17
 00:01:37.536 --> 00:01:40.864
-with a name that references an ID in our bug tracking system
+with a name that references an ID
+in our bug tracking system
 
 18
 00:01:41.888 --> 00:01:45.984
-This doesn’t make for very good documentation about the intended behaviour
+This doesn’t make for very good documentation
+about the intended behaviour
 
 19
 00:01:47.264 --> 00:01:51.872
-Using our Friends Episode naming convention that we introduced in lesson 7
+Using our Friends Episode naming convention
+that we introduced in lesson 7
 
 20
 00:01:52.384 --> 00:01:55.712
-we can come up with a more expressive name for this scenario
+we can come up with a more expressive name
+for this scenario
 
 21
 00:01:56.480 --> 00:01:57.504
@@ -196,7 +217,8 @@ Oh dear, oh dear:
 
 47
 00:03:39.392 --> 00:03:44.768
-This file does not contain any tests for the premium account behaviour!
+This file does not contain any tests for
+the premium account behaviour!
 
 48
 00:03:45.024 --> 00:03:51.168
@@ -251,7 +273,8 @@ warning light flash
 there should be at least one corresponding
 unit test flashing too,
 
-pointing the developers to the source of the problem
+pointing the developers to
+the source of the problem
 
 58
 00:04:40.831 --> 00:04:46.207
@@ -347,7 +370,8 @@ constructing new code
 
 78
 00:06:13.759 --> 00:06:18.111
-to throw together a lightweight sketch of a collaborating object
+to throw together a lightweight sketch
+of a collaborating object
 
 79
 00:06:18.879 --> 00:06:21.183
@@ -384,7 +408,8 @@ As we just did
 
 86
 00:06:44.223 --> 00:06:48.831
-having to specify how you want the two objects to interact
+having to specify how you want
+the two objects to interact
 
 87
 00:06:49.599 --> 00:06:55.743
@@ -430,7 +455,8 @@ your design is likely to be nicely modular,
 
 96
 00:07:35.679 --> 00:07:38.751
-which means it will be easier to change in the future
+which means it will be easier
+to change in the future
 
 97
 00:07:39.263 --> 00:07:44.639
@@ -464,7 +490,8 @@ how they communicate about Sean’s credits
 
 103
 00:08:09.471 --> 00:08:13.567
-All we have to do is check how many credits he has left over at the end
+All we have to do is check how many credits
+he has left over at the end
 
 104
 00:08:14.847 --> 00:08:18.943
@@ -513,7 +540,8 @@ multiple mentions of the word “buy”
 
 114
 00:09:00.415 --> 00:09:06.303
-but first we’re retrofitting unit tests for the premium account behaviour in the Network class
+but first we’re retrofitting unit tests for the
+premium account behaviour in the Network class
 
 115
 00:09:07.071 --> 00:09:13.215
@@ -540,7 +568,8 @@ of our test class
 
 120
 00:09:28.831 --> 00:09:32.927
-Now we have our new test, which is about charging for shouts
+Now we have our new test, which is about
+charging for shouts
 
 121
 00:09:34.207 --> 00:09:36.255
@@ -593,7 +622,8 @@ We can fill this out later
 
 130
 00:10:18.751 --> 00:10:23.615
-It’s clear we’ll also need to test that we charge two credits for an over-long message
+It’s clear we’ll also need to test that
+we charge two credits for an over-long message
 
 131
 00:10:24.383 --> 00:10:26.943
@@ -834,11 +864,12 @@ That's better
 
 181
 00:14:48.319 --> 00:14:51.903
-Let’s just make it fail quickly, to check that we can trust it
+Let’s just make it fail quickly,
+to check that we can trust it
 
 182
 00:15:07.775 --> 00:15:08.799
-Okay,
+Okay
 
 183
 00:15:10.335 --> 00:15:13.663
@@ -857,7 +888,8 @@ to ensure that long messages were not broadcast:
 
 186
 00:15:25.695 --> 00:15:29.279
-remember we originally started out without premium accounts
+remember we originally started out
+without premium accounts
 
 187
 00:15:30.303 --> 00:15:33.887
@@ -1311,7 +1343,8 @@ for charging for shouts from Network to Person
 
 285
 00:23:49.760 --> 00:23:55.904
-and the issues around what happened when you run out of credit suddenly became easy to resolve
+and the issues around what happened when you run
+out of credit suddenly became easy to resolve
 
 286
 00:23:57.440 --> 00:24:03.584
@@ -1322,7 +1355,8 @@ broader full-stack tests
 
 287
 00:24:03.840 --> 00:24:08.960
-is critically important to having fast, useful feedback from your test suite
+is critically important to having fast,
+useful feedback from your test suite
 
 288
 00:24:09.472 --> 00:24:12.288
