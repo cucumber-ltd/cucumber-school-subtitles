@@ -1,296 +1,329 @@
 WEBVTT
 
 1
-00:00:14.592 --> 00:00:16.640
-Welcome back to cucumber School
+00:00:14.848 --> 00:00:17.152
+Welcome back to Cucumber School
 
 2
-00:00:17.408 --> 00:00:23.552
-Last time we went from cleaning up the shotty features to keep them in sync with the current status of the project
+00:00:17.920 --> 00:00:24.064
+Last time we worked on cleaning up the
+Shouty features to keep them in sync
+
+with the current status of the project
 
 3
-00:00:24.320 --> 00:00:29.952
-Which strip the scenarios back to only specify the behavior of passing messages between people
+00:00:24.832 --> 00:00:30.464
+We stripped the scenarios back to only specify
+the behaviour of passing messages between people
 
 4
-00:00:30.720 --> 00:00:34.816
-We made it clear that the proximity rule had not yet been implemented
+00:00:31.232 --> 00:00:35.328
+We made it clear that the proximity rule
+had not yet been implemented
 
 5
-00:00:36.352 --> 00:00:42.496
-You remember from the regular expressions lesson how important it is to be expressive and you scenarios
+00:00:36.864 --> 00:00:43.008
+You’ll remember from the
+regular expressions lesson 
+
+how important it is to be
+expressive in your scenarios
 
 6
-00:00:42.752 --> 00:00:44.288
-I keep them readable
+00:00:43.264 --> 00:00:44.800
+and keep them readable
 
 7
-00:00:45.568 --> 00:00:51.712
-And this episode we going to learn some new tricks with cooking that will give you even more flexibility
+00:00:45.824 --> 00:00:51.968
+In this episode we’re going to learn some
+new tricks with Gherkin that will give you
 
 8
-00:00:51.968 --> 00:00:53.760
-But how you write scenarios
+00:00:52.224 --> 00:00:54.016
+even more flexibility about
+how you write scenarios
 
 9
-00:00:55.296 --> 00:00:56.576
-Once again
+00:00:55.552 --> 00:00:58.624
+Once again, the Shouty pixies --
 
 10
-00:00:56.832 --> 00:00:58.112
-The Shanty Pixies
+00:00:58.880 --> 00:01:05.024
+Umm... -- I mean the Shouty developers -- have been
+hard at work implementing that proximity rule
 
 11
-00:00:58.368 --> 00:01:04.512
-I mean the shattered developers having hard work implementing a proximity rule
-
-12
-00:01:05.792 --> 00:01:07.840
+00:01:06.304 --> 00:01:08.352
 Let's have a look at how they got on
 
+12
+00:01:11.680 --> 00:01:17.824
+Right, so those two scenarios we just left as just placeholders:
+
 13
-00:01:11.168 --> 00:01:15.776
-Right so those two scenarios we just left his place holders
+00:01:18.080 --> 00:01:24.224
+the one where the listener is within range
+and the one where the listener is out of range
 
 14
-00:01:16.032 --> 00:01:19.104
-The one by the listing is within range and
+00:01:24.480 --> 00:01:24.992
+have been fleshed out, and are passing
 
 15
-00:01:19.360 --> 00:01:24.480
-The one where the listener is out of range haven't flashed out on a passing
+00:01:25.760 --> 00:01:27.040
+Fantastic!
 
 16
-00:01:25.504 --> 00:01:26.528
-Fantastic
+00:01:28.320 --> 00:01:32.160
+Let’s review the changes to
+the feature file in more detail
 
 17
-00:01:28.064 --> 00:01:31.904
-Let's review the changes to the feature file and more detail
+00:01:34.208 --> 00:01:36.256
+We now have four scenarios: 
 
 18
-00:01:33.696 --> 00:01:36.000
-We now have full scenarios
+00:01:36.512 --> 00:01:41.888
+our original two from the last time we
+looked at the code, and the two new ones
 
 19
-00:01:36.256 --> 00:01:39.584
-Original two from the last time we looked at the code
+00:01:42.656 --> 00:01:47.264
+With the two new ones fleshed out
+we can see that the first scenario we wrote -
 
 20
-00:01:39.840 --> 00:01:41.376
-And two new ones
+00:01:47.520 --> 00:01:52.128
+the one where the listener hears a message -
+is identical to the third one -
 
 21
-00:01:42.144 --> 00:01:48.288
-With the two new ones fleshed-out we can say that the first scenario we wrote the 1Weather listen to his
+00:01:52.384 --> 00:01:55.200
+the one where the listener is within range
 
 22
-00:01:48.544 --> 00:01:49.312
-Is a message
+00:01:56.480 --> 00:01:59.296
+Keeping excess scenarios is wasteful:
 
 23
-00:01:49.568 --> 00:01:51.616
-Is identical to the third one
+00:02:00.576 --> 00:02:04.416
+they clutter up your feature files,
+distracting your readers
 
 24
-00:01:52.128 --> 00:01:54.688
-The 1Weather listener is within range
+00:02:05.440 --> 00:02:11.584
+When you run your features as tests
+
+excess scenarios make them
+take longer to run than necessary
 
 25
-00:01:55.968 --> 00:01:58.784
-Keeping excess scenarios is wasteful
+00:02:13.376 --> 00:02:19.520
+The one where the listener is within range
+
+is a perfectly good way of checking that
+the message has been sent correctly
 
 26
-00:02:00.064 --> 00:02:04.160
-They clutter up your feet your files distracting your readers
-
-27
-00:02:04.928 --> 00:02:11.072
-When you run your features as tests excess cenarios make them take longer to run than necessary
-
-28
-00:02:12.864 --> 00:02:19.008
-The one where the listener is within range is a perfectly good way of checking that the message has been sent correct
-
-29
-00:02:20.032 --> 00:02:21.824
+00:02:20.544 --> 00:02:22.080
 Let's remove the other one
 
+27
+00:02:24.640 --> 00:02:29.504
+Similarly, we no longer really need
+to be testing multiple messages
+
+28
+00:02:30.272 --> 00:02:37.696
+We used this test to triangulate and
+force us to replace the hard-coded message output
+
+29
+00:02:37.952 --> 00:02:39.744
+with a proper implementation
+
 30
-00:02:24.128 --> 00:02:29.248
-Similarly we no longer really need to be testing multiple messages
+00:02:40.512 --> 00:02:44.096
+Now we have a domain model that uses
+a variable for the message
 
 31
-00:02:29.760 --> 00:02:35.904
-We use the test to triangulate and forces to replace the hard code
+00:02:44.352 --> 00:02:50.240
+there's an insignificant chance of this behaviour
+regressing, so we can safely remove the test
 
 32
-00:02:36.160 --> 00:02:39.488
-Did message output with a proper implementation
+00:02:51.776 --> 00:02:56.384
+So now we’re down to two scenarios
+that illustrate this rule about proximity:
 
 33
-00:02:40.000 --> 00:02:46.144
-Now we have a demand model that uses a variable for the message that's an insignificant chance of this Behavior
+00:02:57.152 --> 00:02:59.712
+the one where the listener is within range
 
 34
-00:02:46.400 --> 00:02:46.912
-Dressing
+00:03:00.224 --> 00:03:03.296
+and the one where the listener is out of range
 
 35
-00:02:47.424 --> 00:02:49.728
-So we can safely remove the test
+00:03:04.064 --> 00:03:11.232
+We’re using two different listeners, Lucy,
+who’s always within range, and Larry, who’s not
 
 36
-00:02:51.264 --> 00:02:55.872
-So now we're down to two scenarios that illustrate this rule about proximity
+00:03:11.744 --> 00:03:14.048
+It’s always Sean who’s doing the shouting
 
 37
-00:02:56.640 --> 00:02:59.200
-The one with the listener is within range
+00:03:14.560 --> 00:03:18.144
+We create all three people here, in the background
 
 38
-00:02:59.712 --> 00:03:02.784
-And the one where the listener is out of range
+00:03:18.912 --> 00:03:21.728
+Notice that we also specify the range here
 
 39
-00:03:03.552 --> 00:03:08.416
-Will using two different listeners Lucy is always within range
+00:03:22.240 --> 00:03:24.800
+We could have just hard-coded it within the system
+but having it documented here in the scenario
 
 40
-00:03:08.672 --> 00:03:10.720
-And Larry is not
+00:03:25.056 --> 00:03:31.200
+helps to make the behaviour we’ve specified
+much easier to understand
 
 41
-00:03:11.232 --> 00:03:13.792
-It's always show on who's doing the shouting
+00:03:31.968 --> 00:03:38.112
+A happy side-effect is that,
+in order to set the range from our scenario
 
 42
-00:03:14.304 --> 00:03:17.632
-We create all three people hair in the background
+00:03:38.368 --> 00:03:40.160
+we’ve had to make it a configurable property
+of the system
 
 43
-00:03:18.400 --> 00:03:21.216
-Notice that we also specify the range hair
+00:03:40.672 --> 00:03:46.816
+So if our business stakeholders ever
+change their minds about the range
+
+we won’t have to go hunting around in the code
+for where we’d hard-coded it
 
 44
-00:03:21.984 --> 00:03:28.128
-We could have just had coded it within the system but having it documented here in this scenario helps to make them behave
+00:03:47.072 --> 00:03:51.680
+Notice how the steps that create the three people
+are very similar
 
 45
-00:03:28.384 --> 00:03:30.944
-Lady with specified much easier to understand
+00:03:53.472 --> 00:03:59.616
+When we see steps like this, Gherkin’s
+Given When Then syntax starts to feel a bit clunky
 
 46
-00:03:31.456 --> 00:03:37.600
-A happy side effect is that in order to set the range from a scenario we've had to make it to convey
+00:04:01.408 --> 00:04:04.736
+Imagine if we could just write out a table,
+like this
 
 47
-00:03:37.856 --> 00:03:39.648
-Considerable property of the system
+00:04:18.047 --> 00:04:21.631
+Well, we’re in luck. You can!
 
 48
-00:03:40.160 --> 00:03:46.304
-So if a business stakeholders ever change their minds about the range we won't have to go hunting around in the code for a while we talk
+00:04:22.655 --> 00:04:28.799
+Gherkin has a special syntax called Data Tables
+that allows you to specify tabular data for a step
 
 49
-00:03:46.560 --> 00:03:51.168
-Coded it notice how the steps to create the three people are very similar
+00:04:29.055 --> 00:04:34.431
+using pipe characters to mark the
+boundary between cells
 
 50
-00:03:53.216 --> 00:03:59.360
-Let me see steps like this given when then syntax starts to feel a bit clunky
-
-51
-00:04:00.896 --> 00:04:04.480
-Imagine if we could just write out a table like this
-
-52
-00:04:12.928 --> 00:04:15.232
-Well we're in luck
-
-53
-00:04:15.488 --> 00:04:16.512
-You can
-
-54
-00:04:17.536 --> 00:04:23.679
-Dragon has a special syntax gold datatables that allows you to specify tablet
-
-55
-00:04:23.935 --> 00:04:30.079
-Data for step using pipe characters to mount the boundary between cells as you can say
-
-56
-00:04:30.335 --> 00:04:36.479
-The step definition implicitly Texas single argument which is this comment explains is a
+00:04:38.271 --> 00:04:44.415
+As you can see, the step definition
+implicitly takes a single argument
 
 57
 00:04:36.735 --> 00:04:39.807
-Cucumber AST datatable
+Cucumber::Ast::DataTable
 
 58
 00:04:40.319 --> 00:04:43.903
-This subject has a rich API for using the tablet data
+This object has a rich API for using
+the tabular data
 
 59
 00:04:44.927 --> 00:04:50.047
-Hottest most basic the table is just a two-dimensional array of arrays
+At its most basic, the table is just a
+two-dimensional array of arrays
 
 60
 00:04:52.351 --> 00:04:58.495
-You don't have to use a column had a row in the dates table but when you do you can ask for just the date
+You don’t have to use a
+column header row in a data table
+
+but when you do, you can ask for just the data
 
 61
 00:05:07.199 --> 00:05:13.343
-When you do use clematis it can be useful to fetch each day to row is a hash with a collar
+When you do use column headers,
+it can be useful to fetch each data row as a hash
 
 62
-00:05:13.599 --> 00:05:14.879
-Tom names his keys
-
-63
-00:05:15.135 --> 00:05:17.695
-And The Valleys from the cells and not row
+00:05:13.599 --> 00:05:17.695
+with the column names as keys
+and the values from the cells in that row
 
 64
 00:05:18.207 --> 00:05:24.095
-Now we can easily its rights over these hashes and turn them into instances of person
+Now we can easily iterate over these maps
+and turn them into instances of Person
 
 65
 00:05:42.783 --> 00:05:47.647
-Without done we can delete euro-step definition which is now on used
+With that done, we can delete our
+old step definition, which is now unused
 
 66
 00:05:49.183 --> 00:05:55.327
-Cucumber strips all the white space surrounding each cell so we can have a nice neat table in the cooking
+Cucumber strips all the white space
+surrounding each cell
+
+so we can have a nice neat table in the
+Gherkin but still get
 
 67
 00:05:55.583 --> 00:05:59.167
-I still got clean values in the steppe definition underneath
+clean values in the step definition underneath
 
 68
 00:06:00.191 --> 00:06:06.335
-Notice was still have to convert the location from a string into an integer because cucumber a cop know that's the
+Notice we’ve still had to convert the location
+from a string to an integer
 
 69
 00:06:06.591 --> 00:06:08.383
-The type of value in a table
+because Cucumber can’t know that’s the
+type of value in our table
 
 70
 00:06:08.895 --> 00:06:11.967
-You can also use the map call a method for this
+You can also use the map_column method for this
 
 71
 00:06:16.319 --> 00:06:21.951
-The new tables location column will not contain integers rather than the rule of strings
+The new table’s location column will now contain
+integers rather than the raw strings
 
 72
 00:06:23.743 --> 00:06:29.887
-By the way we specify this title is okay but it's quite hard to visualize what each of the people is
+Now the way we’ve specified this data is OK,
+but it’s quite hard to visualise where
 
 73
 00:06:30.143 --> 00:06:30.655
-Stud
+each of the people is stood
 
 74
 00:06:31.167 --> 00:06:34.495
@@ -298,71 +331,75 @@ It might be better to express it like this instead
 
 75
 00:06:40.895 --> 00:06:42.431
-Do you like that better
+Do you like that better?
 
 76
 00:06:43.711 --> 00:06:48.063
-Could do but you're worried how will Hamlet and ISTEP definition
+You do, but you’re worried how
+we’ll handle it in our step definition?
 
 77
 00:06:48.831 --> 00:06:52.159
-Sia not cucumber has she covered
+Fear not. Cucumber has you covered
 
 78
 00:06:53.951 --> 00:07:00.095
-The datatable has a transpose method which returns a new datatable with each row
+The Data Table has a transpose method
+which returns a new DataTable where
 
 79
 00:07:00.351 --> 00:07:01.631
-Turn into a column
+each row is turned into a column
 
 80
 00:07:03.423 --> 00:07:08.031
-Now we can use the transpose table object as we did before
+Now we can use the transposed table object
+as we did before
 
 81
 00:07:08.799 --> 00:07:12.639
-Let's tidy up this code so as not to keep using all these temporary variables
+Let’s tidy up this code so as not to keep
+using all these temporary variables
 
 82
 00:07:13.151 --> 00:07:19.295
-Datatables a very useful for setting up data and given steps but you can also use them for specify
+Data tables are very useful for
+setting up data in Given steps
 
 83
 00:07:19.551 --> 00:07:20.575
-Outcomes
+but you can also use them for specifying outcomes
 
 84
 00:07:21.855 --> 00:07:26.975
-One rule that we've been implying but it never actually explode with an example
+One rule that we’ve been implying but have
+never actually explored with an example
 
 85
-00:07:27.231 --> 00:07:27.999
-Is that
-
-86
-00:07:28.255 --> 00:07:31.583
-People remember everything they Hood
+00:07:27.231 --> 00:07:31.583
+is that people remember everything they’ve heard
 
 87
 00:07:32.351 --> 00:07:38.495
-So far we've only specified a single message so let's try writing a scenario but Sean Shout
+So far we’ve only specified a single message,
+so let’s try writing a scenario where
 
 88
 00:07:38.751 --> 00:07:40.031
-More than once
+Sean shouts more than once
 
 89
 00:07:44.383 --> 00:07:47.455
-See how natural it is to use a datatable here
+See how natural it is to use a Data Table here?
 
 90
 00:07:48.735 --> 00:07:54.879
-We also haven't used any color matters in this case since the data is all in a single column anyway
+We also haven’t used any column headers in this case,
+since the data is all in a single column anyway
 
 91
 00:07:56.415 --> 00:07:58.719
-So how do we implement the steppe definition
+So how do we implement this step definition?
 
 92
 00:07:59.743 --> 00:08:00.767
@@ -370,151 +407,166 @@ Well
 
 93
 00:08:01.023 --> 00:08:04.351
-The datatable has a really handy mesical def
+Well, the DataTable has
+a really handy method called diff!
 
 94
 00:08:04.607 --> 00:08:08.191
-That we can use to compare two data tables
+that we can use to compare two Data Tables
 
 95
-00:08:08.703 --> 00:08:12.287
-This will pass if the tables are the same
-
-96
-00:08:12.543 --> 00:08:14.079
-I say this a different
+00:08:08.703 --> 00:08:14.079
+diff! will pass if the tables are the same,
+and fail if they’re different
 
 97
 00:08:16.383 --> 00:08:22.527
-So we need the actual messages that loses her to be stored in an object that looks like a datatable so
+So we need the actual messages that
+Lucy’s heard to be stored in an object
 
 98
 00:08:22.783 --> 00:08:25.599
-We can compare it to the ones we expect
+that looks like a DataTable,
+so we can compare it to the ones we expect
 
 99
 00:08:27.135 --> 00:08:28.927
-Two dimensional array will do
+A two-dimensional Array will do
 
 100
 00:08:29.183 --> 00:08:34.303
-So we can just hop over Lucy's messages and create a new single item array for each row
+so we can just map over Lucy’s messages and create
+a new single-item Array for each row
 
 101
 00:08:35.071 --> 00:08:41.215
-Now we can pass that two-dimensional array to the disk method on the table of expected messages passed in from
+Now we can pass that two-dimensional Array
+to the diff method on the table of
 
 102
 00:08:41.471 --> 00:08:42.239
-McGuckin
+expected messages passed in from the Gherkin
 
 103
-00:08:43.775 --> 00:08:44.799
-Oops
-
-104
-00:08:45.055 --> 00:08:47.615
-It looks like animated typo and a scenario
+00:08:43.775 --> 00:08:47.615
+Oops! It looks like we made a typo in our scenario
 
 105
 00:08:48.639 --> 00:08:52.991
-We should have included! Sunday expected messages
+We should have included exclamation marks
+on the expected messages 
 
 106
 00:08:53.503 --> 00:08:59.647
-Well at least this gives you a chance to see the nice different output from cucumber when the tables are different
+Well, at least this gives you a chance to see
+the nice diff output from Cucumber
+
+when the tables are different
 
 107
 00:09:00.671 --> 00:09:05.535
-We see the expected values in Orange on the actual values and white
+We see the expected values in orange
+and the actual values in white
 
 108
 00:09:06.815 --> 00:09:11.167
-Let's fix just one of these so you can see how the deaf output changes
+Let’s fix just one of these so you can see how
+the diff output changes
 
 109
 00:09:13.471 --> 00:09:19.615
-Matching Bagels line is green answer the mismatched bro the actual output is in white
+The matching bagels! line is green
+and for the mismatched row,
 
 110
 00:09:19.871 --> 00:09:22.431
-Unexpected output is an orange
+the actual output is white,
+and the expected output is orange
 
 111
 00:09:23.199 --> 00:09:26.527
-Let's fix that last typo. should be green again
+Let’s fix this last typo,
+and we should be green again
 
 112
 00:09:27.807 --> 00:09:28.575
-Crate
+Great
 
 113
 00:09:28.831 --> 00:09:34.207
-When writing scenarios occasionally we want to use a really long piece of data
+When writing scenarios, occasionally we want
+to use a really long piece of data
 
 114
-00:09:34.719 --> 00:09:35.999
-For example
-
-115
-00:09:36.255 --> 00:09:40.863
-Let's introduce a new rule about the maximum length of a message
+00:09:34.719 --> 00:09:40.863
+For example, let’s introduce a new rule
+about the maximum length of a message
 
 116
 00:09:43.423 --> 00:09:45.727
-Another scenario to illustrate it
+...and add a scenario to illustrate it,
 
 117
 00:09:46.239 --> 00:09:49.567
-Making the string just over the boundary of the rule
+making the string just over
+the boundary of the rule
 
 118
 00:09:56.735 --> 00:10:02.367
-That's pretty ugly isn't it still will press on and get it to Green
+That’s pretty ugly isn’t it!
 
 119
 00:10:02.623 --> 00:10:04.671
-Demo show you how to clean it up
+Still, we’ll press on and get it to green,
+then we’ll show you how to clean it up
 
 120
 00:10:05.439 --> 00:10:10.559
-Existing step definition handles. Ugly step with a long message just fine
+Our existing step definition handles that
+ugly step with the long message just fine
 
 121
 00:10:10.815 --> 00:10:14.655
-But we need a new Step definition for this last outcome step
+but we need a new step definition
+for this last outcome step
 
 122
 00:10:16.191 --> 00:10:21.567
-Well it's right of all the people in the scenario and check they haven't heard this message
+We’ll iterate over all the people in the scenario
+and check they haven’t heard this message
 
 123
 00:10:28.223 --> 00:10:31.807
-Okay so we have a failing acceptance test
+OK, so we have a failing acceptance test
 
 124
 00:10:32.063 --> 00:10:35.135
-Let's dive down into a solution and implement this new rule
+Let’s dive down into our solution
+and implement this new rule
 
 125
 00:10:37.183 --> 00:10:43.327
-It seems like the network should be responsible for implementing this rule so let's go to its unit test I got a new
+It seems like the Network should be
+responsible for implementing this rule
 
 126
 00:10:43.583 --> 00:10:46.655
-Give example to specify this extra responsibility
+so let’s go to its unit tests and add a new
+example to specify this extra responsibility
 
 127
 00:10:50.751 --> 00:10:54.847
-Will create i-181 character message like this
+We’ll create a 181-character message like this
 
 128
 00:10:55.871 --> 00:11:02.015
-Place Lucy and shown in the usual positions subscribe listen to the network and then answered
+place Lucy and Sean in their usual positions
+subscribe Lucy on the network
 
 129
 00:11:02.271 --> 00:11:05.599
-The lazy should not hear the message when it's broadcast
+and then assert that Lucy should not hear
+the message when it’s broadcast
 
 130
 00:11:06.623 --> 00:11:08.159
@@ -522,47 +574,47 @@ Let's run that test
 
 131
 00:11:09.183 --> 00:11:10.975
-Good it fails
+Good, it fails
 
 132
 00:11:11.743 --> 00:11:14.559
-This is still getting the message at the moment
+Lucy’s still getting the message at the moment
 
 133
 00:11:16.095 --> 00:11:18.143
-The how we got to implement this
+Now how are we going to implement this?
 
 134
 00:11:19.423 --> 00:11:23.775
-It looks like we're already implementing the proximity rule here in the broadcast method
+It looks like we’re already implementing the
+proximity rule here in the broadcast method
 
 135
 00:11:24.287 --> 00:11:27.615
-That's another if statement here about the message length
+Let’s add another if statement here
+about the message length
 
 136
 00:11:29.151 --> 00:11:30.943
-From the unit test again
+Run the unit test again...
 
 137
-00:11:31.455 --> 00:11:32.735
-Highest passing
-
-138
-00:11:32.991 --> 00:11:34.015
-Great
+00:11:31.455 --> 00:11:34.015
+and it’s passing. Great
 
 139
 00:11:35.295 --> 00:11:38.879
-It's got a little bit messy and hard to read
+The code here has got
+a little bit messy and hard to read
 
 140
 00:11:39.647 --> 00:11:42.463
-130 basic movie we could make to improve it
+One very basic move we could make to improve it
 
 141
 00:11:42.975 --> 00:11:46.303
-Batista just extract a couple of temporary variables
+would be to just extract
+a couple of temporary variables
 
 142
 00:12:00.895 --> 00:12:01.919
@@ -570,31 +622,31 @@ That's better
 
 143
 00:12:02.943 --> 00:12:07.551
-This car to be improved even further of course but at least we haven't made it any worse
+This code could be improved even further of course
+but at least we haven’t made it any worse
 
 144
 00:12:08.319 --> 00:12:10.623
-Let's just run the test to check
+Let’s just run the tests to check
 
 145
 00:12:11.391 --> 00:12:13.951
-Great everything still green
+Great - everything’s still green
 
 146
 00:12:16.767 --> 00:12:22.911
-Now have everything passing again we can toddy of the gherkin to use a new piece of syntax we've been wanting to tell you
+Now we have everything passing again,
+we can tidy up the Gherkin to use
 
 147
 00:12:23.167 --> 00:12:23.935
-About
+a new piece of syntax we’ve been wanting
+to tell you about: a DocString
 
 148
-00:12:24.447 --> 00:12:25.727
-The dog string
-
-149
-00:12:27.519 --> 00:12:33.407
-Cox trains Alliance specify text argument. The sponge of a multiple lines
+00:12:24.447 --> 00:12:33.407
+DocStrings allow you to specify a text argument
+for a step that spans over multiple lines
 
 150
 00:12:33.919 --> 00:12:36.735
@@ -606,179 +658,195 @@ Now the scenario is much more readable
 
 152
 00:12:43.135 --> 00:12:45.439
-We don't use dogs drink very often
+We don’t use DocStrings very often -
 
 153
 00:12:45.695 --> 00:12:50.047
-I think such a lot of dates are in a test cutoff to make it quite brittle
+having such a lot of data in a test can often
+make it quite brittle
 
 154
 00:12:50.559 --> 00:12:54.143
-But when you do need it it's useful to know about
+But when you do need it
+it's useful to know about
 
 155
 00:13:08.223 --> 00:13:13.855
-You might have noticed that we followed a patent when we added Behavior to the system during this episode
+You might have noticed that we’ve followed
+a pattern when we added behaviour
+
+to the system during this episode
 
 156
 00:13:14.623 --> 00:13:19.231
-First Express the behavior we wanted in a gherkin scenario
+First we expressed the behaviour
+we wanted in a Gherkin scenario
 
 157
 00:13:19.487 --> 00:13:24.351
-Why don't the step definitions then run cucumber to watch it fail
+wired up the step definitions
+then ran Cucumber to watch it fail
 
 158
 00:13:25.375 --> 00:13:31.519
-Then we found the first class and not the main model that needed to change in order to
+Then, we found the first class in our
+domain model that needed to change
 
 159
 00:13:31.775 --> 00:13:33.567
-The support that new Behavior
+in order to support that new behaviour
 
 160
 00:13:34.335 --> 00:13:37.407
-In this case the network class
+In this case, the Network class
 
 161
 00:13:38.175 --> 00:13:43.551
-We use the unit test to describe how we wanted instances of that class to behave
+We used a unit test to describe how
+we wanted instances of that class to behave
 
 162
 00:13:44.063 --> 00:13:47.391
-Then we run the unit test and watched it fail
+Then we ran the unit test and watched it fail
 
 163
 00:13:48.671 --> 00:13:54.047
-We focused in on my changes to the class until it's unit test with passing
+We focused in and made changes to the class
+until its unit tests were passing
 
 164
 00:13:54.815 --> 00:13:56.863
-When the unit test for passing
+When the unit tests were passing
 
 165
 00:13:57.119 --> 00:14:01.983
-Vagina made some minor changes to clean up the code and make it more readable
+we then made some minor changes to
+clean up the code and make it more readable
 
 166
-00:14:02.495 --> 00:14:06.591
-This is the basic test-driven development cycle
-
-167
-00:14:06.847 --> 00:14:07.871
-Red
-
-168
-00:14:08.127 --> 00:14:09.407
-Green
-
-169
-00:14:09.663 --> 00:14:10.687
-Plane
+00:14:02.495 --> 00:14:10.687
+This is the basic test-driven-development cycle:
+red, green, clean
 
 170
 00:14:11.711 --> 00:14:16.831
-The technical name for this last cleanup step is refactoring
+The technical name for this
+last clean-up step is refactoring
 
 171
 00:14:17.343 --> 00:14:22.463
-Refactoring is an ugly name for an extremely valuable activity
+Refactoring is an ugly name for
+an extremely valuable activity: 
 
 172
 00:14:22.719 --> 00:14:28.351
-Improving the design of existing code without changing its Behavior
+improving the design of existing code
+without changing its behaviour
 
 173
 00:14:28.863 --> 00:14:33.983
-You can think about it like cleaning up and washing the dishes after you've prepared a meal
+You can think about it like
+
+cleaning up and washing the dishes after
+you’ve prepared a meal:
 
 174
 00:14:34.495 --> 00:14:36.543
-Basic housekeeping
+basic housekeeping
 
 175
 00:14:37.311 --> 00:14:42.687
-But imagine the state of your kitchen if you never made time to do the dishes
+But imagine the state of your kitchen
+if you never made time to do the dishes
 
 176
 00:14:43.967 --> 00:14:47.039
-Go on imagine it for a second
+Go on, imagine it for a second
 
 177
 00:14:48.319 --> 00:14:50.367
-Yeah
+Yuck!
 
 178
-00:14:51.135 --> 00:14:52.159
-Well
-
-179
-00:14:52.415 --> 00:14:56.255
-That's how many medical bases end up
+00:14:51.135 --> 00:14:56.255
+Well, that’s how many, many codebase end up
 
 180
 00:14:57.279 --> 00:15:03.423
-The good thing about taking this course is it will teach me how to write solid automated-tests
+The good thing about taking this course
+
+is that we’re teaching you how
+to write solid automated tests
+
+change the system’s behaviour
+your tests will tell you
 
 181
 00:15:03.679 --> 00:15:09.823
-And the good thing about having solid automated-tests as that you can refactor with confidence knowing that
+and the good thing about having
+solid automated tests
 
 182
 00:15:10.079 --> 00:15:14.943
-What if you accidentally change the systems Behavior your tests will tell you
+is you can refactor with confidence
+knowing that if you accidentally
 
 183
 00:15:16.991 --> 00:15:20.319
-Once we're done refactoring what do we do next
+Once we’re done refactoring, what do we do next?
 
 184
 00:15:20.831 --> 00:15:23.391
-Run cucumber of course
+Run Cucumber, of course!
 
 185
 00:15:24.415 --> 00:15:30.559
-In this case scenario was passing with a single Trip Around The Inn at EDD Loop but some
+In this case, our scenario was passing with
+a single trip round the inner TDD loop
 
 186
 00:15:30.815 --> 00:15:36.959
-Times you can spend several hours working through all the unit test you need to get a single scenario to Green
+but sometimes you can spend several hours
+working through all the unit tests
+
+you need to get a single scenario to green
 
 187
 00:15:37.983 --> 00:15:40.543
-One Step sepsis test is passing
+Once the acceptance test is passing
 
 188
 00:15:40.799 --> 00:15:44.639
-We'll figure out the next most valuable scenario on our to-do list
+we figure out the next
+most valuable scenario on our todo list
 
 189
 00:15:44.895 --> 00:15:47.967
-I shot the whole thing all over again
+and start the whole thing all over again!
 
 190
 00:15:49.759 --> 00:15:54.111
-Together these two Loops make the PD cycle
+Together, these two loops make the BDD cycle
 
 191
 00:15:54.623 --> 00:16:00.767
-Outer loop which starts with an acceptance test Keeps Us focused on what the
+The outer loop,
+which starts with an acceptance test
 
 192
 00:16:01.023 --> 00:16:02.559
-Business needed to do next
+keeps us focused on what the business
+needs us to do next
 
 193
 00:16:03.583 --> 00:16:09.727
-The inner loop where we continuously test Implement and reflect her small unit
+The inner loop,
+where we continuously test
 
 194
-00:16:09.983 --> 00:16:10.751
-Zip code
-
-195
-00:16:11.007 --> 00:16:15.615
-Is why we decide how will Implement that behavior
+00:16:09.983 --> 00:16:15.615
+implement then refactor small units of code,
+is where decide how we’ll implement that behaviour
 
 196
 00:16:17.151 --> 00:16:20.479
@@ -786,12 +854,19 @@ Both of these levels of feedback are important
 
 197
 00:16:21.247 --> 00:16:26.879
-It's sometimes said that your acceptance tests and show your building the right thing
+It’s sometimes said that your acceptance tests
+ensure you’re building the right thing
 
 198
 00:16:27.647 --> 00:16:33.023
-And your unit tests and sure your building the thing right
+and your unit tests
+ensure you’re building the thing right
 
 199
 00:16:35.839 --> 00:16:40.191
-That's all for this lesson of cucumbers cool see you next time
+That’s all for this lesson of Cucumber School
+See you next time!
+
+189
+00:16:42.000 --> 00:16:44.000
+Captions created by Jayson Smith for Cucumber Ltd.

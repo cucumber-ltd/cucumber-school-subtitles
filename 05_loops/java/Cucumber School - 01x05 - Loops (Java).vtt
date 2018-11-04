@@ -561,7 +561,8 @@ ugly step with the long message just fine
 
 116
 00:11:08.671 --> 00:11:12.511
-but we need a new step definition for this last outcome step
+but we need a new step definition
+for this last outcome step
 
 117
 00:11:13.791 --> 00:11:19.167
@@ -629,7 +630,7 @@ about the message length
 
 131
 00:12:44.415 --> 00:12:46.207
-Run the unit test again…
+Run the unit test again...
 
 132
 00:12:46.719 --> 00:12:49.279
