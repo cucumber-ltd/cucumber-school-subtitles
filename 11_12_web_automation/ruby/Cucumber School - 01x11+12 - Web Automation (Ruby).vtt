@@ -52,7 +52,7 @@ to drive out the solution to your
 
 11
 00:00:58.200 --> 00:00:59.648
-stakeholders problems
+stakeholders' problems
 
 12
 00:01:01.400 --> 00:01:04.600
@@ -61,7 +61,7 @@ the story so far however
 
 13
 00:01:04.600 --> 00:01:08.500
-is that our shouty solution is
+is that our Shouty solution is
 nothing more than a domain model
 
 14
@@ -174,7 +174,7 @@ to be run through the browser via Selenium
 
 39
 00:02:43.000 --> 00:02:44.750
-and if you watch closely,
+and if you watch closely
 
 40
 00:02:44.750 --> 00:02:48.448
@@ -443,7 +443,7 @@ from the web UI in the beginning?
 
 97
 00:06:59.071 --> 00:07:04.200
-We found that focusing on driving out
+We've found that focusing on driving out
 a domain model from our scenarios first
 
 98
@@ -536,7 +536,8 @@ the scenario like this instead
 
 118
 00:08:18.700 --> 00:08:21.759
-This scenario doesn't illustrate the behaviour very well
+This scenario doesn't illustrate
+the behaviour very well
 
 119
 00:08:22.400 --> 00:08:26.000
@@ -591,13 +592,9 @@ you'd need to come back
 and change every scenario that involves shouting
 
 131
-00:09:06.000 --> 00:09:08.351
+00:09:06.000 --> 00:09:12.447
 By pushing the how down
-
-132
-00:09:08.863 --> 00:09:12.447
-your scenarios will remain truer
-for longer
+your scenarios will remain truer for longer
 
 133
 00:09:13.471 --> 00:09:16.800
@@ -637,12 +634,8 @@ our application through the web
 without changing our specifications
 
 141
-00:09:41.887 --> 00:09:44.000
-If there are other interfaces to our
-application
-
-142
-00:09:44.000 --> 00:09:47.600
+00:09:41.887 --> 00:09:47.600
+If there are other interfaces to our application
 like a rest API or a mobile app
 
 143
@@ -717,8 +710,7 @@ to physical devices with plugs and sockets
 
 158
 00:10:45.887 --> 00:10:48.300
-For example,
-the HDMI port on this laptop
+For example, the HDMI port on this laptop
 
 159
 00:10:48.300 --> 00:10:52.799
@@ -754,13 +746,9 @@ The inner hexagon knows nothing about
 the outside world:
 
 166
-00:11:14.900 --> 00:11:18.550
-your web servers, your databases,
-your email sending service
-
-167
-00:11:18.550 --> 00:11:20.447
-or your enterprise message bus
+00:11:14.900 --> 00:11:20.447
+your web servers, your databases, your email
+sending service, or your enterprise message bus
 
 168
 00:11:21.215 --> 00:11:23.263
@@ -809,12 +797,8 @@ We've plugged in two different adapters
 to this little port:
 
 178
-00:12:01.500 --> 00:12:02.500
-the WebApp
-
-179
-00:12:02.500 --> 00:12:05.150
-which exposes Shouty's core domain
+00:12:01.500 --> 00:12:05.150
+the WebApp, which exposes Shouty's core domain
 over the web
 
 180
@@ -823,12 +807,8 @@ for users (or Selenium WebDriver)
 to interact with
 
 181
-00:12:09.500 --> 00:12:11.500
-And the DomainWorld
-
-182
-00:12:11.500 --> 00:12:14.463
-which lets Cucumber
+00:12:09.500 --> 00:12:14.463
+And the DomainWorld, which lets Cucumber
 drive the application directly
 
 183
@@ -852,8 +832,7 @@ were impossible to automate
 
 188
 00:12:34.431 --> 00:12:37.500
-By separating the core domain logic
-from the GUI
+By separating the core domain logic from the GUI
 
 189
 00:12:37.500 --> 00:12:43.000
@@ -947,7 +926,7 @@ wait a minute! Where's Sean Shout?
 
 212
 00:13:49.450 --> 00:13:50.500
-This is odd-
+This is odd -
 
 213
 00:13:50.975 --> 00:13:53.150
@@ -960,7 +939,8 @@ What's going on?
 
 216
 00:13:59.423 --> 00:14:03.775
-The answer lies in the implementation of our Then step
+The answer lies in the implementation
+of our Then step
 
 217
 00:14:05.000 --> 00:14:07.800
@@ -1358,12 +1338,8 @@ to the view template in this locals hash
 Let's give that a try
 
 306
-00:20:13.850 --> 00:20:15.000
-Great!
-
-307
-00:20:15.999 --> 00:20:17.791
-Suddenly, everything is green!
+00:20:13.850 --> 00:20:17.791
+Great! Suddenly, everything is green!
 
 308
 00:20:19.250 --> 00:20:24.191
@@ -1412,12 +1388,8 @@ our new helper method instead
 Let's run all the scenarios in the shout feature
 
 318
-00:21:01.100 --> 00:21:02.150
-Great
-
-319
-00:21:02.150 --> 00:21:03.871
-it looks like we're done
+00:21:01.100 --> 00:21:03.871
+Great. It looks like we're done
 
 320
 00:21:05.000 --> 00:21:08.150
@@ -1561,11 +1533,8 @@ shallow tests that directly hit isolated,
 individual classes and modules in your solution
 
 352
-00:23:05.728 --> 00:23:08.400
+00:23:05.728 --> 00:23:12.250
 The pyramid gets narrower as you go up
-
-353
-00:23:08.400 --> 00:23:12.250
 indicating that as the depth of tests increases
 
 354
@@ -1606,9 +1575,6 @@ more of a testing ice cream cone
 362
 00:23:36.800 --> 00:23:39.900
 Now I love an ice cream on a hot summer’s day
-
-363
-00:23:39.900 --> 00:23:42.450
 but when your test suite looks like this
 
 364
@@ -1672,11 +1638,8 @@ so we just need a few checks
 for basic correctness
 
 377
-00:24:32.450 --> 00:24:35.400
+00:24:32.450 --> 00:24:37.632
 Would it be enough to just test this scenario
-
-378
-00:24:35.400 --> 00:24:37.632
 the one where the listener is within range?
 
 379
@@ -1937,14 +1900,11 @@ to interact with the elements on the web page
 436
 00:28:10.368 --> 00:28:12.900
 This allows you to easily reuse code
-
-437
-00:28:12.900 --> 00:28:14.976
 and keep it easy to read
 
 438
 00:28:16.000 --> 00:28:19.200
-You can easily build page objects on your own,
+You can easily build page objects on your own
 but if you’re feeling lazy
 
 439
@@ -1999,7 +1959,7 @@ Time to step out into the real world
 
 450
 00:29:01.800--> 00:29:07.000
-This has been an intense episode,
+This has been an intense episode
 and we’ve thrown a lot of new concepts at you -
 
 451
@@ -2032,8 +1992,7 @@ testing ice cream cone for your project
 
 457
 00:29:40.800 --> 00:29:43.800
-Have developers and testers
-work side-by-side
+Have developers and testers work side-by-side
 
 458
 00:29:43.800 --> 00:29:47.800
@@ -2069,11 +2028,8 @@ a model of your team's understanding
 of the problem domain
 
 465
-00:30:20.672 --> 00:30:23.100
+00:30:20.672 --> 00:30:25.280
 The better that understanding is
-
-466
-00:30:23.100 --> 00:30:25.280
 the better the software will be
 
 467
