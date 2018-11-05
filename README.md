@@ -46,39 +46,39 @@ Some notes taken from a couple different [style guidelines](http://bbc.github.io
 
 Captions and videos go through a number of statuses in their life cycle and will be tracked below.
 
-* **Initial Run** - Running through the base autosub output to fix words that are wrong, missing, or phrases that are missing. This is meant to get the captions to match the script's wording without the primary focus being timing or lines.
-* **Main Run** - This step's goal is to get the caption frames timed correctly and broken out into ways that flow well. `make renumber` should be run at the end of this step.
-* **Final Run** - This is the final step for the caption files, meant to ensure that timings and flow are correct before being added to the video.
-* **Captions in Video** - This step is when `make embed [path]` should be run with the path being the directory the video and the caption file are located in. **TODO: Write embed step**
+* **Initial** - Running through the base autosub output to fix words that are wrong, missing, or phrases that are missing. This is meant to get the captions to match the script's wording and line length/phrasing breaks can also be done here.
+* **Timing** - This step's goal is to get the caption frames timed correctly. `make renumber` should be run at the end of this step.
+* **Final** - This is the final step for the caption files, meant to ensure that timings and flow are correct before being added to the video.
+* **Embed Captions** - This step is when `make embed [path]` should be run with the path being the directory the video and the caption file are located in. **TODO: Write embed step**
 * **Complete** - 🎉
 
-| Video | Language | Initial Run | Main Run | Final Run | Captions in Video | Complete |
-|:-----:|:--------:|:-----------:|:--------:|:----------:|-------------------|----------|
-| 01    |          | √           | √        |            | √                 |          |
-| 02    |          |             |          |            |                   |          |
-|       | Ruby     | √           | √        |            |                   |          |
-|       | Java     | √           | √        |            |                   |          |
-| 03    |          |             |          |            |                   |          |
-|       | Ruby     | √           |          |            |                   |          |
-|       | Java     | √           |          |            |                   |          |
-| 04    |          |             |          |            |                   |          |
-|       | Ruby     | √           |          |            |                   |          |
-|       | Java     | √           |          |            |                   |          |
-| 05    |          |             |          |            |                   |          |
-|       | Ruby     | √           |          |            |                   |          |
-|       | Java     | √           |          |            |                   |          |
-| 06    |          |             |          |            |                   |          |
-|       | Ruby     |             |          |            |                   |          |
-|       | Java     |             |          |            |                   |          |
-| 07    |          |             |          |            |                   |          |
-|       | Ruby     |             |          |            |                   |          |
-|       | Java     |             |          |            |                   |          |
-| 08    |          |             |          |            |                   |          |
-|       | Ruby     |             |          |            |                   |          |
-|       | Java     |             |          |            |                   |          |
-| 09-10 |          |             |          |            |                   |          |
-|       | Ruby     |             |          |            |                   |          |
-|       | Java     | √           |          |            |                   |          |
-| 11-12 |          |             |          |            |                   |          |
-|       | Ruby     | √           | √        |            |                   |          |
-|       | Java     |             |          |            |                   |          |s
+| Video | Language | Initial | Timing | Final | Embed Captions | Complete |
+|:-----:|:--------:|:-------:|:------:|:-----:|----------------|----------|
+| 01    | Shared   | √       | √      |       | √              |          |
+| 02    |          |         |        |       |                |          |
+|       | Ruby     | √       | √      |       |                |          |
+|       | Java     | √       | √      |       |                |          |
+| 03    |          |         |        |       |                |          |
+|       | Ruby     | √       |        |       |                |          |
+|       | Java     | √       |        |       |                |          |
+| 04    |          |         |        |       |                |          |
+|       | Ruby     | √       |        |       |                |          |
+|       | Java     | √       |        |       |                |          |
+| 05    |          |         |        |       |                |          |
+|       | Ruby     | √       |        |       |                |          |
+|       | Java     | √       |        |       |                |          |
+| 06    |          |         |        |       |                |          |
+|       | Ruby     |         |        |       |                |          |
+|       | Java     |         |        |       |                |          |
+| 07    |          |         |        |       |                |          |
+|       | Ruby     |         |        |       |                |          |
+|       | Java     |         |        |       |                |          |
+| 08    |          |         |        |       |                |          |
+|       | Ruby     |         |        |       |                |          |
+|       | Java     |         |        |       |                |          |
+| 09-10 |          |         |        |       |                |          |
+|       | Ruby     | √       |        |       |                |          |
+|       | Java     | √       |        |       |                |          |
+| 11-12 |          |         |        |       |                |          |
+|       | Ruby     | √       | √      |       |                |          |
+|       | Java     |         |        |       |                |          |
