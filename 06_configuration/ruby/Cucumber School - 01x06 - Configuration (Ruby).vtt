@@ -2,151 +2,149 @@ WEBVTT
 
 1
 00:00:18.176 --> 00:00:21.248
-Hello and welcome back to cucumber School
+Hello, and welcome back to Cucumber School.
 
 2
 00:00:22.016 --> 00:00:25.600
-Last time we learned about two very different kinds of loops
+Last time we learned about
+two very different kinds of loops
 
 3
 00:00:26.112 --> 00:00:30.720
-First Wiz datatables to Loop of a day to end your scenarios
+First, we used DataTables to
+loop over data in your scenarios
 
 4
 00:00:32.000 --> 00:00:34.304
-Timberland about TTD Cycles
+Then we learned about TDD cycles
 
 5
 00:00:35.328 --> 00:00:39.680
-We show how the outer loop of tdd helps you build the right thing
+We saw how the outer loop of TDD
+helps you to build the right thing
 
 6
 00:00:40.960 --> 00:00:44.544
-Well the interloop helps you build the thing right
+while the inner loop helps you
+build the thing right
 
 7
-00:00:46.080 --> 00:00:47.360
-And this lesson
-
-8
-00:00:47.616 --> 00:00:50.688
-We're going to teach you all about how to configure cucumber
+00:00:46.080 --> 00:00:50.688
+In this lesson, we’re going to teach you
+all about how to configure Cucumber
 
 9
 00:00:51.200 --> 00:00:57.344
-Let me start working on a new scenario we often take a dive down into the inner loop of tdd
+When we start working on a new scenario
+we often take a dive down to the inner TDD loop
 
 10
 00:00:57.856 --> 00:01:04.000
-Baby using unit testing tool to drive out new classes will modify the behavior of existing ones
+where we use a unit testing tool to drive out new
+classes or modify the behaviour of existing ones
 
 11
-00:01:04.256 --> 00:01:07.072
-When I unit tested green
-
-12
-00:01:07.328 --> 00:01:09.120
-And a new coat is implemented
+00:01:04.256 --> 00:01:09.120
+When our unit tests are green
+and the new code is implemented
 
 13
 00:01:09.376 --> 00:01:15.264
-Lyrics to into the Cucumber scenarios to verify whether we have made overall progress or not
+we return to the Cucumber scenarios to verify whether we have made overall progress or not
 
 14
 00:01:16.800 --> 00:01:22.432
-If we have lots of cucumber scenarios it can be distracting to run all of them each time we do this
+If we have lots of Cucumber scenarios,
+it can be distracting to run all of them
+
+each time we do this
 
 15
-00:01:22.944 --> 00:01:26.272
-We often want to focus on a single scenario
-
-16
-00:01:26.528 --> 00:01:28.064
-That's just a couple
+00:01:22.944 --> 00:01:28.064
+We often want to focus on a single scenario -
+or perhaps just a couple -
 
 17
 00:01:28.320 --> 00:01:31.392
-To get feedback on what we're currently working on
+to get feedback on what we’re currently working on
 
 18
 00:01:32.160 --> 00:01:34.464
-There's several ways to do this in cucumber
+There are several ways to do this in Cucumber
 
 19
 00:01:34.720 --> 00:01:40.864
-Probably the easiest way is to tell cucumber to run only a scenario with a particular name
+Probably the easiest way is to tell Cucumber
+to only run a scenario with a particular name
 
 20
-00:01:42.912 --> 00:01:44.448
-The name option
-
-21
-00:01:44.704 --> 00:01:47.520
-Telski coming to run Sunrise with a name matching
-
-22
-00:01:47.776 --> 00:01:49.824
-Message is too long
+00:01:42.912 --> 00:01:49.824
+The name option tells Cucumber to only run
+scenarios with a name matching Message is too long
 
 23
 00:01:50.080 --> 00:01:53.664
-The value of this option is actually a regular expression
+The value of this option is actually a
+regular expression
 
 24
 00:01:54.176 --> 00:01:57.760
-You can use your imagination here to run more than one scenario
+so you can use your imagination here to run more than one scenario
 
 25
 00:01:58.016 --> 00:02:04.160
-Another way to tell cucumber to run a specific scenario is to specify the line number of the scenario
+Another way to tell Cucumber to run a
+specific scenario is to specify the line number
 
 26
 00:02:04.416 --> 00:02:05.696
-Within a feature file
+of the scenario within a feature file
 
 27
 00:02:07.488 --> 00:02:12.864
-You can even specify multiple line numbers for each file to run more than one scenario
+You can even specify multiple line numbers
+for each file
 
 28
 00:02:14.400 --> 00:02:20.288
-You can list several files on lines together like this if you have a specific set of scenarios you want to run
+You can list several files and lines together
+like this if you have a
+
+specific set of scenarios you want to run
 
 29
 00:02:21.824 --> 00:02:27.968
-When is Mario fails you noticed a cucumber outputs it come out and you can use to rerun that particular scenario
+When a scenario fails, you’ll notice that
+Cucumber outputs the command you can use
 
 30
 00:02:28.224 --> 00:02:28.736
-Can
+to re-run that particular scenario again
 
 31
 00:02:29.248 --> 00:02:33.600
-You can just copy cucumbers output and paste it into your command prompt
+You can just copy Cucumber’s output
+and paste it into your command prompt
 
 32
 00:02:34.112 --> 00:02:38.464
-Narrowing down the set of scenarios to run like this is cold filtering
+Narrowing down the set of scenarios
+to run like this is called filtering
 
 33
 00:02:38.976 --> 00:02:42.816
-Jacob has a third filtering mechanism that uses tags
+Cucumber has a third filtering mechanism
+that uses tags. Tags start with an at-sign.
 
 34
-00:02:43.328 --> 00:02:45.120
-Text start with a not sign
-
-35
-00:02:45.632 --> 00:02:49.728
-What the f*** is Ty right here above this scenario
+00:02:43.328 --> 00:02:49.728
+We’ll put a focus tag right here,
+above this scenario
 
 36
-00:02:51.520 --> 00:02:55.360
-Now we can run the scenario stacked with Focus
-
-37
-00:02:56.128 --> 00:02:57.408
-I should only be one
+00:02:51.520 --> 00:02:57.408
+Now we can run the scenarios tagged with focus -
+there should be only one...
 
 38
 00:02:59.456 --> 00:02:59.968
@@ -154,440 +152,476 @@ Yep
 
 39
 00:03:01.248 --> 00:03:03.552
-It's entirely up to you what you name your text
+It’s entirely up to you what you name your tags
 
 40
 00:03:03.808 --> 00:03:08.928
-I'm at working on a particular area of the application is coming to use a temporary tag like this
+When we’re working on a particular
+area of the application
+
+it is common to use a temporary tag like this - 
 
 41
 00:03:09.184 --> 00:03:12.000
-Remove at the Foley checkout code into Source control
+we’ll remove it before we check our code into source control
 
 42
 00:03:13.024 --> 00:03:15.328
-Text can be used for other purposes as well
+Tags can be used for other purposes as well
 
 43
 00:03:15.840 --> 00:03:20.448
-If you have lots of scenarios they can be time-consuming to run them all every time
+If you have lots of scenarios it can be time-consuming to run them all every time
 
 44
 00:03:20.960 --> 00:03:21.984
-For example
+For example,
 
 45
 00:03:22.240 --> 00:03:24.288
-You can take a few of them with smoke
+you can tag a few of them with @smoke
+and run only those before
 
 46
 00:03:24.544 --> 00:03:27.872
-Only goes before you check in code Source control
+you check in code to source control
 
 47
 00:03:28.128 --> 00:03:33.504
-This will give you a certain level of confidence and nothing is broken without having to run every single one
+This will give you a certain level of confidence
+that nothing is broken
+
+without having to run them all
 
 48
 00:03:34.272 --> 00:03:38.624
-If you're running cucumber on a CI continuous integration server as well
+If you’re running Cucumber on a
+Continuous Integration Server as well
 
 49
 00:03:38.880 --> 00:03:44.512
-You could run all the scenarios that the texting anyway questions you might have missed by only running the smoke test
+you could run all the scenarios there
+detecting any regressions you might have missed
+
+by only running the smoke tests
 
 50
 00:03:46.304 --> 00:03:52.448
-Text give you a way to organize your scenarios that cuts across feature files you can think of them like sticky labels
+Tags give you a way to organise your scenarios
+that cut across feature files
 
 51
 00:03:52.704 --> 00:03:56.544
-You might point to a book to mock interesting pages that you want to refer back to
+You can think of them like sticky labels
+you might put into a book to
+
+mark interesting pages that you want to
+refer back to
 
 52
 00:03:57.312 --> 00:04:03.456
-Some teams also use tags to reference external documents for example tickets in an issue tracker
+Some teams also use tags to
+reference external documents
 
 53
 00:04:03.712 --> 00:04:04.480
-Trepanning tool
+for example, tickets in an
+issue tracker or planning tool
 
 54
 00:04:05.248 --> 00:04:11.392
-Let's Pretend We're using an issue tracker while working on charity and all the behavior we built so far is related to the
+Let’s pretend we are using an issue tracker
+while working on Shouty
 
 55
 00:04:11.648 --> 00:04:12.928
-Issue number 11
+and all the behaviour we built so far
+is related to the issue number 11
 
 56
 00:04:13.696 --> 00:04:17.536
-We could turn the whole feature file with the single line of the top
+We could tag the whole feature file
+with this single line at the top
 
 57
 00:04:18.303 --> 00:04:22.399
-All the scenarios within that file now inherit that tag
+All the scenarios within that file
+now inherit that tag
 
 58
 00:04:23.935 --> 00:04:30.079
-If you want to you can use more complex Thai Expressions to select the scenarios you want to run
+If you want to, you can use
+more complex tag expressions
+
+to select the scenarios you want to run
 
 59
-00:04:30.335 --> 00:04:31.359
-For example
-
-60
-00:04:31.615 --> 00:04:36.991
-You can use a titration to exclude all the scenarios tactus slow
+00:04:30.335 --> 00:04:36.991
+For example, you could use a tag expression
+to exclude all the scenarios tagged as @slow
 
 61
 00:04:38.783 --> 00:04:42.879
-Let's take a look at some of the other configuration options cucumber office
+Let’s take a look at some of the other configuration options Cucumber offers
 
 62
 00:04:43.647 --> 00:04:49.791
-If we possibly help option to cucumber it will exit immediately without running any scenario
+If we pass the help option to Cucumber
+it will exit immediately
 
 63
 00:04:50.047 --> 00:04:54.911
-I'm pretty available options along with some useful documentation
+without running any scenarios,
+and print all the available options
+
+along with some useful documentation
 
 64
 00:04:55.935 --> 00:05:01.823
-For example you could see more details here about the Boolean Expressions used for tax filtering
+For example, you can see more details here about
+the boolean expressions used for tag filtering
 
 65
 00:05:04.639 --> 00:05:07.967
-Let's take a closer look at the format option
+Let’s take a closer look at the format option
 
 66
 00:05:08.991 --> 00:05:14.367
-So far every time we drink cucumber it is printed the features back to us in the console
+So far, every time we have run Cucumber,
+
+it has printed the features back to us -
+in the console
 
 67
-00:05:14.879 --> 00:05:17.439
-Cucumber can report results in other formats
-
-68
-00:05:17.695 --> 00:05:20.255
-And this is useful for generating reports
+00:05:14.879 --> 00:05:20.255
+Cucumber can report results in other formats, and this is useful for generating reports
 
 69
 00:05:21.535 --> 00:05:23.583
-Let's try the HTML for my son
+Let’s try the HTML formatter
 
 70
 00:05:25.375 --> 00:05:27.423
-HTML formatter
+When we use the html formatter
 
 71
 00:05:27.679 --> 00:05:32.287
-We use dash dash out to specify the file weather report should be written
+we use dash-dash out (--out) to specify the file
+where the report should be written
 
 72
 00:05:32.799 --> 00:05:36.383
-Otherwise the HTML will be written directly to the console
+Otherwise it will be written
+directly to the console
 
 73
-00:05:38.175 --> 00:05:39.199
-Let's try another one
-
-74
-00:05:39.711 --> 00:05:40.479
-Jason
+00:05:38.175 --> 00:05:40.479
+Let’s try another one - JSON
 
 75
 00:05:41.759 --> 00:05:44.831
-The Jason report officer results for single file
+The JSON report outputs the results
+in a single file
 
 76
 00:05:45.599 --> 00:05:50.719
-You can write your own script to a program to post-process this file to generate your own report
+You can write your own script or program to
+post-process this file to generate your own report
 
 77
 00:05:51.999 --> 00:05:56.607
-There is also a progress full matter was just print out a single character for each step
+There is also a progress formatter, which just
+prints out a single character for each step
 
 78
 00:05:57.631 --> 00:06:03.519
-The J unit for matter how was results in an XML format which many continuous integration service
+The JUnit formatter outputs results
+in an XML format
 
 79
 00:06:03.775 --> 00:06:05.567
-Will turn into an ice report
+which many continuous integration servers
+will turn into a nice report
 
 80
 00:06:07.103 --> 00:06:09.663
-We can specify multiple format is like this
+We can specify multiple formatters like this
 
 81
 00:06:09.919 --> 00:06:14.527
-The one without a dash dash out will be written to the console
+The one without a --out
+will be written to the console
 
 82
-00:06:18.111 --> 00:06:20.927
-One of these formatted plugins is rather special
-
-83
-00:06:21.695 --> 00:06:23.231
-The rerun format
+00:06:18.111 --> 00:06:23.231
+One of these formatter plugins is rather special -
+the rerun formatter
 
 84
 00:06:23.999 --> 00:06:27.583
-The food Chinatown let's make one of us in areas fail
+Before we try it out,
+let’s make one of our scenarios fail
 
 85
 00:06:30.143 --> 00:06:30.655
-Right
+Right (???)
 
 86
-00:06:31.167 --> 00:06:33.215
-Choose the rerun formatter
-
-87
-00:06:33.471 --> 00:06:37.055
-And send the output to a file called rerun. Text
+00:06:31.167 --> 00:06:37.055
+We choose the rerun formatter and send the output
+to a file called rerun.txt
 
 88
 00:06:39.103 --> 00:06:41.663
-Let's look at what's and not rerun. Text file
+Let’s look at what’s in that rerun.txt file
 
 89
-00:06:42.431 --> 00:06:44.991
-It's a list of the scenarios that failed
-
-90
-00:06:45.503 --> 00:06:47.295
-On the format looks familiar doesn't it
+00:06:42.431 --> 00:06:47.295
+It’s a list of the scenarios that failed!
+And the format looks familiar doesn’t it?
 
 91
 00:06:48.063 --> 00:06:51.391
-It's using the line number filter full not we showed you earlier
+It’s using the line number filtering format
+we showed you earlier
 
 92
 00:06:52.671 --> 00:06:58.303
-This is really useful when you have a few Fanning cenarios and you want to rerun only the ones that failed
+This is really useful when you have
+a few failing scenarios
+
+and you want to re-run only ones that failed
 
 93
 00:06:59.071 --> 00:07:05.215
-Bacon pasta cucumber the next time we run it simply Viper pending and not sign in front of the path
+This is a big time saver when
+you’re in the middle of a refactoring
+
+where you have broken a few scenarios and you are
+working yourself back to green
 
 94
 00:07:07.519 --> 00:07:13.663
-This is a big Time Saver when you're in the middle of a refactoring but you've broken a few scenarios and you're working yourself
+This is a big time saver when
+you’re in the middle of a refactoring
 
 95
 00:07:13.919 --> 00:07:14.687
-Back to green
+where you have broken a few scenarios and you are
+working yourself back to green
 
 96
 00:07:14.943 --> 00:07:21.087
-The option will quickly tell you whether any of your steps or undefined
+The dry-run option will quickly tell you
+whether any of your steps are undefined
 
 97
 00:07:21.343 --> 00:07:22.623
-Devon try to run any of them
+but it won’t try to run any of them
 
 98
 00:07:23.391 --> 00:07:27.743
-It can be useful to get quick feedback if you change the wording in your steps
+It can be useful to get quick feedback
+if you’ve changed the wording in your steps
 
 99
 00:07:27.999 --> 00:07:32.607
-The strict option affects the exit status of cucumber
+The --strict option affects the
+exit status of Cucumber
 
 100
 00:07:33.119 --> 00:07:36.703
-To see how it works that's not an undefined step
+To see how it works, let’s add an undefined step
 
 101
 00:07:39.775 --> 00:07:41.823
-That's supposed to run it without strict
+Let’s first run it without --strict
 
 102
 00:07:44.383 --> 00:07:50.527
-That last command tells us that cucumber didn't fail it exited with an exit status of
+That last command tells us that
+Cucumber didn’t fail -
 
 103
 00:07:50.783 --> 00:07:51.551
-104
-
-105
-00:07:51.807 --> 00:07:53.599
-Which means success
+it exited with exit status zero,
+which means success
 
 106
-00:07:54.623 --> 00:07:56.159
+00:07:54.623 --> 00:07:53.599
 Now that's running with strict
 
 107
-00:07:57.951 --> 00:08:01.023
-This time the exit status was won
-
-108
-00:08:01.279 --> 00:08:03.583
-Indicating that cucumber failed
+00:07:57.951 --> 00:08:03.583
+This time the exit status was one,
+which means Cucumber failed
 
 109
 00:08:04.607 --> 00:08:06.143
-Why is this interesting
+Why is this interesting?
 
 110
 00:08:06.399 --> 00:08:06.911
-Well
+Well, if you run Cucumber
+on a Continuous Integration server 
 
 111
 00:08:07.167 --> 00:08:13.311
-If you run cucumber on a continuous integration server it will fail the build if there are undefined a pending steps
+it will fail the build
+if there are undefined or pending steps
 
 112
 00:08:14.335 --> 00:08:15.615
-That's pretty handy
+That's pretty handy!
 
 113
 00:08:16.127 --> 00:08:21.503
-Cucumber is first and foremost a tool of facilitates a common understanding between people on a project
+Cucumber is first and foremost a tool
+that facilitates a common understanding
+
+between people on a project
 
 114
 00:08:22.271 --> 00:08:24.575
-Imagine our customers with cats
+Imagine our customers were cats
 
 115
 00:08:24.831 --> 00:08:28.927
-We can write a fish in English but the cats would obviously not understand that
+We could write our features in English,
+but the cats would obviously not understand that
 
 116
 00:08:30.207 --> 00:08:33.791
-Will know the cat speak low cat but English
+We all know that cats speak LOLCAT, not English, so our feature would have to look like this
 
 117
 00:08:34.559 --> 00:08:38.399
-Sophie's would have to look like this in order for cats to understand
+in order for cats to understand
 
 118
 00:08:41.215 --> 00:08:46.591
-We tell cucumber what language to use by adding a language common to the top of the file
+We tell Cucumber what language to use by adding
+a language comment at the top of the file
 
 119
 00:08:47.103 --> 00:08:52.991
-Cucumber support service 60 different spoken languages thanks to contributions from people I'm cats
+Cucumber supports over 60 different languages
+thanks to contributions from
 
 120
 00:08:53.247 --> 00:08:54.271
-The world
+people and cats all over the world
 
 121
-00:08:55.551 --> 00:09:01.695
-You can get a list of all the supported languages with Dash Dash i18n
-
-122
-00:09:01.951 --> 00:09:02.463
-Help
+00:08:55.551 --> 00:09:02.463
+You can get a list of all the supported languages with --i18n help
 
 123
 00:09:04.255 --> 00:09:07.839
-To see the translation of gherkin keywords for particular language
+To see the translation of the Gherkin keywords
+for a particular language
 
 124
 00:09:08.095 --> 00:09:11.167
-Just replace help with the language code
+just replace help with the language code
 
 125
-00:09:11.935 --> 00:09:12.959
-For example
-
-126
-00:09:13.215 --> 00:09:16.031
-Dash dash I 18 hi
-
-127
-00:09:16.543 --> 00:09:17.311
-Fendi
+00:09:11.935 --> 00:09:17.311
+For example, --i18n hi for Hindi
 
 128
 00:09:17.823 --> 00:09:22.175
-It would be tedious if you had to write out these configuration options every time you run a cucumber
+It would be tedious if you had to write out these
+configuration options every time you run Cucumber
 
 129
-00:09:22.943 --> 00:09:23.967
-Make this easier
-
-130
-00:09:24.223 --> 00:09:27.039
-You can write the options in a file to keep them both pickup
+00:09:22.943 --> 00:09:27.039
+To make this easier you can write the options
+in a file that Cucumber will pick up
 
 131
 00:09:28.063 --> 00:09:30.623
-You can use the Cucumber yellow file
+You can use the cucumber.yml file
+to define one or more profiles that describe
 
 132
 00:09:30.879 --> 00:09:35.743
-Define one or more profiles that describe a set of configuration options for cucumber
+a set of configuration options for cucumber
 
 133
-00:09:36.511 --> 00:09:37.535
-For example
+00:09:36.511 --> 00:09:44.191
+For example, we can define a `dev` profile
+that runs only the @focus scenarios
 
-134
-00:09:38.047 --> 00:09:44.191
-We can define a death profile that runs only the focus scenarios and uses the progress for my phone
+and uses the progress formatter
 
 135
 00:09:46.239 --> 00:09:51.103
-Then we use the data profile option to choose this profile when running cucumber
+We use the --profile option to
+choose this profile when running Cucumber
 
 136
 00:09:52.639 --> 00:09:56.991
-To change the default Behavior cucumber change the default profile
+To change the default behaviour of Cucumber
+change the default profile
 
 137
 00:09:58.015 --> 00:10:00.319
-Let's make cucumber strict by default
+Let’s make Cucumber strict by default
 
 138
 00:10:02.879 --> 00:10:09.023
-Is common for teens to have a number of profiles to find usually for the different environments where cucumber runs
+It’s common for teams to have a number of
+profiles defined, usually for the different 
+
+environments where Cucumber runs
 
 139
 00:10:10.047 --> 00:10:15.679
-You can have a CI profile to behave differently to the ones you use on your death machines for example
+You can have a CI profile that
+behaves differently to the one you use
+
+on your dev machines, for example
 
 140
 00:10:15.935 --> 00:10:18.239
-Tomato cucumber really useful to team
+To make Cucumber really useful to your team,
 
 141
 00:10:18.751 --> 00:10:22.079
-It's good to spend time learning the details of how to configure it
+it’s good to spend time learning the details
+of how to configure it
 
 142
-00:10:22.591 --> 00:10:23.615
-And this lesson
-
-143
-00:10:23.871 --> 00:10:27.967
-We gave you a tour of almost all of cucumbers configuration options
+00:10:22.591 --> 00:10:27.967
+In this lesson, we gave you a tour of almost all
+of Cucumber’s configuration options
 
 144
 00:10:28.991 --> 00:10:33.087
-You learned how to fill two scenarios by name line number what time
+You learned how to filter scenarios
+by name, line number or tag
 
 145
-00:10:34.111 --> 00:10:36.415
-You don't have to fool my cucumbers output
+00:10:34.111 --> 00:10:40.511
+You learned how to format Cucumber’s output,
+and you learned how to write your scenarios
 
-146
-00:10:36.671 --> 00:10:40.511
-And you don't have to write your scenarios in different spoken languages
+in different spoken languages
 
 147
 00:10:42.047 --> 00:10:46.911
-You will soon learn how to set up different configurations for use by a whole team
+You also learned how to set up different
+configurations for use by your whole team
 
 148
 00:10:47.935 --> 00:10:50.239
-That's all for this lesson if you come to school
+That's all for this lesson of Cucumber School
 
 149
 00:10:51.007 --> 00:10:52.287
-See you next time
+See you next time!
+
+149
+00:10:54.000 --> 00:10:56.000
+Captions created by Jayson Smith for Cucumber Ltd.
