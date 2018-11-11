@@ -68,11 +68,11 @@ Captions and videos go through a number of statuses in their life cycle and will
 |       | Ruby     | √       |        |       |                |          |
 |       | Java     | √       |        |       |                |          |
 | 06    |          |         |        |       |                |          |
-|       | Ruby     | IP      |        |       |                |          |
-|       | Java     |         |        |       |                |          |
+|       | Ruby     | √       | √      |       |                |          |
+|       | Java     | √       | √      |       |                |          |
 | 07    |          |         |        |       |                |          |
 |       | Ruby     |         |        |       |                |          |
-|       | Java     |         |        |       |                |          |
+|       | Java     | √       | √      |       |                |          |
 | 08    |          |         |        |       |                |          |
 |       | Ruby     |         |        |       |                |          |
 |       | Java     |         |        |       |                |          |
