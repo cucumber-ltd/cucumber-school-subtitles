@@ -1,0 +1,775 @@
+1
+00:00:18,200 --> 00:00:21,240
+Hello, and welcome back to
+Cucumber School!
+
+2
+00:00:22,060 --> 00:00:25,600
+Last time we learned about two very
+different kinds of loops
+
+3
+00:00:25,600 --> 00:00:29,700
+First, we use DataTables to loop over data
+in your scenarios
+
+4
+00:00:31,000 --> 00:00:33,320
+Then we learned about TDD cycles
+
+5
+00:00:34,280 --> 00:00:39,680
+We saw how the outer loop of TDD
+helps you build the right thing
+
+6
+00:00:39,680 --> 00:00:43,600
+while the inner loop helps you
+build the thing right
+
+7
+00:00:45,020 --> 00:00:49,420
+In this lesson, we're going to teach you
+all about how to configure Cucumber
+
+8
+00:00:50,500 --> 00:00:54,600
+When we start working on a new scenario
+we often take a dive down
+
+9
+00:00:54,600 --> 00:00:58,720
+into the inner loop of TDD
+where we use a unit testing tool
+
+10
+00:00:58,720 --> 00:01:04,000
+to drive out new classes or modify
+the behavior of existing ones
+
+11
+00:01:04,280 --> 00:01:08,660
+When our unit tests are green
+and the new code is implemented
+
+12
+00:01:08,700 --> 00:01:12,180
+we return to the Cucumber scenarios
+to verify whether we have made
+
+13
+00:01:12,180 --> 00:01:14,640
+overall progress or not
+
+14
+00:01:15,900 --> 00:01:20,160
+If we have lots of Cucumber scenarios
+it can be distracting to run all of them
+
+15
+00:01:20,160 --> 00:01:21,720
+each time we do this
+
+16
+00:01:22,280 --> 00:01:25,900
+We often want to focus
+on a single scenario or perhaps
+
+17
+00:01:25,900 --> 00:01:29,080
+just a couple
+to get feedback on what
+
+18
+00:01:29,080 --> 00:01:30,840
+we're currently working on
+
+19
+00:01:31,520 --> 00:01:33,980
+There are several ways to do this in
+Cucumber
+
+20
+00:01:34,460 --> 00:01:38,920
+Probably the easiest way is to
+tell Cucumber to run only a scenario
+
+21
+00:01:38,920 --> 00:01:40,560
+with a particular name
+
+22
+00:01:42,480 --> 00:01:47,180
+The name option tells Cucumber to run
+scenarios with a name matching
+
+23
+00:01:47,180 --> 00:01:49,320
+'Message is too long'
+
+24
+00:01:50,440 --> 00:01:54,240
+The value of this option is actually a
+regular expression so you can
+
+25
+00:01:54,240 --> 00:01:57,640
+use your imagination here to run more
+than one scenario
+
+26
+00:01:58,120 --> 00:02:02,680
+Another way to tell Cucumber to run a
+specific scenario is to specify the
+
+27
+00:02:02,680 --> 00:02:05,840
+line number of the scenario within a
+feature file
+
+28
+00:02:07,480 --> 00:02:11,160
+You can even specify multiple line
+numbers for each file to run
+
+29
+00:02:11,240 --> 00:02:12,960
+more than one scenario
+
+30
+00:02:14,360 --> 00:02:17,480
+You can list several files and lines
+together like this if you have
+
+31
+00:02:17,480 --> 00:02:20,160
+a specific set of scenarios
+you want to run
+
+32
+00:02:21,840 --> 00:02:25,320
+When a scenario fails you'll notice that
+Cucumber outputs the command
+
+33
+00:02:25,320 --> 00:02:28,560
+you can use to rerun that
+particular scenario again
+
+34
+00:02:29,160 --> 00:02:33,600
+You can just copy Cucumber's output
+and paste it into your command prompt
+
+35
+00:02:34,040 --> 00:02:38,440
+Narrowing down the set of scenarios
+to run like this is called filtering
+
+36
+00:02:39,040 --> 00:02:42,760
+Cucumber has a third filtering mechanism
+that uses tags
+
+37
+00:02:43,240 --> 00:02:45,320
+Tags start with an @ sign
+
+38
+00:02:45,840 --> 00:02:49,720
+We'll put a focus tag right here
+above this scenario
+
+39
+00:02:51,680 --> 00:02:55,280
+Now we can run the scenarios tagged with focus.
+
+40
+00:02:56,040 --> 00:02:57,440
+There should only be one
+
+41
+00:02:59,240 --> 00:02:59,960
+Yep.
+
+42
+00:03:01,040 --> 00:03:03,360
+It's entirely up to you what you
+name your tags
+
+43
+00:03:03,920 --> 00:03:06,600
+When we're working on a particular
+area of the application
+
+44
+00:03:06,600 --> 00:03:08,840
+it's common to use a temporary tag
+like this
+
+45
+00:03:09,260 --> 00:03:11,960
+We'll remove it before we check our code
+into source control
+
+46
+00:03:13,060 --> 00:03:15,220
+Tags can be used for other purposes
+as well
+
+47
+00:03:15,960 --> 00:03:20,580
+If you have lots of scenarios it can be
+time-consuming to run them all every time
+
+48
+00:03:21,100 --> 00:03:22,260
+For example
+
+49
+00:03:22,260 --> 00:03:25,580
+you can tag a few of them with smoke
+and run only those
+
+50
+00:03:25,580 --> 00:03:27,820
+before you check in code to source
+
+51
+00:03:28,320 --> 00:03:31,380
+This will give you a certain level of
+confidence that nothing is broken
+
+52
+00:03:31,380 --> 00:03:33,620
+without having to run every single one
+
+53
+00:03:34,440 --> 00:03:38,800
+If you're running Cucumber on a CI,
+continuous integration, server as well
+
+54
+00:03:38,800 --> 00:03:42,240
+you could run all the scenarios there
+detecting any regressions you might have
+
+55
+00:03:42,240 --> 00:03:44,480
+missed by only running the smoke tests
+
+56
+00:03:46,400 --> 00:03:48,720
+Tags give you a way to organize your
+scenarios that
+
+57
+00:03:48,720 --> 00:03:50,560
+cuts across feature files
+
+58
+00:03:50,940 --> 00:03:53,800
+You can think of them like sticky labels
+you might put into a book
+
+59
+00:03:53,800 --> 00:03:56,600
+to mark interesting pages
+that you want to refer back to
+
+60
+00:03:57,420 --> 00:04:01,800
+Some teams also use tags to reference
+external documents
+
+61
+00:04:01,800 --> 00:04:04,600
+For example, tickets in an
+issue tracker or planning tool
+
+62
+00:04:05,240 --> 00:04:08,400
+Let's pretend we're using an issue tracker
+while working on Shouty
+
+63
+00:04:08,400 --> 00:04:13,040
+and all the behavior we built so far
+is related to the issue number 11
+
+64
+00:04:13,880 --> 00:04:17,600
+We could tag the whole feature file
+with the single line at the top
+
+65
+00:04:18,260 --> 00:04:22,480
+All the scenarios within that file
+now inherit that tag
+
+66
+00:04:24,000 --> 00:04:29,000
+If you want to you can use more complex
+tag expressions to select the scenarios
+
+67
+00:04:29,000 --> 00:04:30,120
+you want to run
+
+68
+00:04:30,380 --> 00:04:31,380
+For example
+
+69
+00:04:31,380 --> 00:04:37,000
+you could use a tag expression to exclude
+all the scenarios tagged as @slow
+
+70
+00:04:38,760 --> 00:04:42,900
+Let's take a look at some of the
+configuration options Cucumber offers
+
+71
+00:04:43,720 --> 00:04:48,500
+If we pass the help option to Cucumber
+it will exit immediately
+
+72
+00:04:48,500 --> 00:04:52,800
+without running any scenarios
+and print all the available options
+
+73
+00:04:52,800 --> 00:04:55,040
+along with some useful documentation
+
+74
+00:04:56,100 --> 00:04:57,240
+For example
+
+75
+00:04:57,240 --> 00:05:01,700
+you can see more details here about the
+boolean expressions used for tag filtering
+
+76
+00:05:04,320 --> 00:05:08,000
+Let's take a closer look at the
+format option
+
+77
+00:05:09,040 --> 00:05:13,280
+So far every time we've run Cucumber
+it has printed the features back to us
+
+78
+00:05:13,280 --> 00:05:14,400
+in the console
+
+79
+00:05:15,040 --> 00:05:17,740
+Cucumber can report results
+in other formats
+
+80
+00:05:17,740 --> 00:05:20,400
+and this is useful for generating reports
+
+81
+00:05:21,440 --> 00:05:23,540
+Let's try the HTML formatter
+
+82
+00:05:25,440 --> 00:05:27,600
+When we use the HTML formatter
+
+83
+00:05:27,600 --> 00:05:32,560
+we use --out to specify the file where
+the report should be written
+
+84
+00:05:32,560 --> 00:05:36,560
+otherwise the HTML would be written
+directly to the console
+
+85
+00:05:38,000 --> 00:05:39,680
+Let's try another one:
+
+86
+00:05:39,680 --> 00:05:40,400
+JSON
+
+87
+00:05:41,680 --> 00:05:45,040
+The JSON report outputs the results
+in a single file
+
+88
+00:05:45,840 --> 00:05:49,040
+You can write your own script or program
+to post-process this file to
+
+89
+00:05:49,040 --> 00:05:51,120
+generate your own report
+
+90
+00:05:52,160 --> 00:05:55,680
+There's also a progress formatter which
+just prints out a single character
+
+91
+00:05:55,680 --> 00:05:56,560
+for each step
+
+92
+00:05:57,600 --> 00:06:01,520
+The JUNIT formatter outputs results
+in an XML format which
+
+93
+00:06:01,520 --> 00:06:05,560
+many continuous integration servers
+will turn into a nice report
+
+94
+00:06:07,280 --> 00:06:10,040
+We can specify multiple formatters
+like this
+
+95
+00:06:10,040 --> 00:06:14,520
+The one without a --out
+will be written to the console
+
+96
+00:06:18,240 --> 00:06:21,480
+One of these formatter plug-ins
+is rather special -
+
+97
+00:06:21,480 --> 00:06:23,360
+the rerun formatter
+
+98
+00:06:23,920 --> 00:06:27,680
+Before we try it out, let's make
+one of our scenarios fail
+
+99
+00:06:29,960 --> 00:06:31,000
+Right
+
+100
+00:06:31,240 --> 00:06:35,640
+Now we choose the rerun formatter
+and send the output to a file called
+
+101
+00:06:35,640 --> 00:06:37,160
+rerun.txt
+
+102
+00:06:39,080 --> 00:06:41,880
+Let's look at what's in that rerun.txt file
+
+103
+00:06:42,400 --> 00:06:47,440
+It's a list of the scenarios that failed
+and the format looks familiar doesn't it?
+
+104
+00:06:48,120 --> 00:06:51,240
+It's using the line number filtering format
+we showed you earlier
+
+105
+00:06:52,680 --> 00:06:55,640
+This is really useful when you have
+a few failing scenarios
+
+106
+00:06:55,640 --> 00:06:58,480
+and you want to rerun only
+the ones that failed
+
+107
+00:06:59,160 --> 00:07:01,800
+We can pass this to Cucumber the
+next time we run it
+
+108
+00:07:01,800 --> 00:07:05,600
+simply by prepending an @ sign
+in front of the path
+
+109
+00:07:07,480 --> 00:07:10,800
+This is a big time saver when you're
+in the middle of a refactoring
+
+110
+00:07:10,800 --> 00:07:14,800
+where you've broken a few scenarios
+and you're working yourself back to green
+
+111
+00:07:15,040 --> 00:07:21,020
+The dry run option will quickly tell you
+whether any of your steps are undefined
+
+112
+00:07:21,020 --> 00:07:22,720
+but it won't try to run any of them
+
+113
+00:07:23,580 --> 00:07:27,760
+It can be useful to get quick feedback
+if you change the wording in your steps
+
+114
+00:07:28,080 --> 00:07:32,800
+The strict option affects the
+exit status of Cucumber
+
+115
+00:07:33,040 --> 00:07:36,720
+To see how it works
+let's add an undefined step
+
+116
+00:07:40,000 --> 00:07:41,840
+Let's first run it without strict
+
+117
+00:07:44,320 --> 00:07:48,000
+That last command tells us that
+Cucumber didn't fail
+
+118
+00:07:48,000 --> 00:07:53,680
+it exited with an exit status of zero
+which means success
+
+119
+00:07:54,600 --> 00:07:56,240
+Now, let's run it with strict
+
+120
+00:07:57,960 --> 00:08:03,720
+Ah, this time the exit status was one
+indicating that Cucumber failed
+
+121
+00:08:04,480 --> 00:08:06,320
+Why is this interesting?
+
+122
+00:08:06,320 --> 00:08:10,040
+Well, if you run Cucumber on a
+continuous integration server
+
+123
+00:08:10,040 --> 00:08:13,800
+it will fail the build if there are
+undefined or pending steps
+
+124
+00:08:14,320 --> 00:08:15,920
+That's pretty handy!
+
+125
+00:08:15,920 --> 00:08:18,880
+Cucumber is first and
+foremost a tool that facilitates a
+
+126
+00:08:18,880 --> 00:08:21,560
+common understanding between
+people on a project
+
+127
+00:08:22,400 --> 00:08:24,280
+Imagine our customers were cats
+
+128
+00:08:24,920 --> 00:08:26,800
+We could write our features in English
+
+129
+00:08:26,800 --> 00:08:29,200
+but the cats would obviously not
+understand that
+
+130
+00:08:30,080 --> 00:08:34,520
+We all know that cats speak
+LOLCAT not English
+
+131
+00:08:34,520 --> 00:08:38,480
+so our feature would have to look like this
+in order for cats to understand
+
+132
+00:08:41,200 --> 00:08:45,360
+We tell Cucumber what language to use
+by adding a language comment
+
+133
+00:08:45,400 --> 00:08:46,560
+at the top of the file
+
+134
+00:08:47,120 --> 00:08:51,400
+Cucumber supports over 60 different
+spoken languages thanks to contributions
+
+135
+00:08:51,400 --> 00:08:54,480
+from people and cats all over the world
+
+136
+00:08:55,600 --> 00:09:02,400
+You can get a list of all the supported
+languages with - - i18n help
+
+137
+00:09:04,080 --> 00:09:08,080
+To see the translation of Gherkin
+keywords for a particular language
+
+138
+00:09:08,080 --> 00:09:11,280
+just replace help with the language code
+
+139
+00:09:11,920 --> 00:09:17,440
+For example --i18n hi for Hindi
+
+140
+00:09:17,740 --> 00:09:19,460
+It would be tedious if you had to write out
+
+141
+00:09:19,460 --> 00:09:22,100
+these configuration options
+every time you run Cucumber
+
+142
+00:09:22,880 --> 00:09:26,840
+To make this easier, you can write
+the options in a file that Cucumber will pick up
+
+143
+00:09:28,000 --> 00:09:32,940
+You can use the cucumber.yml file
+to define one or more profiles
+
+144
+00:09:32,940 --> 00:09:35,760
+that describe a set of
+configuration options for Cucumber
+
+145
+00:09:36,660 --> 00:09:37,980
+For example
+
+146
+00:09:37,980 --> 00:09:42,400
+we can define a @dev profile that runs
+only the @focus scenarios
+
+147
+00:09:42,400 --> 00:09:44,280
+and uses the progress formatter
+
+148
+00:09:46,300 --> 00:09:50,980
+Then we use the --profile option to choose
+this profile when running Cucumber
+
+149
+00:09:52,580 --> 00:09:57,000
+To change the default behavior of Cucumber
+change the default profile
+
+150
+00:09:58,060 --> 00:10:00,460
+Let's make Cucumber strict by default
+
+151
+00:10:03,040 --> 00:10:06,040
+It's common for teams to have
+a number of profiles defined
+
+152
+00:10:06,040 --> 00:10:08,800
+usually for the different environments
+where Cucumber runs
+
+153
+00:10:10,000 --> 00:10:12,960
+You can have a CI profile that
+behaves differently
+
+154
+00:10:12,960 --> 00:10:15,620
+to the ones you use on your dev machines
+for example
+
+155
+00:10:15,840 --> 00:10:18,640
+To make Cucumber really useful
+ to your team
+
+156
+00:10:18,680 --> 00:10:22,160
+it's good to spend time learning the
+details of how to configure it
+
+157
+00:10:22,760 --> 00:10:26,000
+In this lesson we gave you a tour of almost all of
+
+158
+00:10:26,000 --> 00:10:28,000
+Cucumber's configuration options
+
+159
+00:10:28,920 --> 00:10:33,240
+You learned how to filter scenarios
+by name, line number, or tag
+
+160
+00:10:34,240 --> 00:10:38,800
+We learned how to format Cucumber's
+output and we learned how to write
+
+161
+00:10:38,880 --> 00:10:40,740
+your scenarios in different spoken languages
+
+162
+00:10:42,040 --> 00:10:45,340
+You also learned how to set up 
+different configurations
+
+163
+00:10:45,340 --> 00:10:46,960
+for use by your whole team
+
+164
+00:10:48,060 --> 00:10:50,080
+That's all for this lesson of Cucumber School
+
+165
+00:10:51,080 --> 00:10:52,360
+See you next time!
+
+166
+00:10:54,000 --> 00:10:56,000
+Captions created by Jayson Smith for Cucumber Ltd.
