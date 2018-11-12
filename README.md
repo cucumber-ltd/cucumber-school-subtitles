@@ -52,33 +52,33 @@ Captions and videos go through a number of statuses in their life cycle and will
 * **Embed Captions** - This step is when `make embed [path]` should be run with the path being the directory the video and the caption file are located in. **TODO: Write embed step**
 * **Complete** - 🎉
 
-| Video | Language | Initial | Timing | Final | Embed Captions | Complete |
-|:-----:|:--------:|:-------:|:------:|:-----:|----------------|----------|
-| 01    | Shared   | √       | √      |       | √              |          |
-| 02    |          |         |        |       |                |          |
-|       | Ruby     | √       | √      |       |                |          |
-|       | Java     | √       | √      |       |                |          |
-| 03    |          |         |        |       |                |          |
-|       | Ruby     | √       |        |       |                |          |
-|       | Java     | √       |        |       |                |          |
-| 04    |          |         |        |       |                |          |
-|       | Ruby     | √       |        |       |                |          |
-|       | Java     | √       |        |       |                |          |
-| 05    |          |         |        |       |                |          |
-|       | Ruby     | √       |        |       |                |          |
-|       | Java     | √       |        |       |                |          |
-| 06    |          |         |        |       |                |          |
-|       | Ruby     | √       | √      |       |                |          |
-|       | Java     | √       | √      |       |                |          |
-| 07    |          |         |        |       |                |          |
-|       | Ruby     |         |        |       |                |          |
-|       | Java     | √       | √      |       |                |          |
-| 08    |          |         |        |       |                |          |
-|       | Ruby     |         |        |       |                |          |
-|       | Java     |         |        |       |                |          |
-| 09-10 |          |         |        |       |                |          |
-|       | Ruby     | √       |        |       |                |          |
-|       | Java     | √       |        |       |                |          |
-| 11-12 |          |         |        |       |                |          |
-|       | Ruby     | √       | √      |       |                |          |
-|       | Java     | √       |        |       |                |          |
+| Video | Language | Initial | SRT    | Final | Complete |
+|:-----:|:--------:|:-------:|:------:|:-----:|----------|
+| 01    | Shared   | √       | √      |       |          |
+| 02    |          |         |        |       |          |
+|       | Ruby     | √       | √      |       |          |
+|       | Java     | √       |        |       |          |
+| 03    |          |         |        |       |          |
+|       | Ruby     | √       |        |       |          |
+|       | Java     | √       |        |       |          |
+| 04    |          |         |        |       |          |
+|       | Ruby     | √       |        |       |          |
+|       | Java     | √       |        |       |          |
+| 05    |          |         |        |       |          |
+|       | Ruby     | √       |        |       |          |
+|       | Java     | √       |        |       |          |
+| 06    |          |         |        |       |          |
+|       | Ruby     | √       | √      |       |          |
+|       | Java     | √       | √      |       |          |
+| 07    |          |         |        |       |          |
+|       | Ruby     |         |        |       |          |
+|       | Java     | √       | √      |       |          |
+| 08    |          |         |        |       |          |
+|       | Ruby     |         |        |       |          |
+|       | Java     |         |        |       |          |
+| 09-10 |          |         |        |       |          |
+|       | Ruby     | √       |        |       |          |
+|       | Java     | √       |        |       |          |
+| 11-12 |          |         |        |       |          |
+|       | Ruby     | √       |        |       |          |
+|       | Java     | √       |        |       |          |
