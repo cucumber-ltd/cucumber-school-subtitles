@@ -39,7 +39,7 @@ and some object-oriented design as well
 
 9
 00:00:49,000 --> 00:00:52,800
-We want this to feel real,
+We want this to feel real
 so we'll work on something fun
 
 10
