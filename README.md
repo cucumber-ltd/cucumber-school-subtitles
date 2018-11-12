@@ -15,12 +15,9 @@ conversations about concrete examples
 
 ## Steps
 
-* Use [autosub](https://github.com/agermanidis/autosub) for the initial generation of VTT files.
-  * Example: `autosub -F vtt 02_your_first_scenario/java/Cucumber\ School\ -\ 01x02\ -\ Your\ First\ Scenario\ \(Java\).mp4`
-* Autosub uses the Google Web Speech API to generate the test in the files and it's always going to need cleaning up. Expect misspellings, incorrect words, missing lines, and timing issues to all be present. There are a couple different ways clean up can be done, but what I've started doing is:
-  * Using VLC, run through the video with the caption file open to fix things like misspelled/incorrect words and missing dialogue without worrying about timing
-  * Run through again to fix timing, formatting, etc. Keep in mind the style guidelines below when doing this.
-  * To fix caption frame numbering for files run `make renumber`. To run for a specific file, prefix with a FILENAME value to the file you'd like to change. Ex: `FILENAME="./02_your_first_scenario/java/Cucumber School - 01x02 - Your First Scenario (Java).vtt" make renumber`
+* Upload video as unlisted to Youtube. (YT) Their service should automatically generate a subtitles file.
+* Edit YT's file in their interface to correct anything that might be wrong with the auto generated text.
+* Update the caption file and then download it in its `.srt` format.
 * Use ffmpeg to combine the caption file with the video
   * Example: `ffmpeg -i "Cucumber School - 01x01 - Give Me An Example.mp4" -i "Cucumber School - 01x01 - Give Me An Example.vtt" -metadata:s:s:0 language=eng -c copy -c:s mov_text "Cucumber School - 01x01 - Give Me An Example - Captions.mp4"`
 * Upload
@@ -37,7 +34,7 @@ Some notes taken from a couple different [style guidelines](http://bbc.github.io
   * Sentences that are within approximately a half second of one another should also be connected.
 * BDD, Cucumber, Gherkin, Three Amigos, and any other named items must be capitalized
 * Maximum of 2 lines per caption frame
-* Maximum of 50 characters per line, where possible, with preference toward shorter lines
+* Maximum of 45 characters per line, where possible, with preference toward shorter lines
 * Minimum of 1 seconds of on screen time for shorter frames if possible
 * For commands that are to be input, wrap them in 'single quotes'
 * For file names or other things like variables, if they are capitalized in the video, make them capital in the caption.
@@ -46,10 +43,8 @@ Some notes taken from a couple different [style guidelines](http://bbc.github.io
 
 Captions and videos go through a number of statuses in their life cycle and will be tracked below.
 
-* **Initial** - Running through the base autosub output to fix words that are wrong, missing, or phrases that are missing. This is meant to get the captions to match the script's wording and line length/phrasing breaks can also be done here.
-* **Timing** - This step's goal is to get the caption frames timed correctly. `make renumber` should be run at the end of this step.
-* **Final** - This is the final step for the caption files, meant to ensure that timings and flow are correct before being added to the video.
-* **Embed Captions** - This step is when `make embed [path]` should be run with the path being the directory the video and the caption file are located in. **TODO: Write embed step**
+* **Creation** - This step is performed in YouTube's caption tool, in order to modify their auto-generated captions, fixing incorrect words, timing, and spacing.
+* **Final** - This is the final step for the caption files, meant to ensure that everything is correct. Must be done after all have been finished.
 * **Complete** - 🎉
 
 | Video | Language | Initial | SRT    | Final | Complete |
