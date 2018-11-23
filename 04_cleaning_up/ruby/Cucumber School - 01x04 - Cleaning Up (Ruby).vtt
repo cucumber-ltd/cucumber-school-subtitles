@@ -38,71 +38,77 @@ is a software design activity
 Cucumber was created to bridge the communication gap
 between business domain experts and development teams
 
-10
+9
 00:00:56.320 --> 00:01:02.464
 When you collaborate with domain experts
 to describe behaviour in Gherkin
 
-11
+10
 00:01:02.720 --> 00:01:05.536
 you’re expressing the group’s shared understanding
 of the problem you need to solve
 
-12
+11
 00:01:05.792 --> 00:01:13.216
 The words you use in your scenarios can have
 a deep impact on the way the software is designed
 
-14
+12
 00:01:13.472 --> 00:01:15.776
 as we’ll see in later episodes
 
-15
-00:01:16.288 --> 00:01:22.432
-The more fluent you become in writing Gherkin,
+13
+00:01:16.288 --> 00:01:20.432
+The more fluent you become in writing Gherkin
 
+14
+00:01:20.432 --> 00:01:22.432
 the more useful a tool it becomes
 to help you facilitate this communication
 
-16
+15
 00:01:22.688 --> 00:01:28.832
 Keeping your scenarios readable means
 you can get feedback at any time
 
-17
+16
 00:01:29.088 --> 00:01:35.232
 about whether you’re building the right thing
 
-18
+17
 00:01:35.488 --> 00:01:38.560
 Over time, your features become
 living documentation about your system
 
-19
+18
 00:01:38.816 --> 00:01:44.960
 We can’t emphasize enough how important it is
 to see your scenarios as more than just tests
 
-20
+19
 00:01:45.216 --> 00:01:51.360
 Maintaining a living document works both ways:
 
-21
-00:01:51.616 --> 00:01:57.760
+20
+00:01:51.616 --> 00:01:53.760
 you’ll drive your solution design
 from your scenarios
 
+21
+00:01:53.760 --> 00:01:55.760
 but you may also have to update your Gherkin
 to reflect the things you learn
 
+22
+00:01:55.760 --> 00:01:57.760
 as you build the solution
 
-22
+23
 00:01:58.016 --> 00:02:04.160
 This dance back and forth between features
 and solution code is what BDD is all about
 
-23
+24
 00:02:04.416 --> 00:02:10.816
 Today, we’ll learn about
 feature descriptions, the Background keyword
@@ -112,180 +118,192 @@ feature descriptions, the Background keyword
 and about keeping scenarios and code up-to-date
 with your current understanding of the project
 
-27
+26
 00:02:16.960 --> 00:02:21.312
 First, let’s catch up with
 what’s been happening on the Shouty project
 
-28
+27
 00:02:23.616 --> 00:02:29.504
 While we were away, the developers of Shouty
 have been busy working on the code. 
 
-30
+28
 00:02:30.784 --> 00:02:32.576
 Let’s have a look at what they’ve been up to
 
-31
+29
 00:02:35.392 --> 00:02:37.440
 We’ll start out by running Cucumber
 
-32
+30
 00:02:39.744 --> 00:02:40.768
 Great!
 
-33
+31
 00:02:41.024 --> 00:02:43.584
 It looks like both these scenarios
 are working now -
 
-34
+32
 00:02:44.608 --> 00:02:48.960
 both the different messages that Sean shouts
 are being heard by Lucy
 
-35
+33
 00:02:50.496 --> 00:02:54.366
 Let’s dig into the code
 and see how these steps have been automated
 
-37
+34
 00:02:57.152 --> 00:03:01.760
 In the step definition layer,
 we can see that a new class has been defined
 
-39
+35
 00:03:02.272 --> 00:03:03.552
 the Network
 
-40
+36
 00:03:04.832 --> 00:03:07.136
 We’re creating an instance of the network here
 
-41
+37
 00:03:08.928 --> 00:03:14.304
 Then we pass that network instance to each
 of the Person instances we create here
 
-42
+38
 00:03:15.584 --> 00:03:20.704
 So both instances of Person depend on
 the same instance of network
 
-44
+39
 00:03:22.496 --> 00:03:26.592
 The Network is what allows people
 to send messages to one another
 
-45
+40
 00:03:27.360 --> 00:03:30.944
 There’s also a new folder here, spec
 
-47
+41
 00:03:31.456 --> 00:03:36.320
 This contains unit tests for the classes
 in our domain model
 
-48
+42
 00:03:37.344 --> 00:03:43.488
 There’s a network spec and a person spec
 
-49
+43
 00:03:43.744 --> 00:03:49.888
 Unit tests are fine-grained tests that define the
 precise behaviour of each of those classes
 
-50
+44
 00:03:50.144 --> 00:03:51.424
 We’ll talk more about this in a future lesson but
 
-51
+45
 00:03:51.680 --> 00:03:54.496
 feel free to have a poke around
 in there in the meantime
 
-52
+46
 00:03:55.008 --> 00:04:00.128
 You can use the `rspec` command to run the tests
 
-53
-00:04:00.384 --> 00:04:06.528
+47
+00:04:00.384 --> 00:04:04.528
 RSpec does a lovely job of
 
+48
+00:04:04.528 --> 00:04:06.528
 formatting the output to tell us
 the responsibilities of each of these objects
 
-54
+49
 00:04:09.088 --> 00:04:11.392
 The first thing I notice coming back to the code
 
-55
+50
 00:04:11.648 --> 00:04:17.791
 is that the feature file is still talking about
 the distance between Lucy and Sean
 
-56
+51
 00:04:18.047 --> 00:04:24.191
 but we haven’t actually implemented
 any behaviour around that yet
 
-57
+52
 00:04:24.447 --> 00:04:24.959
 This happens to us all the time -
 we have an idea for a new feature
 
-58
-00:04:25.215 --> 00:04:31.359
+53
+00:04:25.215 --> 00:04:29.359
 but then we find the problem is
 too complex to solve all at once
 
+54
+00:04:29.359 --> 00:04:31.359
 so we break it down into simpler steps
 
-59
-00:04:31.615 --> 00:04:37.759
+55
+00:04:31.615 --> 00:04:35.759
 If we’re not careful, little bits of that
 original idea can be left around like clutter
 
+56
+00:04:35.759 --> 00:04:37.759
 in the scenarios and in the code
 
-60
+57
 00:04:38.015 --> 00:04:44.159
 That clutter can get in the way
 especially if plans change
 
-61
+58
 00:04:46.207 --> 00:04:51.839
 We’re definitely going to develop this behaviour
 but we’ve decided to defer it to our next iteration
 
-62
-00:04:52.095 --> 00:04:57.471
+59
+00:04:52.095 --> 00:04:55.471
 Our current solution is just focused
 on broadcasting messages between
 
+60
+00:04:55.471 --> 00:04:57.471
 the people on the network
 
-63
+61
 00:04:58.495 --> 00:05:02.335
 Let’s clean up the feature to
 reflect that current understanding
 
-64
-00:05:04.895 --> 00:05:10.271
+62
+00:05:04.895 --> 00:05:08.271
 After the feature keyword, we have space
 in a Gherkin document
 
+63
+00:05:08.271 --> 00:05:10.271
 to write any arbitrary text that we like
 
-65
+64
 00:05:11.039 --> 00:05:17.183
 We call this the feature’s description
 
-66
-00:05:17.439 --> 00:05:20.255
+65
+00:05:17.439 --> 00:05:18.255
 This is a great place to write up any notes
 or other details that
 
+66
+00:05:18.255 --> 00:05:20.255
 can’t easily be expressed in examples
 
 67
@@ -298,588 +316,602 @@ or issue trackers, or to wireframes
 You can put anything you like in here, as long
 as you don’t mention the magic word scenario
 
-70
+69
 00:05:36.639 --> 00:05:42.015
 A common thing to do here for a new feature
 is write out the user story we’re working on
 
-72
+70
 00:05:42.527 --> 00:05:45.087
 This is a good place to start, so let’s do that
 
-73
+71
 00:05:53.023 --> 00:05:53.535
 Good
 
-74
+72
 00:05:54.303 --> 00:05:58.143
 Now we have an overarching story to guide us as we go
 
-75
+73
 00:06:00.191 --> 00:06:06.335
 Something we really like to put into the description
 are the acceptance criteria or business rules
 
-76
+74
 00:06:06.847 --> 00:06:08.127
 we’re trying to implement
 
-77
+75
 00:06:10.175 --> 00:06:12.479
 In this case, we can explain that,
 
-78
+76
 00:06:12.991 --> 00:06:18.111
 for the time being, we’re broadcasting to
 all users, irrespective of distance
 
-79
+77
 00:06:20.159 --> 00:06:23.487
 Because we know we’ll need to
 filter by proximity - later -
 
-80
+78
 00:06:23.999 --> 00:06:28.863
 we can also write a todo list here so it’s clear
 that we do intend to get to that soon
 
-81
+79
 00:06:31.423 --> 00:06:36.287
 Changing the description doesn’t change anything
 about how Cucumber will run this feature
 
-83
+80
 00:06:37.055 --> 00:06:43.199
 It just helps the human beings reading this document
 to understand more of what you understand 
 
-84
+81
 00:06:43.455 --> 00:06:45.759
 about the system you’re building
 
-85
+82
 00:06:46.015 --> 00:06:51.903
 The step “Given Lucy is 15m from Sean” is misleading
 
-88
+83
 00:06:52.415 --> 00:06:57.023
 since the distance between the two people
 is not yet relevant in our current model
 
-89
+84
 00:06:57.535 --> 00:06:58.815
 We have this code here
 
-90
+85
 00:06:59.327 --> 00:07:01.631
 a move to method on Person
 
-91
+86
 00:07:01.887 --> 00:07:05.215
 that’s being called from the step definition
 but doesn’t actually do anything
 
-92
+87
 00:07:06.751 --> 00:07:11.871
 Let’s simplify this code to do just what
 it needs to do right now, and no more
 
-93
+88
 00:07:12.127 --> 00:07:16.479
 We can start from the scenario by
 changing this single step 
 
-94
+89
 00:07:16.735 --> 00:07:18.783
 to express what’s actually going on
 
-95
+90
 00:07:19.039 --> 00:07:32.607
 We’ll work on one scenario at a time, and update
 the other one once we’re happy with this one
 
-97
+91
 00:07:32.863 --> 00:07:36.191
 Now we have two steps, each creating a person
 
-99
+92
 00:07:36.703 --> 00:07:40.799
 Notice we’re starting to reveal some more of
 our domain language here:
 
-100
+93
 00:07:41.567 --> 00:07:44.895
 we’ve introduced the words Person and name
 
-102
-00:07:46.431 --> 00:07:52.063
+94
+00:07:46.431 --> 00:07:50.063
 Person is already a part of our domain language,
 so it’s nice to have that revealed
 
+95
+00:07:50.063 --> 00:07:52.063
 in the language of the scenario
 
-103
+96
 00:07:53.599 --> 00:07:56.927
 Name may well become an attribute
 of our person soon
 
-104
+97
 00:07:57.183 --> 00:08:01.279
 so it’s also useful to have that surfaced so
 we can get feedback about it from the team
 
-105
+98
 00:08:04.095 --> 00:08:07.935
 One thing we’ve lost by doing this
 is the idea that, eventually
 
-106
+99
 00:08:08.191 --> 00:08:11.519
 the two people will need to be close to each other
 for the message to be transmitted
 
-107
+100
 00:08:12.543 --> 00:08:15.871
 We definitely wouldn’t remove
 detail like that unilaterally
 
-108
-00:08:16.127 --> 00:08:21.247
+101
+00:08:16.127 --> 00:08:19.247
 without discussing it with the other people
 who were in the three amigos meeting with us
 
+102
+00:08:19.247 --> 00:08:21.247
 when the example was written
 
-109
-00:08:22.527 --> 00:08:28.671
+103
+00:08:22.527 --> 00:08:26.671
 In this case, as well as adding it
 to the TODO list above
 
+104
+00:08:26.671 --> 00:08:28.671
 we’ve decided to update the names of
 the existing scenarios
 
-110
+105
 00:08:28.927 --> 00:08:33.023
 and write a couple of new empty scenarios
 to remind us to implement that behaviour later
 
-111
-00:08:34.815 --> 00:08:40.703
+106
+00:08:34.815 --> 00:08:38.703
 Now the scenario names make sense
 
+107
+00:08:38.703 --> 00:08:40.703
 and we’ve got a reminder of
 future scenarios we’ll need to implement
 
-112
+108
 00:08:41.215 --> 00:08:42.239
 Let's press on
 
-113
+109
 00:08:43.519 --> 00:08:48.383
 We can run Cucumber to generate
 new step definition snippets for the new steps
 
-114
+110
 00:08:49.663 --> 00:08:51.711
 and paste them into our steps file
 
-115
+111
 00:08:53.503 --> 00:08:57.599
 Now to implement these two separate steps
 we have a bit of a problem
 
-116
+112
 00:08:58.879 --> 00:09:02.207
 We need the same instance of Network
 available in both
 
-117
+113
 00:09:03.743 --> 00:09:09.119
 We could just assume that the Lucy step
 will always run first and create it there
 
-118
+114
 00:09:09.375 --> 00:09:10.911
 but that seems fragile
 
-119
+115
 00:09:11.679 --> 00:09:15.519
 If someone wrote a new scenario
 that didn’t create people in the right order
 
-120
+116
 00:09:16.031 --> 00:09:20.127
 they’d end up with no Network instance,
 and weird bugs
 
-121
+117
 00:09:21.151 --> 00:09:24.223
 We want our steps to be as independent as possible
 
-122
+118
 00:09:24.479 --> 00:09:28.575
 so they can be easily composed into new scenarios
 
-123
+119
 00:09:29.599 --> 00:09:35.487
 Luckily Cucumber has a feature called hooks
 that allows us to do exactly what we want here
 
-124
+120
 00:09:36.255 --> 00:09:42.399
 We need an instance of Network in every scenario,
 so we can run a Before Hook
 
-125
+121
 00:09:42.655 --> 00:09:48.031
 that creates one before each scenario starts,
 like this
 
-126
+122
 00:09:48.287 --> 00:09:54.175
 Now we can use that Network instance
 as we create Lucy and Sean in these two new steps
 
-127
+123
 00:09:55.455 --> 00:09:58.271
 It should be working again now.
 Let’s run cucumber to check
 
-128
+124
 00:09:59.807 --> 00:10:00.575
 Good
 
-129
+125
 00:10:01.343 --> 00:10:03.647
 Let’s do the same with the other scenario
 
-131
+126
 00:11:04.831 --> 00:11:11.231
 OK, so we’ve cleaned things up a bit
 to bring the scenarios, the code
 
-132
+127
 00:11:11.487 --> 00:11:12.511
 and our current understanding
 of the problem all into sync
 
-133
+128
 00:11:13.535 --> 00:11:17.631
 What’s nice to see is how well
 those new steps that create Lucy and Sean
 
-134
+129
 00:11:17.887 --> 00:11:20.191
 match the code inside the step definition
 
-135
+130
 00:11:21.471 --> 00:11:24.031
 When step definitions have to make a big leap
 
-136
+131
 00:11:24.287 --> 00:11:27.359
 to translate between our plain-language
 description of the domain
 
-137
+132
 00:11:27.615 --> 00:11:31.199
 in the Gherkin scenario, and the code
 
-139
+133
 00:11:32.223 --> 00:11:34.527
 that’s usually a sign that something is wrong
 
-140
+134
 00:11:36.063 --> 00:11:39.647
 We like to see step definitions that are only
 one or two lines long
 
-141
+135
 00:11:40.415 --> 00:11:43.999
 because that usually indicates our scenarios
 are doing a good job of
 
-142
+136
 00:11:44.255 --> 00:11:48.351
 reflecting the domain model in the code,
 and vice-versa
 
-144
+137
 00:11:50.655 --> 00:11:53.471
 One problem that we still have with these scenarios
 
-145
+138
 00:11:53.727 --> 00:11:59.615
 is that we’re very fixed to only being able
 to use these two characters, Lucy and Sean
 
-146
+139
 00:12:00.895 --> 00:12:03.967
 If we want to introduce anyone else
 into the scenario
 
-147
+140
 00:12:04.479 --> 00:12:07.807
 we’re going to be creating quite a lot
 of duplicate code
 
-148
+141
 00:12:08.319 --> 00:12:11.391
 In fact, the two steps for creating
 Lucy and Sean are almost identical
 
-149
+142
 00:12:12.159 --> 00:12:14.463
 apart from those instance variables
 
-150
+143
 00:12:15.231 --> 00:12:21.119
 On a real project we wouldn’t bother about
 such a tiny amount of duplication
 
-151
+144
 00:12:21.887 --> 00:12:23.423
 at this early stage, but
 this isn’t a real project!
 
-152
+145
 00:12:23.679 --> 00:12:29.567
 Let’s play with the skills we learned
 last week to make a single step definition
 
-153
+146
 00:12:29.823 --> 00:12:31.103
 that can create Lucy or Sean
 
-154
+147
 00:12:31.359 --> 00:12:37.503
 The first problem we’ll need to tackle
 is these hard-coded instance variable names
 
-155
+148
 00:12:39.551 --> 00:12:46.463
 We can use Ruby’s hash to store
 all the people involved in the scenario
 
-157
+149
 00:12:47.487 --> 00:12:50.303
 Let’s try replacing Lucy first
 
-158
+150
 00:12:51.071 --> 00:12:55.423
 We’ll start by creating a
 new hash in the before hook, like this
 
-159
+151
 00:12:57.215 --> 00:13:00.799
 Now we can story Lucy in a key in that hash
 
-160
+152
 00:13:01.823 --> 00:13:05.407
 We’ll use her name as the key,
 hard-coding it for now
 
-162
+153
 00:13:07.199 --> 00:13:12.319
 Finally, where we check Lucy’s messages heard
 here in the assertion
 
-163
+154
 00:13:13.087 --> 00:13:15.135
 we need to fetch her out of the hash
 
-164
+155
 00:13:16.671 --> 00:13:18.463
 With that little refactoring done
 
-165
+156
 00:13:18.719 --> 00:13:22.303
 we can now try and make this first step
 generic for any name
 
-166
+157
 00:13:23.583 --> 00:13:27.423
 Using your new found regular expression skills
 from the last lesson
 
-167
+158
 00:13:27.935 --> 00:13:32.287
 you’ll know that if we surround the word
 Lucy here with a capture group
 
-168
+159
 00:13:33.055 --> 00:13:36.895
 we’ll have the name passed into our
 step definition as an argument, here
 
-169
+160
 00:13:38.687 --> 00:13:42.015
 Now we can use that as the key in the hash
 
-171
+161
 00:13:44.063 --> 00:13:48.415
 Finally, we can replace the hard-coded Lucy
 in the pattern with backslash-w plus (\w+)
 
-172
+162
 00:13:48.671 --> 00:13:51.671
 meaning one or more word characters
 
-175
+163
 00:13:59.679 --> 00:14:03.519
 Now we have a totally generic step
 
-176
+164
 00:14:05.055 --> 00:14:06.591
 If we try and run Cucumber now
 we get an error about an ambiguous match
 
-179
+165
 00:14:11.455 --> 00:14:18.111
 Our generic step definition is now
 matching the step “a person named Sean”
 
-181
+166
 00:14:18.367 --> 00:14:20.671
 but so is the original one
 
-182
+167
 00:14:21.439 --> 00:14:26.303
 In bigger projects, this can be a real issue,
 so this warning is important
 
-183
+168
 00:14:27.327 --> 00:14:32.447
 Let’s remove the old step definition,
 and fetch Sean from the hash here 
 
-185
+169
 00:14:32.703 --> 00:14:34.239
 where he shouts his message
 
-186
+170
 00:14:37.823 --> 00:14:40.383
 Great, we’re green again
 
-188
-00:14:40.639 --> 00:14:46.783
+171
+00:14:40.639 --> 00:14:44.783
 Let’s switch back to the feature
 to show you one more technique
 
+172
+00:14:44.783 --> 00:14:46.783
 for improving the readability of your scenarios
 
-189
+173
 00:14:49.087 --> 00:14:55.743
 When we have common context steps - the givens -
 in all the scenarios in our feature, 
 
-192
+174
 00:14:56.255 --> 00:14:59.327
 it can sometimes be useful to get those out of the way
 
-193
+175
 00:15:00.607 --> 00:15:08.031
 We can literally move them into the background
 using a background keyword, like this
 
-195
+176
 00:15:10.079 --> 00:15:13.919
 As far as Cucumber is concerned,
 these scenarios haven’t changed
 
-196
-00:15:14.431 --> 00:15:20.575
+177
+00:15:14.431 --> 00:15:18.575
 It will still create both Lucy and Sean
 as the first things it does
 
+178
+00:15:18.575 --> 00:15:20.575
 when running each of those scenarios
 
-197
+179
 00:15:21.855 --> 00:15:24.159
 But from a readability point of view
 
-198
+180
 00:15:24.671 --> 00:15:30.047
 we can now see more clearly what’s important
 and interesting about these two scenarios -
 
-200
+181
 00:15:30.815 --> 00:15:33.631
 in this case, the message being shouted
 
-201
+182
 00:15:35.935 --> 00:15:40.543
 Notice we just went straight into When steps
 in our scenarios. That’s absolutely fine
 
-202
+183
 00:15:40.799 --> 00:15:45.151
 We still have a context for the scenario,
 but we’ve chosen to push it off into the background
 
-203
+184
 00:15:46.431 --> 00:15:51.039
 Again, it’s debatable whether we’d bother
 to use a Background yet on a real project
 
-204
+185
 00:15:51.807 --> 00:15:54.111
 but this at least illustrates the technique
 
-205
+186
 00:15:54.879 --> 00:15:59.743
 Hopefully you’re already thinking about
 how you can use it on your own code
 
-206
+187
 00:16:01.279 --> 00:16:07.167
 To maintain trust in the BDD process,
 it’s important to keep your features fresh
 
-208
+188
 00:16:08.191 --> 00:16:11.519
 Even when you drive the development
 from BDD scenarios
 
-209
+189
 00:16:11.775 --> 00:16:15.359
 you’ll still learn lessons from the implementation
 
-210
+190
 00:16:15.615 --> 00:16:18.943
 that might need to be
 fed back into your Gherkin documentation
 
-211
+191
 00:16:20.479 --> 00:16:24.831
 In this case, we discovered that
 we could find a smaller slice of this story
 
-212
+192
 00:16:25.087 --> 00:16:29.183
 and defer the business rule about proximity
 until our next iteration
 
-213
+193
 00:16:29.951 --> 00:16:33.279
 Splitting stories like this
 is a powerful agile technique
 
-214
+194
 00:16:33.535 --> 00:16:36.095
 and one that BDD can help you to master
 
-215
-00:16:37.631 --> 00:16:43.519
+195
+00:16:37.631 --> 00:16:41.519
 Now we have a clean codebase
 and suite of scenarios that
 
+196
+00:16:41.519 --> 00:16:43.519
 reflects the current state of the system’s development
 
-216
+197
 00:16:45.055 --> 00:16:48.127
 We’re ready to start the next iteration
 
-186
+198
 00:16:50.055 --> 00:16:48.127
 Captions created by Jayson Smith for Cucumber Ltd.
