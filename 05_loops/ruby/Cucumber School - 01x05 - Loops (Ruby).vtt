@@ -1,898 +1,955 @@
-WEBVTT
-
 1
-00:00:14.848 --> 00:00:17.152
+00:00:14,640 --> 00:00:16,540
 Welcome back to Cucumber School
 
 2
-00:00:17.920 --> 00:00:22.064
+00:00:17,580 --> 00:00:21,980
 Last time we worked on cleaning up the
 Shouty features to keep them in sync
 
 3
-00:00:22.064 --> 00:00:24.064
+00:00:21,980 --> 00:00:23,640
 with the current status of the project
 
 4
-00:00:24.832 --> 00:00:30.464
-We stripped the scenarios back to only specify
-the behaviour of passing messages between people
+00:00:24,560 --> 00:00:26,560
+We stripped the scenarios back
 
 5
-00:00:31.232 --> 00:00:35.328
+00:00:26,560 --> 00:00:29,900
+to only specify the behaviour
+of passing messages between people
+
+6
+00:00:30,860 --> 00:00:34,960
 We made it clear that the proximity rule
 had not yet been implemented
 
-6
-00:00:36.864 --> 00:00:40.008
-You’ll remember from the
-regular expressions lesson 
-
 7
-00:00:40.008 --> 00:00:43.008
+00:00:36,480 --> 00:00:39,040
+You’ll remember from the
+regular expressions lesson
+
+8
+00:00:39,040 --> 00:00:43,040
 how important it is to be
 expressive in your scenarios
 
-8
-00:00:43.264 --> 00:00:44.800
+9
+00:00:43,040 --> 00:00:44,320
 and keep them readable
 
-9
-00:00:45.824 --> 00:00:51.968
+10
+00:00:45,720 --> 00:00:49,860
 In this episode we’re going to learn some
 new tricks with Gherkin that will give you
 
-10
-00:00:52.224 --> 00:00:54.016
+11
+00:00:49,860 --> 00:00:53,500
 even more flexibility about
 how you write scenarios
 
-11
-00:00:55.552 --> 00:00:58.624
+12
+00:00:55,340 --> 00:00:58,440
 Once again, the Shouty pixies --
 
-12
-00:00:58.880 --> 00:01:05.024
-Umm... -- I mean the Shouty developers -- have been
-hard at work implementing that proximity rule
-
 13
-00:01:06.304 --> 00:01:08.352
-Let's have a look at how they got on
+00:00:58,440 --> 00:01:01,420
+Umm... -- I mean the Shouty developers --
 
 14
-00:01:11.680 --> 00:01:17.824
-Right, so those two scenarios we just left as just placeholders:
+00:01:01,420 --> 00:01:04,780
+have been hard at work
+implementing that proximity rule
 
 15
-00:01:18.080 --> 00:01:24.224
+00:01:06,020 --> 00:01:08,060
+Let's have a look at how they got on
+
+16
+00:01:11,400 --> 00:01:16,540
+Right, so those two scenarios
+we just left as just placeholders:
+
+17
+00:01:16,540 --> 00:01:22,160
 the one where the listener is within range
 and the one where the listener is out of range
 
-16
-00:01:24.480 --> 00:01:24.992
+18
+00:01:22,160 --> 00:01:24,460
 have been fleshed out, and are passing
 
-17
-00:01:25.760 --> 00:01:27.040
+19
+00:01:25,580 --> 00:01:26,620
 Fantastic!
 
-18
-00:01:28.320 --> 00:01:32.160
+20
+00:01:28,120 --> 00:01:31,780
 Let’s review the changes to
 the feature file in more detail
 
-19
-00:01:34.208 --> 00:01:36.256
-We now have four scenarios: 
+21
+00:01:33,760 --> 00:01:36,300
+We now have four scenarios:
 
-20
-00:01:36.512 --> 00:01:41.888
+22
+00:01:36,300 --> 00:01:41,180
 our original two from the last time we
 looked at the code, and the two new ones
 
-21
-00:01:42.656 --> 00:01:47.264
+23
+00:01:42,320 --> 00:01:47,140
 With the two new ones fleshed out
 we can see that the first scenario we wrote -
 
-22
-00:01:47.520 --> 00:01:52.128
+24
+00:01:47,140 --> 00:01:52,220
 the one where the listener hears a message -
 is identical to the third one -
 
-23
-00:01:52.384 --> 00:01:55.200
+25
+00:01:52,220 --> 00:01:54,420
 the one where the listener is within range
 
-24
-00:01:56.480 --> 00:01:59.296
+26
+00:01:55,980 --> 00:01:58,800
 Keeping excess scenarios is wasteful:
 
-25
-00:02:00.576 --> 00:02:04.416
-they clutter up your feature files,
+27
+00:02:00,240 --> 00:02:03,820
+they clutter up your feature files
 distracting your readers
 
-26
-00:02:05.440 --> 00:02:08.584
+28
+00:02:05,100 --> 00:02:07,400
 When you run your features as tests
 
-27
-00:02:08.584 --> 00:02:11.584
+29
+00:02:07,400 --> 00:02:11,080
 excess scenarios make them
 take longer to run than necessary
 
-28
-00:02:13.376 --> 00:02:14.520
+30
+00:02:12,940 --> 00:02:15,380
 The one where the listener is within range
 
-29
-00:02:14.520 --> 00:02:19.520
+31
+00:02:15,380 --> 00:02:19,520
 is a perfectly good way of checking that
 the message has been sent correctly
 
-30
-00:02:20.544 --> 00:02:22.080
+32
+00:02:20,220 --> 00:02:21,680
 Let's remove the other one
 
-31
-00:02:24.640 --> 00:02:29.504
+33
+00:02:24,240 --> 00:02:29,200
 Similarly, we no longer really need
 to be testing multiple messages
 
-32
-00:02:30.272 --> 00:02:37.696
-We used this test to triangulate and
-force us to replace the hard-coded message output
+34
+00:02:29,860 --> 00:02:33,160
+We used this test to triangulate
 
-33
-00:02:37.952 --> 00:02:39.744
+35
+00:02:33,160 --> 00:02:37,600
+and force us to replace
+the hard-coded message output
+
+36
+00:02:37,600 --> 00:02:39,400
 with a proper implementation
 
-34
-00:02:40.512 --> 00:02:44.096
+37
+00:02:40,160 --> 00:02:43,940
 Now we have a domain model that uses
 a variable for the message
 
-35
-00:02:44.352 --> 00:02:50.240
-there's an insignificant chance of this behaviour
-regressing, so we can safely remove the test
+38
+00:02:43,940 --> 00:02:47,380
+there's an insignificant chance
+of this behaviour regressing
 
-36
-00:02:51.776 --> 00:02:56.384
+39
+00:02:47,380 --> 00:02:49,600
+so we can safely remove the test
+
+40
+00:02:51,240 --> 00:02:55,840
 So now we’re down to two scenarios
 that illustrate this rule about proximity:
 
-37
-00:02:57.152 --> 00:02:59.712
+41
+00:02:56,820 --> 00:02:59,860
 the one where the listener is within range
 
-38
-00:03:00.224 --> 00:03:03.296
+42
+00:02:59,860 --> 00:03:02,680
 and the one where the listener is out of range
 
-39
-00:03:04.064 --> 00:03:11.232
+43
+00:03:03,740 --> 00:03:10,480
 We’re using two different listeners, Lucy,
 who’s always within range, and Larry, who’s not
 
-40
-00:03:11.744 --> 00:03:14.048
+44
+00:03:11,420 --> 00:03:13,720
 It’s always Sean who’s doing the shouting
 
-41
-00:03:14.560 --> 00:03:18.144
+45
+00:03:14,400 --> 00:03:18,140
 We create all three people here, in the background
 
-42
-00:03:18.912 --> 00:03:21.728
+46
+00:03:18,620 --> 00:03:21,280
 Notice that we also specify the range here
 
-43
-00:03:22.240 --> 00:03:24.800
+47
+00:03:22,000 --> 00:03:27,280
 We could have just hard-coded it within the system
 but having it documented here in the scenario
 
-44
-00:03:25.056 --> 00:03:31.200
+48
+00:03:27,280 --> 00:03:30,980
 helps to make the behaviour we’ve specified
 much easier to understand
 
-45
-00:03:31.968 --> 00:03:38.112
-A happy side-effect is that,
-in order to set the range from our scenario
+49
+00:03:32,420 --> 00:03:33,960
+A happy side-effect
 
-46
-00:03:38.368 --> 00:03:40.160
+50
+00:03:33,960 --> 00:03:36,620
+is that in order to
+set the range from our scenario
+
+51
+00:03:36,620 --> 00:03:39,560
 we’ve had to make it a configurable property
 of the system
 
-47
-00:03:40.672 --> 00:03:44.816
+52
+00:03:40,340 --> 00:03:43,960
 So if our business stakeholders ever
 change their minds about the range
 
-48
-00:03:44.816 --> 00:03:46.816
+53
+00:03:43,960 --> 00:03:47,620
 we won’t have to go hunting around in the code
 for where we’d hard-coded it
 
-49
-00:03:47.072 --> 00:03:51.680
-Notice how the steps that create the three people
-are very similar
+54
+00:03:47,620 --> 00:03:51,080
+Notice how the steps that create
+the three people are very similar
 
-50
-00:03:53.472 --> 00:03:59.616
-When we see steps like this, Gherkin’s
-Given When Then syntax starts to feel a bit clunky
+55
+00:03:53,200 --> 00:03:55,080
+When we see steps like this
 
-51
-00:04:01.408 --> 00:04:04.736
-Imagine if we could just write out a table,
-like this
+56
+00:03:55,080 --> 00:03:59,700
+Gherkin’s Given When Then syntax
+starts to feel a bit clunky
 
-52
-00:04:18.047 --> 00:04:21.631
+57
+00:04:01,160 --> 00:04:04,220
+Imagine if we could just
+write out a table like this
+
+58
+00:04:13,160 --> 00:04:16,520
 Well, we’re in luck. You can!
 
-53
-00:04:22.655 --> 00:04:28.799
-Gherkin has a special syntax called Data Tables
-that allows you to specify tabular data for a step
+59
+00:04:17,700 --> 00:04:21,560
+Gherkin has a special syntax
+called Data Tables
 
-54
-00:04:29.055 --> 00:04:34.431
+60
+00:04:21,560 --> 00:04:25,460
+that allows you to specify
+tabular data for a step
+
+61
+00:04:25,460 --> 00:04:29,180
 using pipe characters to mark the
 boundary between cells
 
-55
-00:04:38.271 --> 00:04:44.415
+62
+00:04:29,180 --> 00:04:34,040
 As you can see, the step definition
 implicitly takes a single argument
 
-56
-00:04:36.735 --> 00:04:39.807
+63
+00:04:34,040 --> 00:04:39,540
+which as this comment explains is a
 Cucumber::Ast::DataTable
 
-57
-00:04:40.319 --> 00:04:43.903
+64
+00:04:40,440 --> 00:04:43,800
 This object has a rich API for using
 the tabular data
 
-58
-00:04:44.927 --> 00:04:50.047
+65
+00:04:45,180 --> 00:04:50,060
 At its most basic, the table is just a
 two-dimensional array of arrays
 
-59
-00:04:52.351 --> 00:04:55.495
+66
+00:04:52,460 --> 00:04:56,000
 You don’t have to use a
 column header row in a data table
 
-60
-00:04:55.495 --> 00:04:58.495
+67
+00:04:56,000 --> 00:04:58,880
 but when you do, you can ask for just the data
 
-61
-00:05:07.199 --> 00:05:13.343
-When you do use column headers,
+68
+00:05:07,460 --> 00:05:12,940
+When you do use column headers
 it can be useful to fetch each data row as a hash
 
-62
-00:05:13.599 --> 00:05:17.695
+69
+00:05:12,940 --> 00:05:17,500
 with the column names as keys
 and the values from the cells in that row
 
-63
-00:05:18.207 --> 00:05:24.095
-Now we can easily iterate over these maps
+70
+00:05:18,740 --> 00:05:23,840
+Now we can easily iterate over these hashes
 and turn them into instances of Person
 
-64
-00:05:42.783 --> 00:05:47.647
+71
+00:05:42,880 --> 00:05:47,580
 With that done, we can delete our
 old step definition, which is now unused
 
-65
-00:05:49.183 --> 00:05:53.327
+72
+00:05:49,380 --> 00:05:53,020
 Cucumber strips all the white space
 surrounding each cell
 
-66
-00:05:53.327 --> 00:05:55.327
-so we can have a nice neat table in the
-Gherkin but still get
+73
+00:05:53,020 --> 00:05:55,640
+so we can have a nice neat table in the Gherkin
 
-67
-00:05:55.583 --> 00:05:59.167
-clean values in the step definition underneath
+74
+00:05:55,640 --> 00:05:58,920
+but still get clean values
+in the step definition underneath
 
-68
-00:06:00.191 --> 00:06:06.335
+75
+00:06:00,200 --> 00:06:04,760
 Notice we’ve still had to convert the location
 from a string to an integer
 
-69
-00:06:06.591 --> 00:06:08.383
+76
+00:06:04,760 --> 00:06:08,340
 because Cucumber can’t know that’s the
 type of value in our table
 
-70
-00:06:08.895 --> 00:06:11.967
+77
+00:06:09,200 --> 00:06:11,880
 You can also use the map_column method for this
 
-71
-00:06:16.319 --> 00:06:21.951
+78
+00:06:16,440 --> 00:06:21,800
 The new table’s location column will now contain
 integers rather than the raw strings
 
-72
-00:06:23.743 --> 00:06:29.887
-Now the way we’ve specified this data is OK,
-but it’s quite hard to visualise where
+79
+00:06:23,640 --> 00:06:28,740
+Now the way we’ve specified this data is OK
+but it’s quite hard to visualise
 
-73
-00:06:30.143 --> 00:06:30.655
-each of the people is stood
+80
+00:06:28,740 --> 00:06:30,540
+where each of the people is stood
 
-74
-00:06:31.167 --> 00:06:34.495
+81
+00:06:31,300 --> 00:06:34,280
 It might be better to express it like this instead
 
-75
-00:06:40.895 --> 00:06:42.431
+82
+00:06:40,900 --> 00:06:42,440
 Do you like that better?
 
-76
-00:06:43.711 --> 00:06:48.063
+83
+00:06:43,720 --> 00:06:48,000
 You do, but you’re worried how
 we’ll handle it in our step definition?
 
-77
-00:06:48.831 --> 00:06:52.159
+84
+00:06:48,840 --> 00:06:52,200
 Fear not. Cucumber has you covered
 
-78
-00:06:53.951 --> 00:07:00.095
+85
+00:06:53,960 --> 00:06:58,960
 The Data Table has a transpose method
-which returns a new DataTable where
+which returns a new DataTable
 
-79
-00:07:00.351 --> 00:07:01.631
-each row is turned into a column
+86
+00:06:58,960 --> 00:07:01,320
+where each row is turned into a column
 
-80
-00:07:03.423 --> 00:07:08.031
+87
+00:07:03,420 --> 00:07:07,960
 Now we can use the transposed table object
 as we did before
 
-81
-00:07:08.799 --> 00:07:12.639
+88
+00:07:08,800 --> 00:07:12,640
 Let’s tidy up this code so as not to keep
 using all these temporary variables
 
-82
-00:07:13.151 --> 00:07:19.295
+89
+00:07:13,160 --> 00:07:17,460
 Data tables are very useful for
 setting up data in Given steps
 
-83
-00:07:19.551 --> 00:07:20.575
+90
+00:07:17,460 --> 00:07:20,340
 but you can also use them for specifying outcomes
 
-84
-00:07:21.855 --> 00:07:26.975
+91
+00:07:21,980 --> 00:07:27,320
 One rule that we’ve been implying but have
 never actually explored with an example
 
-85
-00:07:27.231 --> 00:07:31.583
+92
+00:07:27,320 --> 00:07:31,440
 is that people remember everything they’ve heard
 
-86
-00:07:32.351 --> 00:07:38.495
-So far we’ve only specified a single message,
-so let’s try writing a scenario where
+93
+00:07:32,500 --> 00:07:37,100
+So far we’ve only specified a single message
+so let’s try writing a scenario
 
-87
-00:07:38.751 --> 00:07:40.031
-Sean shouts more than once
+94
+00:07:37,100 --> 00:07:40,040
+where Sean shouts more than once
 
-88
-00:07:44.383 --> 00:07:47.455
+95
+00:07:44,520 --> 00:07:47,340
 See how natural it is to use a Data Table here?
 
-89
-00:07:48.735 --> 00:07:54.879
-We also haven’t used any column headers in this case,
+96
+00:07:48,880 --> 00:07:54,880
+We also haven’t used any column headers in this case
 since the data is all in a single column anyway
 
-90
-00:07:56.415 --> 00:07:58.719
+97
+00:07:56,620 --> 00:07:58,920
 So how do we implement this step definition?
 
-91
-00:07:59.743 --> 00:08:00.767
-Well
-
-92
-00:08:01.023 --> 00:08:04.351
+98
+00:07:59,940 --> 00:08:04,700
 Well, the DataTable has
 a really handy method called diff!
 
-93
-00:08:04.607 --> 00:08:08.191
+99
+00:08:04,700 --> 00:08:08,080
 that we can use to compare two Data Tables
 
-94
-00:08:08.703 --> 00:08:14.079
-diff! will pass if the tables are the same,
+100
+00:08:08,720 --> 00:08:14,140
+diff! will pass if the tables are the same
 and fail if they’re different
 
-95
-00:08:16.383 --> 00:08:22.527
-So we need the actual messages that
-Lucy’s heard to be stored in an object
+101
+00:08:16,380 --> 00:08:19,540
+So we need the actual messages
+that Lucy’s heard
 
-96
-00:08:22.783 --> 00:08:25.599
-that looks like a DataTable,
+102
+00:08:19,540 --> 00:08:25,480
+to be stored in an object that looks like a DataTable
 so we can compare it to the ones we expect
 
-97
-00:08:27.135 --> 00:08:28.927
+103
+00:08:27,020 --> 00:08:29,220
 A two-dimensional Array will do
 
-98
-00:08:29.183 --> 00:08:34.303
+104
+00:08:29,220 --> 00:08:34,180
 so we can just map over Lucy’s messages and create
 a new single-item Array for each row
 
-99
-00:08:35.071 --> 00:08:41.215
+105
+00:08:35,260 --> 00:08:38,300
 Now we can pass that two-dimensional Array
-to the diff method on the table of
+to the diff method
 
-100
-00:08:41.471 --> 00:08:42.239
-expected messages passed in from the Gherkin
+106
+00:08:38,300 --> 00:08:42,080
+on the table of expected messages
+passed in from the Gherkin
 
-101
-00:08:43.775 --> 00:08:47.615
+107
+00:08:43,820 --> 00:08:47,500
 Oops! It looks like we made a typo in our scenario
 
-102
-00:08:48.639 --> 00:08:52.991
+108
+00:08:48,700 --> 00:08:52,800
 We should have included exclamation marks
-on the expected messages 
+on the expected messages
 
-103
-00:08:53.503 --> 00:08:57.647
+109
+00:08:53,500 --> 00:08:58,020
 Well, at least this gives you a chance to see
 the nice diff output from Cucumber
 
-104
-00:08:57.647 --> 00:08:59.647
+110
+00:08:58,020 --> 00:08:59,440
 when the tables are different
 
-105
-00:09:00.671 --> 00:09:05.535
+111
+00:09:00,840 --> 00:09:05,380
 We see the expected values in orange
 and the actual values in white
 
-106
-00:09:06.815 --> 00:09:11.167
+112
+00:09:06,900 --> 00:09:11,180
 Let’s fix just one of these so you can see how
 the diff output changes
 
-107
-00:09:13.471 --> 00:09:19.615
+113
+00:09:13,480 --> 00:09:17,660
 The matching bagels! line is green
-and for the mismatched row,
+and for the mismatched row
 
-108
-00:09:19.871 --> 00:09:22.431
-the actual output is white,
+114
+00:09:17,660 --> 00:09:22,440
+the actual output is white
 and the expected output is orange
 
-109
-00:09:23.199 --> 00:09:26.527
-Let’s fix this last typo,
+115
+00:09:23,420 --> 00:09:26,480
+Let’s fix that last typo
 and we should be green again
 
-110
-00:09:27.807 --> 00:09:28.575
+116
+00:09:27,880 --> 00:09:28,800
 Great
 
-111
-00:09:28.831 --> 00:09:34.207
+117
+00:09:28,800 --> 00:09:34,160
 When writing scenarios, occasionally we want
 to use a really long piece of data
 
-112
-00:09:34.719 --> 00:09:40.863
+118
+00:09:34,940 --> 00:09:40,860
 For example, let’s introduce a new rule
 about the maximum length of a message
 
-113
-00:09:43.423 --> 00:09:45.727
-...and add a scenario to illustrate it,
+119
+00:09:43,420 --> 00:09:46,240
+...and add a scenario to illustrate it
 
-114
-00:09:46.239 --> 00:09:49.567
+120
+00:09:46,240 --> 00:09:49,560
 making the string just over
 the boundary of the rule
 
-115
-00:09:56.735 --> 00:10:02.367
+121
+00:09:57,560 --> 00:09:59,740
 That’s pretty ugly isn’t it!
 
-116
-00:10:02.623 --> 00:10:04.671
-Still, we’ll press on and get it to green,
+122
+00:09:59,740 --> 00:10:04,340
+Still, we’ll press on and get it to green
 then we’ll show you how to clean it up
 
-117
-00:10:05.439 --> 00:10:10.559
+123
+00:10:05,440 --> 00:10:11,140
 Our existing step definition handles that
 ugly step with the long message just fine
 
-118
-00:10:10.815 --> 00:10:14.655
+124
+00:10:11,140 --> 00:10:14,760
 but we need a new step definition
 for this last outcome step
 
-119
-00:10:16.191 --> 00:10:21.567
+125
+00:10:16,200 --> 00:10:21,580
 We’ll iterate over all the people in the scenario
 and check they haven’t heard this message
 
-120
-00:10:28.223 --> 00:10:31.807
+126
+00:10:28,920 --> 00:10:32,100
 OK, so we have a failing acceptance test
 
-121
-00:10:32.063 --> 00:10:35.135
+127
+00:10:32,100 --> 00:10:35,040
 Let’s dive down into our solution
 and implement this new rule
 
-122
-00:10:37.183 --> 00:10:43.327
+128
+00:10:37,180 --> 00:10:40,820
 It seems like the Network should be
 responsible for implementing this rule
 
-123
-00:10:43.583 --> 00:10:46.655
+129
+00:10:40,820 --> 00:10:46,460
 so let’s go to its unit tests and add a new
 example to specify this extra responsibility
 
-124
-00:10:50.751 --> 00:10:54.847
-We’ll create a 181-character message like this
+130
+00:10:51,000 --> 00:10:54,960
+We’ll create a 181-character message like this...
 
-125
-00:10:55.871 --> 00:11:02.015
+131
+00:10:55,940 --> 00:11:01,180
 place Lucy and Sean in their usual positions
 subscribe Lucy on the network
 
-126
-00:11:02.271 --> 00:11:05.599
+132
+00:11:01,180 --> 00:11:05,600
 and then assert that Lucy should not hear
 the message when it’s broadcast
 
-127
-00:11:06.623 --> 00:11:08.159
+133
+00:11:06,720 --> 00:11:08,180
 Let's run that test
 
-128
-00:11:09.183 --> 00:11:10.975
+134
+00:11:09,380 --> 00:11:10,980
 Good, it fails
 
-129
-00:11:11.743 --> 00:11:14.559
+135
+00:11:11,743 --> 00:11:14,559
 Lucy’s still getting the message at the moment
 
-130
-00:11:16.095 --> 00:11:18.143
+136
+00:11:16,100 --> 00:11:18,260
 Now how are we going to implement this?
 
-131
-00:11:19.423 --> 00:11:23.775
+137
+00:11:19,420 --> 00:11:23,780
 It looks like we’re already implementing the
 proximity rule here in the broadcast method
 
-132
-00:11:24.287 --> 00:11:27.615
+138
+00:11:24,460 --> 00:11:27,700
 Let’s add another if statement here
 about the message length
 
-133
-00:11:29.151 --> 00:11:30.943
+139
+00:11:29,440 --> 00:11:31,620
 Run the unit test again...
 
-134
-00:11:31.455 --> 00:11:34.015
+140
+00:11:31,620 --> 00:11:34,020
 and it’s passing. Great
 
-135
-00:11:35.295 --> 00:11:38.879
+141
+00:11:35,300 --> 00:11:38,880
 The code here has got
 a little bit messy and hard to read
 
-136
-00:11:39.647 --> 00:11:42.463
+142
+00:11:39,860 --> 00:11:43,080
 One very basic move we could make to improve it
 
-137
-00:11:42.975 --> 00:11:46.303
+143
+00:11:43,080 --> 00:11:46,300
 would be to just extract
 a couple of temporary variables
 
-138
-00:12:00.895 --> 00:12:01.919
+144
+00:12:01,100 --> 00:12:02,120
 That's better
 
-139
-00:12:02.943 --> 00:12:07.551
+145
+00:12:02,940 --> 00:12:07,540
 This code could be improved even further of course
 but at least we haven’t made it any worse
 
-140
-00:12:08.319 --> 00:12:10.623
+146
+00:12:08,500 --> 00:12:10,460
 Let’s just run the tests to check
 
-141
-00:12:11.391 --> 00:12:13.951
+147
+00:12:11,400 --> 00:12:13,960
 Great - everything’s still green
 
-142
-00:12:16.767 --> 00:12:22.911
-Now we have everything passing again,
+148
+00:12:16,800 --> 00:12:18,880
+Now we have everything passing again
+
+149
+00:12:18,880 --> 00:12:21,880
 we can tidy up the Gherkin to use
+a new piece of syntax
 
-143
-00:12:23.167 --> 00:12:23.935
-a new piece of syntax we’ve been wanting
-to tell you about: a DocString
+150
+00:12:21,880 --> 00:12:24,560
+we’ve been wanting
+to tell you about:
 
-144
-00:12:24.447 --> 00:12:33.407
+151
+00:12:24,560 --> 00:12:25,640
+a DocString
+
+152
+00:12:27,700 --> 00:12:33,300
 DocStrings allow you to specify a text argument
 for a step that spans over multiple lines
 
-145
-00:12:33.919 --> 00:12:36.735
+153
+00:12:33,920 --> 00:12:36,740
 We could change our step to look like this instead
 
-146
-00:12:39.807 --> 00:12:42.111
+154
+00:12:40,080 --> 00:12:42,140
 Now the scenario is much more readable
 
-147
-00:12:43.135 --> 00:12:45.439
+155
+00:12:43,340 --> 00:12:46,000
 We don’t use DocStrings very often -
 
-148
-00:12:45.695 --> 00:12:50.047
-having such a lot of data in a test can often
-make it quite brittle
+156
+00:12:46,000 --> 00:12:50,060
+having such a lot of data in a test
+can often make it quite brittle
 
-149
-00:12:50.559 --> 00:12:54.143
+157
+00:12:50,860 --> 00:12:54,040
 But when you do need it
 it's useful to know about
 
-150
-00:13:08.223 --> 00:13:10.855
-You might have noticed that we’ve followed
-a pattern when we added behaviour
+158
+00:13:08,360 --> 00:13:11,060
+You might have noticed
+that we’ve followed a pattern
 
-151
-00:13:10.855 --> 00:13:13.855
-to the system during this episode
+159
+00:13:11,060 --> 00:13:13,860
+when we added behaviour to the system
+during this episode
 
-152
-00:13:14.623 --> 00:13:19.231
+160
+00:13:14,780 --> 00:13:19,520
 First we expressed the behaviour
 we wanted in a Gherkin scenario
 
-153
-00:13:19.487 --> 00:13:24.351
+161
+00:13:19,520 --> 00:13:24,200
 wired up the step definitions
 then ran Cucumber to watch it fail
 
-154
-00:13:25.375 --> 00:13:31.519
+162
+00:13:25,500 --> 00:13:31,120
 Then, we found the first class in our
 domain model that needed to change
 
-155
-00:13:31.775 --> 00:13:33.567
+163
+00:13:31,120 --> 00:13:33,560
 in order to support that new behaviour
 
-156
-00:13:34.335 --> 00:13:37.407
+164
+00:13:34,480 --> 00:13:37,140
 In this case, the Network class
 
-157
-00:13:38.175 --> 00:13:43.551
+165
+00:13:38,180 --> 00:13:43,400
 We used a unit test to describe how
 we wanted instances of that class to behave
 
-158
-00:13:44.063 --> 00:13:47.391
+166
+00:13:44,200 --> 00:13:47,160
 Then we ran the unit test and watched it fail
 
-159
-00:13:48.671 --> 00:13:54.047
+167
+00:13:48,920 --> 00:13:53,840
 We focused in and made changes to the class
 until its unit tests were passing
 
-160
-00:13:54.815 --> 00:13:56.863
+168
+00:13:55,040 --> 00:13:57,220
 When the unit tests were passing
 
-161
-00:13:57.119 --> 00:14:01.983
+169
+00:13:57,220 --> 00:14:01,980
 we then made some minor changes to
 clean up the code and make it more readable
 
-162
-00:14:02.495 --> 00:14:10.687
+170
+00:14:02,840 --> 00:14:07,060
 This is the basic test-driven-development cycle:
-red, green, clean
 
-163
-00:14:11.711 --> 00:14:16.831
+171
+00:14:07,060 --> 00:14:08,560
+red
+
+172
+00:14:08,560 --> 00:14:09,860
+green
+
+173
+00:14:09,860 --> 00:14:10,760
+clean
+
+174
+00:14:11,720 --> 00:14:16,800
 The technical name for this
 last clean-up step is refactoring
 
-164
-00:14:17.343 --> 00:14:22.463
+175
+00:14:17,500 --> 00:14:22,900
 Refactoring is an ugly name for
-an extremely valuable activity: 
+an extremely valuable activity:
 
-165
-00:14:22.719 --> 00:14:28.351
+176
+00:14:22,900 --> 00:14:28,360
 improving the design of existing code
 without changing its behaviour
 
-166
-00:14:28.863 --> 00:14:30.983
-You can think about it like
+177
+00:14:29,180 --> 00:14:31,120
+You can think about it like cleaning up
 
-167
-00:14:30.983 --> 00:14:33.983
-cleaning up and washing the dishes after
+178
+00:14:31,120 --> 00:14:33,920
+and washing the dishes after
 you’ve prepared a meal:
 
-168
-00:14:34.495 --> 00:14:36.543
+179
+00:14:34,860 --> 00:14:36,540
 basic housekeeping
 
-169
-00:14:37.311 --> 00:14:42.687
+180
+00:14:37,320 --> 00:14:42,700
 But imagine the state of your kitchen
 if you never made time to do the dishes
 
-170
-00:14:43.967 --> 00:14:47.039
+181
+00:14:44,180 --> 00:14:46,860
 Go on, imagine it for a second
 
-171
-00:14:48.319 --> 00:14:50.367
+182
+00:14:48,520 --> 00:14:50,360
 Yuck!
 
-172
-00:14:51.135 --> 00:14:56.255
-Well, that’s how many, many codebase end up
+183
+00:14:51,140 --> 00:14:56,260
+Well, that’s how many, many codebases end up
 
-173
-00:14:57.279 --> 00:14:59.423
+184
+00:14:57,580 --> 00:14:59,760
 The good thing about taking this course
 
-174
-00:14:59.423 --> 00:15:00.423
+185
+00:14:59,760 --> 00:15:03,900
 is that we’re teaching you how
 to write solid automated tests
 
-175
-00:15:00.423 --> 00:15:03.423
-change the system’s behaviour
-your tests will tell you
-
-176
-00:15:03.679 --> 00:15:09.823
+186
+00:15:03,900 --> 00:15:06,800
 and the good thing about having
 solid automated tests
 
-177
-00:15:10.079 --> 00:15:14.943
+187
+00:15:06,800 --> 00:15:09,420
 is you can refactor with confidence
-knowing that if you accidentally
 
-178
-00:15:16.991 --> 00:15:20.319
-Once we’re done refactoring, what do we do next?
+188
+00:15:09,420 --> 00:15:13,080
+knowing that if you accidentally change the system’s behaviour
 
-179
-00:15:20.831 --> 00:15:23.391
+189
+00:15:13,080 --> 00:15:14,940
+your tests will tell you
+
+190
+00:15:17,140 --> 00:15:20,220
+Once we’re done refactoring
+what do we do next?
+
+191
+00:15:21,100 --> 00:15:23,400
 Run Cucumber, of course!
 
-180
-00:15:24.415 --> 00:15:30.559
+192
+00:15:24,660 --> 00:15:30,100
 In this case, our scenario was passing with
 a single trip round the inner TDD loop
 
-181
-00:15:30.815 --> 00:15:34.959
+193
+00:15:30,100 --> 00:15:33,960
 but sometimes you can spend several hours
 working through all the unit tests
 
-182
-00:15:34.959 --> 00:15:36.959
+194
+00:15:33,960 --> 00:15:37,000
 you need to get a single scenario to green
 
-183
-00:15:37.983 --> 00:15:40.543
+195
+00:15:38,260 --> 00:15:40,880
 Once the acceptance test is passing
 
-184
-00:15:40.799 --> 00:15:44.639
+196
+00:15:40,880 --> 00:15:45,040
 we figure out the next
 most valuable scenario on our todo list
 
-185
-00:15:44.895 --> 00:15:47.967
+197
+00:15:45,040 --> 00:15:47,840
 and start the whole thing all over again!
 
-186
-00:15:49.759 --> 00:15:54.111
+198
+00:15:49,960 --> 00:15:54,120
 Together, these two loops make the BDD cycle
 
-187
-00:15:54.623 --> 00:16:00.767
+199
+00:15:54,620 --> 00:15:58,540
 The outer loop,
 which starts with an acceptance test
 
-188
-00:16:01.023 --> 00:16:02.559
+200
+00:15:58,540 --> 00:16:02,560
 keeps us focused on what the business
 needs us to do next
 
-189
-00:16:03.583 --> 00:16:09.727
+201
+00:16:03,580 --> 00:16:06,980
 The inner loop
 where we continuously test
 
-190
-00:16:09.983 --> 00:16:15.615
-implement then refactor small units of code
-is where decide how we’ll implement that behaviour
+202
+00:16:06,980 --> 00:16:11,340
+implement, then refactor
+small units of code
 
-191
-00:16:17.151 --> 00:16:20.479
+203
+00:16:11,340 --> 00:16:15,620
+is where decide how
+we’ll implement that behaviour
+
+204
+00:16:17,260 --> 00:16:20,240
 Both of these levels of feedback are important
 
-192
-00:16:21.247 --> 00:16:26.879
+205
+00:16:21,500 --> 00:16:27,880
 It’s sometimes said that your acceptance tests
 ensure you’re building the right thing
 
-193
-00:16:27.647 --> 00:16:33.023
+206
+00:16:27,880 --> 00:16:33,020
 and your unit tests
 ensure you’re building the thing right
 
-194
-00:16:35.839 --> 00:16:40.191
+207
+00:16:36,020 --> 00:16:38,780
 That’s all for this lesson of Cucumber School
+
+208
+00:16:38,780 --> 00:16:40,140
 See you next time!
 
-195
-00:16:42.000 --> 00:16:44.000
+209
+00:16:41,280 --> 00:16:43,280
 Captions created by Jayson Smith for Cucumber Ltd.
