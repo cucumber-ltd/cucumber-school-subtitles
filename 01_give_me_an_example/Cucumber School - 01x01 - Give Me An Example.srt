@@ -1,0 +1,648 @@
+1
+00:00:15,320 --> 00:00:19,720
+BDD stands for Behaviour Driven Development
+
+2
+00:00:20,480 --> 00:00:22,460
+But what does that mean?
+
+3
+00:00:22,460 --> 00:00:24,840
+What does it mean to do BDD?
+
+4
+00:00:26,280 --> 00:00:32,100
+Well BDD is a process of exploring
+discovering, defining,
+
+5
+00:00:32,100 --> 00:00:36,500
+and then finally driving out the
+desired behaviour of a software system
+
+6
+00:00:36,500 --> 00:00:38,655
+using conversations
+
+7
+00:00:38,655 --> 00:00:40,447
+concrete examples
+
+8
+00:00:40,447 --> 00:00:42,240
+and automated-tests
+
+9
+00:00:43,480 --> 00:00:46,800
+We use conversations about concrete
+examples to explore, discover,
+
+10
+00:00:46,800 --> 00:00:49,800
+and finally illustrate our
+shared understanding
+
+11
+00:00:49,800 --> 00:00:52,220
+of the problem we need to solve
+for our stakeholders
+
+12
+00:00:52,880 --> 00:00:55,340
+Then we refine those examples into
+
+13
+00:00:55,350 --> 00:00:59,600
+automated-tests that describe the
+desired behaviour of our solution
+
+14
+00:00:59,600 --> 00:01:02,208
+to drive the development of the system
+
+15
+00:01:03,740 --> 00:01:07,060
+Cucumber is a tool facilitates BDD
+
+16
+00:01:07,800 --> 00:01:11,600
+We can't teach you about Cucumber without
+teaching you about BDD, too
+
+17
+00:01:11,600 --> 00:01:13,840
+so that's what we're going to start
+
+18
+00:01:16,760 --> 00:01:19,880
+Let's start by defining what we mean
+by a concrete example
+
+19
+00:01:20,640 --> 00:01:24,780
+Can you think of a concrete example of
+the last time you used a piece of software?
+
+20
+00:01:24,780 --> 00:01:26,500
+Maybe an app you often use
+on your smartphone
+
+21
+00:01:26,500 --> 00:01:30,368
+or something you use on a daily basis
+on your desktop computer
+
+22
+00:01:31,136 --> 00:01:32,928
+Write down your example
+
+23
+00:01:35,280 --> 00:01:38,820
+Now, I've got no way to tell from
+here inside this video
+
+24
+00:01:38,820 --> 00:01:44,640
+but I'd be willing to bet you didn't give me 
+a concrete example of you
+
+25
+00:01:44,640 --> 00:01:45,980
+using the software
+
+26
+00:01:46,552 --> 00:01:50,080
+You just wrote down the name of
+the program or the app you were using
+
+27
+00:01:51,480 --> 00:01:54,360
+For example, maybe you wrote down
+
+28
+00:01:54,360 --> 00:01:55,500
+Twitter
+
+29
+00:01:57,140 --> 00:01:58,780
+Let's try again
+
+30
+00:01:58,780 --> 00:02:03,240
+Give me a concrete example of the
+last time you used Twitter
+
+31
+00:02:03,250 --> 00:02:05,952
+or whatever the app was you had in mind
+
+32
+00:02:06,000 --> 00:02:08,140
+Ready? Go!
+
+33
+00:02:09,660 --> 00:02:10,760
+Let's see
+
+34
+00:02:10,760 --> 00:02:13,520
+Did you just write down a
+concrete example with details of
+
+35
+00:02:13,520 --> 00:02:17,060
+what you were trying to do at the time
+and why you used the app?
+
+36
+00:02:17,960 --> 00:02:21,400
+Or did you just write down
+the name of the feature
+
+37
+00:02:21,400 --> 00:02:22,400
+like..
+
+38
+00:02:22,400 --> 00:02:25,160
+read my messages on Twitter?
+
+39
+00:02:27,200 --> 00:02:29,300
+This is still too abstract
+
+40
+00:02:29,300 --> 00:02:31,040
+Getting concrete is hard!
+
+41
+00:02:31,560 --> 00:02:35,100
+If you just wrote down the name of the
+feature I want you to try again
+
+42
+00:02:35,100 --> 00:02:37,700
+Visualize a real moment in your life
+
+43
+00:02:37,700 --> 00:02:39,460
+when you use that feature
+
+44
+00:02:39,460 --> 00:02:42,300
+Tell me about it in every last detail
+
+45
+00:02:45,000 --> 00:02:46,560
+Here's my example
+
+46
+00:02:46,560 --> 00:02:50,240
+Yesterday I was waiting for my
+regular train home from work
+
+47
+00:02:51,140 --> 00:02:55,060
+I have a half hour commute so I like to
+have something to read on the train
+
+48
+00:02:55,060 --> 00:02:59,400
+Because the train goes to a rural area
+where the mobile signal is bad
+
+49
+00:02:59,400 --> 00:03:02,800
+I scanned my Twitter feed and
+fired up a browser tab
+
+50
+00:03:02,800 --> 00:03:06,360
+with interesting looking articles
+to read before I get on the train
+
+51
+00:03:07,840 --> 00:03:10,000
+Most of the articles are about
+software development
+
+52
+00:03:10,000 --> 00:03:12,280
+but there were a couple
+about politics, too
+
+53
+00:03:12,280 --> 00:03:13,600
+Now we're talking!
+
+54
+00:03:13,600 --> 00:03:17,000
+We have a concrete example with
+loads of context
+
+55
+00:03:17,000 --> 00:03:18,912
+That really gives us something
+to work with
+
+56
+00:03:19,936 --> 00:03:21,800
+Now we're going to see how we use
+
+57
+00:03:21,801 --> 00:03:24,544
+these concrete examples in practice
+
+58
+00:03:25,056 --> 00:03:27,400
+A prerequisite for doing BDD
+
+59
+00:03:27,401 --> 00:03:30,176
+is to have an agile process in place
+
+60
+00:03:31,200 --> 00:03:35,998
+BBD needs to be done just in time
+at the last responsible moment
+
+61
+00:03:36,000 --> 00:03:39,320
+because we place a lot of emphasis
+on conversations rather than trying to
+
+62
+00:03:39,320 --> 00:03:40,680
+write everything down
+
+63
+00:03:41,660 --> 00:03:44,940
+If you try to have those conversations
+too far ahead of doing the work
+
+64
+00:03:44,951 --> 00:03:47,584
+you'll have forgotten most of
+what you talked about
+
+65
+00:03:49,376 --> 00:03:53,472
+So you need to have your work already
+broken down into user stories
+
+66
+00:03:53,728 --> 00:03:57,568
+Ideally, you'll have also started to
+define acceptance criteria
+
+67
+00:03:57,569 --> 00:03:59,616
+or business rules for those stories
+
+68
+00:04:00,617 --> 00:04:02,400
+But they don't need
+to be exhaustive yet
+
+69
+00:04:02,400 --> 00:04:05,248
+we'll flesh them out during
+the BBD process
+
+70
+00:04:06,528 --> 00:04:10,900
+Let's imagine we're building a
+point-of-sale system for an electronics retailer
+
+71
+00:04:10,900 --> 00:04:12,504
+Dixies
+
+72
+00:04:12,720 --> 00:04:14,720
+Here's our next user story!
+
+73
+00:04:14,720 --> 00:04:16,120
+Process Refunds
+
+74
+00:04:16,120 --> 00:04:18,800
+In order to satisfy
+customers statutory rights
+
+75
+00:04:18,800 --> 00:04:22,911
+As a sales assistant
+I need to be able to process refunds
+
+76
+00:04:24,191 --> 00:04:28,050
+In order to prepare this story for
+development we have what we call
+
+77
+00:04:28,050 --> 00:04:30,335
+a three amigos meeting
+
+78
+00:04:30,847 --> 00:04:33,450
+We call it the three amigos
+because it involves
+
+79
+00:04:33,450 --> 00:04:35,711
+three different disciplines from the team
+
+80
+00:04:36,340 --> 00:04:37,840
+Test
+
+81
+00:04:37,840 --> 00:04:39,200
+Development
+
+82
+00:04:39,200 --> 00:04:40,975
+and Product
+
+83
+00:04:41,455 --> 00:04:43,391
+Let's watch one in action
+
+84
+00:04:44,100 --> 00:04:46,780
+The business rules to this story
+are really simple
+
+85
+00:04:46,780 --> 00:04:51,620
+Any item can be returned within 14 days
+as long as the customer has a receipt
+
+86
+00:04:51,620 --> 00:04:53,260
+Can you give me an example?
+
+87
+00:04:53,260 --> 00:04:54,080
+Okay
+
+88
+00:04:54,080 --> 00:04:57,580
+Collin the customer bought
+a kettle last week from us
+
+89
+00:04:57,580 --> 00:05:00,780
+When he got home he realized the color
+didn't match his kitchen cabinets
+
+90
+00:05:00,780 --> 00:05:02,820
+and he really didn't like it
+
+91
+00:05:02,820 --> 00:05:06,520
+Um, he's brought it back to
+the store for refund
+
+92
+00:05:06,520 --> 00:05:09,250
+He walks up to Sally
+a junior sales assistant
+
+93
+00:05:09,250 --> 00:05:12,700
+and he asks her to process the refund
+
+94
+00:05:12,700 --> 00:05:15,840
+What's the outcome here?
+What are we supposed to test?
+
+95
+00:05:15,840 --> 00:05:20,800
+Well we need to increment the
+stock quantity for that item
+
+96
+00:05:20,800 --> 00:05:23,540
+so we know it's back in our inventory
+
+97
+00:05:23,540 --> 00:05:25,000
+Ah right, anything else?
+
+98
+00:05:25,000 --> 00:05:27,980
+No, no, I think that's all
+
+99
+00:05:27,980 --> 00:05:30,600
+What if Collin doesn't have his receipt?
+
+100
+00:05:30,600 --> 00:05:32,620
+Does Sally have to send him home?
+
+101
+00:05:32,620 --> 00:05:37,500
+Well, a manager can process a refund
+with any proof of purchase
+
+102
+00:05:37,500 --> 00:05:40,680
+Collin could use a bank statement
+for example?
+
+103
+00:05:40,680 --> 00:05:44,960
+But Sally can't do that so
+she would have to ask her boss
+
+104
+00:05:44,960 --> 00:05:47,000
+Right, so there are two rules here:
+
+105
+00:05:47,000 --> 00:05:50,460
+The customer must have
+proof of purchase, not just a receipt
+
+106
+00:05:50,460 --> 00:05:52,340
+and if they don't have their receipt
+
+107
+00:05:52,340 --> 00:05:54,860
+then it must be authorized
+by a manager, right?
+
+108
+00:05:54,860 --> 00:05:57,020
+Oh, oh right! Exactly!
+
+109
+00:05:57,020 --> 00:05:59,540
+Aren't we forgetting something here?
+
+110
+00:06:00,120 --> 00:06:02,240
+Isn't Collin supposed to get his money back?
+
+111
+00:06:02,820 --> 00:06:05,640
+Oh! Uh, oh yes of course!
+
+112
+00:06:05,640 --> 00:06:09,120
+And does the system need to notify
+anyone in the warehouse to
+
+113
+00:06:09,120 --> 00:06:10,600
+come pick up the kettle?
+
+114
+00:06:10,600 --> 00:06:11,720
+Good idea, Tammy.
+
+115
+00:06:11,720 --> 00:06:16,060
+Yes, I think that's out of our scope
+for this version of the story
+
+116
+00:06:16,060 --> 00:06:18,940
+but I'll put it on the
+backlog for future iteration
+
+117
+00:06:22,820 --> 00:06:24,140
+As you can see
+
+118
+00:06:24,140 --> 00:06:26,820
+the three amigos meeting
+raises lots of questions
+
+119
+00:06:27,520 --> 00:06:32,380
+It's a really useful way to discover
+assumptions and potential misunderstandings
+
+120
+00:06:32,380 --> 00:06:34,300
+It is also a great way to communicate
+
+121
+00:06:34,300 --> 00:06:37,311
+requirements that somebody
+might have thought about
+
+122
+00:06:37,320 --> 00:06:40,640
+but never explained clearly to
+other people on the team
+
+123
+00:06:41,300 --> 00:06:44,540
+Sometimes the three amigos will hit
+a question that nobody in the room
+
+124
+00:06:44,540 --> 00:06:46,500
+knows the answer to
+
+125
+00:06:46,500 --> 00:06:49,500
+These are also a valuable output
+from the meeting
+
+126
+00:06:49,500 --> 00:06:53,700
+Now you have a clear picture
+of what you know and
+
+127
+00:06:53,700 --> 00:06:55,060
+what you need to find out
+
+128
+00:06:56,860 --> 00:06:58,400
+Talking through examples
+is a great way
+
+129
+00:06:58,400 --> 00:07:01,500
+to get everyone on the same page
+about what needs to be built
+
+130
+00:07:02,400 --> 00:07:06,200
+Once all three amigos are happy
+that they understand the story
+
+131
+00:07:06,200 --> 00:07:10,340
+then you can start translating your examples
+into something that Cucumber can understand
+
+132
+00:07:11,880 --> 00:07:14,900
+Here's one of our examples
+written out in Gherkin
+
+133
+00:07:14,900 --> 00:07:17,260
+the specification language for Cucumber
+
+134
+00:07:19,680 --> 00:07:21,080
+As you can see
+
+135
+00:07:21,080 --> 00:07:23,600
+Gherkin's almost like plain English
+
+136
+00:07:23,600 --> 00:07:28,860
+We have to use a few special key words so that Cucumber can understand it, too
+
+137
+00:07:28,860 --> 00:07:33,900
+Words like feature, scenario,
+given, when, and then
+
+138
+00:07:33,900 --> 00:07:35,820
+You'll learn all about these soon
+
+139
+00:07:37,320 --> 00:07:41,580
+We can refine as many examples
+as we need into this form
+
+140
+00:07:41,580 --> 00:07:45,920
+to create an executable specification
+for our software
+
+141
+00:07:46,600 --> 00:07:48,100
+In the next lesson
+
+142
+00:07:48,100 --> 00:07:51,450
+you'll learn how to create 
+your first Cucumber scenario
+
+143
+00:07:51,451 --> 00:07:52,800
+and execute it
+
+144
+00:07:54,000 --> 00:07:56,000
+Captions created by Jayson Smith for Cucumber Ltd.
