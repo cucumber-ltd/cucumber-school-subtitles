@@ -28,11 +28,10 @@ conversations about concrete examples
 
 Some notes taken from a couple different [style guidelines](http://bbc.github.io/subtitle-guidelines/) and decided on by myself.
 
-* No ending periods.
+* No ending commas or periods
 * Prefer to have one caption lead immediately into another where it makes sense. This is meant to make the caption reading experience less jarring and smoother. The start time of one frame should be the same as the frame that precedes it so that there is no 'flashing' as one caption disappears and the next appears. Cases when and when not to do this follow:
   * Sentences that span multiple caption frames must be connected
   * Sentences that are within approximately a half second of one another should also be connected.
-* BDD, Cucumber, Gherkin, Three Amigos, and any other named items must be capitalized
 * Maximum of 2 lines per caption frame
 * Maximum of 45 characters per line, where possible, with preference toward shorter lines
 * Minimum of 1 seconds of on screen time for shorter frames if possible

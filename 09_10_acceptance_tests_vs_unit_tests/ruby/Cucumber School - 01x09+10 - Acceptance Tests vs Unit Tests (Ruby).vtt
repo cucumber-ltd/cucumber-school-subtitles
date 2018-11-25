@@ -1,1465 +1,1555 @@
 WEBVTT
 
 1
-00:00:14.592 --> 00:00:20.736
+00:00:14.592 --> 00:00:18.736
 Last time on Cucumber School
 
+2
+00:00:18.736 --> 00:00:20.736
 we showed you how to use
 example mapping to facilitate conversations
 
-2
-00:00:20.992 --> 00:00:25.344
-between stakeholders before starting workon a new user story
-
 3
-00:00:25.600 --> 00:00:31.744
-We finished the lesson on a technical note,
+00:00:20.992 --> 00:00:25.344
+between stakeholders before starting work
+on a new user story
+
+4
+00:00:25.600 --> 00:00:28.744
+We finished the lesson on a technical note
 showing you how to extract
 
+5
+00:00:28.744 --> 00:00:31.744
 a layer of support code from your
 step definitions
 
-4
+6
 00:00:32.000 --> 00:00:36.352
 to keep your Cucumber code easy -
 and cost-effective - to maintain
 
-5
-00:00:37.376 --> 00:00:43.520
+7
+00:00:37.376 --> 00:00:40.520
 We’re going to keep things technical
 in this lesson.
 
+8
+00:00:40.520 --> 00:00:43.520
 Remember that bug we spotted right back at
 the beginning of lesson seven
 
-6
-00:00:43.776 --> 00:00:48.896
+9
+00:00:43.776 --> 00:00:46.896
 where the user was over-charged
 if they mentioned “buy”
 
+10
+00:00:46.896 --> 00:00:48.896
 several times in the same message?
 
-7
+11
 00:00:49.152 --> 00:00:52.480
 It's time to finally knuckle down and fix it
 
-8
+12
 00:00:53.248 --> 00:00:59.392
 As we do so, you’re going to get
 some more experience
 
-9
+13
 00:00:59.648 --> 00:01:00.672
 of the inner and outer TDD loops that
 we first introduced you to in lesson five
 
-10
-00:01:00.928 --> 00:01:06.816
-We’ll learn about mock objects,
+14
+00:01:00.928 --> 00:01:04.816
+We’ll learn about mock objects
 and explore the difference between
 
+15
+00:01:04.816 --> 00:01:06.816
 unit tests and acceptance tests
 
-11
+16
 00:01:07.072 --> 00:01:08.864
 and learn the value of each
 
-12
+17
 00:01:09.632 --> 00:01:13.984
 If you’re someone who doesn’t normally
 dive deep into code, try not to worry
 
-13
-00:01:14.496 --> 00:01:20.640
-We’ll keep the example from moving too fast,
+18
+00:01:14.496 --> 00:01:18.640
+We’ll keep the example from moving too fast
 and we hope you’ll find it educational to see
 
+19
+00:01:18.640 --> 00:01:20.640
 how different kinds of tests
 complement each other in helping you
 
-14
+20
 00:01:20.896 --> 00:01:25.248
 to build a quality product
 
-15
+21
 00:01:26.528 --> 00:01:31.392
 Let’s work outside-in and start by
 tidying up the Gherkin specification
 
-16
+22
 00:01:31.904 --> 00:01:37.024
 Right now, the scenario is still in the raw form
 it was in when the bug was first reported
 
-17
+23
 00:01:37.536 --> 00:01:40.864
 with a name that references an ID
 in our bug tracking system
 
-18
+24
 00:01:41.888 --> 00:01:45.984
 This doesn’t make for very good documentation
 about the intended behaviour
 
-19
+25
 00:01:47.264 --> 00:01:51.872
 Using our Friends Episode naming convention
 that we introduced in lesson 7
 
-20
+26
 00:01:52.384 --> 00:01:55.712
 we can come up with a more expressive name
 for this scenario
 
-21
+27
 00:01:56.480 --> 00:01:57.504
 How about:
 
-22
+28
 00:01:58.016 --> 00:02:02.880
 the one where Sean mentions “buy”
 several times in the same shout?
 
-23
+29
 00:02:04.672 --> 00:02:07.232
 You might be worried about losing this bug ID
 
-24
+30
 00:02:07.744 --> 00:02:09.024
 We could keep it in
 
-25
+31
 00:02:09.536 --> 00:02:15.680
 a comment, a tag, or in the description
 of the Scenario if we wanted to
 
-28
+32
 00:02:16.448 --> 00:02:20.288
 If your team likes to keep track of such things,
 feel free to do that
 
-29
+33
 00:02:21.312 --> 00:02:23.616
 We’d prefer to consign the bug to history -
 
-30
+34
 00:02:23.872 --> 00:02:27.200
 what matters to us
 is how the software behaves today, 
 
-31
+35
 00:02:27.456 --> 00:02:29.504
 not how it got to be that way
 
-32
+36
 00:02:31.552 --> 00:02:35.648
 We think the values in the example could be
 changed to make it a little more expressive
 
-33
+37
 00:02:36.160 --> 00:02:42.304
 If we start Sean off with 100 credits,
 and end him with 95
 
-34
+38
 00:02:42.560 --> 00:02:46.400
 it more clearly illustrates the rule that
 only five credits should be deducted
 
-35
+39
 00:02:48.704 --> 00:02:54.848
 Talking of which
 
-36
+40
 00:02:55.104 --> 00:02:55.616
 let’s also update the rule to make it explicit
 that you lose 5 credits per shout
 
-37
+41
 00:02:57.408 --> 00:02:58.432
 Good
 
-38
+42
 00:02:59.200 --> 00:03:04.832
 Now let’s run our improved scenario,
 using the @todo tag, and go hunting for that bug
 
-39
+43
 00:03:06.880 --> 00:03:09.952
 OK, well we can see our scenario failing
 
-40
+44
 00:03:10.464 --> 00:03:12.512
 but where do we need to go to fix it?
 
-41
+45
 00:03:14.048 --> 00:03:20.192
 Luckily, our system is pretty small,
 and we remember that all the
 
-42
+46
 00:03:20.448 --> 00:03:23.264
 premium account behaviour is implemented in
 the Network class, so let’s go and look there
 
-43
+47
 00:03:24.800 --> 00:03:32.224
 Well, that broadcast method is pretty complex,
 but I suppose the bug must be in there somewhere
 
-45
+48
 00:03:32.480 --> 00:03:34.784
 Let’s try to pin it down with a unit test
 
-46
+49
 00:03:36.576 --> 00:03:38.880
 Oh dear, oh dear:
 
-47
+50
 00:03:39.392 --> 00:03:44.768
 This file does not contain any tests for
 the premium account behaviour!
 
-48
+51
 00:03:45.024 --> 00:03:51.168
 It looks like when that so-called
 hot-shot ninja rockstar subcontractor, Stevie
 
-49
+52
 00:03:51.424 --> 00:03:57.568
-hacked in the first version of premium accounts,
+hacked in the first version of premium accounts
 he drove everything from that
 
-50
+53
 00:03:58.592 --> 00:04:00.896
-one great big Cucumber scenario,
+one great big Cucumber scenario
 and never wrote any unit tests
 
-51
+54
 00:04:01.664 --> 00:04:03.200
 Why is this a problem?
 
-52
+55
 00:04:04.480 --> 00:04:09.600
 Well, think about each automated test you write
 as warning light that you’re fitting to your system
 
-53
+56
 00:04:10.112 --> 00:04:13.952
 Acceptance tests are warning lights
 that make sense to business people:
 
-54
+57
 00:04:14.464 --> 00:04:16.000
-when they fail,
+when they fail
 
-54
+58
 00:04:16.000 --> 00:04:20.607
 they tell you what functionality a user
 will not be able to enjoy because of the bug
 
-55
+59
 00:04:21.887 --> 00:04:27.775
 What a unit test does is give the programmers
 an indication about why the bug has occurred
 
-56
+60
 00:04:28.543 --> 00:04:32.895
 Ideally, whenever you see an acceptance test’s
 warning light flash
 
-57
-00:04:33.151 --> 00:04:39.295
+61
+00:04:33.151 --> 00:04:36.295
 there should be at least one corresponding
-unit test flashing too,
+unit test flashing too
 
+62
+00:04:36.295 --> 00:04:39.295
 pointing the developers to
 the source of the problem
 
-58
+63
 00:04:40.831 --> 00:04:46.207
-If you don’t have any unit tests,
+If you don’t have any unit tests
 you’re left guessing where the problem lies
 
-59
+64
 00:04:46.719 --> 00:04:50.815
-In a big system,
+In a big system
 this can be a serious waste of time
 
-61
+65
 00:04:51.839 --> 00:04:57.215
 So the responsible thing to do at this point is to
 retrofit some unit tests for the Network class
 
-62
-00:04:57.983 --> 00:05:03.615
-We’ll start with its existing behaviour,
+66
+00:04:57.983 --> 00:05:00.615
+We’ll start with its existing behaviour
 then go on to test-drive the
 
+67
+00:05:00.615 --> 00:05:03.615
 behaviour we need to fix our bug
 
-63
+68
 00:05:04.639 --> 00:05:10.783
 Let’s write a test case for deducting five credits
 when the word “buy” is mentioned once
 
-64
+69
 00:05:12.831 --> 00:05:18.975
 All our existing tests use a
 test double or mock object
 
-65
+70
 00:05:19.231 --> 00:05:19.999
 to represent the instance of Person
 that the Network collaborates with
 
-66
+71
 00:05:20.767 --> 00:05:23.071
 So let’s go with that and try to do the same here
 
-67
+72
 00:05:24.351 --> 00:05:27.679
 First we need a mock object to represent Sean
 
-68
+73
 00:05:29.727 --> 00:05:33.055
 And we’ll need to broadcast a
 message containing the word “buy”
 
-69
+74
 00:05:35.103 --> 00:05:36.127
 What next?
 
-70
+75
 00:05:37.919 --> 00:05:42.015
 Well we need to assert that Sean is told
 to reduce his credits
 
-71
-00:05:43.551 --> 00:05:49.695
-In the deductCredits method here,
+76
+00:05:43.551 --> 00:05:47.695
+In the deductCredits method here
 we’re calling the credits setter
 
+77
+00:05:47.695 --> 00:05:49.695
 setting it to five less than the current value
 
-72
+78
 00:05:49.951 --> 00:05:56.095
 So we need to stub the attribute getter with
 say 100 credits, and then check
 
-73
+79
 00:05:56.351 --> 00:05:57.375
 that the setter is called with 95
 
-74
+80
 00:05:57.887 --> 00:05:59.423
 Here's how we do that
 
-75
+81
 00:06:02.751 --> 00:06:08.383
-This test is a real pain to write,
+This test is a real pain to write
 and we’re still not done! 
 
+82
+00:06:02.751 --> 00:06:08.383
 Now it’s failing with this error
 
-76
-00:06:12.223 --> 00:06:17.343
+83
+00:06:12.223 --> 00:06:14.343
 Following the stack trace
 it looks like the problem
 
+84
+00:06:14.343 --> 00:06:17.343
 is that our list of listeners
 hasn’t been initialised
 
-77
-00:06:17.855 --> 00:06:22.975
+85
+00:06:17.855 --> 00:06:20.975
 The Network class has been built with the
 assumption that there’s always going to be
 
+86
+00:06:20.975 --> 00:06:22.975
 at least one listener subscribed
 
-78
-00:06:23.743 --> 00:06:29.887
+87
+00:06:23.743 --> 00:06:27.887
 So even though it’s not relevant to our test
 
+88
+00:06:27.887 --> 00:06:29.887
 we’ll need to create a Lucy
 and subscribe her to the Network
 
-79
+89
 00:06:30.655 --> 00:06:36.031
 She’ll also need to be ready to receive a call
 to hear when the message is broadcast
 
-80
+90
 00:06:37.311 --> 00:06:40.127
 Phew. Our test is passing at last
 
-81
+91
 00:06:40.639 --> 00:06:44.991
-That was hard work, and what we’ve produced
-is just awful
+That was hard work
+and what we’ve produced is just awful
 
-82
+92
 00:06:45.759 --> 00:06:51.903
 This ugly test is typical of what happens
 when you use mock objects or test doubles
 
-83
+93
 00:06:52.159 --> 00:06:54.719
 to retro-fit tests to existing code
 
-84
-00:06:55.743 --> 00:07:01.119
+94
+00:06:55.743 --> 00:06:59.119
 So why use mocks?
 
+95
+00:06:59.119 --> 00:07:01.119
 Mock objects are a design tool
 
-85
+96
 00:07:01.631 --> 00:07:04.959
 They’re intended to be used when
 constructing new code
 
-86
+97
 00:07:05.471 --> 00:07:09.823
 to throw together a lightweight sketch
 of a collaborating object
 
-87
+98
 00:07:10.591 --> 00:07:12.895
 When you’re focused on building a Network
 
-88
+99
 00:07:13.151 --> 00:07:15.967
 and you think it needs to
 collaborate with a Person
 
-89
+100
 00:07:16.479 --> 00:07:20.575
 it would slow you down to have to stop
 and go off to build the actual Person class
 
-90
-00:07:21.087 --> 00:07:26.719
+101
+00:07:21.087 --> 00:07:24.719
 It’s often quicker to use a mock object to
 hash out your idea of roughly
 
+102
+00:07:24.719 --> 00:07:26.719
 what Person might look like
 
-91
+103
 00:07:26.975 --> 00:07:30.303
 leaving you to stay focused on the task at hand
 
-92
+104
 00:07:31.071 --> 00:07:35.679
-As you do this,
+As you do this
 you’ll find yourself - as we just did
 
-94
+105
 00:07:35.935 --> 00:07:40.543
 having to specify how you want
 the two objects to interact
 
-95
+106
 00:07:41.311 --> 00:07:47.455
 If you think about it, this interaction -
 the way they talk to each other at runtime -
 
-96
+107
 00:07:47.711 --> 00:07:50.783
 is the true behaviour of these objects
 
-97
+108
 00:07:51.807 --> 00:07:57.951
-Remember back in lesson 5, Loops,
+Remember back in lesson 5, Loops
 where we explained that acceptance tests
 
-98
+109
 00:07:58.207 --> 00:08:04.351
-help you build the right thing,
+help you build the right thing
 and unit tests help you build the thing right?
 
-100
+110
 00:08:05.119 --> 00:08:11.263
 In other words, acceptance tests help us to
 explore the problem domain,
 
-101
+111
 00:08:11.519 --> 00:08:13.311
 and unit tests help us to explore the solution
 
-102
-00:08:14.591 --> 00:08:20.479
-When you drive your development from tests,
+112
+00:08:14.591 --> 00:08:17.479
+When you drive your development from tests
 the unit tests can give you feedback
 
+113
+00:08:17.479 --> 00:08:20.479
 about the design of your solution
 
-103
-00:08:20.991 --> 00:08:27.135
+114
+00:08:20.991 --> 00:08:25.135
 If it’s easy to take an individual object and
 plug it into your tests
 
+115
+00:08:25.135 --> 00:08:27.135
 your design is likely to be nicely modular
 
-104
+116
 00:08:27.391 --> 00:08:30.463
 which means it will be easier
 to change in the future
 
-105
+117
 00:08:30.975 --> 00:08:36.351
 If it’s awkward, that’s a signal
 there’s a problem with your design
 
-106
+118
 00:08:36.863 --> 00:08:40.959
 We call this listening to the tests
 
-107
-00:08:43.263 --> 00:08:49.407
+119
+00:08:43.263 --> 00:08:47.407
 One alternative to using mocks would be to
 use a real instance of Person
 
+120
+00:08:47.407 --> 00:08:49.407
 instead of the mock object
 
-108
+121
 00:08:50.943 --> 00:08:53.503
 This has a couple of apparent advantages
 
-109
+122
 00:08:53.759 --> 00:08:59.903
 First, Person automatically subscribes
 to the Network as it is constructed
 
-110
+123
 00:09:00.159 --> 00:09:00.927
 so we wouldn’t need this clutter about Lucy
 
-111
+124
 00:09:02.207 --> 00:09:06.815
 Also, because we’re testing Person and Network
 as one integrated lump
 
-112
+125
 00:09:07.071 --> 00:09:11.423
 we don’t have to fuss about exactly
 how they communicate about Sean’s credits
 
-113
+126
 00:09:11.679 --> 00:09:15.775
 All we have to do is check how many credits
 he has left over at the end
 
-114
+127
 00:09:17.567 --> 00:09:21.663
 But this seductive solution papers over
 the cracks in our design
 
-115
+128
 00:09:22.431 --> 00:09:28.575
 When you use mocks, you put the microscope on the
 interaction between an object and its collaborators
 
-116
+129
 00:09:28.831 --> 00:09:31.647
 This gives you feedback about
 how coupled those objects are
 
-117
+130
 00:09:32.415 --> 00:09:37.791
 A lot of chatter going back and forth like this
 suggests they’re getting tangled up together
 
-118
+131
 00:09:38.559 --> 00:09:44.703
 So the fact that it’s awkward to use mocks here
 is not because mocks are bad
 
+132
+00:09:38.559 --> 00:09:42.703
 or because we’re bad at using mocks:
 
-119
-00:09:45.727 --> 00:09:48.287
+133
+00:09:42.703 --> 00:09:48.287
 it’s feedback from the code
 
-120
+134
 00:09:49.311 --> 00:09:55.199
 Let’s listen to the tests and try to respond
 to this pain instead of ignoring it
 
-122
-00:09:56.479 --> 00:10:02.623
+135
+00:09:56.479 --> 00:10:00.623
 We’ll start with something easy
 and deal with the situation where
 
+136
+00:10:00.623 --> 00:10:02.623
 the Network is asked to broadcast
 when it has no listeners
 
-123
-00:10:03.391 --> 00:10:09.535
+137
+00:10:03.391 --> 00:10:07.535
 This is an annoying detail about
 
+138
+00:10:07.535 --> 00:10:09.535
 how this object behaves that didn’t
 show itself in our acceptance tests
 
-124
+139
 00:10:10.047 --> 00:10:11.839
 Let’s test-drive a fix
 
-125
+140
 00:10:17.983 --> 00:10:19.007
 To fix it, all we need to do is initialize
 
-126
+141
 00:10:19.263 --> 00:10:25.407
 the collection of listeners in the constructor
 which makes more sense anyway
 
-127
+142
 00:10:28.479 --> 00:10:29.503
 Easy!
 
-128
+143
 00:10:30.015 --> 00:10:33.599
-And with that fixed,
+And with that fixed
 we can simplify the test we just wrote
 
-129
+144
 00:10:37.439 --> 00:10:39.231
 Let’s take stock a little bit
 
-130
+145
 00:10:39.487 --> 00:10:45.631
 We’re trying to fix that bug about
 multiple mentions of the word “buy”
 
-131
+146
 00:10:45.887 --> 00:10:49.727
 but first we’re retrofitting unit tests for the
 premium account behaviour in the Network class
 
-132
+147
 00:10:50.495 --> 00:10:56.639
 It will be easier to see what tests are missing
 if we reorganize the unit tests by
 
-133
+148
 00:10:56.895 --> 00:10:58.175
 Network’s responsibilities
 
-134
+149
 00:10:59.455 --> 00:11:01.759
 They basically fall into two categories
 
-135
+150
 00:11:03.039 --> 00:11:08.159
 These ones here are to do with
 the responsibility of broadcasting to listeners
 
-136
+151
 00:11:08.415 --> 00:11:12.511
 so let’s group them up using
 RSpec’s describe method
 
-137
+152
 00:11:22.751 --> 00:11:26.847
 Now we have our new test, which is about
 charging for shouts
 
-138
+153
 00:11:30.431 --> 00:11:32.479
 This last one here is a bit weird
 
-139
+154
 00:11:32.991 --> 00:11:35.807
 It’s sort of about broadcasting to listeners
 
-140
+155
 00:11:36.063 --> 00:11:39.391
 but it has this odd hack in it
 which needs further investigation
 
-141
-00:11:40.415 --> 00:11:46.559
-This test is quite obscure,
+156
+00:11:40.415 --> 00:11:44.559
+This test is quite obscure
 and seems to be attempting to cover
 
+157
+00:11:44.559 --> 00:11:46.559
 several aspects of Network’s behaviour
 all at once
 
-142
-00:11:47.839 --> 00:11:53.727
+158
+00:11:47.839 --> 00:11:50.727
 Let’s document those individual behaviours
 as new tests and we can come back
 
+159
+00:11:50.727 --> 00:11:53.727
 to deal with this one later
 
-143
+160
 00:11:56.031 --> 00:12:02.175
 We can see we’ll need something under the
 responsibility of broadcasting to listeners
 
-144
+161
 00:12:02.431 --> 00:12:04.479
 to ensure long messages aren’t broadcast
 for people with no credits
 
-145
+162
 00:12:04.991 --> 00:12:08.319
 so we can express that using
 a pending RSpec example
 
-146
+163
 00:12:09.343 --> 00:12:11.135
 We can fill this out later
 
-147
+164
 00:12:12.927 --> 00:12:17.791
 It’s clear we’ll also need to test that
 we charge two credits for an over-long message
 
-148
+165
 00:12:18.559 --> 00:12:20.863
 Let’s add another pending example for that
 
-149
+166
 00:12:22.655 --> 00:12:27.007
-Once those two tests are implemented,
+Once those two tests are implemented
 we won’t need this obscure one any more
 
-150
+167
 00:12:27.519 --> 00:12:33.663
 We’re not confident enough to just remove it
 until we’ve seen those tests fleshed out
 
-151
+168
 00:12:33.919 --> 00:12:35.967
 so we can mark it as pending for now
 
-153
+169
 00:12:36.735 --> 00:12:40.319
 That will remind us we need to
 come back and clean this up soon
 
-154
+170
 00:12:42.111 --> 00:12:47.743
 At this point it is becoming clear that
 Network has too many responsibilities
 
-155
+171
 00:12:48.767 --> 00:12:51.839
 We have two different sources of feedback
 telling us this
 
-156
+172
 00:12:53.375 --> 00:12:56.191
 With the unit tests laid out by responsibility
 we can see more clearly
 
-157
+173
 00:12:56.447 --> 00:13:02.591
 that while broadcasting to listeners
 is a responsibility that fits
 
-158
+174
 00:13:03.103 --> 00:13:08.223
 there’s no real reason why the Network
 needs be responsible for charging for shouts
 
-159
+175
 00:13:10.527 --> 00:13:17.951
 Secondly, the communication protocol
 between Network and Person
 
-161
+176
 00:13:18.207 --> 00:13:18.719
 exposed by the mocks, is very noisy:
 
-162
-00:13:19.231 --> 00:13:25.375
+177
+00:13:19.231 --> 00:13:23.375
 we’re making lots of method calls to Person
 in order to determine whether they can
 
+178
+00:13:23.375 --> 00:13:25.375
 afford the shout and to deduct payment
 
-163
+179
 00:13:25.631 --> 00:13:31.775
 First Sean calls Network#broadcast
 
-164
+180
 00:13:32.031 --> 00:13:38.175
 then Network asks Sean how many credits he has
 
-165
-00:13:38.431 --> 00:13:44.575
+181
+00:13:38.431 --> 00:13:40.575
 then Network tells Sean
 
-the new value of his credits,
+182
+00:13:40.575 --> 00:13:44.575
+the new value of his credits
 with the fee for the message deducted
 
-166
-00:13:44.831 --> 00:13:49.951
+183
+00:13:44.831 --> 00:13:46.951
 then Network asks Sean
 how many credits he has again
 
+184
+00:13:46.951 --> 00:13:49.951
 in order to check whether he can afford
 to send the message!
 
-167
+185
 00:13:51.231 --> 00:13:57.375
 We could get all sad and angry that if only
 
-168
+186
 00:13:57.631 --> 00:13:58.655
 we’d test-driven this code in the first place
 
-169
+187
 00:13:58.911 --> 00:14:00.447
-we might have got this feedback sooner,
+we might have got this feedback sooner
 but that would be futile:
 
-170
+188
 00:14:00.703 --> 00:14:03.007
 it's not too late to clean this code up!
 
-171
+189
 00:14:03.775 --> 00:14:09.151
 How about we make Sean responsible for
 organising his own payment?
 
-172
+190
 00:14:10.431 --> 00:14:14.527
 Instead of rewriting this code
 let’s see if we can refactor it
 
-173
+191
 00:14:15.295 --> 00:14:19.903
 When refactoring, it’s crucial not to
 break existing functionality
 
-174
+192
 00:14:20.159 --> 00:14:24.255
 so we’ll rely on our tests to warn us
 if we make a mistake
 
-175
+193
 00:14:26.303 --> 00:14:28.095
 We’ll work in small steps
 
-176
+194
 00:14:28.607 --> 00:14:34.751
 We may temporarily break some unit tests
 as the implementation shifts
 
-177
+195
 00:14:35.007 --> 00:14:37.055
 but the acceptance tests should be
 passing all the way through
 
-178
+196
 00:14:37.311 --> 00:14:39.359
 if everything goes according to plan
 
-179
+197
 00:14:40.895 --> 00:14:41.919
 Ready?
 
-180
+198
 00:14:43.455 --> 00:14:47.807
 We’ll start by moving the
 deduct_credits method onto Person
 
-181
+199
 00:14:48.575 --> 00:14:54.719
 As a baby-step, we’ll make it public,
 so we can just continue to call it
 
-182
+200
 00:14:54.975 --> 00:14:55.487
 from Network’s broadcast method for now
 
-183
+201
 00:14:56.255 --> 00:14:58.559
 That should keep the acceptance tests passing
 
-184
+202
 00:14:59.583 --> 00:15:00.351
 Good
 
-185
+203
 00:15:01.631 --> 00:15:07.007
 Now let’s make Sean responsible for
 deducting his own credits, as he shouts
 
-186
+204
 00:15:12.895 --> 00:15:19.039
 We can move over this whole responsibility of
 charging for shouts from the network specs
 
-187
+205
 00:15:19.295 --> 00:15:20.063
 to the person specs
 
-188
+206
 00:15:20.831 --> 00:15:23.135
 We’ll need to adjust the test like this...
 
-189
+207
 00:15:32.863 --> 00:15:34.399
 and we’re back to green!
 
-190
+208
 00:15:36.191 --> 00:15:37.727
 Let’s refactor some more
 
-191
-00:15:38.239 --> 00:15:44.383
+209
+00:15:38.239 --> 00:15:41.383
 Because all this code is running
 within the shouter object now
 
+210
+00:15:41.383 --> 00:15:44.383
 we don’t need to pass around this
 instance of Person anymore
 
-192
+211
 00:15:44.639 --> 00:15:47.711
 and we can access the
 credits instance variable here, directly
 
-193
+212
 00:15:49.247 --> 00:15:51.807
 We can make deduct credits private now
 
-194
+213
 00:15:53.599 --> 00:15:56.415
 We don’t need to pass short enough
 around as a variable
 
-195
+214
 00:15:58.719 --> 00:16:01.023
 we can just do the logic inline here
 
-196
+215
 00:16:04.607 --> 00:16:08.703
 Great, now the code in Network#broadcast
 is much cleaner
 
-198
+216
 00:16:09.215 --> 00:16:12.543
 We still have these pending unit tests
 we need to sort out
 
-199
+217
 00:16:13.055 --> 00:16:18.431
 Let’s start in Person, by fleshing out
 this test about charging for long messages
 
-200
+218
 00:16:27.391 --> 00:16:28.671
 That's better
 
-201
+219
 00:16:29.439 --> 00:16:33.023
 Let’s just make it fail quickly,
 to check that we can trust it
 
-202
+220
 00:16:37.887 --> 00:16:38.911
 Okay
 
-203
+221
 00:16:40.191 --> 00:16:43.775
 now we can tackle these two
 ignored unit tests in Network
 
-204
+222
 00:16:44.287 --> 00:16:48.383
 Let’s step back for a second
 and consider the rule we’re implementing here
 
-205
+223
 00:16:49.407 --> 00:16:55.039
 This original unit test was simply there
 to ensure that long messages were not broadcast:
 
-206
+224
 00:16:55.807 --> 00:16:59.135
 remember we originally started out
 without premium accounts
 
-207
+225
 00:17:00.159 --> 00:17:03.999
-With the addition of premium accounts,
+With the addition of premium accounts
 the rule has changed:
 
-208
-00:17:04.511 --> 00:17:10.655
-We will broadcast long messages,
+226
+00:17:04.511 --> 00:17:08.655
+We will broadcast long messages
 but only if the person shouting
 
+227
+00:17:08.655 --> 00:17:10.655
 has sufficient credits
 
-209
-00:17:11.935 --> 00:17:17.567
+228
+00:17:11.935 --> 00:17:15.567
 To implement it, we’ve ended up with
 this mind-bending boolean logic
 
+229
+00:17:15.567 --> 00:17:17.567
 in the broadcast method
 
-210
+230
 00:17:18.847 --> 00:17:20.639
 It doesn’t have to be like this
 
-211
+231
 00:17:21.151 --> 00:17:24.991
 This complexity is a sign that
 we haven’t modelled the problem well enough yet
 
-212
+232
 00:17:26.271 --> 00:17:32.415
-Recall that right at the end of lesson 7,
+Recall that right at the end of lesson 7
 we discovered a
 
-213
+233
 00:17:32.671 --> 00:17:35.231
 known unknown in our problem domain
 and documented it with this question:
 
-214
+234
 00:17:35.743 --> 00:17:38.559
 what happens when you run out of credits? 
 
-215
-00:17:39.839 --> 00:17:45.727
+235
+00:17:39.839 --> 00:17:44.727
 We know you can’t send a long message when
 you run out of credits
 
+236
+00:17:44.727 --> 00:17:45.727
 but what about a message
 containing the word ‘buy’?
 
-216
+237
 00:17:46.751 --> 00:17:52.127
 Perhaps having a complete answer to this question
 will help us to resolve this complexity
 
-217
+238
 00:17:53.151 --> 00:17:55.199
 Let’s check with our product owner
 
-218
+239
 00:17:56.991 --> 00:18:01.087
 We use a scenario to frame the discussion
 with Paula, our product owner
 
-219
+240
 00:18:02.623 --> 00:18:05.439
 Given Lucy and Sean are
 within range of each other -
 
-220
+241
 00:18:05.695 --> 00:18:07.999
 that’s what these background steps do -
 
-221
+242
 00:18:08.511 --> 00:18:10.815
-and Sean has bought 4 credits,
+and Sean has bought 4 credits
 
-222
+243
 00:18:11.839 --> 00:18:17.983
 when Sean shouts a message
 containing the word “buy” then… what?
 
-226
+244
 00:18:19.007 --> 00:18:23.359
 Sean doesn’t have enough credits,
 so presumably Lucy does not hear his message
 
-227
+245
 00:18:23.615 --> 00:18:24.895
 is that right?
 
-228
+246
 00:18:26.175 --> 00:18:27.967
 Right, says Paula
 
-229
+247
 00:18:29.247 --> 00:18:34.111
 And so in that case, Sean should
 still have his four credits, correct?
 
-230
+248
 00:18:34.879 --> 00:18:36.671
 Right again, says Paula
 
-231
-00:18:38.463 --> 00:18:44.607
-OK, thanks Paula.
+249
+00:18:38.463 --> 00:18:40.607
+OK, thanks Paula
 
+250
+00:18:40.607 --> 00:18:43.607
 So the rule is that we’ll only
 send shouts that you can afford
 
+251
+00:18:43.607 --> 00:18:44.607
 Is that right?
 
-232
-00:18:46.655 --> 00:18:52.799
+252
+00:18:46.655 --> 00:18:49.799
 Correct! says Paula.
 
+253
+00:18:49.799 --> 00:18:52.799
 A person can’t send a premium shout
 unless they have enough credits to pay for it
 
-233
-00:18:54.847 --> 00:18:59.967
-Now we understand the business rule,
+254
+00:18:54.847 --> 00:18:57.967
+Now we understand the business rule
 let’s automate this scenario
 
+255
+00:18:57.967 --> 00:18:59.967
 and drive out the behaviour
 
-234
+256
 00:19:01.503 --> 00:19:07.647
 First we need to match this new step
 where we check Lucy does not hear Sean’s message
 
-235
+257
 00:19:08.415 --> 00:19:11.231
 We have a very similar one here for Larry.
 
-236
+258
 00:19:11.743 --> 00:19:15.583
 We can use a capture group to make it more generic
 
-237
-00:19:16.351 --> 00:19:22.495
-Instead of a wildcard though,
+259
+00:19:16.351 --> 00:19:19.495
+Instead of a wildcard though
 
+260
+00:19:19.495 --> 00:19:22.495
 we can use pipes to specify
 the alternative values we expect here
 
-238
+261
 00:19:25.055 --> 00:19:26.847
-We capture the listener name,
+We capture the listener name
 
-239
+262
 00:19:27.103 --> 00:19:30.943
 then use that here
 when fetching the instance of Person
 
-240
+263
 00:19:32.735 --> 00:19:38.623
 Right, now we have a failing acceptance test
 which should be passing once we’ve resolved this
 
-242
+264
 00:19:38.879 --> 00:19:41.951
 Let’s have a think about where
 this behaviour should go
 
-243
+265
 00:19:43.487 --> 00:19:48.095
 If we give the responsibility for checking
 affordability to the Person doing the shouting
 
-244
+266
 00:19:48.351 --> 00:19:51.167
 then Network doesn’t need to
 care about credits at all
 
-245
+267
 00:19:51.423 --> 00:19:53.471
 which will simplify things nicely
 
-246
+268
 00:19:55.519 --> 00:19:58.335
 Let’s start with a new unit test for Person then
 
-247
+269
 00:20:01.407 --> 00:20:04.223
 We’ll set up Sean with only one credit 
 
-248
+270
 00:20:04.479 --> 00:20:07.039
 not enough to afford to send a long message -
 
-249
+271
 00:20:07.295 --> 00:20:11.135
 and assert that the broadcast method
 is not called on Network
 
-250
+272
 00:20:11.903 --> 00:20:14.463
 Then we try to shout the long message
 
-251
+273
 00:20:17.791 --> 00:20:23.935
 This fails of course, because at the moment
 Person doesn’t make this check
 
-252
+274
 00:20:24.191 --> 00:20:24.703
 so the broadcast method is called every time
 
-253
+275
 00:20:25.471 --> 00:20:28.287
 We’re at Red in the TDD cycle
 
-254
+276
 00:20:28.543 --> 00:20:30.591
 Next stop: green!
 
-256
-00:20:31.615 --> 00:20:37.759
+277
+00:20:31.615 --> 00:20:36.759
 To make this pass we need to know
 how much the shout is going to cost
 
+278
+00:20:36.759 --> 00:20:37.759
 before we send it
 
-257
+279
 00:20:38.527 --> 00:20:45.183
 That knowledge is in the deductCredits method
 which actually does two tasks at the same time:
 
-259
+280
 00:20:45.439 --> 00:20:51.071
 it works out the cost of the message, and
 it deducts that cost from the person’s balance
 
-260
+281
 00:20:52.863 --> 00:20:59.007
 Let’s tease those two tasks apart,
 first calculating the cost of the shout
 
-261
+282
 00:20:59.263 --> 00:21:01.311
 then deducting that cost from the credits
 
-262
+283
 00:21:03.103 --> 00:21:07.199
 Now we can extract a method that calculates
 the cost of the message
 
-263
+284
 00:21:08.479 --> 00:21:13.599
 Then finally we can use that method
 to check whether the message is affordable
 
-264
+285
 00:21:21.536 --> 00:21:23.840
 and our unit test is passing
 
-265
+286
 00:21:24.608 --> 00:21:25.632
 Great
 
-266
+287
 00:21:27.424 --> 00:21:32.544
 And I suppose our acceptance test for
 the affordability rule should be passing now too 
 
-267
-00:21:33.312 --> 00:21:38.176
+288
+00:21:33.312 --> 00:21:35.176
 It is!
 
+289
+00:21:35.176 --> 00:21:38.176
 We’re green, so it’s refactoring time again! 
 
-268
+290
 00:21:38.688 --> 00:21:44.576
 Now we can give that messy old test in
 Network’s unit tests the treatment it deserves
 
-269
+291
 00:21:45.088 --> 00:21:47.648
 because this behaviour is now on Person
 
-270
+292
 00:21:48.160 --> 00:21:50.464
 We won’t be needing this pending test
 
-271
+293
 00:21:51.232 --> 00:21:53.792
 and we don’t need to stub credits here anymore
 
-272
+294
 00:21:55.840 --> 00:21:59.680
 Deleting code is my favourite
 kind of refactoring!
 
-273
+295
 00:22:00.192 --> 00:22:05.824
 Let’s keep going and strip back all that
 crazy boolean login in Network#broadcast
 
-274
-00:22:06.592 --> 00:22:12.736
+296
+00:22:06.592 --> 00:22:10.736
 I think we can just remove this whole clause
 about the message being too short
 
+297
+00:22:10.736 --> 00:22:12.736
 or having enough credits or whatever
 
-275
+298
 00:22:12.992 --> 00:22:15.552
 Let’s try it and see what the tests tell us
 
-276
+299
 00:22:17.088 --> 00:22:19.648
 Excellent, much better!
 
-277
+300
 00:22:20.416 --> 00:22:23.232
 Now, can we do any refactoring in Network?
 
-278
-00:22:24.256 --> 00:22:30.400
+301
+00:22:24.256 --> 00:22:28.400
 This method would read a lot better if
 we extract a method that returns only
 
+302
+00:22:28.400 --> 00:22:30.400
 the listeners within range of the shouter
 
-279
+303
 00:22:30.656 --> 00:22:31.424
 Let’s do that
 
-280
-00:22:41.408 --> 00:22:46.784
+304
+00:22:41.408 --> 00:22:45.784
 We don’t need to use this shouterLocation
 temporary variable either
 
+305
+00:22:45.784 --> 00:22:46.784
 Let’s inline it
 
-281
+306
 00:22:47.552 --> 00:22:52.672
-OK. The code is nice and clean,
+OK. The code is nice and clean
 and all our tests are passing... 
 
-282
+307
 00:22:52.928 --> 00:22:54.464
 except for one:
 
-283
+308
 00:22:54.720 --> 00:22:56.000
 that bug!
 
-284
+309
 00:22:56.512 --> 00:23:00.864
 It can’t escape us any longer.
 Let's trap it with a unit test
 
-285
+310
 00:23:01.632 --> 00:23:05.984
 We know the responsibility for charging
 for shouts lies in Person
 
-286
+311
 00:23:06.240 --> 00:23:08.544
 so that’s where to add the unit test
 
-287
+312
 00:23:22.368 --> 00:23:25.440
 Have you already spotted
 where we need to make the change? 
 
-288
+313
 00:23:26.208 --> 00:23:29.280
-Here, in the cost_of(message) method,
+Here, in the cost_of(message) method
 
-289
+314
 00:23:29.536 --> 00:23:34.656
 the code will add five credits to the cost
 each time it finds the word “buy” in the message
 
-290
+315
 00:23:35.168 --> 00:23:39.520
 If we change the code like this,
 it should be working as expected
 
-292
-00:23:47.200 --> 00:23:49.760
+316
+00:23:47.200 --> 00:23:48.760
 It is!
 
+317
+00:23:48.760 --> 00:23:49.760
 Great stuff
 
-293
+318
 00:23:50.272 --> 00:23:53.600
 Although we’ve called this
 video series Cucumber School
 
-294
+319
 00:23:53.856 --> 00:24:00.000
 you’ve probably noticed by now
 that we’re teaching you
 
-295
+320
 00:24:00.256 --> 00:24:02.048
 a whole range of skills and ideas that
 we on the Cucumber team use to develop software
 
-296
-00:24:03.072 --> 00:24:08.704
-Not just skills with Cucumber,
+321
+00:24:03.072 --> 00:24:07.704
+Not just skills with Cucumber
 but skills with the whole of
 
+322
+00:24:07.704 --> 00:24:08.704
 Behaviour-Driven Development
 
-298
+323
 00:24:09.728 --> 00:24:14.592
 BDD blurs the lines between traditional roles
 like tester and developer
 
-299
+324
 00:24:14.848 --> 00:24:20.992
 In our ideal world,
 everyone on the team - not just testers -
 
-300
+325
 00:24:21.248 --> 00:24:24.832
 is responsible for quality, and we all
 try to test it as much as possible
 
-301
+326
 00:24:25.856 --> 00:24:32.000
 Having good automated tests
 frees up testers to do more
 
-302
+327
 00:24:32.256 --> 00:24:33.024
 interesting, interactive, exploratory testing
 
-303
+328
 00:24:34.816 --> 00:24:39.680
 We use our tests as a guide to help us
 design a solution that models the problem well
 
-304
+329
 00:24:40.192 --> 00:24:46.080
-A better model in your solution can make a whole category of bugs go away forever
+A better model in your solution can
+make a whole category of bugs go away forever
 
-305
-00:24:46.848 --> 00:24:52.992
+330
+00:24:46.848 --> 00:24:49.992
 We saw that in this lesson
 
+331
+00:24:49.992 --> 00:24:52.992
 when we moved the responsibility
 for charging for shouts from Network to Person
 
-306
+332
 00:24:53.248 --> 00:24:59.392
 and the issues around what happened when you run
 out of credit suddenly became easy to resolve
 
-307
-00:25:00.928 --> 00:25:07.072
+333
+00:25:00.928 --> 00:25:04.072
 Getting the right balance between
 
+334
+00:25:04.072 --> 00:25:07.072
 fine-grained unit tests and
 broader full-stack tests
 
-308
+335
 00:25:07.328 --> 00:25:12.192
-is critically important to having fast,
+is critically important to having fast
 useful feedback from your test suite
 
-309
+336
 00:25:12.704 --> 00:25:15.520
 We’ll explore this more in the next lesson
 
-310
+337
 00:25:17.056 --> 00:25:20.128
 See you next time, on Cucumber School
 
-290
+338
 00:25:22.000 --> 00:25:24.000
 Captions created by Jayson Smith for Cucumber Ltd.
