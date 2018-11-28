@@ -504,21 +504,21 @@ use a real instance of Person
 instead of the mock object
 
 110
-00:07:59,231 --> 00:08:00,767
+00:07:59,240 --> 00:08:00,780
 This is very tempting
 
 111
-00:08:01,023 --> 00:08:07,167
+00:08:01,340 --> 00:08:04,740
 By testing Person and Network
 as one integrated lump
 
 112
-00:08:07,423 --> 00:08:08,959
+00:08:04,740 --> 00:08:08,880
 we don’t have to fuss about exactly
 how they communicate about Sean’s credits
 
 113
-00:08:09,471 --> 00:08:13,567
+00:08:09,480 --> 00:08:13,580
 All we have to do is check how many credits
 he has left over at the end
 
@@ -528,14 +528,14 @@ But this seductive solution papers over
 the cracks in our design
 
 115
-00:08:19,711 --> 00:08:25,855
+00:08:19,720 --> 00:08:25,280
 When you use mocks, you put the microscope on the
 interaction between an object and its collaborators
 
 116
-00:08:26,111 --> 00:08:29,183
+00:08:25,280 --> 00:08:28,980
 This gives you feedback about
-how coupled those objects are
+how coupled these objects are
 
 117
 00:08:29,700 --> 00:08:35,080
@@ -902,565 +902,569 @@ We still have these pending unit tests
 we need to sort out
 
 196
-00:14:23,320 --> 00:14:28,600
+00:14:23,280 --> 00:14:28,560
 Let’s start in Person, by fleshing out
 this test about charging for long messages
 
 197
-00:14:32,800 --> 00:14:34,080
+00:14:46,600 --> 00:14:47,540
 That's better
 
 198
-00:14:34,840 --> 00:14:38,420
+00:14:48,460 --> 00:14:52,000
 Let’s just make it fail quickly
 to check that we can trust it
 
 199
-00:14:38,420 --> 00:14:38,900
+00:15:07,740 --> 00:15:08,680
 Okay
 
 200
-00:14:40,191 --> 00:14:43,775
-now we can tackle these two
+00:15:10,360 --> 00:15:13,720
+Now we can tackle these two
 ignored unit tests in Network
 
 201
-00:14:44,287 --> 00:14:48,383
+00:15:14,480 --> 00:15:18,560
 Let’s step back for a second
 and consider the rule we’re implementing here
 
 202
-00:14:49,407 --> 00:14:55,039
+00:15:19,600 --> 00:15:25,880
 This original unit test was simply there
 to ensure that long messages were not broadcast:
 
 203
-00:14:55,807 --> 00:14:59,135
+00:15:25,880 --> 00:15:29,200
 remember we originally started out
 without premium accounts
 
 204
-00:15:00,159 --> 00:15:03,999
+00:15:30,240 --> 00:15:34,080
 With the addition of premium accounts
 the rule has changed:
 
 205
-00:15:04,520 --> 00:15:08,760
+00:15:34,560 --> 00:15:38,880
 We will broadcast long messages
 but only if the person shouting
 
 206
-00:15:08,760 --> 00:15:10,660
+00:15:38,880 --> 00:15:40,720
 has sufficient credits
 
 207
-00:15:11,940 --> 00:15:16,060
+00:15:41,980 --> 00:15:46,220
 To implement it, we’ve ended up with
 this mind-bending boolean logic
 
 208
-00:15:16,060 --> 00:15:17,560
+00:15:46,220 --> 00:15:47,760
 in the broadcast method
 
 209
-00:15:18,960 --> 00:15:20,640
+00:15:49,060 --> 00:15:50,740
 It doesn’t have to be like this
 
 210
-00:15:21,160 --> 00:15:25,000
+00:15:51,280 --> 00:15:55,120
 This complexity is a sign that
 we haven’t modelled the problem well enough yet
 
 211
-00:15:26,280 --> 00:15:30,440
+00:15:56,500 --> 00:16:00,500
 Recall that right at the end of lesson 7
 we discovered a
 
 212
-00:15:30,440 --> 00:15:35,780
+00:16:00,500 --> 00:16:05,900
 known unknown in our problem domain
 and documented it with this question:
 
 213
-00:15:35,780 --> 00:15:38,560
+00:16:05,900 --> 00:16:08,640
 what happens when you run out of credits?
 
 214
-00:15:40,020 --> 00:15:43,140
+00:16:10,080 --> 00:16:13,160
 We know you can’t send a long message when
 you run out of credits
 
 215
-00:15:43,140 --> 00:15:45,720
+00:16:13,160 --> 00:16:15,760
 but what about a message
 containing the word ‘buy’?
 
 216
-00:15:46,760 --> 00:15:52,140
+00:16:16,880 --> 00:16:22,240
 Perhaps having a complete answer to this question
 will help us to resolve this complexity
 
 217
-00:15:53,360 --> 00:15:55,000
+00:16:23,360 --> 00:16:25,120
 Let’s check with our product owner
 
 218
-00:15:57,000 --> 00:16:01,100
+00:16:27,280 --> 00:16:31,120
 We use a scenario to frame the discussion
 with Paula, our product owner
 
 219
-00:16:02,620 --> 00:16:05,700
+00:16:32,780 --> 00:16:35,880
 Given Lucy and Sean are
 within range of each other -
 
 220
-00:16:05,700 --> 00:16:08,600
+00:16:35,880 --> 00:16:38,720
 that’s what these background steps do -
 
 221
-00:16:08,600 --> 00:16:10,660
+00:16:38,720 --> 00:16:40,800
 and Sean has bought 4 credits...
 
 222
-00:16:11,840 --> 00:16:16,120
+00:16:41,920 --> 00:16:46,240
 when Sean shouts a message
 containing the word “buy” then…
 
 223
-00:16:16,920 --> 00:16:17,980
+00:16:47,040 --> 00:16:48,080
 then what?
 
 224
-00:16:19,180 --> 00:16:23,620
+00:16:49,300 --> 00:16:53,760
 Sean doesn’t have enough credits
 so presumably Lucy does not hear his message
 
 225
-00:16:23,620 --> 00:16:24,900
+00:16:53,760 --> 00:16:55,040
 is that right?
 
 226
-00:16:26,175 --> 00:16:27,967
+00:16:56,300 --> 00:16:57,920
 Right, says Paula
 
 227
-00:16:29,247 --> 00:16:34,111
-And so in that case, Sean should
+00:16:59,420 --> 00:17:04,000
+So in that case, Sean should
 still have his four credits, correct?
 
 228
-00:16:34,879 --> 00:16:36,671
+00:17:05,160 --> 00:17:06,800
 Right again, says Paula
 
 229
-00:16:38,460 --> 00:16:40,240
+00:17:08,640 --> 00:17:10,320
 OK, thanks Paula
 
 230
-00:16:40,240 --> 00:16:43,860
+00:17:10,320 --> 00:17:14,020
 So the rule is that we’ll only
 send shouts that you can afford
 
 231
-00:16:43,860 --> 00:16:44,900
+00:17:14,020 --> 00:17:14,980
 Is that right?
 
 232
-00:16:46,960 --> 00:16:48,740
+00:17:16,960 --> 00:17:18,800
 Correct! says Paula.
 
 233
-00:16:48,960 --> 00:16:53,040
+00:17:18,800 --> 00:17:23,040
 A person can’t send a premium shout
 unless they have enough credits to pay for it
 
 234
-00:16:54,800 --> 00:16:58,240
+00:17:24,920 --> 00:17:28,320
 Now we understand the business rule
 let’s automate this scenario
 
 235
-00:16:58,280 --> 00:16:59,960
+00:17:28,320 --> 00:17:29,980
 and drive out the behaviour
 
 236
-00:17:01,600 --> 00:17:07,640
+00:17:34,800 --> 00:17:40,560
 First we need to match this new step
 where we check Lucy does not hear Sean’s message
 
 237
-00:17:08,420 --> 00:17:11,240
+00:17:41,860 --> 00:17:44,340
 We have a very similar one here for Larry
 
 238
-00:17:11,920 --> 00:17:15,580
+00:17:45,200 --> 00:17:48,880
 We can use a capture group to make it more generic
 
 239
-00:17:16,360 --> 00:17:18,500
+00:17:49,660 --> 00:17:51,780
 Instead of a wildcard though
 
 240
-00:17:18,500 --> 00:17:23,220
+00:17:51,780 --> 00:17:56,560
 we can use pipes to specify
 the alternative values we expect here
 
 241
-00:17:25,060 --> 00:17:27,160
+00:17:58,440 --> 00:18:00,380
 We capture the listener name
 
 242
-00:17:27,200 --> 00:17:31,040
+00:18:00,380 --> 00:18:04,220
 then use that here
 when fetching the instance of Person
 
 243
-00:18:13,780 --> 00:18:18,420
+00:18:05,980 --> 00:18:06,840
+Right
+
+244
+00:18:13,760 --> 00:18:18,400
 Now we have a failing acceptance test
 which should be passing once we’ve resolved this
 
-244
+245
 00:18:18,960 --> 00:18:21,580
 Let’s have a think about where
 this behaviour should go
 
-245
+246
 00:18:23,380 --> 00:18:28,300
 If we give the responsibility for checking
 affordability to the Person doing the shouting
 
-246
+247
 00:18:28,300 --> 00:18:31,420
 then Network doesn’t need to
 care about credits at all
 
-247
+248
 00:18:31,420 --> 00:18:33,360
 which will simplify things nicely
 
-248
+249
 00:18:35,580 --> 00:18:38,220
 Let’s start with a new unit test for Person then
 
-249
+250
 00:18:41,880 --> 00:18:44,520
 We’ll set up Sean with only one credit
 
-250
+251
 00:18:44,520 --> 00:18:47,440
 not enough to afford to send a long message -
 
-251
+252
 00:18:47,440 --> 00:18:51,060
 and assert that the broadcast method
 is not called on Network
 
-252
+253
 00:18:51,800 --> 00:18:54,420
 Then we try to shout the long message
 
-253
+254
 00:19:02,500 --> 00:19:06,620
 This fails of course, because at the moment
 Person doesn’t make this check
 
-254
+255
 00:19:06,620 --> 00:19:09,100
 so the broadcast method is called every time
 
-255
+256
 00:19:10,320 --> 00:19:12,720
 We’re at Red in the TDD cycle
 
-256
+257
 00:19:13,160 --> 00:19:15,020
 Next stop: green!
 
-257
+258
 00:19:16,380 --> 00:19:20,600
 To make this pass we need to know
 how much the shout is going to cost
 
-258
+259
 00:19:20,600 --> 00:19:22,140
 before we send it
 
-259
+260
 00:19:23,160 --> 00:19:26,980
 That knowledge is currently
 in the deductCredits method
 
-260
+261
 00:19:26,980 --> 00:19:30,160
 which actually does
 two tasks at the same time:
 
-261
+262
 00:19:30,160 --> 00:19:32,880
 it works out the cost of the message, and
 
-262
+263
 00:19:32,880 --> 00:19:35,860
 it deducts that cost from the person’s balance
 
-263
+264
 00:19:37,680 --> 00:19:40,240
 Let’s tease those two tasks apart
 
-264
+265
 00:19:40,240 --> 00:19:42,680
 first calculating the cost of the shout
 
-265
+266
 00:19:42,680 --> 00:19:46,160
 then deducting that cost from the credits
 
-266
+267
 00:19:47,860 --> 00:19:51,520
 Now we can extract a method that calculates
 the cost of the message
 
-267
+268
 00:19:56,600 --> 00:20:01,520
 Then finally we can use that method
 to check whether the message is affordable
 
-268
+269
 00:20:09,600 --> 00:20:11,360
 and our unit test is passing
 
-269
+270
 00:20:12,560 --> 00:20:13,360
 Great!
 
-270
+271
 00:20:15,560 --> 00:20:20,380
 And I suppose our acceptance test for
 the affordability rule should be passing now too
 
-271
+272
 00:20:21,480 --> 00:20:22,360
 It is!
 
-272
+273
 00:20:23,060 --> 00:20:26,460
 We’re green, so it’s refactoring time again!
 
-273
+274
 00:20:26,960 --> 00:20:33,500
 Now we can give that messy old test in
 Network’s unit tests the treatment it deserves
 
-274
+275
 00:20:33,500 --> 00:20:35,700
 because this behaviour is now on Person
 
-275
+276
 00:20:36,560 --> 00:20:38,580
 We won’t be needing this pending test
 
-276
+277
 00:20:39,920 --> 00:20:43,120
 Deleting code is my favourite
 kind of refactoring!
 
-277
+278
 00:20:44,180 --> 00:20:49,520
 Let’s keep going and strip back all that
 crazy boolean logic in Network#broadcast
 
-278
+279
 00:20:50,480 --> 00:20:54,440
 I think we can just remove this whole clause
 about the message being too short
 
-279
+280
 00:20:54,440 --> 00:20:56,320
 or having enough credits or whatever
 
-280
+281
 00:20:56,780 --> 00:20:59,180
 Let’s try it and see what the tests tell us
 
-281
+282
 00:21:00,960 --> 00:21:03,280
 Excellent, much better!
 
-282
+283
 00:21:08,300 --> 00:21:11,040
 Now, can we do any refactoring in Network?
 
-283
+284
 00:21:12,340 --> 00:21:15,860
 Well this method would read a lot better if
 we extract a method that returns only
 
-284
+285
 00:21:15,860 --> 00:21:17,740
 the listeners within range of the shouter
 
-285
+286
 00:21:18,440 --> 00:21:19,180
 Let’s do that
 
-286
+287
 00:21:37,760 --> 00:21:41,220
 We don’t need to use this shouterLocation
 temporary variable either
 
-287
+288
 00:21:41,220 --> 00:21:42,640
 Let’s just inline it
 
-288
+289
 00:21:43,760 --> 00:21:48,440
 OK. The code is nice and clean
 and all our tests are passing...
 
-289
+290
 00:21:49,180 --> 00:21:50,400
 except for one:
 
-290
+291
 00:21:51,040 --> 00:21:52,020
 that bug!
 
-291
+292
 00:21:52,680 --> 00:21:56,780
 It can’t escape us any longer.
 Let's trap it with a unit test
 
-292
+293
 00:21:57,940 --> 00:22:02,340
 We know the responsibility for charging
 for shouts lies in Person
 
-293
+294
 00:22:02,340 --> 00:22:04,520
 so that’s where to add the unit test
 
-294
+295
 00:22:23,840 --> 00:22:26,240
 Have you already spotted
 where we need to make the change?
 
-295
+296
 00:22:27,280 --> 00:22:30,540
 Here, in the costOf method
 
-296
+297
 00:22:30,540 --> 00:22:36,140
 the code will add five credits to the cost
 each time it finds the word “buy” in the message
 
-297
+298
 00:22:36,140 --> 00:22:40,440
 If we change the code like this
 it should be working as expected
 
-298
+299
 00:22:43,980 --> 00:22:45,180
 It is!
 
-299
+300
 00:22:45,180 --> 00:22:46,100
 Great stuff
 
-300
+301
 00:22:47,120 --> 00:22:50,500
 Although we’ve called this
 video series Cucumber School
 
-301
+302
 00:22:50,500 --> 00:22:52,500
 you’ve probably noticed by now
 that we’re teaching you
 
-302
+303
 00:22:52,500 --> 00:22:58,540
 a whole range of skills and ideas that
 we on the Cucumber team use to develop software
 
-303
+304
 00:22:59,740 --> 00:23:03,200
 Not just skills with Cucumber
 but skills with the whole of
 
-304
+305
 00:23:03,200 --> 00:23:05,040
 Behaviour-Driven Development
 
-305
+306
 00:23:06,480 --> 00:23:11,040
 BDD blurs the lines between traditional roles
 like tester and developer
 
-306
+307
 00:23:11,760 --> 00:23:16,220
 In our ideal world
 everyone on the team - not just testers -
 
-307
+308
 00:23:16,220 --> 00:23:21,640
 is responsible for quality, and we all
 try to test it as much as possible
 
-308
+309
 00:23:22,760 --> 00:23:26,120
 Having good automated tests
 frees up testers to do more
 
-309
+310
 00:23:26,120 --> 00:23:29,640
 interesting, interactive, exploratory testing
 
-310
+311
 00:23:31,680 --> 00:23:36,160
 We use our tests as a guide to help us
 design a solution that models the problem well
 
-311
+312
 00:23:36,920 --> 00:23:42,360
 A better model in your solution can
 make a whole category of bugs go away forever
 
-312
+313
 00:23:43,640 --> 00:23:45,260
 We saw that in this lesson
 
-313
+314
 00:23:45,260 --> 00:23:49,940
 when we moved the responsibility
 for charging for shouts from Network to Person
 
-314
+315
 00:23:49,940 --> 00:23:55,820
 and the issues around what happened when you run
 out of credit suddenly became easy to resolve
 
-315
+316
 00:23:57,680 --> 00:23:59,200
 Getting the right balance between
 
-316
+317
 00:23:59,200 --> 00:24:04,060
 fine-grained unit tests and
 broader full-stack tests
 
-317
+318
 00:24:04,060 --> 00:24:08,800
 is critically important to having fast
 useful feedback from your test suite
 
-318
+319
 00:24:09,600 --> 00:24:12,160
 We’ll explore this more in the next lesson
 
-319
+320
 00:24:13,760 --> 00:24:16,960
 See you next time, on Cucumber School
 
-320
+321
 00:24:17,000 --> 00:24:19,000
 Captions created by Jayson Smith for Cucumber Ltd.
