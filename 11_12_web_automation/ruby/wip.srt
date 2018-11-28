@@ -1,282 +1,289 @@
-WEBVTT
-
 1
-00:00:14.592 --> 00:00:17.920
+00:00:14,660 --> 00:00:17,920
 Welcome to the final lesson in
 this series of Cucumber School
 
 2
-00:00:18.432 --> 00:00:21.800
+00:00:18,480 --> 00:00:21,700
 Over the series we've tried to cover
 all the important techniques
 
 3
-00:00:21.800 --> 00:00:27.136
+00:00:21,700 --> 00:00:27,140
 and concepts we think you need to become a
 successful behaviour-driven developer
 
 4
-00:00:28.00 --> 00:00:31.750
+00:00:28,140 --> 00:00:32,080
 We've taught you how to break down
 requirements with example mapping
 
 5
-00:00:31.750 --> 00:00:35.750
+00:00:32,080 --> 00:00:35,580
 and how to express those examples
 as Gherkin scenarios
 
 6
-00:00:35.750 --> 00:00:39.750
+00:00:36,100 --> 00:00:39,960
 We've explained the importance of
 keeping your features readable
 
 7
-00:00:39.750 --> 00:00:44.544
-and shown you how to write great, flexible,
+00:00:39,960 --> 00:00:44,580
+and shown you how to write great, flexible
 step definitions to help you achieve that goal
 
 8
-00:00:45.500 --> 00:00:50.250
+00:00:45,820 --> 00:00:50,780
 We've also explored the difference between
 acceptance tests and unit tests
 
 9
-00:00:50.250 --> 00:00:54.750
+00:00:50,780 --> 00:00:55,460
 and demonstrated how the outside in
 approach to software development works
 
 10
-00:00:54.750 --> 00:00:58.200
+00:00:55,460 --> 00:00:58,100
 using both types of tests
 to drive out the solution to your
 
 11
-00:00:58.200 --> 00:00:59.648
+00:00:58,100 --> 00:00:59,640
 stakeholders' problems
 
 12
-00:01:01.400 --> 00:01:04.600
+00:01:01,640 --> 00:01:04,820
 One glaring omission from
 the story so far however
 
 13
-00:01:04.600 --> 00:01:08.500
+00:01:04,820 --> 00:01:08,340
 is that our Shouty solution is
 nothing more than a domain model
 
 14
-00:01:09.150 --> 00:01:12.192
+00:01:09,320 --> 00:01:12,280
 It doesn't have any way for
 a user to interact with it
 
 15
-00:01:12.600 --> 00:01:15.776
+00:01:12,960 --> 00:01:15,780
 Well, that's all about to change
 
 16
-00:01:16.544 --> 00:01:19.600
+00:01:16,540 --> 00:01:19,800
 In this episode, we'll review the code
 that's just been written
 
 17
-00:01:19.600 --> 00:01:22.900
+00:01:19,800 --> 00:01:23,720
 for the first iteration of
 Shouty's web user interface
 
 18
-00:01:22.900 --> 00:01:26.784
+00:01:23,720 --> 00:01:27,420
 and show you how to use Selenium WebDriver
 
 19
-00:01:27.296 --> 00:01:33.440
+00:01:27,420 --> 00:01:33,440
 a browser automation library to run our
 Cucumber scenarios through that user interface
 
 20
-00:01:34.464 --> 00:01:38.000
+00:01:34,460 --> 00:01:38,520
 We think it would be irresponsible
 to teach you how to use Selenium
 
 21
-00:01:38.000 --> 00:01:44.000
+00:01:38,520 --> 00:01:44,060
 without also teaching you about the Agile
 testing pyramid and its nemesis
 
 22
-00:01:44.000 --> 00:01:45.984
+00:01:44,060 --> 00:01:45,980
 the testing ice cream cone
 
 23
-00:01:46.500 --> 00:01:50.200
+00:01:46,760 --> 00:01:50,120
 We've come across too many teams
 who have ended up with
 
 24
-00:01:50.200 --> 00:01:55.550
+00:01:50,120 --> 00:01:55,820
 miserably slow, unreliable test suites
 that cost too much to maintain
 
 25
-00:01:55.550 --> 00:01:59.296
+00:01:55,820 --> 00:01:59,300
 because all their Cucumber scenarios
 go through the UI
 
 26
-00:02:00.064 --> 00:02:02.000
+00:02:00,060 --> 00:02:03,600
 It doesn't have to be this way
 and in this episode
 
-28
-00:02:03.500 --> 00:02:05.696
+27
+00:02:03,600 --> 00:02:05,760
 we'll show you how to avoid this trap
 
-29
-00:02:06.500 --> 00:02:10.000
+28
+00:02:06,760 --> 00:02:10,560
 Let's start by walking you through
 the changes that have been happening
 
-30
-00:02:10.000 --> 00:02:12.864
+29
+00:02:10,560 --> 00:02:13,060
 in the code base while we've been away
 
-31
-00:02:13.500 --> 00:02:17.750
+30
+00:02:13,640 --> 00:02:16,480
 Shouty now has a simple web UI
-which displays a form where
+
+31
+00:02:16,480 --> 00:02:19,340
+which displays a form
+where a user can shout a message
 
 32
-00:02:17.750 --> 00:02:19.520
-a user can shout a message
-
-33
-00:02:20.150 --> 00:02:25.152
+00:02:20,440 --> 00:02:24,680
 It won't win any awards for style just yet
 but it should be functional at least
 
+33
+00:02:26,300 --> 00:02:29,780
+We can let Cucumber put the new web app
+through its paces
+
+34
+00:02:29,780 --> 00:02:35,180
+by setting the shouty_test_depth
+environment variable to web
+
 35
-00:02:26.432 --> 00:02:29.100
-We can let Cucumber put the
-new web app through its paces
-
-36
-00:02:29.100 --> 00:02:34.750
-by setting the 'shouty_test_depth'
-environment variable to 'web'
-
-37
-00:02:34.750 --> 00:02:36.416
+00:02:35,180 --> 00:02:36,700
 when we run Cucumber
 
-38
-00:02:37.700 --> 00:02:43.000
+36
+00:02:37,840 --> 00:02:43,320
 This setting causes the scenarios
 to be run through the browser via Selenium
 
-39
-00:02:43.000 --> 00:02:44.750
+37
+00:02:43,320 --> 00:02:45,040
 and if you watch closely
 
-40
-00:02:44.750 --> 00:02:48.448
+38
+00:02:45,040 --> 00:02:48,440
 you can see the message being typed
 into the form as it runs
 
-41
-00:02:49.472 --> 00:02:53.500
+39
+00:02:50,000 --> 00:02:53,560
 You can see it's way slower
 to run the scenarios via browser
 
-42
-00:02:53.500 --> 00:02:55.616
-around a minute
+40
+00:02:53,980 --> 00:02:55,020
+Around a minute!
 
-43
+41
 00:03:21.472 --> 00:03:25.800
-Luckily, we still have our original,
+Luckily, we still have our original
 much faster version of the acceptance tests
 
-44
+42
 00:03:25.800 --> 00:03:27.616
 that go directly to the domain model
 
-45
+43
 00:03:28.384 --> 00:03:30.432
 These run in less than a second
 
-46
+44
 00:03:31.200 --> 00:03:35.600
 We can run this version by setting
-'shouty_test_depth' to something else
+shouty.testDepth to something else
 
-47
+45
 00:03:35.600 --> 00:03:37.856
 or just leaving it out altogether
 
-48
+46
 00:03:39.250 --> 00:03:40.700
 Nice!
 
-49
+47
 00:03:40.700 --> 00:03:43.488
 So we have the best of both worlds it seems
 
-50
+48
 00:03:44.300 --> 00:03:48.096
 Let's have a look at how this
 has been implemented in the features
 
-51
+49
 00:03:49.500 --> 00:03:54.496
 In this world.rb file here
 we now have two separate modules being defined
 
-52
+50
 00:03:54.752 --> 00:03:58.750
 Our original ShoutyWorld has been
 renamed to DomainWorld
 
-53
+51
 00:03:58.750 --> 00:04:01.664
 and a new WebWorld has been added
 
+52
+00:03:54.752 --> 00:03:58.750
+WebWorld has exactly the same
+methods as the original DomainWorld
+
 54
+00:03:58.750 --> 00:04:01.664
+and a new WebWorld has been added
+
+55
 00:04:02.176 --> 00:04:06.350
 WebWorld has exactly the same
 methods as the original DomainWorld
 
-55
+56
 00:04:06.350 --> 00:04:08.832
 but the implementation is quite different
 
-56
+57
 00:04:09.856 --> 00:04:11.500
 In the sean_shout method
 
-57
+58
 00:04:11.500 --> 00:04:16.400
 rather than calling the Person domain object
 directly to shout the message
 
-58
+59
 00:04:16.400 --> 00:04:21.300
 the WebWorld calls this visit method
 to open the homepage as Sean
 
-59
+60
 00:04:21.300 --> 00:04:24.000
 then posts the message into
 the shout form
 
-60
+61
 00:04:25.000 --> 00:04:29.823
 Where have these new methods
 visit, fill_in, and click_button come from?
 
-61
+62
 00:04:30.847 --> 00:04:32.800
 They're provided by Capybara
 
-62
+63
 00:04:32.800 --> 00:04:36.300
 which is a delightful Ruby library
 that wraps Selenium WebDriver
@@ -298,7 +305,6 @@ Don't worry- we'll clear up this in a moment
 00:04:45.000 --> 00:04:46.800
 Let's continue with the tour
 
-67
 00:04:48.150 --> 00:04:52.607
 Down here, we examine the value of
 the 'shouty_test_depth' environment variable
@@ -347,1708 +353,1699 @@ calls the sean_shout method on the World
 which in turn calls the visit method
 on Capybara to open the homepage as Sean
 
-77
-00:05:34.847 --> 00:05:39.250
-Capybara will now tell Selenium WebDriver
-to open a browser at that URL
-
 78
-00:05:39.250 --> 00:05:43.000
-Selenium tells Firefox what it needs to do
+00:05:59,420 --> 00:06:02,900
+When Cucumber runs the
+'Sean shouts Free Bagels' step
 
 79
-00:05:43.000 --> 00:05:48.000
-and when the browser opens that URL,
-our website will get a request for the page
+00:06:02,900 --> 00:06:07,620
+it searches for the corresponding step definition
+and executes the method in the StepDefs class
 
 80
-00:05:48.000 --> 00:05:51.487
-we render the page on the server
-and the browser displays it
+00:06:09,160 --> 00:06:14,780
+Now, the code in that step definition calls
+the seanShout method on shoutSupport
 
 81
-00:05:52.250 --> 00:05:58.000
-Next, the World asks Capybara to fill out
-and submit the shout form
+00:06:14,780 --> 00:06:18,520
+which is an instance of WebShoutSupport
 
 82
-00:05:58.000 --> 00:06:03.519
-which causes it to give instructions to Selenium,
-which in turn causes button clicks in the browser
+00:06:18,520 --> 00:06:20,780
+which in turn creates a WebDriver
 
 83
-00:06:04.287 --> 00:06:05.750
-The form is submitted
+00:06:20,780 --> 00:06:24,760
+and calls the get method on it to
+open the homepage as Sean
 
 84
-00:06:05.750 --> 00:06:09.663
-the server calls the core domain
-to broadcast a shout
+00:06:25,460 --> 00:06:29,680
+Selenium WebDriver now tells Firefox to
+open a browser at that URL
 
 85
-00:06:14.527 --> 00:06:16.000
-In contrast
+00:06:29,680 --> 00:06:34,240
+and when the browser opens that URL
+our web server will get a request for the page
 
 86
-00:06:16.000 --> 00:06:20.159
-the DomainWorld implementation of sean_shout
-calls the domain model directly.
+00:06:34,740 --> 00:06:37,820
+We render the page on the server
+and the browser displays it
 
 87
-00:06:21.183 --> 00:06:25.535
+00:06:38,840 --> 00:06:43,920
+Next, WebShoutSupport asks Selenium to fill out
+and submit the shout form
+
+88
+00:06:43,920 --> 00:06:46,340
+which causes button clicks in the browser
+
+89
+00:06:47,300 --> 00:06:51,020
+The form is submitted to the server
+and the server calls the core domain
+
+90
+00:06:51,020 --> 00:06:52,420
+to broadcast the shout
+
+91
+00:06:53,900 --> 00:07:00,360
+In contrast, domainShoutSupport’s implementation
+of seanShout calls the domain model directly
+
+92
+00:07:01,120 --> 00:07:04,960
 Notice this is exactly the same code
 as the web server uses
 
-88
-00:06:27.300  --> 00:06:31.750
-Using multiple worlds like this
-allows us to choose the strategy
-
-89
-00:06:31.750 --> 00:06:33.727
-for automating our application
-
-90
-00:06:34.495 --> 00:06:37.500
+93
+00:07:05,660 --> 00:07:08,740
 The strategy that talks directly
 to the core domain model
 
-91
-00:06:37.500 --> 00:06:40.000
+94
+00:07:08,740 --> 00:07:11,480
 gives us fast feedback
 and lets us test where the
 
-92
-00:06:40.000 --> 00:06:42.943
-heart of the application's
-behaviour is implemented
+95
+00:07:11,480 --> 00:07:14,220
+heart of the application's behaviour
+is implemented
 
-93
-00:06:43.711 --> 00:06:46.750
+96
+00:07:14,940 --> 00:07:18,440
 We've now added a second strategy
 that allows us to prove this behavior
 
-94
-00:06:46.750 --> 00:06:49.855
+97
+00:07:18,440 --> 00:07:21,080
 still works when presented via the web UI
 
-95
-00:06:50.879 --> 00:06:52.927
+98
+00:07:22,111 --> 00:07:24,159
 You might be wondering why we need both?
 
-96
-00:06:53.439 --> 00:06:57.279
+99
+00:07:24,680 --> 00:07:28,520
 Why didn't we just start driving our way in
 from the web UI in the beginning?
 
-97
-00:06:59.071 --> 00:07:04.200
+100
+00:07:30,360 --> 00:07:36,140
 We've found that focusing on driving out
 a domain model from our scenarios first
 
-98
-00:07:04.200 --> 00:07:07.100
+101
+00:07:36,140 --> 00:07:38,420
 modelling by example
 
-99
-00:07:07.100 --> 00:07:11.615
+102
+00:07:38,420 --> 00:07:42,600
 gives us fast feedback about
 our understanding of new problem domains
 
-100
-00:07:12.127 --> 00:07:15.100
+103
+00:07:43,220 --> 00:07:46,500
 We don't get distracted by
 solution domain complexities like
 
-101
-00:07:15.100 --> 00:07:18.400
+104
+00:07:46,500 --> 00:07:49,500
 web servers, HTML, and so on
 
-102
-00:07:18.400 --> 00:07:21.855
+105
+00:07:49,500 --> 00:07:53,080
 while we're still just trying to understand
 the core of the problem
 
-103
-00:07:23.135 --> 00:07:29.279
+106
+00:07:54,500 --> 00:07:58,580
 In the long run, we also find that
 staying focused on the core domain
 
-104
-00:07:27.000 --> 00:07:30.815
+107
+00:07:58,580 --> 00:08:02,040
 helps us build scenarios that are
 more stable over time
 
-105
-00:07:31.839 --> 00:07:34.750
+108
+00:08:03,080 --> 00:08:05,980
 User interfaces tend to change
-a lot more often than
+a lot more often
 
-106
-00:07:34.750 --> 00:07:37.471
-the core business rules of the domain
+109
+00:08:05,980 --> 00:08:08,700
+than the core business rules of the domain
 
-107
-00:07:39.263 --> 00:07:42.000
+110
+00:08:10,500 --> 00:08:14,500
 Building scenarios that make sense
 even without a user interface
 
-108
-00:07:43.000 --> 00:07:46.400
+111
+00:08:14,500 --> 00:08:17,680
 also helps us to avoid
 our tests from becoming too
 
-109
-00:07:46.400 --> 00:07:47.711
+112
+00:08:17,680 --> 00:08:18,940
 Imperative
 
-110
-00:07:48.735 --> 00:07:52.100
+113
+00:08:19,960 --> 00:08:23,660
 Most teams who write and run their cukes
 against the user interface
 
-111
-00:07:52.100 --> 00:07:58.100
+114
+00:08:23,660 --> 00:08:29,180
 end it with a lot of incidental detail
 in their scenarios about the UI interaction
 
-112
-00:07:58.100 --> 00:07:59.743
+115
+00:08:29,695 --> 00:08:31,231
 Solution domain stuff
 
-113
-00:08:00.767 --> 00:08:03.100
+116
+00:08:31,999 --> 00:08:34,559
 These scenarios are poor documentation
 
-114
-00:08:03.600 --> 00:08:07.200
+117
+00:08:35,080 --> 00:08:38,820
 They're too busy talking about
 how the user performs a task
 
-115
-00:08:07.200 --> 00:08:11.100
+118
+00:08:38,820 --> 00:08:41,760
 rather than what the user is trying to achieve
 
-116
-00:08:11.100 --> 00:08:15.103
+119
+00:08:42,760 --> 00:08:46,420
 For example we might have written
 the scenario like this instead
 
-118
-00:08:18.700 --> 00:08:21.759
+120
+00:08:50,260 --> 00:08:53,000
 This scenario doesn't illustrate
 the behaviour very well
 
-119
-00:08:22.400 --> 00:08:26.000
+121
+00:08:53,760 --> 00:08:57,360
 If you didn't know anything about Shouty
 and were trying to understand it
 
-120
-00:08:26.000 --> 00:08:29.600
+122
+00:08:57,360 --> 00:09:00,920
 through the examples written like this
 you'd have a tough time
 
-121
-00:08:30.300 --> 00:08:32.511
+123
+00:09:01,740 --> 00:09:04,040
 It makes for lousy documentation
 
-122
-00:08:34.303 --> 00:08:39.850
+124
+00:09:05,540 --> 00:09:11,440
 Notice how the language used in this scenario
 the URLs, the CSS selectors
 
-124
-00:08:39.850 --> 00:08:42.500
+125
+00:09:11,440 --> 00:09:14,360
 even the filling in fields
 and clicking of buttons
 
-125
-00:08:42.500 --> 00:08:46.079
-is from the solution domain,
+126
+00:09:14,360 --> 00:09:17,560
+is from the solution domain
 not the problem domain
 
-126
-00:08:47.000 --> 00:08:50.943
+127
+00:09:18,335 --> 00:09:22,175
 It tells you nothing about
 your team's ubiquitous language
 
-127
-00:08:52.600 --> 00:08:55.039
+128
+00:09:23,960 --> 00:09:26,900
 Finally, this scenario is brittle
 
-128
-00:08:55.400 --> 00:08:59.850
+129
+00:09:26,900 --> 00:09:31,200
 If you need to change the details
 of the interaction for sending a shout
 
-129
-00:08:59.850 --> 00:09:01.750
+130
+00:09:31,200 --> 00:09:33,340
 such as the way you authenticate
 
-130
-00:09:01.750 --> 00:09:05.535
+131
+00:09:33,340 --> 00:09:36,760
 you'd need to come back
 and change every scenario that involves shouting
 
-131
-00:09:06.000 --> 00:09:12.447
+132
+00:09:37,535 --> 00:09:43,935
 By pushing the how down
 your scenarios will remain truer for longer
 
 133
-00:09:13.471 --> 00:09:16.800
-The opposite of the imperative style,
+00:09:44,700 --> 00:09:48,060
+The opposite of the imperative style
 where we express the scenarios
 
 134
-00:09:16.800 --> 00:09:19.800
+00:09:48,060 --> 00:09:51,160
 using problem domain language is known as a
 
 135
-00:09:19.800 --> 00:09:21.407
+00:09:51,160 --> 00:09:52,640
 Declarative Style
 
 136
-00:09:21.919 --> 00:09:26.000
+00:09:53,340 --> 00:09:57,540
 In this style, we try to describe
 what the user is trying to achieve
 
 137
-00:09:26.000 --> 00:09:28.063
+00:09:57,540 --> 00:09:59,520
 rather than how they do it
 
 138
-00:09:29.400 --> 00:09:33.350
+00:10:00,840 --> 00:10:04,640
 Thanks to the declarative style
 we've been using through the rest of the series
 
 139
-00:09:33.350 --> 00:09:36.500
+00:10:04,640 --> 00:10:07,980
 we were able to easily swap in a
 different strategy for automating
 
 140
-00:09:36.500 --> 00:09:40.863
+00:10:07,980 --> 00:10:12,100
 our application through the web
 without changing our specifications
 
 141
-00:09:41.887 --> 00:09:47.600
+00:10:13,120 --> 00:10:18,900
 If there are other interfaces to our application
 like a rest API or a mobile app
 
-143
-00:09:47.600 --> 00:09:51.000
-we can continue to use this pattern,
+142
+00:10:18,900 --> 00:10:22,300
+we can continue to use this pattern
 adding new strategies
 
-144
-00:09:51.000 --> 00:09:54.687
+143
+00:10:22,300 --> 00:10:25,660
 that run our scenarios through
 these new layers of the stack
 
-145
-00:09:55.800 --> 00:10:02.367
+144
+00:10:26,940 --> 00:10:33,400
 Remember, each of these strategies uses
 exactly the same scenarios and step definitions
 
-146
-00:10:03.135 --> 00:10:09.000
+145
+00:10:34,520 --> 00:10:40,120
 This means the investment you put into
 writing your scenarios pays back over and over
 
-147
-00:10:09.000 --> 00:10:11.800
+146
+00:10:40,120 --> 00:10:43,160
 as you reuse them to validate
 the behaviour of the application
 
-148
-00:10:11.800 --> 00:10:13.631
+147
+00:10:43,160 --> 00:10:44,820
 from these different perspectives
 
-149
-00:10:14.399 --> 00:10:18.500
+148
+00:10:45,640 --> 00:10:49,880
 This is a major advantage of having
 pushed the details of how Sean shouts
 
-150
-00:10:18.500 --> 00:10:20.031
+149
+00:10:49,880 --> 00:10:51,260
 down into a helper method
 
-151
-00:10:20.799 --> 00:10:23.000
+150
+00:10:52,040 --> 00:10:54,780
 If this detail was still up
 in the step definition
 
-152
-00:10:23.000 --> 00:10:28.500
-or worse, in the scenario itself,
+151
+00:10:54,780 --> 00:10:59,720
+or worse, in the scenario itself
 we wouldn't have this flexibility
 
-153
-00:10:29.500 --> 00:10:33.200
+152
+00:11:02,020 --> 00:11:05,560
 In general, the structure emerging
 in our application and test code
 
-154
-00:10:33.200 --> 00:10:36.700
+153
+00:11:05,560 --> 00:11:09,200
 is called a ports and adapters architecture, or
 
-155
-00:10:36.700 --> 00:10:38.719
+154
+00:11:09,200 --> 00:11:10,900
 Hexagonal Architecture
 
-156
-00:10:39.487 --> 00:10:42.350
+155
+00:11:11,740 --> 00:11:14,640
 You can think of ports and adapters
 as a direct analogy
 
-157
-00:10:42.350 --> 00:10:45.119
+156
+00:11:14,640 --> 00:11:17,380
 to physical devices with plugs and sockets
 
-158
-00:10:45.887 --> 00:10:48.300
+157
+00:11:18,140 --> 00:11:21,320
 For example, the HDMI port on this laptop
 
-159
-00:10:48.300 --> 00:10:52.799
+158
+00:11:21,320 --> 00:11:24,900
 lets me plug in any kind of display
 that also has a HDMI port
 
-160
-00:10:53.567 --> 00:10:58.175
-If I need to use a VGA display,
+159
+00:11:25,840 --> 00:11:30,420
+If I need to use a VGA display
 I can use an adapter between the two
 
-161
-00:10:59.711 --> 00:11:01.900
+160
+00:11:31,720 --> 00:11:34,140
 In a hexagonal architecture
 
-162
-00:11:01.900 --> 00:11:05.087
+161
+00:11:34,140 --> 00:11:37,340
 the inner hexagon contains
 your core business logic
 
-163
-00:11:06.000 --> 00:11:10.250
+162
+00:11:38,340 --> 00:11:42,360
 This is where the if statements that
 deliver the most value to your stakeholders
 
-164
-00:11:10.250 --> 00:11:11.100
+163
+00:11:42,360 --> 00:11:43,240
 should live
 
-165
-00:11:12.255 --> 00:11:14.900
+164
+00:11:44,460 --> 00:11:47,160
 The inner hexagon knows nothing about
 the outside world:
 
-166
-00:11:14.900 --> 00:11:20.447
+165
+00:11:47,160 --> 00:11:52,700
 your web servers, your databases, your email
 sending service, or your enterprise message bus
 
-168
-00:11:21.215 --> 00:11:23.263
+166
+00:11:53,400 --> 00:11:55,660
 It's pure business logic
 
-169
-00:11:24.543 --> 00:11:28.639
+167
+00:11:56,740 --> 00:12:00,860
 We expose this core behavior via
 one or more ports
 
-170
-00:11:29.663 --> 00:11:33.503
-A port is really just a protocol,
+168
+00:12:01,660 --> 00:12:05,760
+A port is really just a protocol
 an API if you like
 
-171
-00:11:34.271 --> 00:11:38.150
+169
+00:12:06,280 --> 00:12:10,760
 Any component who understands that protocol
 can then plug in and interact
 
-172
-00:11:38.150 --> 00:11:40.415
+170
+00:12:10,760 --> 00:12:12,600
 with the core through the port
 
-173
-00:11:41.439 --> 00:11:43.743
+171
+00:12:13,700 --> 00:12:15,900
 We call that component an adapter
 
-174
-00:11:43.999 --> 00:11:48.863
+172
+00:12:16,440 --> 00:12:21,120
 It's the adapter's job to expose
 the core domain logic to the outside world
 
-175
-00:11:49.887 --> 00:11:52.800
+173
+00:12:23,680 --> 00:12:26,580
 In Shouty, there's just one port
 
-176
-00:11:52.800 --> 00:11:57.311
+174
+00:12:26,580 --> 00:12:30,860
 the API to our domain model
 made up of the Person and Network classes
 
-177
-00:11:58.000 --> 00:12:01.500
+175
+00:12:31,840 --> 00:12:35,200
 We've plugged in two different adapters
 to this little port:
 
-178
-00:12:01.500 --> 00:12:05.150
-the WebApp, which exposes Shouty's core domain
-over the web
+176
+00:12:35,200 --> 00:12:38,840
+the WebApp, which exposes
+Shouty's core domain over the web
 
-180
-00:12:05.150 --> 00:12:08.831
+177
+00:12:38,840 --> 00:12:42,220
 for users (or Selenium WebDriver)
 to interact with
 
-181
-00:12:09.500 --> 00:12:14.463
-And the DomainWorld, which lets Cucumber
+178
+00:12:43,140 --> 00:12:45,360
+And DomainShoutSupport
+
+179
+00:12:45,360 --> 00:12:48,000
+which lets Cucumber
 drive the application directly
 
-183
-00:12:15.487 --> 00:12:18.559
+180
+00:12:48,767 --> 00:12:51,839
 Both are clients of the same API
 
-184
-00:12:20.863 --> 00:12:25.727
+181
+00:12:54,140 --> 00:12:59,000
 The hexagonal architecture is a terrific fit
 for teams who care about testability
 
-186
-00:12:25.983 --> 00:12:29.800
+182
+00:12:59,560 --> 00:13:03,020
 In fact, it was invented precisely
 to allow for testability
 
-187
-00:12:29.800 --> 00:12:33.919
+183
+00:13:03,020 --> 00:13:07,200
 back in the days when thick client GUIs
 were impossible to automate
 
-188
-00:12:34.431 --> 00:12:37.500
+184
+00:13:07,900 --> 00:13:11,040
 By separating the core domain logic from the GUI
 
-189
-00:12:37.500 --> 00:12:43.000
+185
+00:13:11,040 --> 00:13:16,500
 these TDD pioneers were able to plug
 their tests into the same port as the GUI
 
-190
-00:12:43.000 --> 00:12:45.951
+186
+00:13:16,500 --> 00:13:19,500
 and still test most of
 the application's behaviour
 
-191
-00:12:47.487 --> 00:12:50.700
+187
+00:13:20,760 --> 00:13:24,320
 If you have the discipline
 to keep your code separated like this
 
-192
-00:12:50.700 --> 00:12:52.600
+188
+00:13:24,320 --> 00:13:26,160
 you benefit from being able to
 run the tests
 
-193
-00:12:52.600 --> 00:12:56.800
+189
+00:13:26,160 --> 00:13:30,120
 against the most business-valuable
 lines of code in your codebase
 
-194
-00:12:56.800 --> 00:12:58.000
+190
+00:13:30,120 --> 00:13:33,820
 the core domain
-
-195
-00:12:58.000 --> 00:13:00.543
 in the shortest amount of time
 
-196
-00:13:01.600 --> 00:13:05.250
+191
+00:13:35,100 --> 00:13:38,920
 Tests that hit pure business logic
 can run lightning fast
 
-197
-00:13:05.250 --> 00:13:08.000
+192
+00:13:38,920 --> 00:13:41,860
 meaning it's cheap to get
 really thorough feedback
 
-198
-00:13:08.000 --> 00:13:11.039
+193
+00:13:41,860 --> 00:13:44,580
 about whether that logic is behaving correctly
 
-199
-00:13:12.700 --> 00:13:14.400
+194
+00:13:45,860 --> 00:13:47,400
 Let's get back to the code
 
-200
-00:13:15.000 --> 00:13:19.550
-To give us a way to test the app manually,
+195
+00:13:48,100 --> 00:13:52,620
+To give us a way to test the app manually
 the Shouty developers have kindly added this
 
-201
-00:13:19.550 --> 00:13:21.600
-config.ru file
+196
+00:13:52,620 --> 00:13:54,720
+ManualTestServer class
 
-202
-00:13:21.600 --> 00:13:25.631
+197
+00:13:54,720 --> 00:13:58,400
 which starts the web server pre-configured
 with some familiar test data
 
-203
-00:13:26.500 --> 00:13:29.100
-This means we're able to test
-the web app without having
+198
+00:13:59,420 --> 00:14:01,500
+This means we're able to
+test the web app
 
-204
-00:13:29.100 --> 00:13:33.000
-to create accounts for people
+199
+00:14:01,500 --> 00:14:05,560
+without having to create accounts for people -
 a feature we don't have yet!
 
-206
-00:13:34.079 --> 00:13:37.600
+200
+00:14:06,960 --> 00:14:10,660
 So we should be able to
 open our browser tab as Sean
 
-207
-00:13:37.600 --> 00:13:42.150
+201
+00:14:10,660 --> 00:14:15,100
 then another tab as Lucy
 send a shout from Sean
 
-210
-00:13:42.150 --> 00:13:48.415
+202
+00:14:15,100 --> 00:14:21,180
 refresh Lucy's page and see- 
 wait a minute! Where's Sean Shout?
 
-212
-00:13:49.450 --> 00:13:50.500
+203
+00:14:22,460 --> 00:14:23,900
 This is odd -
 
-213
-00:13:50.975 --> 00:13:53.150
+204
+00:14:23,900 --> 00:14:28,860
 The scenario is passing
 but there's nothing appearing on Lucy's page
 
-215
-00:13:57.000 --> 00:13:58.399
+205
+00:14:29,887 --> 00:14:31,167
 What's going on?
 
-216
-00:13:59.423 --> 00:14:03.775
+206
+00:14:32,959 --> 00:14:37,311
 The answer lies in the implementation
 of our Then step
 
-217
-00:14:05.000 --> 00:14:07.800
+207
+00:14:38,600 --> 00:14:41,340
 Reading it, we can see that
-the step definition is
+the step definition
 
-218
-00:14:07.800 --> 00:14:11.100
-going directly to the domain model
+208
+00:14:41,340 --> 00:14:44,700
+is going directly to the domain model
 to discover the messages
 
-219
-00:14:11.100 --> 00:14:12.479
+209
+00:14:44,700 --> 00:14:46,020
 that Lucy has heard
 
-220
-00:14:13.600 --> 00:14:17.850
+210
+00:14:47,200 --> 00:14:51,660
 This shouldn't have been a surprise to us -
 it's always been that way -
 
-222
-00:14:17.850 --> 00:14:23.600
+211
+00:14:51,660 --> 00:14:57,100
 but since our When step now hits the UI
 we would expect this Then step
 
-224
-00:14:23.600 --> 00:14:25.791
+212
+00:14:57,100 --> 00:14:59,320
 to also adopt the same strategy
 
-225
-00:14:27.200 --> 00:14:30.911
+213
+00:15:00,940 --> 00:15:05,040
 When you start to mix different
 depths of testing as we’re doing here
 
-226
-00:14:31.423 --> 00:14:37.311
+214
+00:15:05,040 --> 00:15:10,600
 a good rule of thumb is to keep the depth of your
 When and Then steps consistent
 
-227
-00:14:38.335 --> 00:14:41.300
+215
+00:15:11,780 --> 00:15:15,800
 It’s often advisable to bypass layers
-and reach down deeper into the stack to
+and reach down deeper into the stack
 
-228
-00:14:41.300 --> 00:14:45.247
-set up state in the Given steps
+216
+00:15:15,800 --> 00:15:18,780
+to set up state in the Given steps
 
-229
-00:14:45.900 --> 00:14:49.000
+217
+00:15:19,580 --> 00:15:22,740
 But if we carry out an action via the UI
 
-230
-00:14:49.000 --> 00:14:53.695
+218
+00:15:22,740 --> 00:15:27,220
 the outcome check in the Then step
 should also be done through the UI
 
-231
-00:14:56.000 --> 00:15:00.450
+219
+00:15:29,540 --> 00:15:34,100
 Let’s remedy this situation by
 pushing the code in this step definition
 
-232
-00:15:00.450 --> 00:15:02.000
+220
+00:15:34,100 --> 00:15:35,420
 into a helper method
 
-233
-00:15:02.655 --> 00:15:04.800
+221
+00:15:36,460 --> 00:15:38,060
 Then we’ll be able to have
 two different strategies
 
-234
-00:15:04.800 --> 00:15:07.007
+222
+00:15:38,060 --> 00:15:40,540
 for checking the messages
 that a user has heard
 
-235
-00:15:08.100 --> 00:15:11.500
+223
+00:15:41,840 --> 00:15:44,840
 Once we have a failing test for
-the web strategy, we can
+the web strategy
 
-236
-00:15:11.500 --> 00:15:15.967
-drive out the behaviour in the UI
+224
+00:15:44,840 --> 00:15:49,240
+we can drive out the behaviour in the UI
 to display the user’s messages
 
-237
-00:15:16.800 --> 00:15:19.807
+225
+00:15:50,280 --> 00:15:53,100
 We’ll focus on a single scenario
 while we do this work
 
-238
-00:15:20.500 --> 00:15:24.000
+226
+00:15:54,020 --> 00:15:57,440
 Once we’ve got that one passing
 to our satisfaction
 
-239
-00:15:24.000 --> 00:15:27.231
+227
+00:15:57,440 --> 00:16:00,520
 we can apply the same change across
 the rest of the scenarios
 
-240
-00:15:28.400 --> 00:15:33.631
+228
+00:16:01,800 --> 00:16:06,920
 This very basic scenario, where Lucy hears Sean
 is a good place to start
 
-242
-00:15:35.300 --> 00:15:38.600
-Let's extract a method, messages heard by,
+229
+00:16:10,380 --> 00:16:15,700
+Let's extract a method, getMessagesHeardBy
 from the body of the step definition
 
-243
-00:15:38.600 --> 00:15:41.311
-and put it in our DomainWorld
+230
+00:16:15,700 --> 00:16:18,440
+and put it in our DomainShoutSupport
 
-244
-00:15:49.150 --> 00:15:52.500
-That scenario is still passing, good
+231
+00:16:30,220 --> 00:16:32,080
+That scenario is still passing
 
-245
-00:15:53.855 --> 00:15:56.250
+232
+00:16:32,620 --> 00:16:33,140
+Good
+
+233
+00:16:34,360 --> 00:16:36,360
 Now, when we run it through the web
 
-246
-00:15:56.250 --> 00:15:58.975
+234
+00:16:36,360 --> 00:16:39,040
 we’re shown we need to add
-that method to the WebWorld
+that method to WebShoutSupport
 
-247
-00:16:00.767 --> 00:16:02.815
+235
+00:16:40,520 --> 00:16:42,560
 How will we fetch the messages heard?
 
-248
-00:16:03.583 --> 00:16:05.000
+236
+00:16:45,820 --> 00:16:47,680
 The first thing we’ll need to do is log in
 
-249
-00:16:05.000 --> 00:16:07.679
+237
+00:16:47,680 --> 00:16:50,180
 to make sure we’re reading the messages
 for the correct user
 
-250
-00:16:08.447 --> 00:16:10.751
+238
+00:16:50,687 --> 00:16:53,247
 So we can re-use this
 helper method we’ve already built
 
-251
-00:16:11.775 --> 00:16:15.615
+239
+00:16:54,527 --> 00:16:58,111
 Now, we’ll need to
 scrape the messages off the HTML page
 
-252
-00:16:16.127 --> 00:16:19.967
-Remember we’re going test-first here,
+240
+00:16:59,135 --> 00:17:02,719
+Remember we’re going test-first here
 so we don’t have this markup yet
 
-253
-00:16:20.500 --> 00:16:22.100
+241
+00:17:03,480 --> 00:17:04,800
 That's not a problem
 
-254
-00:16:22.100 --> 00:16:25.343
+242
+00:17:04,800 --> 00:17:08,600
 We can use the test to help us design
 what the markup should look like
 
-255
-00:16:26.879 --> 00:16:31.487
+243
+00:17:10,140 --> 00:17:15,000
 Let’s assume that each message will be
 an element with a message class on it
 
-256
-00:16:32.255 --> 00:16:35.839
-We can ask Capybara to give us all
+244
+00:17:16,100 --> 00:17:19,680
+We can ask Selenium to give us all
 the elements with that class
 
-257
-00:16:36.700 --> 00:16:40.100
+245
+00:17:20,640 --> 00:17:24,220
 That gives us a list of
-Capybara HTML nodes which
+Selenium WebDriver Elements
 
-258
-00:16:40.100 --> 00:16:43.775
-we can then transform into
+246
+00:17:24,220 --> 00:17:27,560
+which we can then transform into
 a list of their text content
 
-259
-00:16:44.400 --> 00:16:46.335
+247
+00:17:35,120 --> 00:17:36,660
 Let's watch this test fail
 
-260
-00:16:50.000 --> 00:16:52.000
+248
+00:17:40,640 --> 00:17:41,660
 That looks OK.
 
-261
-00:16:52.000 --> 00:16:54.600
+249
+00:17:42,600 --> 00:17:44,640
 Let's play fake it till you make it
 
-262
-00:16:54.600 --> 00:16:57.599
+250
+00:17:44,640 --> 00:17:47,260
 just to check this assertion
 is doing the right thing
 
-263
-00:16:58.000 --> 00:17:01.951
+251
+00:17:47,780 --> 00:17:51,620
 We’ll hard-code the HTML we want
 into the template, here
 
-264
-00:17:04.300 --> 00:17:07.583
-That gives us a chance to
+252
+00:17:53,300 --> 00:17:56,220
+This gives us a chance to
 talk with our designer about the markup
 
-265
-00:17:08.095 --> 00:17:12.959
-We go over for a chat and he loves it,
+253
+00:17:57,260 --> 00:18:01,860
+We go over for a chat and he loves it
 so we can press on!
 
-266
-00:17:15.007 --> 00:17:18.700
+254
+00:18:08,340 --> 00:18:12,200
 The next step is to
 make the HTML template dynamic
 
-267
-00:17:18.700 --> 00:17:22.687
+255
+00:18:12,200 --> 00:18:15,940
 and have it display the actual list of
 messages heard by the user
 
-268
-00:17:23.455 --> 00:17:27.000
+256
+00:18:16,700 --> 00:18:20,540
 We could continue using the
-Cucumber scenario to drive this out 
+Cucumber scenario to drive this out
 
-269
-00:17:27.000 --> 00:17:31.903
+257
+00:18:20,540 --> 00:18:25,160
 but it would be better to zoom in and focus
 on some unit tests for the web app now
 
-271
-00:17:32.800 --> 00:17:36.100
+258
+00:18:26,180 --> 00:18:29,740
 That way, if this behaviour ever
 slips loose in the future
 
-272
-00:17:36.100 --> 00:17:40.351
+259
+00:18:29,740 --> 00:18:33,600
 there will be a unit test pointing us
 to exactly where we need to go to fix it
 
-273
-00:17:41.500 --> 00:17:45.471
-Luckily the web app has already been built
+260
+00:18:34,879 --> 00:18:38,975
+Luckily, the web app has already been built
 with some unit tests around it
 
-274
-00:17:47.450 --> 00:17:51.700
-These tests load the
-Sinatra web app in isolation
+261
+00:18:40,260 --> 00:18:47,520
+These tests load the HttpServlet in isolation
+passing in a map of people
 
-275
-00:17:51.700 --> 00:17:55.455
-passing it a hash of people that
-just contains test doubles
+262
+00:18:47,520 --> 00:18:49,720
+that just contains test doubles
 
-276
-00:17:56.223 --> 00:17:59.000
+263
+00:18:50,400 --> 00:18:53,720
 We could have used real instances
-from our domain model
+from our core domain model
 
-277
-00:17:59.000 --> 00:18:00.600
+264
+00:18:53,720 --> 00:18:57,780
 but as we explained in the last episode
+using test doubles helps us to see
 
-278
-00:18:00.600 --> 00:18:04.500
-using test doubles helps us
-to see the protocol on the port
+265
+00:18:57,780 --> 00:19:02,360
+the protocol on the port between the web app
+adapter and our core domain
 
-279
-00:18:04.500 --> 00:18:07.231
-between the web app adapter
-and our core domain
+266
+00:19:03,660 --> 00:19:08,140
+We’ve abstracted some of the nitty-gritty
+of calling the Servlet into a base class
 
-280
-00:18:09.023 --> 00:18:13.000
-We use a library called rack/test
-to make requests to the web app
+267
+00:19:08,140 --> 00:19:09,960
+which you can examine for yourself
 
-281
-00:18:13.000 --> 00:18:16.800
-and load the response into
-a Capybara HTML document
-
-282
-00:18:16.800 --> 00:18:19.650
-so we can make queries
-and assertions about the HTML
-
-283
-00:18:19.650 --> 00:18:21.055
-in the response if we want to
-
-284
-00:18:22.591 --> 00:18:24.750
-The tests are organized by request
-
-285
-00:18:24.750 --> 00:18:29.503
-so that when we run them, we get some
-nice documentation about how the app behaves
-
-286
-00:18:30.783 --> 00:18:32.600
-We need a new test for the GET request 
-
-287
-00:18:32.600 --> 00:18:37.000
+268
+00:19:15,583 --> 00:19:19,727
+We need a new test for the GET request
 which simulates the situation where
-Lucy has heard a couple of messages...
 
-288
-00:18:41.500 --> 00:18:43.583
+269
+00:19:19,727 --> 00:19:22,520
+Lucy has heard a couple of messages
+
+270
+00:19:23,000 --> 00:19:24,520
 and views her homepage
 
-289
-00:18:44.607 --> 00:18:48.959
+271
+00:19:44,000 --> 00:19:48,100
 We’d expect to be able to find the message text
 in each of the message elements
 
-290
-00:18:51.775 --> 00:18:53.150
-When we run this
+272
+00:19:54,751 --> 00:19:59,871
+When we run this, it fails because
+we’re just hard-coding the message at the moment
 
-291
-00:18:53.150 --> 00:18:56.895
-it fails because we’re just hard-coding
-the message at the moment
+273
+00:20:00,380 --> 00:20:02,180
+Let’s TDD our solution
 
-292
-00:18:57.300 --> 00:18:59.199
-Let's TDD our solution
+274
+00:20:04,440 --> 00:20:07,580
+If you’d like to try this yourself
+just pause the video here and
 
-293
-00:19:01.150 --> 00:19:04.500
-If you’d like to try this yourself,
-just pause the video here
+275
+00:20:07,580 --> 00:20:10,660
+see if you can figure out what to do next
+before we show you
 
-294
-00:19:04.500 --> 00:19:07.450
-and see if you can figure out what
-to do next, before we show you
+276
+00:20:12,920 --> 00:20:18,900
+Starting in the template, we can look for
+a local variable, let’s call it messagesHeard
 
-295
-00:19:10.350 --> 00:19:14.000
-Starting in the template, we can look
-for a local variable
-
-296
-00:19:14.000 --> 00:19:17.887
-let’s call it messages_heard
+277
+00:20:18,900 --> 00:20:20,740
 and iterate over it
 
-298
-00:19:18.250 --> 00:19:20.959
+278
+00:20:20,740 --> 00:20:23,420
 For each message, we’ll write a message element
 
-299
-00:19:26.000 --> 00:19:27.000
-There. 
+279
+00:20:24,920 --> 00:20:25,580
+There
 
-300
-00:19:28.127 --> 00:19:31.455
-Now we need to set that
-messages heard variable for the template
+280
+00:20:26,500 --> 00:20:30,160
+Now we need to set that messagesHeard
+variable for the template
 
-301
-00:19:32.150 --> 00:19:35.039
-We do that from within the
-GET request handler in the web app
+281
+00:20:30,160 --> 00:20:34,680
+We do that from within the doGet request handler
+method in the web servlet
 
-302
-00:19:36.250 --> 00:19:38.500
-We need to get the messages heard for the user
+282
+00:20:35,967 --> 00:20:39,551
+We need to put the messagesHeard into this context map
 
-303
-00:19:38.500 --> 00:19:44.255
-which we can fetch from the @people hash,
-using the name param as the key to find them
+283
+00:20:40,320 --> 00:20:45,340
+Helpfully we have this getUser method that
+fetches the right user from the people map
 
-304
-00:19:45.279 --> 00:19:51.167
-Now we pass the messages heard through
-to the view template in this locals hash
+284
+00:20:45,340 --> 00:20:48,620
+based on the query string parameter used in the request
 
-305
-00:19:52.703 --> 00:19:53.983
-Let's give that a try
+285
+00:20:48,620 --> 00:20:50,040
+Let’s give that a try
 
-306
-00:20:13.850 --> 00:20:17.791
-Great! Suddenly, everything is green!
+286
+00:20:51,583 --> 00:20:55,679
+Great! Suddenly everything is green
 
-308
-00:20:19.250 --> 00:20:24.191
-Try a quick manual test for yourself,
+287
+00:20:56,960 --> 00:21:02,180
+Try a quick manual test for yourself
 creating a couple of tabs as Sean and Lucy
 
-309
-00:20:24.447 --> 00:20:27.007
+288
+00:21:02,180 --> 00:21:04,900
 and satisfy yourself that it’s working now
 
-310
-00:20:27.900 --> 00:20:30.200
+289
+00:21:05,880 --> 00:21:08,280
 Now that we’ve proved our
-messages_heard_by method
+getMessagesHeardBy method
 
-311
-00:20:30.200 --> 00:20:33.300
+290
+00:21:08,280 --> 00:21:11,120
 works for both domain and web strategies
 
-312
-00:20:33.300 --> 00:20:36.000
+291
+00:21:11,120 --> 00:21:14,140
 let’s use that method in
 all the step definitions
 
-313
-00:20:36.000 --> 00:20:39.500
+292
+00:21:14,140 --> 00:21:17,280
 so that every scenario
-that checks for messages heard
+that checks for messagesHeard
 
-314
-00:20:39.500 --> 00:20:42.111
+293
+00:21:17,280 --> 00:21:19,820
 will do that check in a consistent way
 
-315
-00:20:43.000 --> 00:20:48.000
+294
+00:21:20,920 --> 00:21:26,040
 This is just a matter of finding each call
-to ask a Person domain object for messages_heard
+to ask a Person domain object for messagesHeard
 
-316
-00:20:48.000 --> 00:20:51.071
+295
+00:21:26,040 --> 00:21:28,700
 and converting it to use
 our new helper method instead
 
-317
-00:20:54.399 --> 00:20:56.959
+296
+00:21:32,160 --> 00:21:34,720
 Let's run all the scenarios in the shout feature
 
-318
-00:21:01.100 --> 00:21:03.871
+297
+00:21:48,920 --> 00:21:51,740
 Great. It looks like we're done
 
-320
-00:21:05.000 --> 00:21:08.150
+298
+00:21:52,520 --> 00:21:56,020
 If we look at the other feature
 Premium accounts
 
-322
-00:21:08.150 --> 00:21:12.319
+299
+00:21:56,020 --> 00:21:59,580
 we can see that there’s
 a similar problem to the one we’ve just resolved
 
-323
-00:21:12.900 --> 00:21:17.800
+300
+00:22:00,320 --> 00:22:05,300
 This last step
 'Then Sean should have n credits'
 
-325
-00:21:17.800 --> 00:21:21.000
+301
+00:22:05,300 --> 00:22:08,520
 goes direct to the domain model
 to check Sean’s credits
 
-326
-00:21:21.000 --> 00:21:23.800
+302
+00:22:08,520 --> 00:22:11,260
 rather than having that
 extra layer of indirection
 
-327
-00:21:23.800 --> 00:21:27.424
+303
+00:22:11,260 --> 00:22:14,780
 that would allow us to use a domain
 or a web strategy for the check
 
-328
-00:21:28.448 --> 00:21:31.700
+304
+00:22:15,800 --> 00:22:19,120
 It will be useful practice for you
 to go through and apply
 
-329
-00:21:31.700 --> 00:21:34.592
+305
+00:22:19,120 --> 00:22:22,100
 exactly what we just did to this step definition
 
-330
-00:21:35.500 --> 00:21:37.920
+306
+00:22:23,100 --> 00:22:25,400
 We'll leave that as an exercise for you
 
-331
-00:21:40.000 --> 00:21:42.272
+307
+00:22:27,460 --> 00:22:29,760
 Let's fast-forward to the point
 where this is done
 
-332
-00:21:43.808 --> 00:21:47.500
+308
+00:22:31,160 --> 00:22:35,040
 Now, we can run all of our scenarios
 at both levels
 
-333
-00:21:47.500 --> 00:21:50.976
+309
+00:22:35,040 --> 00:22:38,340
 against the domain, and against the web UI
 
-334
-00:21:52.100 --> 00:21:53.792
+310
+00:22:39,620 --> 00:22:41,160
 This is awesome!
 
-335
-00:21:55.100 --> 00:21:56.300
+311
+00:22:42,540 --> 00:22:43,840
 Isn't it?
 
-336
-00:21:56.700 --> 00:22:00.700
+312
+00:22:43,840 --> 00:22:48,080
 We've talked a lot about the benefits of
 automated tests in this series
 
-337
-00:22:00.700 --> 00:22:05.056
-but let’s consider the flip side for a moment,
+313
+00:22:48,080 --> 00:22:51,900
+but let’s consider the flip side for a moment
 and look at the costs
 
-338
-00:22:06.500 --> 00:22:10.176
+314
+00:22:53,440 --> 00:22:57,280
 Every automated test in your system
 comes at a cost
 
-339
-00:22:10.700 --> 00:22:13.800
+315
+00:22:58,040 --> 00:23:01,060
 You have the cost of 
 writing it in the first place
 
-340
-00:22:13.800 --> 00:22:16.500
+316
+00:23:01,060 --> 00:23:04,420
 the cost of waiting for it to run each time
 
-341
-00:22:16.500 --> 00:22:22.000
+317
+00:23:04,420 --> 00:23:09,200
 the cost of changing it when the
 desired behaviour of the application changes
 
-342
-00:22:22.000 --> 00:22:26.304
+318
+00:23:09,200 --> 00:23:13,420
 and the cost of debugging it
 when it fails for no good reason
 
-343
-00:22:27.840 --> 00:22:31.000
+319
+00:23:15,020 --> 00:23:18,840
 When the majority of your tests hit
 the application through the user interface
 
-344
-00:22:31.000 --> 00:22:33.500
+320
+00:23:18,840 --> 00:23:20,840
 you get a great benefit
 
-345
-00:22:33.500 --> 00:22:37.824
+321
+00:23:20,840 --> 00:23:24,920
 from knowing that each scenario
 is using the system exactly as a user would
 
-346
-00:22:38.848 --> 00:22:42.700
+322
+00:23:25,980 --> 00:23:29,900
 Yet the downside is that
 these tests are much slower to run
 
-347
-00:22:42.700 --> 00:22:44.736
+323
+00:23:29,900 --> 00:23:31,840
 and are often also much less reliable
 
-348
-00:22:46.272 --> 00:22:50.000
+324
+00:23:33,376 --> 00:23:37,008
 A well-known metaphor to help you
 think about this problem is the
 
-349
-00:22:50.000 --> 00:22:52.000
+325
+00:23:37,008 --> 00:23:39,008
 Agile Testing Pyramid
 
-350
-00:22:52.800 --> 00:22:57.500
-At the base of the pyramid,
+326
+00:23:40,040 --> 00:23:44,760
+At the base of the pyramid
 you have a large number of unit tests
 
-351
-00:22:57.500 --> 00:23:03.936
-shallow tests that directly hit isolated,
+327
+00:23:44,760 --> 00:23:51,180
+shallow tests that directly hit isolated
 individual classes and modules in your solution
 
-352
-00:23:05.728 --> 00:23:12.250
+328
+00:23:52,840 --> 00:23:59,300
 The pyramid gets narrower as you go up
 indicating that as the depth of tests increases
 
-354
-00:23:12.250 --> 00:23:14.176
+329
+00:23:59,300 --> 00:24:01,040
 the less of them you should have
 
-355
-00:23:14.500 --> 00:23:17.800
-At the very top of the pyramid,
+330
+00:24:01,740 --> 00:24:05,160
+At the very top of the pyramid
 where the tests go right through
 
-356
-00:23:17.800 --> 00:23:20.600
+331
+00:24:05,160 --> 00:24:07,740
 the whole application stack
 
-357
-00:23:20.600 --> 00:23:22.368
+332
+00:24:07,740 --> 00:24:09,480
 you want as few as possible
 
-358
-00:23:23.250 --> 00:23:26.720
+333
+00:24:10,440 --> 00:24:13,820
 Just enough to give you confidence
 the thing is working
 
-359
-00:23:28.512 --> 00:23:31.450
+334
+00:24:15,620 --> 00:24:18,720
 When you drive most of
 your behaviour through the GUI
 
-360
-00:23:31.450 --> 00:23:33.250
+335
+00:24:18,720 --> 00:24:23,280
 you end up with the opposite -
-
-361
-00:23:33.250 --> 00:23:36.192
 more of a testing ice cream cone
 
-362
-00:23:36.800 --> 00:23:39.900
+336
+00:24:24,060 --> 00:24:29,620
 Now I love an ice cream on a hot summer’s day
 but when your test suite looks like this
 
-364
-00:23:42.450 --> 00:23:46.100
-you’re waiting hours for test results,
+337
+00:24:29,620 --> 00:24:33,640
+you’re waiting hours for test results
 and there are generally at least
 
-365
-00:23:46.100 --> 00:23:50.272
+338
+00:24:33,640 --> 00:24:37,120
 one or two random failures in every build
 
-366
-00:23:52.450 --> 00:23:56.050
+339
+00:24:40,960 --> 00:24:44,560
 Although we have the choice to
 run every Shouty scenario through the GUI
 
-367
-00:23:56.050 --> 00:24:00.300
+340
+00:24:44,560 --> 00:24:48,720
 the Agile Testing Pyramid tells us
 that would be a bad idea
 
-368
-00:24:01.300 --> 00:24:07.500
+341
+00:24:49,840 --> 00:24:56,100
 We need to select a few representative or
 key examples to run through the web UI
 
-369
-00:24:07.500 --> 00:24:09.728
+342
+00:24:56,100 --> 00:24:58,360
 and run the rest through the domain
 
-370
-00:24:10.700 --> 00:24:13.056
+343
+00:24:59,392 --> 00:25:01,440
 How do we choose those key examples?
 
-371
-00:24:14.592 --> 00:24:17.408
+344
+00:25:02,976 --> 00:25:05,792
 Let’s try and think about
 what could possibly go wrong
 
-372
-00:24:18.176 --> 00:24:21.500
+345
+00:25:06,560 --> 00:25:10,040
 We want to identify the minimum number of
 scenarios that would give us confidence
 
-373
-00:24:21.500 --> 00:24:22.784
+346
+00:25:10,040 --> 00:25:11,420
 the system is working
 
-374
-00:24:23.552 --> 00:24:26.600
+347
+00:25:12,120 --> 00:25:15,280
 Remember: both our core domain
 and our web server
 
-375
-00:24:26.600 --> 00:24:29.000
+348
+00:25:15,280 --> 00:25:17,660
 are protected by their own unit tests
 
-376
-00:24:29.000 --> 00:24:32.000
+349
+00:25:17,660 --> 00:25:20,380
 so we just need a few checks
 for basic correctness
 
-377
-00:24:32.450 --> 00:24:37.632
+350
+00:25:21,000 --> 00:25:26,280
 Would it be enough to just test this scenario
 the one where the listener is within range?
 
-379
-00:24:38.912 --> 00:24:41.728
+351
+00:25:27,296 --> 00:25:30,112
 If we did that, what could possibly go wrong?
 
-380
-00:24:43.264 --> 00:24:46.300
+352
+00:25:31,640 --> 00:25:34,340
 With our tester’s hat on
-we can imagine a bug where
+we can imagine a bug
 
-381
-00:24:46.300 --> 00:24:49.408
-the web server’s template
+353
+00:25:34,340 --> 00:25:37,800
+where the web server’s template
 didn’t render multiple messages
 
-382
-00:24:50.000 --> 00:24:52.300
+354
+00:25:38,660 --> 00:25:40,700
 This scenario only works for one
 
-383
-00:24:53.248 --> 00:24:57.088
-So we could add this scenario,
+355
+00:25:41,640 --> 00:25:45,480
+So we could add this scenario
 the one where there are two shouts
 
-384
-00:24:57.700 --> 00:25:00.672
+356
+00:25:46,240 --> 00:25:49,128
 Yet we’d easily catch that bug in manual testing
 
-385
-00:25:00.928 --> 00:25:03.744
+357
+00:25:49,128 --> 00:25:52,128
 and could then pin it down with
 a unit test on the web server
 
-386
-00:25:05.024 --> 00:25:08.352
+358
+00:25:53,408 --> 00:25:56,736
 So we don’t need to run this as a
 full-stack test every time
 
-387
-00:25:09.120 --> 00:25:10.300
+359
+00:25:57,500 --> 00:25:58,840
 In fact
 
-388
-00:25:10.300 --> 00:25:12.960
+360
+00:25:58,840 --> 00:26:01,340
 to do so would be wasteful
 
-389
-00:25:14.752 --> 00:25:18.336
+361
+00:26:03,140 --> 00:26:06,720
 How about the scenario about
 the listener being out of range?
 
-390
-00:25:19.000 --> 00:25:22.300
+362
+00:26:07,540 --> 00:26:10,980
 If we skip that in our web-depth Cucumber run
 
-391
-00:25:22.300 --> 00:25:25.504
+363
+00:26:10,980 --> 00:26:13,900
 would we leave ourselves vulnerable
 to a dangerous bug?
 
-392
-00:25:27.040 --> 00:25:30.300
+364
+00:26:15,420 --> 00:26:19,240
 Well, it’s true that if people heard messages
 that were not meant for them
 
-393
-00:25:30.300 --> 00:25:33.184
+365
+00:26:19,240 --> 00:26:21,560
 it could make us look pretty bad
 
-394
-00:25:34.208 --> 00:25:36.256
-How likely is this to happen?
+366
+00:26:22,592 --> 00:26:24,640
+But how likely is this to happen?
 
-395
-00:25:37.024 --> 00:25:39.250
+367
+00:26:25,400 --> 00:26:28,120
 That logic is all in the core domain
 
-396
-00:25:39.250 --> 00:25:43.168
+368
+00:26:28,120 --> 00:26:31,540
 the web server just renders
 the messages returned by the core
 
-397
-00:25:43.750 --> 00:25:47.520
+369
+00:26:32,320 --> 00:26:35,904
 So there’s almost a zero risk of
 this bug ever leaking out
 
-398
-00:25:48.288 --> 00:25:51.872
+370
+00:26:36,672 --> 00:26:40,256
 Again, a full-stack test for this
 behaviour would be wasteful
 
-399
-00:25:54.300 --> 00:25:57.000
+371
+00:26:42,820 --> 00:26:45,820
 Although the same goes for
 the logic about a long message
 
-400
-00:25:57.000 --> 00:26:00.650
+372
+00:26:45,820 --> 00:26:49,300
 we know that there’s potential for
 there to be bugs in the interaction
 
-401
-00:26:00.650 --> 00:26:03.200
+373
+00:26:49,300 --> 00:26:51,880
 of the UI for longer messages
 
-402
-00:26:03.200 --> 00:26:05.440
+374
+00:26:51,880 --> 00:26:53,820
 so it makes sense for us to run this one
 
-403
-00:26:06.208 --> 00:26:09.200
+375
+00:26:54,600 --> 00:26:57,500
 Let’s mark it up as @high-risk
 
-404
-00:26:09.200 --> 00:26:13.120
+376
+00:26:57,500 --> 00:27:01,400
 and mark the one where the listener is
 within range as @high-impact
 
-405
-00:26:13.700 --> 00:26:15.680
-We’ll explain those terms in a moment
+377
+00:27:02,280 --> 00:27:04,080
+We’ll explain these terms in a moment
 
-406
-00:26:16.800 --> 00:26:23.872
+378
+00:27:05,440 --> 00:27:12,260
 Now, we can run the tests at the top of our pyramid
-using those tags and the web test depth setting
+using those tags and the web testDepth setting
 
-407
-00:26:24.500 --> 00:26:29.504
+379
+00:27:13,280 --> 00:27:17,800
 Now we have three different levels of tests in
 our pyramid that we want to run to check our code
 
-408
-00:26:29.760 --> 00:26:31.150
+380
+00:27:18,440 --> 00:27:19,940
 The unit tests
 
-409
-00:26:31.150 --> 00:26:36.672
-the core domain acceptance tests,
+381
+00:27:19,940 --> 00:27:25,300
+the core domain acceptance tests
 and the key examples running as full-stack tests
 
-410
-00:26:37.696 --> 00:26:43.072
-Let's set up a rake task to run all
-of these tests for us with a single command
+382
+00:27:27,360 --> 00:27:31,960
+Let's set up our maven configuration to run
+all of these tests first with a single command
 
-411
-00:26:44.608 --> 00:26:47.168
-First we’ll create a new Rakefile
+383
+00:27:33,520 --> 00:27:37,260
+Maven already runs our unit and domain-level
+acceptance tests automatically
 
-412
-00:26:48.192 --> 00:26:51.520
-We’ll add a default task that
-depends on three tasks
+384
+00:27:37,260 --> 00:27:38,880
+using the surefire plugin
 
-413
-00:26:52.032 --> 00:26:57.408
-unit test, core acceptance tests,
-and web acceptance tests
+385
+00:27:39,600 --> 00:27:44,440
+We can add extra configuration to our pom.xml
+to tell surefire to run a second execution
 
-414
-00:26:58.944 --> 00:27:00.800
-Unit tests is easy to implement
+386
+00:27:44,440 --> 00:27:47,080
+of the tests with different configuration
 
-415
-00:27:00.800 --> 00:27:02.784
-We just shell out to RSpec
+387
+00:27:48,352 --> 00:27:50,912
+Just add a surefire plugin node like this
 
-416
-00:27:04.320 --> 00:27:06.700
-Core acceptance tests is very similar
+388
+00:27:51,680 --> 00:27:56,032
+then an execution node with an id of
+web-acceptance-tests
 
-417
-00:27:06.700 --> 00:27:08.672
-but we shell out to Cucumber instead
+389
+00:27:57,312 --> 00:28:01,408
+Now we attach it to the test goal -
+the one maven runs by default
 
-418
-00:27:09.952 --> 00:27:13.500
-Now for the web acceptance tests
-we just need to shell out to Cucumber
+390
+00:28:02,440 --> 00:28:05,960
+We configure the execution by excluding
+all the unit tests -
 
-419
-00:27:13.500 --> 00:27:17.750
-but this time set the 'shouty_test_depth'
-environment variable
+391
+00:28:05,960 --> 00:28:07,840
+no need to run those again
 
-420
-00:27:17.750 --> 00:27:20.192
-and pass the tags configuration switch
+392
+00:28:07,840 --> 00:28:11,420
+and setting the argline to use
+the testDepth of web
 
-421
-00:27:20.600 --> 00:27:23.450
-Now when we run `rake` from the command-line
+393
+00:28:11,420 --> 00:28:14,256
+with the Cucumber options set to run
+only those scenarios tagged
 
-422
-00:27:23.450 --> 00:27:26.200
+394
+00:28:14,260 --> 00:28:16,260
+as either high impact or high risk
+
+395
+00:28:17,720 --> 00:28:18,300
+There
+
+396
+00:28:18,900 --> 00:28:21,960
+Now when we run `mvn test`
+from the command-line
+
+397
+00:28:21,960 --> 00:28:26,400
 it runs all three layers of our testing pyramid
-
-423
-00:27:26.200 --> 00:27:27.872
 starting from the bottom up
 
-424
-00:27:33.350 --> 00:27:34.528
-One last thing
+398
+00:28:31,100 --> 00:28:32,380
+One last thing:
 
-425
-00:27:35.296 --> 00:27:40.050
+399
+00:28:32,900 --> 00:28:37,800
 When we automate web pages, we need to
 refer to user interface elements and actions
 
-426
-00:27:40.050 --> 00:27:42.720
+400
+00:28:37,800 --> 00:28:40,320
 buttons, links, text, clicks, etc
 
-427
-00:27:43.488 --> 00:27:47.400
+401
+00:28:41,080 --> 00:28:45,540
 This is solution domain jargon
 we’ve managed to keep out of our scenarios
 
-428
-00:27:47.400 --> 00:27:48.864
+402
+00:28:45,540 --> 00:28:46,540
 and that’s good!
 
-429
-00:27:49.632 --> 00:27:51.168
+403
+00:28:47,240 --> 00:28:48,880
 But it has to go somewhere
 
-430
-00:27:52.600 --> 00:27:55.500
+404
+00:28:50,300 --> 00:28:53,520
 On larger projects, it becomes useful
 to create abstractions called
 
-431
-00:27:55.500 --> 00:27:58.850
+405
+00:28:53,520 --> 00:28:56,520
 page objects to represent
 the things being filled in
 
-432
-00:27:58.850 --> 00:28:00.700
+406
+00:28:56,520 --> 00:28:58,240
 clicked, and examined for content
 
-433
-00:28:01.152 --> 00:28:02.700
-For example, we might have a
+407
+00:28:58,960 --> 00:29:03,600
+For example, we might have a homepage object
+with a method called shout
 
-434
-00:28:02.700 --> 00:28:07.400
-homepage object with a method
-called shout that encapsulated the calls
+408
+00:29:03,600 --> 00:29:07,460
+that encapsulated the calls to interact
+with the elements on the web page
 
-435
-00:28:07.400 --> 00:28:09.856
-to interact with the elements on the web page
-
-436
-00:28:10.368 --> 00:28:12.900
+409
+00:29:07,968 --> 00:29:12,576
 This allows you to easily reuse code
 and keep it easy to read
 
-438
-00:28:16.000 --> 00:28:19.200
+410
+00:29:13,080 --> 00:29:15,920
 You can easily build page objects on your own
+
+411
+00:29:15,920 --> 00:29:20,180
 but if you’re feeling lazy
+Selenium ships with a PageFactory class
 
-439
-00:28:19.200 --> 00:28:22.200
-there are a few libraries that
-reduce the amount of boilerplate code
-
-440
-00:28:22.200 --> 00:28:23.300
+412
+00:29:20,180 --> 00:29:23,080
+that reduces the amount of boilerplate code
 you need to write
 
-441
-00:28:23.300 --> 00:28:28.032
-Jeff “Cheezy” Morgan’s 'page-objects' gem
-is a popular choice
-
-442
-00:28:29.400 --> 00:28:35.000
+413
+00:29:24,600 --> 00:29:30,460
 The page objects pattern is a great fit
 for keeping your web automation code tidy
 
-443
-00:28:35.000 --> 00:28:38.600
+414
+00:29:30,460 --> 00:29:33,720
 but we strongly recommend that you try to
 
-444
-00:28:38.600 --> 00:28:42.368
+415
+00:29:33,720 --> 00:29:37,560
 push as many of your tests
 down the pyramid first
 
-445
-00:28:43.200 --> 00:28:47.000
+416
+00:29:38,660 --> 00:29:42,080
 You can use page objects together with
-the hexagonal architecture pattern
+a hexagonal architecture pattern
 
-446
-00:28:47.000 --> 00:28:51.600
+417
+00:29:42,080 --> 00:29:44,000
 we’ve shown you in this episode
+
+418
+00:29:44,000 --> 00:29:46,800
 so that when you do need to hit the web UI
 
-447
-00:28:51.600 --> 00:28:54.144
-you do that through neat and tidy code
+419
+00:29:46,800 --> 00:29:49,440
+you can do that through neat and tidy code
 
-448
-00:28:54.700 --> 00:28:57.800
+420
+00:29:50,200 --> 00:29:53,200
 That's it kids, school's out!
 
-449
-00:28:57.800 --> 00:29:00.800
+421
+00:29:53,200 --> 00:29:55,840
 Time to step out into the real world
 
-450
-00:29:01.800--> 00:29:07.000
+422
+00:29:57,120 --> 00:30:02,760
 This has been an intense episode
 and we’ve thrown a lot of new concepts at you -
 
-451
-00:29:07.500 --> 00:29:12.832
+423
+00:30:02,760 --> 00:30:08,140
 the hexagonal architecture, the strategy
 pattern and the agile testing pyramid
 
-452
-00:29:14.000 --> 00:29:20.400
+424
+00:30:09,400 --> 00:30:15,280
 Please take time to watch this video over
 a few times until you understand these concepts
 
-453
-00:29:20.400 --> 00:29:23.072
+425
+00:30:15,280 --> 00:30:18,120
 and study the exercises and reflection questions
 
-454
-00:29:24.096 --> 00:29:29.984
+426
+00:30:19,320 --> 00:30:25,020
 We want you to remember that acceptance tests
 don’t have to be full-stack tests
 
-455
-00:29:30.300 --> 00:29:33.500
+427
+00:30:25,800 --> 00:30:28,620
 In fact, it’s often a mistake if they are
 
-456
-00:29:34.500 --> 00:29:40.224
+428
+00:30:29,960 --> 00:30:35,520
 Don’t fall into the trap of building yet another
 testing ice cream cone for your project
 
-457
-00:29:40.800 --> 00:29:43.800
+429
+00:30:36,040 --> 00:30:39,140
 Have developers and testers work side-by-side
 
-458
-00:29:43.800 --> 00:29:47.800
+430
+00:30:39,140 --> 00:30:43,360
 to maximize the value you get
 from your testing investment
 
-459
-00:29:47.800 --> 00:29:52.256
+431
+00:30:43,360 --> 00:30:47,560
 by pushing as many tests
 as you can down to the lowest level
 
-460
-00:29:53.200 --> 00:29:59.424
+432
+00:30:48,580 --> 00:30:54,760
 The responsibility for the health and wellbeing
 of the world’s Cucumber suites rests with you now
 
-461
-00:30:00.300 --> 00:30:03.200
+433
+00:30:55,740 --> 00:30:58,300
 Use your knowledge wisely!
 
-462
-00:30:05.600 --> 00:30:10.432
+434
+00:31:00,864 --> 00:31:05,472
 If you remember one thing from
 the video series, remember this:
 
-463
-00:30:11.456 --> 00:30:15.000
+435
+00:31:06,496 --> 00:31:09,824
 The software you write is just a model -
 
-464
-00:30:15.000 --> 00:30:19.392
+436
+00:31:10,840 --> 00:31:14,680
 a model of your team's understanding
 of the problem domain
 
-465
-00:30:20.672 --> 00:30:25.280
+437
+00:31:15,940 --> 00:31:20,320
 The better that understanding is
 the better the software will be
 
-467
-00:30:26.304 --> 00:30:30.400
+438
+00:31:21,600 --> 00:31:26,200
 Put your effort into understanding
-the problem together,
+the problem together
 
-468
-00:30:30.912 --> 00:30:34.240
+439
+00:31:26,200 --> 00:31:29,520
 and the software will take care of itself
 
-469
-00:30:36.400 --> 00:30:39.000
+440
+00:31:31,840 --> 00:31:34,580
 Goodbye from all of us on Cucumber School
 
-470
-00:30:39.000 --> 00:30:40.896
+441
+00:31:34,580 --> 00:31:36,200
 and have fun out there!
 
-471
-00:30:43.000 --> 00:30:46.000
+442
+00:31:38,740 --> 00:31:40,700
 Captions created by Jayson Smith for Cucumber Ltd.
+
