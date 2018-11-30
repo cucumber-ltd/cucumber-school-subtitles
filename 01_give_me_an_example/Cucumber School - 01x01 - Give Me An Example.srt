@@ -187,7 +187,7 @@ Visualise a real moment in your life
 
 43
 00:02:37,700 --> 00:02:39,460
-when you use that feature
+when you used that feature
 
 44
 00:02:39,460 --> 00:02:42,300
@@ -609,12 +609,13 @@ Gherkin's almost like plain English
 
 136
 00:07:23,600 --> 00:07:28,860
-We have to use a few special key words so that Cucumber can understand it, too
+We have to use a few special key words
+so that Cucumber can understand it, too
 
 137
 00:07:28,860 --> 00:07:33,900
-Words like feature, scenario,
-given, when, and then
+Words like Feature, Scenario,
+Given, When, and Then
 
 138
 00:07:33,900 --> 00:07:35,820
@@ -640,9 +641,9 @@ you'll learn how to create
 your first Cucumber scenario
 
 143
-00:07:51,451 --> 00:07:52,800
+00:07:51,460 --> 00:07:52,800
 and execute it
 
 144
-00:07:54,000 --> 00:07:56,000
+00:07:53,740 --> 00:07:55,740
 Captions created by Jayson Smith for Cucumber Ltd.

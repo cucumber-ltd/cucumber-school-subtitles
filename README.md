@@ -48,7 +48,7 @@ Captions and videos go through a number of statuses in their life cycle and will
 
 | Video | Language | Creation | SRT    | Final | Complete |
 |:-----:|:--------:|:--------:|:------:|:-----:|----------|
-| 01    | Shared   | √        | √      |       |          |
+| 01    | Shared   | √        | √      | √     |          |
 | 02    |          |          |        |       |          |
 |       | Ruby     | √        | √      |       |          |
 |       | Java     | √        | √      |       |          |
