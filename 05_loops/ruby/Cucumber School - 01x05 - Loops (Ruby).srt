@@ -603,7 +603,7 @@ We’ll create a 181-character message like this...
 131
 00:10:55,940 --> 00:11:01,180
 place Lucy and Sean in their usual positions
-subscribe Lucy on the network
+subscribe Lucy to the network
 
 132
 00:11:01,180 --> 00:11:05,600
