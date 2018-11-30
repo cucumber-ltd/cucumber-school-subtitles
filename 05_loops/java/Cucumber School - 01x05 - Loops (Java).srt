@@ -682,7 +682,7 @@ We’ll create a 181-character message like this...
 148
 00:12:09,700 --> 00:12:14,960
 place Lucy and Sean in their usual positions
-subscribe Lucy on the network
+subscribe Lucy to the network
 
 149
 00:12:14,960 --> 00:12:19,400
