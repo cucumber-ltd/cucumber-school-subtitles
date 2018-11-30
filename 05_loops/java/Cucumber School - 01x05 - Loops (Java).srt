@@ -601,8 +601,8 @@ and for the mismatched row
 
 131
 00:10:14,820 --> 00:10:18,720
-the actual value still has a minus
-and the expected value has a plus
+the expected value still has a minus
+and the actual value has a plus
 
 132
 00:10:19,980 --> 00:10:23,140
