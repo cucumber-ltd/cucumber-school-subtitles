@@ -972,7 +972,7 @@ Once the acceptance test is passing
 213
 00:16:44,300 --> 00:16:48,480
 we figure out the next
-most valuable scenario on our todo list
+most valuable scenario on our TODO list
 
 214
 00:16:48,480 --> 00:16:51,280

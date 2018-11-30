@@ -820,7 +820,7 @@ and a better solution
 
 180
 00:12:52,920 --> 00:12:56,959
-Instead of writing a note on our to-do list
+Instead of writing a note on our TODO list
 let's write another failing scenario
 
 181

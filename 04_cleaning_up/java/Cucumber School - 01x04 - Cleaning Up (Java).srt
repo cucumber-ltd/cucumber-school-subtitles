@@ -366,7 +366,7 @@ filter by proximity - later -
 
 80
 00:06:10,800 --> 00:06:15,800
-we can also write a todo list here so it’s clear
+we can also write a TODO list here so it’s clear
 that we do intend to get to that soon
 
 81
