@@ -51,7 +51,7 @@ in the first place
 
 12
 00:00:55,880 --> 00:01:00,260
-In lesson one we showed you an example
+In lesson 1 we showed you an example
 of the three amigos -
 
 13

@@ -38,7 +38,7 @@ in this lesson
 9
 00:00:40,200 --> 00:00:43,920
 Remember that bug we spotted right back at
-the beginning of lesson seven
+the beginning of lesson 7
 
 10
 00:00:43,920 --> 00:00:47,000
@@ -61,7 +61,7 @@ some more experience
 14
 00:00:55,840 --> 00:01:00,520
 of the inner and outer TDD loops that
-we first introduced you to in lesson five
+we first introduced you to in lesson 5
 
 15
 00:01:01,220 --> 00:01:04,420
