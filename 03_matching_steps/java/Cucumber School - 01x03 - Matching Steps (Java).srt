@@ -111,7 +111,7 @@ never goes out of date
 
 25
 00:02:06,460 --> 00:02:12,720
-In Cucumbe,r we use regular expressions to match
+In Cucumber, we use regular expressions to match
 plain language phrases from Gherkin steps
 
 26
@@ -145,7 +145,7 @@ from the last lesson
 
 32
 00:02:35,140 --> 00:02:38,160
-As Cucumber starts to execute this feature,
+As Cucumber starts to execute this feature
 
 33
 00:02:38,160 --> 00:02:44,760
@@ -268,7 +268,7 @@ Let's try it and see
 
 59
 00:04:32,920 --> 00:04:36,520
-Yep, it’s showing this step as undefined.
+Yep, it’s showing this step as undefined
 
 60
 00:04:36,520 --> 00:04:39,060
@@ -506,7 +506,7 @@ with an additional backslash
 
 111
 00:08:44,320 --> 00:08:48,860
-So when you see two backslashes,
+So when you see two backslashes
 think of them as a single one
 
 112
@@ -702,7 +702,7 @@ the question mark (?)
 
 154
 00:12:06,160 --> 00:12:09,280
-to mark the “s” as optional
+to mark the 's' as optional
 
 155
 00:12:10,460 --> 00:12:11,440
