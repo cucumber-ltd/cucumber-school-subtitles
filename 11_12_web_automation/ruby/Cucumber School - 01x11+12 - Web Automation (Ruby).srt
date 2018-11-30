@@ -420,7 +420,7 @@ behaviour is implemented
 90
 00:06:43,720 --> 00:06:46,900
 We've now added a second strategy
-that allows us to prove this behavior
+that allows us to prove this behaviour
 
 91
 00:06:46,900 --> 00:06:49,840
@@ -466,7 +466,7 @@ the core of the problem
 100
 00:07:23,340 --> 00:07:27,360
 In the long run, we also find that
-staying focused on the core domain
+staying focussed on the core domain
 
 101
 00:07:27,360 --> 00:07:30,820
@@ -750,7 +750,7 @@ It's pure business logic
 
 161
 00:11:24,400 --> 00:11:28,560
-We expose this core behavior via
+We expose this core behaviour via
 one or more ports
 
 162
@@ -1089,7 +1089,7 @@ for the correct user
 
 234
 00:16:08,420 --> 00:16:10,720
-So we can re-use this
+So we can reuse this
 helper method we’ve already built
 
 235
@@ -1248,7 +1248,7 @@ in the response if we want to
 
 267
 00:18:22,800 --> 00:18:25,200
-The tests are organized by request
+The tests are organised by request
 
 268
 00:18:25,200 --> 00:18:29,500
@@ -1992,7 +1992,7 @@ Have developers and testers work side-by-side
 
 429
 00:29:44,000 --> 00:29:48,200
-to maximize the value you get
+to maximise the value you get
 from your testing investment
 
 430

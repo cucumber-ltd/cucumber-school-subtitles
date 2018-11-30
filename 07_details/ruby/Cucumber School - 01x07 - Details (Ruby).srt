@@ -107,7 +107,7 @@ supposed to have some credits deducted
 24
 00:01:38,880 --> 00:01:43,560
 Tamsin's scenario says that the
-correct behavior is to-for
+correct behaviour is to-for
 
 25
 00:01:43,560 --> 00:01:48,100
@@ -237,7 +237,7 @@ Well...
 52
 00:03:27,440 --> 00:03:30,760
 the feature's pretty useless
-as documentation of the behavior
+as documentation of the behaviour
 
 53
 00:03:32,200 --> 00:03:33,880
@@ -250,7 +250,7 @@ current understanding of
 
 55
 00:03:36,840 --> 00:03:38,820
-premium accounts behavior
+premium accounts behaviour
 
 56
 00:03:38,820 --> 00:03:40,760
@@ -319,7 +319,7 @@ who isn't technical
 70
 00:04:31,880 --> 00:04:35,960
 How would they be able to understand
-the behavior of premium accounts at the moment?
+the behaviour of premium accounts at the moment?
 
 71
 00:04:37,260 --> 00:04:39,040
@@ -332,7 +332,7 @@ It seems like a good time to ask
 73
 00:04:41,040 --> 00:04:44,260
 our domain experts for clarification
-about this behavior
+about this behaviour
 
 74
 00:04:45,160 --> 00:04:48,680
@@ -410,7 +410,7 @@ even more examples
 
 90
 00:05:50,080 --> 00:05:53,000
-as you explore the behavior
+as you explore the behaviour
 you need to provide
 
 91
@@ -725,13 +725,13 @@ regular and long messages are incidental
 
 160
 00:10:39,600 --> 00:10:44,000
-since they have no bearing on the behavior
+since they have no bearing on the behaviour
 we're describing with this scenario
 
 161
 00:10:44,000 --> 00:10:47,800
 We can remove them altogether 
-and our behavior should be exactly the same
+and our behaviour should be exactly the same
 
 162
 00:10:47,800 --> 00:10:49,080
@@ -1013,7 +1013,7 @@ with each other in the code somehow
 
 223
 00:14:29,720 --> 00:14:34,580
-As we talk about it we realize that while
+As we talk about it we realise that while
 we don't need this one anymore
 
 224

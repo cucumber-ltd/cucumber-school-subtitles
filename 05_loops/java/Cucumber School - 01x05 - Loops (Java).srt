@@ -843,7 +843,7 @@ Then we ran the unit test and watched it fail
 
 184
 00:14:52,340 --> 00:14:57,200
-We focused in and made changes to the class
+We focussed in and made changes to the class
 until its unit tests were passing
 
 185
@@ -989,7 +989,7 @@ which starts with an acceptance test
 
 217
 00:17:01,880 --> 00:17:05,780
-keeps us focused on what the business
+keeps us focussed on what the business
 needs us to do next
 
 218

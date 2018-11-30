@@ -590,7 +590,7 @@ Shouty application from our 'steps.rb' file
 129
 00:09:03,000 --> 00:09:07,340
 In a later lesson, we'll talk more
-about how to organize this code a bit better
+about how to organise this code a bit better
 
 130
 00:09:09,375 --> 00:09:14,239

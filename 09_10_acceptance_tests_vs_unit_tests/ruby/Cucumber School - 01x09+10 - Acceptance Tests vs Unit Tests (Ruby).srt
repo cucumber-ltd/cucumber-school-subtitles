@@ -459,7 +459,7 @@ of a collaborating object
 
 100
 00:07:10,740 --> 00:07:13,240
-When you’re focused on building a Network
+When you’re focussed on building a Network
 
 101
 00:07:13,240 --> 00:07:16,520
@@ -482,7 +482,7 @@ what Person might look like
 
 105
 00:07:27,060 --> 00:07:30,300
-leaving you to stay focused on the task at hand
+leaving you to stay focussed on the task at hand
 
 106
 00:07:31,260 --> 00:07:35,980
@@ -691,7 +691,7 @@ premium account behaviour in the Network class
 150
 00:10:50,640 --> 00:10:55,340
 It will be easier to see what tests are missing
-if we reorganize the unit tests
+if we reorganise the unit tests
 
 151
 00:10:55,340 --> 00:10:58,080

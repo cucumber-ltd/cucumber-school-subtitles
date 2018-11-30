@@ -90,7 +90,7 @@ living documentation about your system
 
 20
 00:01:40,340 --> 00:01:41,960
-We can’t emphasize enough
+We can’t emphasise enough
 
 21
 00:01:41,960 --> 00:01:46,400
@@ -276,7 +276,7 @@ but we’ve decided to defer it to our next iteration
 
 60
 00:04:43,140 --> 00:04:46,540
-Our current solution is just focused
+Our current solution is just focussed
 on broadcasting messages between
 
 61

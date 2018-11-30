@@ -183,7 +183,7 @@ feature I want you to try again
 
 42
 00:02:35,100 --> 00:02:37,700
-Visualize a real moment in your life
+Visualise a real moment in your life
 
 43
 00:02:37,700 --> 00:02:39,460
@@ -396,7 +396,7 @@ a kettle last week from us
 
 89
 00:04:57,580 --> 00:05:00,780
-When he got home he realized the color
+When he got home he realised the colour
 didn't match his kitchen cabinets
 
 90

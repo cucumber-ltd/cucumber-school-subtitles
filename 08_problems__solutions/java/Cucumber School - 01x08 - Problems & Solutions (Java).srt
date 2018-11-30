@@ -111,12 +111,12 @@ We call this Example Mapping
 
 25
 00:01:51,440 --> 00:01:55,520
-You'll need a multicolored pack of index
+You'll need a multicoloured pack of index
 cards and some pens
 
 26
 00:01:57,100 --> 00:01:59,938
-We use the different colored cards to
+We use the different coloured cards to
 represent the different kinds of
 
 27
@@ -241,7 +241,7 @@ They write that down as a rule too
 
 54
 00:03:48,280 --> 00:03:52,080
-This isn't a behavior rule
+This isn't a behaviour rule
 it's a rule about the scope of the story
 
 55
@@ -255,7 +255,7 @@ but it won't need any examples
 
 57
 00:03:59,200 --> 00:04:04,720
-Still focused on the 'buy' rule, Tammy asks:
+Still focussed on the 'buy' rule, Tammy asks:
 What if they run out of credit?
 
 58
@@ -311,7 +311,7 @@ is to take a user story together with its
 
 69
 00:04:52,740 --> 00:04:58,900
-acceptance criteria or business rules and produce examples that illustrate the behavior
+acceptance criteria or business rules and produce examples that illustrate the behaviour
 
 70
 00:05:00,080 --> 00:05:03,000
@@ -340,7 +340,7 @@ session should go right across
 75
 00:05:16,700 --> 00:05:21,760
 the breadth of the story, trying to get a
-complete picture of the behavior
+complete picture of the behaviour
 
 76
 00:05:21,760 --> 00:05:26,520
@@ -421,7 +421,7 @@ successful agile team
 92
 00:06:33,760 --> 00:06:36,520
 By talking through the details 
-of the behavior
+of the behaviour
 
 93
 00:06:36,520 --> 00:06:39,340
@@ -552,7 +552,7 @@ As BDD practitioners
 
 120
 00:08:31,200 --> 00:08:35,020
-we're focused on trying to grow
+we're focussed on trying to grow
 this area in the middle
 
 121
@@ -915,7 +915,7 @@ Taking time to stamp out complexity early
 
 197
 00:13:38,920 --> 00:13:42,460
-and organize your code
+and organise your code
 to create a good support API
 
 198

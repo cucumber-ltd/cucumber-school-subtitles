@@ -45,7 +45,7 @@ where we use a unit testing tool
 10
 00:00:58,720 --> 00:01:04,000
 to drive out new classes or modify
-the behavior of existing ones
+the behaviour of existing ones
 
 11
 00:01:04,280 --> 00:01:08,660
@@ -260,7 +260,7 @@ missed by only running the smoke tests
 
 56
 00:03:46,400 --> 00:03:48,720
-Tags give you a way to organize your
+Tags give you a way to organise your
 scenarios that
 
 57
@@ -294,7 +294,7 @@ while working on Shouty
 
 63
 00:04:08,400 --> 00:04:13,040
-and all the behavior we built so far
+and all the behaviour we built so far
 is related to the issue number 11
 
 64
@@ -694,7 +694,7 @@ this profile when running Cucumber
 
 149
 00:09:52,580 --> 00:09:57,000
-To change the default behavior of Cucumber
+To change the default behaviour of Cucumber
 change the default profile
 
 150
