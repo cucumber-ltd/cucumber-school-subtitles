@@ -46,33 +46,33 @@ Captions and videos go through a number of statuses in their life cycle and will
 * **Final** - This is the final step for the caption files, meant to ensure that everything is correct. Must be done after all have been finished.
 * **Complete** - 🎉
 
-| Video | Language | Initial | SRT    | Final | Complete |
-|:-----:|:--------:|:-------:|:------:|:-----:|----------|
-| 01    | Shared   | √       | √      |       |          |
-| 02    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 03    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 04    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 05    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 06    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 07    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 08    |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 09-10 |          |         |        |       |          |
-|       | Ruby     | √       | √      |       |          |
-|       | Java     | √       | √      |       |          |
-| 11-12 |          |         |        |       |          |
-|       | Ruby     | √       |        |       |          |
-|       | Java     | √       | √      |       |          |
+| Video | Language | Creation | SRT    | Final | Complete |
+|:-----:|:--------:|:--------:|:------:|:-----:|----------|
+| 01    | Shared   | √        | √      |       |          |
+| 02    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 03    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 04    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 05    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 06    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 07    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 08    |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 09-10 |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
+| 11-12 |          |          |        |       |          |
+|       | Ruby     | √        | √      |       |          |
+|       | Java     | √        | √      |       |          |
