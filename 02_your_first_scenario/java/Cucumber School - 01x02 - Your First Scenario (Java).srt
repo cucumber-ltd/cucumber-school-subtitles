@@ -810,7 +810,7 @@ in the assertion check
 
 178
 00:12:55,420 --> 00:12:59,780
-We also need to add a 'messages heard'
+We also need to add a getMessagesHeard
 method to our Person class
 
 179
@@ -927,5 +927,5 @@ We're done for the day!
 Go make yourself a cup of tea
 
 204
-00:14:43,500 --> 00:14:45,500
+00:14:42,880 --> 00:14:44,880
 Captions created by Jayson Smith for Cucumber Ltd.
