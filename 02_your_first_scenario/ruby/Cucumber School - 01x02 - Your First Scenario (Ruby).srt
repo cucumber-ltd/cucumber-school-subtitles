@@ -432,7 +432,7 @@ It's time to work on our solution
 95
 00:06:52,320 --> 00:06:55,420
 At this point we need to do
-a little domain modeling
+a little domain modelling
 
 96
 00:06:55,420 --> 00:06:58,360
@@ -604,7 +604,7 @@ to make the remaining two steps pass
 
 132
 00:09:20,120 --> 00:09:24,200
-do a little bit of domain modeling,
+do a little bit of domain modelling,
 write the code we wish we had,
 
 133

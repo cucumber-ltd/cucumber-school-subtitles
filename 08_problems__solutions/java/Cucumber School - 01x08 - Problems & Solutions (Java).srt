@@ -885,7 +885,7 @@ to drive the design of your domain model
 
 190
 00:13:07,120 --> 00:13:10,460
-This is what we call modeling by example
+This is what we call modelling by example
 
 191
 00:13:12,560 --> 00:13:17,320
