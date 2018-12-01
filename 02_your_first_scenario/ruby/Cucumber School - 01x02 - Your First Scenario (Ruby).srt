@@ -470,7 +470,7 @@ Let's do it!
 
 103
 00:07:18,720 --> 00:07:23,140
-Start by renaming the 'arg1' parameter
+Start by renaming the arg1 parameter
 to something that better reflects its meaning
 
 104
@@ -551,7 +551,7 @@ and one representing Sean
 
 121
 00:08:24,840 --> 00:08:28,740
-If you run Cucumber we'll see
+If we run Cucumber we'll see
 a compilation error from Ruby
 
 122
@@ -561,12 +561,12 @@ We need to define our person class
 123
 00:08:33,020 --> 00:08:36,620
 Let's give our solution a home
-by creating a 'lib' directory
+by creating a lib directory
 
 124
 00:08:36,620 --> 00:08:42,740
 We'll put our Shouty application
-in a Ruby file called 'shouty.rb' in that directory
+in a Ruby file called shouty.rb in that directory
 
 125
 00:08:44,040 --> 00:08:47,060
@@ -628,7 +628,7 @@ from all of our definitions, like this
 
 137
 00:09:53,740 --> 00:09:56,740
-Our Person class needs a 'shout' method
+Our Person class needs a shout method
 
 138
 00:09:57,400 --> 00:09:58,380
@@ -700,7 +700,7 @@ Now we can use that value in the assertion check
 
 153
 00:10:54,847 --> 00:10:59,199
-We also need to add a 'messages_heard'
+We also need to add a messages_heard
 method to our Person class
 
 154
@@ -717,7 +717,7 @@ and whoops!
 
 157
 00:11:10,980 --> 00:11:15,600
-Undefined method 'messages_heard'
+Undefined method messages_heard
 for nil class steps line 15
 
 158
