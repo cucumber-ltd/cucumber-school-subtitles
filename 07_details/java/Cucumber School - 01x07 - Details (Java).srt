@@ -416,7 +416,7 @@ In BDD we call this
 
 91
 00:05:58,340 --> 00:06:00,280
-deliberate discovery
+Deliberate Discovery
 
 92
 00:06:00,280 --> 00:06:03,980
@@ -435,7 +435,7 @@ write a computer program
 95
 00:06:13,160 --> 00:06:17,800
 When that time comes we need to
-switch to convergent thinking
+switch to Convergent Thinking
 
 96
 00:06:17,800 --> 00:06:22,320
@@ -453,7 +453,7 @@ or even misleading to our future readers
 
 99
 00:06:33,120 --> 00:06:36,600
-We call these incidental details
+We call these Incidental details
 
 100
 00:06:39,020 --> 00:06:44,880
@@ -466,7 +466,7 @@ We can start with this step
 
 102
 00:06:48,320 --> 00:06:52,260
-When Sean shouts "Come and buy a coffee"
+When Sean shouts 'Come and buy a coffee'
 
 103
 00:06:52,800 --> 00:06:56,340
