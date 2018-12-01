@@ -152,7 +152,8 @@ by coming up with some examples
 
 34
 00:02:30,620 --> 00:02:34,100
-Darren the developer comes up with a simple scenario to check he understands
+Darren the developer comes up with a
+simple scenario to check he understands
 
 35
 00:02:34,100 --> 00:02:36,180
@@ -310,700 +311,705 @@ The apparent purpose of the three amigos
 is to take a user story together with its
 
 69
-00:04:52,740 --> 00:04:58,900
-acceptance criteria or business rules and produce examples that illustrate the behaviour
+00:04:52,740 --> 00:04:55,660
+acceptance criteria or business rules
 
 70
+00:04:55,660 --> 00:04:58,900
+and produce examples that
+illustrate the behaviour
+
+71
 00:05:00,080 --> 00:05:03,000
 Many people think they need to produce
 formal Gherkin scenarios
 
-71
+72
 00:05:03,000 --> 00:05:05,440
 from their three amigos conversations
 
-72
+73
 00:05:05,440 --> 00:05:08,700
 but in our experience
 that's only occasionally necessary
 
-73
+74
 00:05:08,700 --> 00:05:13,260
 In fact, it can often slow the
 discussion down
 
-74
+75
 00:05:13,260 --> 00:05:16,700
 As you've just seen, an example mapping
 session should go right across
 
-75
+76
 00:05:16,700 --> 00:05:21,760
 the breadth of the story, trying to get a
 complete picture of the behaviour
 
-76
+77
 00:05:21,760 --> 00:05:26,520
 Each time you come up with an example
 try to understand what the underlying rules are
 
-77
+78
 00:05:27,600 --> 00:05:30,640
 If you discover a scenario that
 doesn't fit your rules
 
-78
+79
 00:05:30,640 --> 00:05:32,780
 you'll need to reconsider your rules
 
-79
+80
 00:05:33,700 --> 00:05:38,880
 In this way the acceptance criteria for the story
 are refined by the group
 
-80
+81
 00:05:39,780 --> 00:05:43,000
 Although there's no doubt of the
 power of examples for exploring
 
-81
+82
 00:05:43,000 --> 00:05:47,360
 and talking through requirements
 it's the rules that will go into the code
 
-82
+83
 00:05:48,000 --> 00:05:52,720
 If you understand the rules
 you'll be able  to build an elegant solution
 
-83
+84
 00:05:54,520 --> 00:05:59,720
 Sometimes you'll come across questions
 that nobody in the group can answer
 
-84
+85
 00:05:59,720 --> 00:06:03,400
 Instead of getting stuck trying to come up
 with an answer
 
-85
+86
 00:06:03,400 --> 00:06:04,960
 just write down the question
 
-86
+87
 00:06:05,880 --> 00:06:07,480
 Congratulations!
 
-87
+88
 00:06:07,480 --> 00:06:13,140
 You've just turned an unknown unknown
 into a known unknown
 
-88
+89
 00:06:13,140 --> 00:06:14,800
 That's progress
 
-89
+90
 00:06:18,120 --> 00:06:23,800
 Deciding what a story is not -
 and maximizing the amount of work not done
 
-90
+91
 00:06:23,800 --> 00:06:27,280
 is one of the most useful things you
 can do in a three amigos session
 
-91
+92
 00:06:28,180 --> 00:06:32,200
 Small stories are the secret of a
 successful agile team
 
-92
+93
 00:06:33,760 --> 00:06:36,520
 By talking through the details 
 of the behaviour
 
-93
+94
 00:06:36,520 --> 00:06:39,340
 we ensure that the tester
 developer and product owner
 
-94
+95
 00:06:39,340 --> 00:06:42,500
 are all in agreement about
 what needs to be built
 
-95
+96
 00:06:42,500 --> 00:06:45,900
 A shared understanding emerges
 between them
 
-96
+97
 00:06:45,900 --> 00:06:49,540
 They also learn a little more about
 one another's perspective
 
-97
+98
 00:06:49,540 --> 00:06:54,240
 Some people tell us the three amigos has
 helped to build empathy within their team!
 
-98
+99
 00:06:56,020 --> 00:06:58,744
 With this goal in mind
 make sure the three amigos
 
-99
+100
 00:06:58,744 --> 00:07:04,440
 isn't just a rubber stamping exercise
 where one person does all the talking
 
-100
+101
 00:07:04,440 --> 00:07:08,580
 Notice how in our example everyone
 in the group was asking questions
 
-101
+102
 00:07:08,580 --> 00:07:10,360
 and writing new cards?
 
-102
+103
 00:07:11,700 --> 00:07:16,480
 One last tip is to run your three amigo
 sessions inside a time box
 
-103
+104
 00:07:17,180 --> 00:07:21,220
 When you're practiced at it you should be able to
 analyze a story within 25 minutes
 
-104
+105
 00:07:21,960 --> 00:07:27,940
 If you can't, it's either too big or
 you don't understand it well enough yet
 
-105
+106
 00:07:28,620 --> 00:07:31,280
 Either way it's not ready to play
 
-106
+107
 00:07:32,920 --> 00:07:36,479
 At the end of the 25 minutes you can
 check whether everyone thinks the story
 
-107
+108
 00:07:36,480 --> 00:07:38,020
 is ready to start work on
 
-108
+109
 00:07:38,820 --> 00:07:43,300
 If lots of questions remain it will be risky
 to start work, but people might be
 
-109
+110
 00:07:43,300 --> 00:07:47,240
 comfortable taking on a story with only a
 few minor questions to clear up
 
-110
+111
 00:07:48,020 --> 00:07:50,920
 Check this with a quick thumb-vote
 
-111
+112
 00:07:53,380 --> 00:07:57,520
 When we build software we're always
 working across two domains
 
-112
+113
 00:07:58,560 --> 00:08:04,460
 There's the problem domain, where our customers and business stakeholders live
 
-113
+114
 00:08:04,460 --> 00:08:07,240
 and there's a solution domain
 
-114
+115
 00:08:07,240 --> 00:08:10,560
 where we solve those business problems
 using technology
 
-115
+116
 00:08:12,060 --> 00:08:15,680
 Each domain has its own jargon
 its own dialect
 
-116
+117
 00:08:16,300 --> 00:08:20,880
 That's fine: specialized language helps
 domain experts to communicate
 
-117
+118
 00:08:21,800 --> 00:08:26,400
 Often though, this jargon can prevent us
 from understanding one another across
 
-118
+119
 00:08:26,400 --> 00:08:28,000
 the two domains
 
-119
+120
 00:08:29,280 --> 00:08:31,200
 As BDD practitioners
 
-120
+121
 00:08:31,200 --> 00:08:35,020
 we're focussed on trying to grow
 this area in the middle
 
-121
+122
 00:08:35,020 --> 00:08:38,400
 where we have a common or ubiquitous language
 
-122
+123
 00:08:39,480 --> 00:08:42,920
 We know that the bigger the
 shared vocabulary is
 
-123
+124
 00:08:42,920 --> 00:08:47,480
 the quicker the team can communicate ideas 
 between the business and technology
 
-124
+125
 00:08:47,480 --> 00:08:49,060
 facing sides of the team
 
-125
+126
 00:08:50,840 --> 00:08:54,860
 We've also heard it said
 that if you model the problem well enough
 
-126
+127
 00:08:54,860 --> 00:08:57,720
 the solution will take care of itself
 
-127
+128
 00:08:59,300 --> 00:09:02,460
 Certainly we believe that the
 better understanding you have of
 
-128
+129
 00:09:02,460 --> 00:09:06,260
 the problem domain
 the better a solution you can build
 
-129
+130
 00:09:07,220 --> 00:09:11,420
 That's why Cucumber is so powerful
 because it helps you to stay rooted
 
-130
+131
 00:09:11,420 --> 00:09:12,620
 in a problem domain
 
-131
+132
 00:09:14,860 --> 00:09:17,780
 So where do your feature files sit
 on this diagram?
 
-132
+133
 00:09:18,740 --> 00:09:21,860
 Well, we hope they sit right in
 the middle here and act as
 
-133
+134
 00:09:21,860 --> 00:09:25,000
 the place where the problem and solution
 domains come together
 
-134
+135
 00:09:26,260 --> 00:09:29,420
 Someone from either domain should be 
 able to read a feature file
 
-135
+136
 00:09:29,420 --> 00:09:31,020
 and it will make sense to them
 
-136
+137
 00:09:32,740 --> 00:09:35,340
 And how about step definitions?
 
-137
+138
 00:09:35,340 --> 00:09:38,240
 Step definitions are right on the boundary 
 here
 
-138
+139
 00:09:38,240 --> 00:09:42,639
 translating between the problem domain language
 we use in our Gherkin scenarios
 
-139
+140
 00:09:42,640 --> 00:09:47,340
 and the concrete actions we take in code
 to pull and poke at our solution
 
-140
+141
 00:09:48,880 --> 00:09:51,400
 We want to prevent solution domain 
 concepts and language
 
-141
+142
 00:09:51,400 --> 00:09:55,380
 from leaking into our gherkin scenarios
 so that we keep them readable
 
-142
+143
 00:09:56,180 --> 00:10:00,520
 As we saw in the last lesson when we
 remove details from scenarios
 
-143
+144
 00:10:00,520 --> 00:10:04,120
 we trade off for increased complexity in 
 our step definitions
 
-144
+145
 00:10:05,700 --> 00:10:07,680
 So how do we manage this complexity?
 
-145
+146
 00:10:09,500 --> 00:10:13,980
 A mature Cucumber test suite will have a
 layer of support code sitting between
 
-146
+147
 00:10:13,980 --> 00:10:18,260
 the step definitions and the system being 
 automated
 
-147
+148
 00:10:18,260 --> 00:10:22,400
 This layer of support code
 literally supports the step definitions
 
-148
+149
 00:10:22,400 --> 00:10:25,960
 by providing an API for automating
 your application
 
-149
+150
 00:10:26,740 --> 00:10:29,740
 We can extract this API
 from our step definitions
 
-150
+151
 00:10:30,540 --> 00:10:33,720
 Let's pick up the Shouty code base
 and show you what we mean
 
-151
+152
 00:10:34,360 --> 00:10:37,280
 We need a new class to contain
 our support code
 
-152
+153
 00:10:37,280 --> 00:10:42,720
 Let's create a class called ShoutSupport
 in the same package as our step definitions
 
-153
+154
 00:10:42,720 --> 00:10:45,920
 We already have a shout method
 in our step definition class
 
-154
+155
 00:10:45,920 --> 00:10:49,540
 Let's cut that method and paste it
 into the support class
 
-155
+156
 00:10:50,980 --> 00:10:55,220
 We'll make it public
 and rename it to seanShout
 
-156
+157
 00:10:56,660 --> 00:11:02,300
 We also need the two maps:
 people and messagesShoutedBy
 
-157
+158
 00:11:02,300 --> 00:11:04,620
 Let's cut and paste those as well
 
-158
+159
 00:11:04,620 --> 00:11:09,580
 We'll instantiate these maps where they're declared
 and declare them public and final
 
-159
+160
 00:11:12,740 --> 00:11:17,780
 Now that we have a new ShoutSupport class
 let's put it to use in our step definitions
 
-160
+161
 00:11:17,780 --> 00:11:22,820
 We'll declare a constructor to pass it in
 store the reference in a shoutSupport field
 
-161
+162
 00:11:22,820 --> 00:11:26,040
 and call this method everywhere
 we used to call shout
 
-162
+163
 00:11:28,540 --> 00:11:30,520
 Since our maps are now moved
 
-163
+164
 00:11:30,520 --> 00:11:33,240
 we need to access these from the
 shoutSupport object as well
 
-164
+165
 00:11:36,400 --> 00:11:38,020
 Cucumber now fails with an error
 
-165
+166
 00:11:38,020 --> 00:11:42,060
 complaining that the Stepdefs class
 doesn't have an empty constructor
 
-166
+167
 00:11:43,260 --> 00:11:46,820
 You may not have given it much thought
 but Cucumber creates a new instance of
 
-167
+168
 00:11:46,820 --> 00:11:50,100
 every class with step definitions
 before every scenario
 
-168
+169
 00:11:51,520 --> 00:11:55,480
 Cucumber knows how to instantiate classes
 with empty constructors
 
-169
+170
 00:11:55,480 --> 00:11:58,820
 but when the classes expect
 dependencies to be passed in
 
-170
+171
 00:11:58,820 --> 00:12:02,680
 Cucumber needs to delegate
 the instantiation of objects
 
-171
+172
 00:12:02,680 --> 00:12:04,860
 to a dependency injection container
 
-172
+173
 00:12:06,420 --> 00:12:10,240
 Cucumber supports half a dozen
 dependency injection containers
 
-173
+174
 00:12:10,240 --> 00:12:14,600
 Let's pick a simple one that
 doesn't require any configuration:
 
-174
+175
 00:12:14,600 --> 00:12:15,820
 PicoContainer
 
-175
+176
 00:12:19,980 --> 00:12:23,420
 Now that Cucumber's successfully
 instantiate objects
 
-176
+177
 00:12:23,420 --> 00:12:25,840
 let's finish our refactoring
 
-177
+178
 00:12:25,840 --> 00:12:29,220
 We'll know we're done when
 all the scenarios are green again
 
-178
+179
 00:12:32,200 --> 00:12:34,880
 We could continue to move
 code from our step definitions
 
-179
+180
 00:12:34,880 --> 00:12:36,640
 into the support code like this
 
-180
+181
 00:12:37,500 --> 00:12:38,580
 For example
 
-181
+182
 00:12:38,580 --> 00:12:42,100
 we could write a support method for
 generating messages of a certain length
 
-182
+183
 00:12:43,480 --> 00:12:47,840
 Ideally, each step definition should only
 contain one or two lines that delegate
 
-183
+184
 00:12:47,840 --> 00:12:49,060
 to your support code
 
-184
+185
 00:12:50,280 --> 00:12:51,940
 When you follow this principle
 
-185
+186
 00:12:51,940 --> 00:12:54,020
 your step definitions become
 a translation layer
 
-186
+187
 00:12:54,020 --> 00:12:56,380
 from plain language into code
 
-187
+188
 00:12:57,420 --> 00:13:02,320
 By keeping the vocabulary consistent
 as you move across the problem-solution boundary
 
-188
+189
 00:13:02,320 --> 00:13:06,140
 you start to allow the scenarios
 to drive the design of your domain model
 
-189
+190
 00:13:07,120 --> 00:13:10,460
 This is what we call modeling by example
 
-190
+191
 00:13:12,560 --> 00:13:17,320
 In this way we create our API for automating our application
 
-191
+192
 00:13:17,320 --> 00:13:19,080
 As this API grows
 
-192
+193
 00:13:19,080 --> 00:13:22,616
 it becomes easier and easier
 to write new step definitions
 
-193
+194
 00:13:22,620 --> 00:13:26,700
 because the actions you need to take
 are already defined on the API
 
-194
+195
 00:13:28,560 --> 00:13:32,720
 It might seem like over engineering
 on our little Shouty application
 
-195
+196
 00:13:32,720 --> 00:13:36,120
 but you'll be surprised how quickly
 these test Suites grow
 
-196
+197
 00:13:36,120 --> 00:13:38,920
 Taking time to stamp out complexity early
 
-197
+198
 00:13:38,920 --> 00:13:42,460
 and organise your code
 to create a good support API
 
-198
+199
 00:13:42,460 --> 00:13:44,460
 is a great investment for the future
 
-199
+200
 00:13:45,640 --> 00:13:46,880
 In a future lesson
 
-200
+201
 00:13:46,880 --> 00:13:50,900
 we'll show you how a
 well-crafted automation API like this
 
-201
+202
 00:13:50,900 --> 00:13:54,440
 lets you plug your scenarios into 
 the system at different levels
 
-202
+203
 00:13:54,440 --> 00:13:56,060
 such as a web front-end
 
-203
+204
 00:13:57,760 --> 00:13:59,960
 The other investment we showed you
 about in this episode is the
 
-204
+205
 00:13:59,960 --> 00:14:01,820
 three amigos conversation
 
-205
+206
 00:14:02,380 --> 00:14:06,660
 Taking a little time to explore your user story
 in a collaborative setting
 
-206
+207
 00:14:06,660 --> 00:14:08,580
 before you start to code it
 
-207
+208
 00:14:08,580 --> 00:14:13,420
-can save an enormous amount of|
+can save an enormous amount of
 time and effort down the line
 
-208
+209
 00:14:13,420 --> 00:14:16,400
 Finding mistaken assumptions
 and misunderstandings
 
-209
+210
 00:14:16,400 --> 00:14:20,400
 costs almost nothing when you're just
 pushing pieces of card around the table
 
-210
+211
 00:14:21,500 --> 00:14:23,680
 As my grandma used to say
 
-211
+212
 00:14:23,680 --> 00:14:26,380
 'A stitch in time saves nine'
 
-212
+213
 00:14:27,480 --> 00:14:31,860
 It might feel like an overhead to have these
 three amigos meetings for every story
 
-213
+214
 00:14:31,860 --> 00:14:33,620
 but we think you'll be surprised
 
-214
+215
 00:14:33,620 --> 00:14:37,700
 how much you can discover from just
 that 25 minute conversation
 
-215
+216
 00:14:38,940 --> 00:14:40,020
 Give it a try!
 
-216
+217
 00:14:41,200 --> 00:14:44,980
 And I'll see you next time on
 Cucumber School
 
-217
+218
 00:14:46,000 --> 00:14:48,000
 Captions created by Jayson Smith for Cucumber Ltd.
