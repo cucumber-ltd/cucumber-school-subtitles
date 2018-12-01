@@ -1911,7 +1911,7 @@ you need to write
 
 411
 00:28:23,420 --> 00:28:28,040
-Jeff “Cheezy” Morgan’s 'page-objects' gem
+Jeff 'Cheezy' Morgan’s page-objects gem
 is a popular choice
 
 412

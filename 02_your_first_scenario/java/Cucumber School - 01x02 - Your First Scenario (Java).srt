@@ -98,7 +98,7 @@ in a Three Amigos meeting
 22
 00:01:33,600 --> 00:01:37,640
 Sean the shouter shouts
-"Free bagels at Sean's!"
+'Free bagels at Sean's!'
 
 23
 00:01:37,640 --> 00:01:39,340

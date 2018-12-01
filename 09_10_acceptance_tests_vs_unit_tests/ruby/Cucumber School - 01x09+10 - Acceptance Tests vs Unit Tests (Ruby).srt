@@ -43,7 +43,7 @@ the beginning of lesson 7
 10
 00:00:43,920 --> 00:00:47,000
 where our user was over-charged
-if they mentioned “buy”
+if they mentioned 'buy'
 
 11
 00:00:47,000 --> 00:00:49,420
@@ -131,7 +131,7 @@ How about:
 
 29
 00:01:57,960 --> 00:02:02,880
-the one where Sean mentions “buy”
+the one where Sean mentions 'buy'
 several times in the same shout?
 
 30
@@ -323,7 +323,7 @@ we need to fix our bug
 70
 00:05:04,840 --> 00:05:10,780
 Let’s write a test case for deducting five credits
-when the word “buy” is mentioned once
+when the word 'buy' is mentioned once
 
 71
 00:05:12,840 --> 00:05:16,340
@@ -346,7 +346,7 @@ First we need a mock object to represent Sean
 75
 00:05:29,880 --> 00:05:33,060
 And we’ll need to broadcast a
-message containing the word “buy”
+message containing the word 'buy'
 
 76
 00:05:35,180 --> 00:05:36,040
@@ -364,7 +364,7 @@ we’re calling the credits setter
 
 79
 00:05:48,000 --> 00:05:50,520
-setting it to five less than the current value
+setting it to 5 less than the current value
 
 80
 00:05:50,520 --> 00:05:55,060
@@ -681,7 +681,7 @@ Let’s take stock a little bit
 148
 00:10:39,580 --> 00:10:43,840
 We’re trying to fix that bug about
-multiple mentions of the word “buy”
+multiple mentions of the word 'buy'
 
 149
 00:10:43,840 --> 00:10:49,500
@@ -1136,7 +1136,7 @@ and Sean has bought 4 credits...
 246
 00:18:11,840 --> 00:18:16,120
 when Sean shouts a message
-containing the word “buy” then…
+containing the word 'buy' then…
 
 247
 00:18:16,920 --> 00:18:17,980
@@ -1461,7 +1461,7 @@ Here, in the cost_of method
 319
 00:23:29,560 --> 00:23:34,660
 the code will add five credits to the cost
-each time it finds the word “buy” in the message
+each time it finds the word 'buy' in the message
 
 320
 00:23:35,240 --> 00:23:39,520
