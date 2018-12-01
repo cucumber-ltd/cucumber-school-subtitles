@@ -204,7 +204,7 @@ These run in less than a second
 44
 00:03:31,200 --> 00:03:35,900
 We can run this version by setting
-shouty.testDepth to something else
+shouty_test_depth to something else
 
 45
 00:03:35,900 --> 00:03:37,860
@@ -303,7 +303,7 @@ the shouty_test_depth environment variable
 
 66
 00:04:52,980 --> 00:04:54,240
-If it's 'web'
+If it's web
 
 67
 00:04:54,250 --> 00:04:59,220
@@ -1124,7 +1124,7 @@ the elements with that class
 241
 00:16:36,820 --> 00:16:40,060
 That gives us a list of
-Capybara HTML Elements
+Capybara HTML nodes
 
 242
 00:16:40,060 --> 00:16:43,520
