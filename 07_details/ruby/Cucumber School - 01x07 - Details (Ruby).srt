@@ -1023,7 +1023,7 @@ both rules apply to the same message
 
 225
 00:14:40,600 --> 00:14:45,400
-'The one where there's a shout that's both overlong and with the word buy in it'
+'The one where there's a shout that's both over-long and with the word buy in it'
 
 226
 00:14:47,280 --> 00:14:49,640
