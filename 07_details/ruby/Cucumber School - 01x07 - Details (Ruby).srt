@@ -271,7 +271,7 @@ that seems to encapsulate the rules
 
 60
 00:03:53,880 --> 00:03:56,040
-It looks like over long messages
+It looks like over-long messages
 
 61
 00:03:56,040 --> 00:04:01,540
@@ -647,7 +647,7 @@ we've confirmed that she wants to
 
 143
 00:09:21,140 --> 00:09:24,660
-call this an over long message
+call this an over-long message
 
 144
 00:09:24,660 --> 00:09:29,720
@@ -702,7 +702,7 @@ So now we can clearly see that Sean shouts three regular messages
 
 155
 00:10:17,600 --> 00:10:24,040
-a long message, two over long messages, and three messages containing the word buy
+a long message, two over-long messages, and three messages containing the word buy
 
 156
 00:10:24,040 --> 00:10:28,640
@@ -753,7 +753,7 @@ been calculated:
 
 166
 00:10:59,660 --> 00:11:02,900
-two over long messages at
+two over-long messages at
 2 credits per message
 
 167
@@ -905,7 +905,7 @@ well the one where
 
 200
 00:12:56,320 --> 00:13:00,680
-Sean shouts some over long messages
+Sean shouts some over-long messages
 and some containing the word buy
 
 201
@@ -968,7 +968,7 @@ Let's split this scenario in two
 213
 00:13:50,760 --> 00:13:53,820
 'The one where Shaun shouts
-several over long messages'
+several over-long messages'
 
 214
 00:13:53,820 --> 00:13:54,940
@@ -1184,7 +1184,7 @@ the way we had to name
 
 260
 00:16:56,980 --> 00:16:58,920
-an over long message
+an over-long message
 
 261
 00:17:01,040 --> 00:17:03,840
