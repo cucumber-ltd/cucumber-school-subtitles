@@ -97,7 +97,7 @@ to teach you how to use Selenium
 
 21
 00:01:38,520 --> 00:01:44,060
-without also teaching you about the Agile
+without also teaching you about the agile
 testing pyramid and its nemesis
 
 22
