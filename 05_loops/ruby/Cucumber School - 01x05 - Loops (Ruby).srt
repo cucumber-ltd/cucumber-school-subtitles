@@ -387,7 +387,7 @@ Fear not. Cucumber has you covered
 
 85
 00:06:53,960 --> 00:06:58,960
-The Data Table has a transpose method
+The DataTable has a transpose method
 which returns a new DataTable
 
 86
