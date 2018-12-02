@@ -9,140 +9,140 @@ Last time we learned about two very
 different kinds of loops
 
 3
-00:00:25,600 --> 00:00:29,700
+00:00:25,600 --> 00:00:30,820
 First, we use DataTables to loop over data
 in your scenarios
 
 4
-00:00:31,000 --> 00:00:33,320
+00:00:32,120 --> 00:00:34,520
 Then we learned about TDD cycles
 
 5
-00:00:34,280 --> 00:00:39,680
+00:00:35,480 --> 00:00:40,860
 We saw how the outer loop of TDD
 helps you build the right thing
 
 6
-00:00:39,680 --> 00:00:43,600
+00:00:40,860 --> 00:00:44,580
 while the inner loop helps you
 build the thing right
 
 7
-00:00:45,020 --> 00:00:49,420
+00:00:46,120 --> 00:00:51,220
 In this lesson, we're going to teach you
 all about how to configure Cucumber
 
 8
-00:00:50,500 --> 00:00:54,600
+00:00:51,220 --> 00:00:55,460
 When we start working on a new scenario
 we often take a dive down
 
 9
-00:00:54,600 --> 00:00:58,720
+00:00:55,460 --> 00:00:59,640
 into the inner loop of TDD
 where we use a unit testing tool
 
 10
-00:00:58,720 --> 00:01:04,000
+00:00:59,640 --> 00:01:04,500
 to drive out new classes or modify
 the behaviour of existing ones
 
 11
-00:01:04,280 --> 00:01:08,660
+00:01:05,020 --> 00:01:09,360
 When our unit tests are green
 and the new code is implemented
 
 12
-00:01:08,700 --> 00:01:12,180
+00:01:09,360 --> 00:01:12,980
 we return to the Cucumber scenarios
 to verify whether we have made
 
 13
-00:01:12,180 --> 00:01:14,640
+00:01:12,980 --> 00:01:15,080
 overall progress or not
 
 14
-00:01:15,900 --> 00:01:20,160
+00:01:16,840 --> 00:01:21,080
 If we have lots of Cucumber scenarios
 it can be distracting to run all of them
 
 15
-00:01:20,160 --> 00:01:21,720
+00:01:21,080 --> 00:01:22,320
 each time we do this
 
 16
-00:01:22,280 --> 00:01:25,900
+00:01:23,080 --> 00:01:26,660
 We often want to focus
-on a single scenario or perhaps
+on a single scenario
 
 17
-00:01:25,900 --> 00:01:29,080
-just a couple
-to get feedback on what
+00:01:26,660 --> 00:01:28,500
+or perhaps just a couple
 
 18
-00:01:29,080 --> 00:01:30,840
+00:01:28,500 --> 00:01:31,400
+to get feedback on what
 we're currently working on
 
 19
-00:01:31,520 --> 00:01:33,980
+00:01:32,040 --> 00:01:34,880
 There are several ways to do this in
 Cucumber
 
 20
-00:01:34,460 --> 00:01:38,920
+00:01:34,880 --> 00:01:38,940
 Probably the easiest way is to
-tell Cucumber to run only a scenario
+tell Cucumber to run only
 
 21
-00:01:38,920 --> 00:01:40,560
-with a particular name
+00:01:38,940 --> 00:01:40,940
+a scenario with a particular name
 
 22
-00:01:42,480 --> 00:01:47,180
+00:01:43,040 --> 00:01:47,740
 The name option tells Cucumber to run
 scenarios with a name matching
 
 23
-00:01:47,180 --> 00:01:49,320
+00:01:47,740 --> 00:01:49,760
 'Message is too long'
 
 24
-00:01:50,440 --> 00:01:54,240
+00:01:50,620 --> 00:01:54,060
 The value of this option is actually a
-regular expression so you can
+regular expression
 
 25
-00:01:54,240 --> 00:01:57,640
-use your imagination here to run more
-than one scenario
+00:01:54,060 --> 00:01:57,640
+so you can use your imagination her
+to run more than one scenario
 
 26
-00:01:58,120 --> 00:02:02,680
+00:01:58,120 --> 00:02:02,620
 Another way to tell Cucumber to run a
 specific scenario is to specify the
 
 27
-00:02:02,680 --> 00:02:05,840
+00:02:02,620 --> 00:02:05,840
 line number of the scenario within a
 feature file
 
 28
-00:02:07,480 --> 00:02:11,160
+00:02:07,480 --> 00:02:11,200
 You can even specify multiple line
-numbers for each file to run
+numbers for each file
 
 29
-00:02:11,240 --> 00:02:12,960
-more than one scenario
+00:02:11,200 --> 00:02:12,960
+to run more than one scenario
 
 30
-00:02:14,360 --> 00:02:17,480
+00:02:14,360 --> 00:02:17,380
 You can list several files and lines
 together like this if you have
 
 31
-00:02:17,480 --> 00:02:20,160
+00:02:17,380 --> 00:02:20,160
 a specific set of scenarios
 you want to run
 
@@ -182,18 +182,18 @@ above this scenario
 
 39
 00:02:51,680 --> 00:02:55,280
-Now we can run the scenarios tagged with focus.
+Now we can run the scenarios tagged with focus
 
 40
 00:02:56,040 --> 00:02:57,440
 There should only be one
 
 41
-00:02:59,240 --> 00:02:59,960
-Yep.
+00:02:59,320 --> 00:03:00,040
+Yep
 
 42
-00:03:01,040 --> 00:03:03,360
+00:03:01,260 --> 00:03:03,500
 It's entirely up to you what you
 name your tags
 
@@ -233,7 +233,7 @@ and run only those
 
 50
 00:03:25,580 --> 00:03:27,820
-before you check in code to source
+before you check in code to source control
 
 51
 00:03:28,320 --> 00:03:31,380
@@ -246,8 +246,8 @@ without having to run every single one
 
 53
 00:03:34,440 --> 00:03:38,800
-If you're running Cucumber on a CI,
-continuous integration, server as well
+If you're running Cucumber on a
+CI, continuous integration, server as well
 
 54
 00:03:38,800 --> 00:03:42,240
@@ -317,11 +317,11 @@ tag expressions to select the scenarios
 you want to run
 
 68
-00:04:30,380 --> 00:04:31,380
+00:04:30,380 --> 00:04:31,580
 For example
 
 69
-00:04:31,380 --> 00:04:37,000
+00:04:31,580 --> 00:04:37,000
 you could use a tag expression to exclude
 all the scenarios tagged as @slow
 
@@ -354,12 +354,12 @@ you can see more details here about the
 boolean expressions used for tag filtering
 
 76
-00:05:04,320 --> 00:05:08,000
+00:05:04,660 --> 00:05:08,000
 Let's take a closer look at the
 format option
 
 77
-00:05:09,040 --> 00:05:13,280
+00:05:09,100 --> 00:05:13,280
 So far every time we've run Cucumber
 it has printed the features back to us
 
@@ -381,16 +381,16 @@ and this is useful for generating reports
 Let's try the HTML formatter
 
 82
-00:05:25,440 --> 00:05:27,600
+00:05:25,440 --> 00:05:27,580
 When we use the HTML formatter
 
 83
-00:05:27,600 --> 00:05:32,560
+00:05:27,580 --> 00:05:32,860
 we use --out to specify the file where
 the report should be written
 
 84
-00:05:32,560 --> 00:05:36,560
+00:05:32,860 --> 00:05:36,560
 otherwise the HTML would be written
 directly to the console
 
@@ -403,18 +403,18 @@ Let's try another one:
 JSON
 
 87
-00:05:41,680 --> 00:05:45,040
+00:05:41,900 --> 00:05:44,900
 The JSON report outputs the results
-in a single file
+to a single file
 
 88
-00:05:45,840 --> 00:05:49,040
+00:05:45,680 --> 00:05:49,040
 You can write your own script or program
-to post-process this file to
+to post-process this file
 
 89
 00:05:49,040 --> 00:05:51,120
-generate your own report
+to generate your own report
 
 90
 00:05:52,160 --> 00:05:55,680
@@ -722,12 +722,12 @@ to the ones you use on your dev machines
 for example
 
 155
-00:10:15,840 --> 00:10:18,640
+00:10:15,960 --> 00:10:18,720
 To make Cucumber really useful
  to your team
 
 156
-00:10:18,680 --> 00:10:22,160
+00:10:18,720 --> 00:10:22,160
 it's good to spend time learning the
 details of how to configure it
 
@@ -745,13 +745,13 @@ You learned how to filter scenarios
 by name, line number, or tag
 
 160
-00:10:34,240 --> 00:10:38,800
-We learned how to format Cucumber's
-output and we learned how to write
+00:10:34,240 --> 00:10:36,800
+You learned how to format Cucumber's output
 
 161
-00:10:38,880 --> 00:10:40,740
-your scenarios in different spoken languages
+00:10:36,800 --> 00:10:40,740
+and you learned how to write your scenarios
+in different spoken languages
 
 162
 00:10:42,040 --> 00:10:45,340
@@ -771,5 +771,5 @@ That's all for this lesson of Cucumber School
 See you next time!
 
 166
-00:10:54,000 --> 00:10:56,000
+00:10:53,280 --> 00:10:55,280
 Captions created by Jayson Smith for Cucumber Ltd.
