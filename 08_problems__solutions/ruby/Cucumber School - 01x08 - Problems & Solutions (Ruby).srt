@@ -152,7 +152,8 @@ by coming up with some examples
 
 34
 00:02:30,620 --> 00:02:34,100
-Darren the developer comes up with a simple scenario to check he understands
+Darren the developer comes up with
+a simple scenario to check he understands
 
 35
 00:02:34,100 --> 00:02:36,180
@@ -311,7 +312,8 @@ is to take a user story together with its
 
 69
 00:04:52,740 --> 00:04:58,900
-acceptance criteria or business rules and produce examples that illustrate the behaviour
+acceptance criteria or business rules and
+produce examples that illustrate the behaviour
 
 70
 00:05:00,080 --> 00:05:03,000
@@ -705,7 +707,8 @@ support code
 
 152
 00:10:37,940 --> 00:10:43,380
-The conventional place to put it is here in a support directory underneath features
+The conventional place to put it is here
+in a support directory underneath features
 
 153
 00:10:44,540 --> 00:10:48,800
