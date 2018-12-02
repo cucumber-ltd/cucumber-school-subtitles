@@ -20,8 +20,7 @@ conversations about concrete examples
 * Update the caption file and then download it in its `.srt` format.
 * Use ffmpeg to combine the caption file with the video
   * Example: `ffmpeg -i "Cucumber School - 01x01 - Give Me An Example.mp4" -i "Cucumber School - 01x01 - Give Me An Example.vtt" -metadata:s:s:0 language=eng -c copy -c:s mov_text "Cucumber School - 01x01 - Give Me An Example - Captions.mp4"`
-* Upload
-  * Location & process TBA
+* Upload to Google Drive in a `subs` directory under each lesson's directory
 * Success!
 
 ## Style Guidelines
@@ -48,31 +47,31 @@ Captions and videos go through a number of statuses in their life cycle and will
 
 | Video | Language | Creation | Final | Complete |
 |:-----:|:--------:|:--------:|:-----:|----------|
-| 01    | Shared   | √        | √     |          |
+| 01    | Shared   | √        | √     | √        |
 | 02    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 03    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 04    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 05    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 06    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 07    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 08    |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 09-10 |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
 | 11-12 |          |          |       |          |
-|       | Ruby     | √        | √     |          |
-|       | Java     | √        | √     |          |
+|       | Ruby     | √        | √     | √        |
+|       | Java     | √        | √     | √        |
