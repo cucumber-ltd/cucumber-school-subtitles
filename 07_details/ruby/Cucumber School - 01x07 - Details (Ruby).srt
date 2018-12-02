@@ -401,7 +401,7 @@ This encourages what creative people call
 
 88
 00:05:44,440 --> 00:05:46,540
-divergent thinking
+Divergent Thinking
 
 89
 00:05:46,540 --> 00:05:50,080
@@ -419,7 +419,7 @@ In BDD we call this
 
 92
 00:05:56,560 --> 00:05:58,520
-deliberate discovery
+Deliberate Discovery
 
 93
 00:05:58,520 --> 00:06:02,240
@@ -436,823 +436,829 @@ At some point however we need to
 write a computer program
 
 96
-00:06:11,280 --> 00:06:16,100
+00:06:11,280 --> 00:06:14,280
 When that time comes we need to
-switch to convergent thinking
+switch to
 
 97
+00:06:14,280 --> 00:06:16,100
+Convergent Thinking
+
+98
 00:06:16,100 --> 00:06:21,320
 and try to distill down all that detail
 into something that clearly communicates
 
-98
+99
 00:06:21,320 --> 00:06:23,540
 the essence of the behaviour
 
-99
+100
 00:06:24,640 --> 00:06:30,340
 Now, too much detail can be distracting
 or even misleading to our future readers
 
-100
+101
 00:06:31,360 --> 00:06:34,840
 We call these incidental details
 
-101
+102
 00:06:36,000 --> 00:06:41,880
 Let's try to distill the essence of this scenario
 by removing the incidental details
 
-102
+103
 00:06:43,280 --> 00:06:45,380
 We can start with this step
 
-103
-00:06:45,380 --> 00:06:49,800
-When Sean shouts "Come and buy a coffee"
-
 104
+00:06:45,380 --> 00:06:49,800
+When Sean shouts 'Come and buy a coffee'
+
+105
 00:06:49,800 --> 00:06:53,740
 What's important here is that
 the shout contains the word buy
 
-105
+106
 00:06:54,600 --> 00:06:55,920
 So let's write that
 
-106
+107
 00:06:59,900 --> 00:07:00,660
 Better
 
-107
+108
 00:07:01,280 --> 00:07:05,000
 We still have a little bit of detail -
 the word buy -
 
-108
+109
 00:07:05,000 --> 00:07:06,920
 but that's quite important
 
-109
+110
 00:07:06,920 --> 00:07:09,780
 In fact, it helps to
 illustrate our business rule
 
-110
+111
 00:07:11,640 --> 00:07:14,320
 We'll need a new step def for this of course
 
-111
+112
 00:07:16,560 --> 00:07:18,000
 We can just copy the code for
 
-112
+113
 00:07:18,000 --> 00:07:20,600
 shouting a message from this step
 down here for now
 
-113
+114
 00:07:21,460 --> 00:07:24,360
 We will deal with this duplication, but later
 
-114
+115
 00:07:26,120 --> 00:07:28,880
 Let's run Cucumber to check we haven't
 made any mistakes
 
-115
+116
 00:07:30,040 --> 00:07:30,760
 Good
 
-116
+117
 00:07:31,600 --> 00:07:35,080
 Now we can use that same step
 everywhere else in the scenario, too
 
-117
+118
 00:07:43,040 --> 00:07:46,360
 We can apply the same pattern
 to remove the noisy incidental details
 
-118
+119
 00:07:46,360 --> 00:07:47,800
 from this next step too
 
-119
+120
 00:07:48,580 --> 00:07:50,380
 What's the essence of this step?
 
-120
+121
 00:07:51,660 --> 00:07:55,080
 In this case, it really doesn't matter
 what Sean is shouting
 
-121
+122
 00:07:55,080 --> 00:07:58,980
 A regular shout doesn't have any effect
 on his premium account credits
 
-122
+123
 00:07:59,560 --> 00:08:01,320
 So we could just re-word it like this
 
-123
+124
 00:08:04,480 --> 00:08:08,600
 Again we'll need a new step definition,
 and again, we'll just duplicate the code
 
-124
+125
 00:08:08,600 --> 00:08:10,280
 for shouting a message for now
 
-125
+126
 00:08:11,400 --> 00:08:13,680
 We'll run Cucumber again just in case...
 
-126
+127
 00:08:14,800 --> 00:08:18,520
 And finally, let's use that new step
 everywhere we can...
 
-127
+128
 00:08:20,840 --> 00:08:22,800
 and run Cucumber once again
 
-128
+129
 00:08:23,600 --> 00:08:25,680
 Now let's deal with this next step
 
-129
+130
 00:08:25,680 --> 00:08:27,040
 What's the essence here?
 
-130
+131
 00:08:28,680 --> 00:08:31,640
 Again, the exact words in the shout
 don't have any significance
 
-131
+132
 00:08:31,640 --> 00:08:33,460
 in this scenario
 
-132
+133
 00:08:33,460 --> 00:08:36,940
 What matters, if anything
 is that this is a long message
 
-133
+134
 00:08:36,940 --> 00:08:41,280
 It's under 180 characters, but still longer
 than a regular message
 
-134
+135
 00:08:42,100 --> 00:08:45,500
 It's not clear how important this distinction is just yet
 
-135
+136
 00:08:45,500 --> 00:08:49,500
 but let's give the authors of this scenario the benefit of the doubt for now
 
-136
+137
 00:08:49,500 --> 00:08:52,420
 but push the details about the
 message content
 
-137
+138
 00:08:52,420 --> 00:08:55,520
 down into the step definition
 following the same recipe
 
-138
+139
 00:08:59,200 --> 00:09:01,560
 Again, we'll tolerate the duplication for now
 
-139
+140
 00:09:01,560 --> 00:09:04,280
 and just generate a
 180-character message here
 
-140
+141
 00:09:11,700 --> 00:09:13,820
 Now what's interesting about this next step?
 
-141
-00:09:15,080 --> 00:09:17,880
-This shout is over out 180-character limit
-
 142
+00:09:15,080 --> 00:09:17,880
+This shout is over our 180-character limit
+
+143
 00:09:18,860 --> 00:09:21,140
 After a quick chat with Paula,
 we've confirmed that she wants to
 
-143
+144
 00:09:21,140 --> 00:09:24,660
 call this an over-long message
 
-144
+145
 00:09:24,660 --> 00:09:29,720
 Let's update the rule we wrote up earlier
 to document this evolution of our domain language
 
-145
+146
 00:09:31,340 --> 00:09:34,540
 Then we can use that term in a new
 more abstract step
 
-146
+147
 00:09:36,440 --> 00:09:41,080
 Again, we'll make a step definition that
 duplicates the shouting code
 
-147
+148
 00:09:41,080 --> 00:09:44,140
 and this time make a
 181-character message
 
-148
+149
 00:09:44,140 --> 00:09:46,760
 just long enough to be over the
 180-character limit
 
-149
-00:09:57,440 --> 00:09:58,500
-Right.
-
 150
+00:09:57,440 --> 00:09:58,500
+Right
+
+151
 00:09:58,500 --> 00:10:01,800
 With the incidental details removed from these steps
 
-151
+152
 00:10:01,800 --> 00:10:04,800
 it's starting to become easier
 to see what's going on
 
-152
+153
 00:10:05,640 --> 00:10:08,820
 It would be even easier if we
 grouped them together
 
-153
+154
 00:10:08,820 --> 00:10:09,980
 Let's do that
 
-154
+155
 00:10:13,840 --> 00:10:17,600
 So now we can clearly see that Sean shouts three regular messages
 
-155
-00:10:17,600 --> 00:10:24,040
-a long message, two over-long messages, and three messages containing the word buy
-
 156
+00:10:17,600 --> 00:10:24,040
+a long message, two over-long messages
+and three messages containing the word buy
+
+157
 00:10:24,040 --> 00:10:28,640
 It's still a lot to digest but
 a clearer picture is starting to emerge
 
-157
+158
 00:10:29,980 --> 00:10:33,420
 Are there any other incidental details
 remaining in this scenario?
 
-158
+159
 00:10:35,160 --> 00:10:36,380
 Arguably
 
-159
+160
 00:10:36,380 --> 00:10:39,600
 the steps that create
 regular and long messages are incidental
 
-160
+161
 00:10:39,600 --> 00:10:44,000
 since they have no bearing on the behaviour
 we're describing with this scenario
 
-161
+162
 00:10:44,000 --> 00:10:47,800
 We can remove them altogether 
 and our behaviour should be exactly the same
 
-162
+163
 00:10:47,800 --> 00:10:49,080
 So let's do that
 
-163
+164
 00:10:50,660 --> 00:10:51,540
 That's better
 
-164
+165
 00:10:52,360 --> 00:10:56,400
 Now that we've removed all the incidental
 detail it's much easier to see
 
-165
+166
 00:10:56,400 --> 00:10:59,660
 how the figure of 11 credits has
 been calculated:
 
-166
+167
 00:10:59,660 --> 00:11:02,900
 two over-long messages at
 2 credits per message
 
-167
+168
 00:11:02,900 --> 00:11:06,880
 and three messages containing 
 the word buy at 5 credits each
 
-168
+169
 00:11:06,880 --> 00:11:11,780
 makes a total of 19 credits which
 subtracted from the initial 30
 
-169
+170
 00:11:11,780 --> 00:11:12,780
 makes 11
 
-170
+171
 00:11:14,220 --> 00:11:16,100
 But we can make this even clearer.
 
-171
+172
 00:11:17,040 --> 00:11:19,920
 These repetitive steps aren't necessary
 
-172
+173
 00:11:19,920 --> 00:11:22,540
 They make the scenario look more like
 a computer program than
 
-173
+174
 00:11:22,540 --> 00:11:24,360
 a specification document
 
-174
+175
 00:11:25,440 --> 00:11:29,380
 Instead of repeating the step 
 'When Sean shouts an over-long message'
 
-175
+176
 00:11:29,380 --> 00:11:30,560
 over and over again...
 
-176
+177
 00:11:31,720 --> 00:11:33,600
 let's just tell it like it is
 
-177
+178
 00:11:35,800 --> 00:11:37,880
 We'll need a new step definition
 for this one
 
-178
+179
 00:11:39,640 --> 00:11:42,700
 The implementation of this step definition
 is almost exactly the same as
 
-179
+180
 00:11:42,700 --> 00:11:46,160
 the one below, we just need to
 run a loop around it
 
-180
+181
 00:11:46,160 --> 00:11:49,040
 based on the number specified
 in the scenario
 
-181
+182
 00:11:50,380 --> 00:11:53,480
 Again, we'll just suffer the duplication
 for the time being
 
-182
+183
 00:11:53,480 --> 00:11:57,080
 We have a nice trick up our sleeves
 to get rid of all of it when the time comes
 
-183
+184
 00:11:58,300 --> 00:12:01,260
 Let's do the exact same thing with these
 other three steps
 
-184
+185
 00:12:04,580 --> 00:12:05,720
 Again
 
-185
+186
 00:12:05,720 --> 00:12:09,480
 we have the bulk of this code
 that we can just copy and paste
 
-186
+187
 00:12:09,480 --> 00:12:11,240
 adding a loop around the outside
 
-187
+188
 00:12:19,660 --> 00:12:21,200
 Nice!
 
-188
+189
 00:12:21,200 --> 00:12:23,240
 Now things are really getting
 clearer
 
-189
+190
 00:12:24,040 --> 00:12:26,440
 There is still a couple of problems
 with this scenario
 
-190
+191
 00:12:27,360 --> 00:12:30,260
 One is the name of this scenario
 
-191
+192
 00:12:30,260 --> 00:12:32,360
 It really doesn't tell us anything at all
 
-192
+193
 00:12:33,880 --> 00:12:37,520
 A great way to name your scenarios is to
 think about how they named episodes of
 
-193
+194
 00:12:37,520 --> 00:12:41,160
 the TV sitcom series Friends
 
-194
+195
 00:12:41,160 --> 00:12:42,060
 Remember?
 
-195
+196
 00:12:43,360 --> 00:12:45,280
 They were all called something like
 
-196
+197
 00:12:45,280 --> 00:12:48,040
 'The one where Ross is fine' or
 
-197
+198
 00:12:48,040 --> 00:12:50,120
 'The one where Phoebe gets married'
 
-198
+199
 00:12:51,860 --> 00:12:53,740
 This is the one where...
 
-199
+200
 00:12:54,440 --> 00:12:56,320
 well the one where
 
-200
+201
 00:12:56,320 --> 00:13:00,680
 Sean shouts some over-long messages
 and some containing the word buy
 
-201
+202
 00:13:02,200 --> 00:13:05,580
 Hmm... It's quite a complicated name
 isn't it?
 
-202
+203
 00:13:05,580 --> 00:13:08,200
 Maybe this scenario is doing too much!
 
-203
+204
 00:13:08,840 --> 00:13:10,480
 ...and that's the second problem
 
-204
+205
 00:13:11,120 --> 00:13:15,280
 It's trying to test
 both business rules at once
 
-205
+206
 00:13:18,060 --> 00:13:21,880
 Normally, you'll want at least one scenario
 for each business rule
 
-206
+207
 00:13:21,880 --> 00:13:26,480
 that way each scenario clearly illustrates
 the effect of that rule on the system
 
-207
+208
 00:13:27,400 --> 00:13:30,420
 Sometimes it's interesting to also
 document the effect that
 
-208
+209
 00:13:30,420 --> 00:13:33,720
 multiple rules have when they play out
 at the same time
 
-209
+210
 00:13:34,380 --> 00:13:38,060
 But as you've already experienced
 that can quickly get confusing
 
-210
+211
 00:13:39,560 --> 00:13:42,720
 Sometimes you'll need several scenarios
 to illustrate just one rule
 
-211
+212
 00:13:43,560 --> 00:13:47,800
 In this case, one scenario for each rule
 looks like it will be fine for the time being
 
-212
+213
 00:13:48,440 --> 00:13:50,080
 Let's split this scenario in two
 
-213
+214
 00:13:50,760 --> 00:13:53,820
-'The one where Shaun shouts
+'The one where Sean shouts
 several over-long messages'
 
-214
+215
 00:13:53,820 --> 00:13:54,940
 ...and
 
-215
+216
 00:13:54,940 --> 00:13:58,640
 'The one where Sean shouts several
 messages containing the word buy'
 
-216
+217
 00:14:05,000 --> 00:14:05,760
 Great
 
-217
+218
 00:14:06,400 --> 00:14:10,500
 Now the effect of each of these rules
 is much more clearly documented
 
-218
+219
 00:14:11,860 --> 00:14:16,220
-We run these new scenarios pass Paula
+We run these new scenarios past Paula
 and she's delighted
 
-219
+220
 00:14:16,220 --> 00:14:18,540
 She really likes how they read
 
-220
+221
 00:14:18,540 --> 00:14:22,380
 She asks us - why do we still need
 the original scenario?
 
-221
+222
 00:14:23,640 --> 00:14:27,200
 Tamsin chimes in and says she has a
 concern that the rules might conflict
 
-222
+223
 00:14:27,200 --> 00:14:29,000
 with each other in the code somehow
 
-223
+224
 00:14:29,720 --> 00:14:34,580
 As we talk about it we realise that while
 we don't need this one anymore
 
-224
+225
 00:14:34,580 --> 00:14:40,600
 there's a missing scenario where
 both rules apply to the same message
 
-225
+226
 00:14:40,600 --> 00:14:45,400
 'The one where there's a shout that's both over-long and with the word buy in it'
 
-226
+227
 00:14:47,280 --> 00:14:49,640
 We'd better document that
 as a question for now
 
-227
+228
 00:14:54,220 --> 00:14:57,020
 While we have
 Paula and Tamsin's attention
 
-228
+229
 00:14:57,020 --> 00:15:00,980
 we ask a question we know often helps
 to discover missing scenarios:
 
-229
+230
 00:15:02,120 --> 00:15:06,520
 Is there another context that would result
 in a different outcome here?
 
-230
+231
 00:15:09,280 --> 00:15:11,340
 They both think about this
 
-231
+232
 00:15:11,340 --> 00:15:15,320
 Tamsin suggests starting Sean out with
 fewer credits
 
-232
+233
 00:15:15,320 --> 00:15:19,600
 or shouting lots more messages
 so that he runs out of credit
 
-233
+234
 00:15:19,600 --> 00:15:20,840
 What would happen then?
 
-234
+235
 00:15:22,120 --> 00:15:23,440
 Good question!
 
-235
+236
 00:15:23,860 --> 00:15:26,820
 It looks like there's more to this feature
 than we'd previously thought
 
-236
+237
 00:15:27,520 --> 00:15:30,040
 We'll write that down as a question too
 
-237
+238
 00:15:30,040 --> 00:15:31,740
 We still have a bug to fix!
 
-238
+239
 00:15:34,540 --> 00:15:36,780
 Well that's been quite a session
 
-239
+240
 00:15:37,580 --> 00:15:42,240
 We came in to fix one bug and ended up
 having to fix our feature file first
 
-240
+241
 00:15:42,240 --> 00:15:44,600
 We're still not done with that either
 
-241
+242
 00:15:44,600 --> 00:15:49,560
 By pushing the incidental details down
 out of the scenario into the step definitions
 
-242
+243
 00:15:49,560 --> 00:15:52,820
 we've made a mess of duplication
 in the step definitions
 
-243
+244
 00:15:52,820 --> 00:15:56,520
 There's a neat fix for that
 but we'll have to save that for next time
 
-244
+245
 00:15:57,320 --> 00:15:59,200
 Let's reflect on what we've learned
 
-245
-00:16:01,080 --> 00:16:06,740
-When scenarios are very heavy in detail they can be confusing to read
-
 246
+00:16:01,080 --> 00:16:06,740
+When scenarios are very heavy in detail
+they can be confusing to read
+
+247
 00:16:06,740 --> 00:16:10,260
 We call these incidental details
 when they are just noise
 
-247
+248
 00:16:10,260 --> 00:16:14,260
 that detracts from communicating
 the essence of the scenario
 
-248
+249
 00:16:15,240 --> 00:16:19,600
 Scenarios that are heavy in detail
 are sometimes said to be written in an
 
-249
+250
 00:16:19,600 --> 00:16:21,440
 imperative style
 
-250
+251
 00:16:22,440 --> 00:16:26,560
 They contain lots of how
 and not much what
 
-251
+252
 00:16:27,360 --> 00:16:31,060
 We often use this style when we're
 working on a brand new domain problem
 
-252
+253
 00:16:31,060 --> 00:16:33,700
 and are still grasping for an understanding
 
-253
+254
 00:16:33,700 --> 00:16:35,680
 We just want to write something down
 
-254
+255
 00:16:36,760 --> 00:16:39,700
 As your confidence in your
 domain knowledge improves
 
-255
+256
 00:16:39,700 --> 00:16:43,240
 you'd expect to feel comfortable
 removing some of these details
 
-256
+257
 00:16:43,240 --> 00:16:48,020
 Scenarios with more abstract steps
 like this are said to be written in a
 
-257
+258
 00:16:48,020 --> 00:16:50,280
 declarative style
 
-258
+259
 00:16:51,100 --> 00:16:53,400
 Using a more declarative style
 might mean
 
-259
+260
 00:16:53,400 --> 00:16:56,980
 you'll need to find names for things like
 the way we had to name
 
-260
+261
 00:16:56,980 --> 00:16:58,920
 an over-long message
 
-261
+262
 00:17:01,040 --> 00:17:03,840
 This discovery of your
 ubiquitous domain language
 
-262
+263
 00:17:03,840 --> 00:17:08,060
 is a great side effect of
 distilling the essence of your scenarios
 
-263
+264
 00:17:08,060 --> 00:17:10,920
 Now you have a bigger vocabulary
 that you can use all the way
 
-264
+265
 00:17:10,920 --> 00:17:15,080
 down through your code
 and in your future conversations too
 
-265
+266
 00:17:16,840 --> 00:17:20,820
 One downside, as you've seen,
 of pushing the how down
 
-266
+267
 00:17:20,820 --> 00:17:23,760
 from your scenarios into
 the step definitions
 
-267
+268
 00:17:23,760 --> 00:17:26,960
 is that the step definition code
 becomes more complex
 
-268
+269
 00:17:26,960 --> 00:17:30,400
 Some teams reject this
 and prefer to use a simple vocabulary
 
-269
+270
 00:17:30,400 --> 00:17:34,200
 of step definitions leaving more detail
 in their scenarios
 
-270
+271
 00:17:35,000 --> 00:17:37,180
 There are no right and wrong answers here
 
-271
+272
 00:17:37,180 --> 00:17:41,460
 but if you have sufficient competence with code
 you'll easily be able to handle that
 
-272
+273
 00:17:41,460 --> 00:17:47,280
 extra bit of complexity and keep
 readability top of your priority list
 
-273
+274
 00:17:48,080 --> 00:17:50,740
 That's what we'll work on next time
 
-274
+275
 00:17:50,740 --> 00:17:51,680
 Bye for now!
 
-275
+276
 00:17:54,040 --> 00:17:56,040
 Captions created by Jayson Smith for Cucumber Ltd.
