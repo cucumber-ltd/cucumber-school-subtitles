@@ -75,3 +75,21 @@ Captions and videos go through a number of statuses in their life cycle and will
 | 11-12 |          |          |       |          |
 |       | Ruby     | √        | √     | √        |
 |       | Java     | √        | √     | √        |
+
+## Embed
+
+Here's what I actually used on Windows. This assumes the ffmpeg executable has been moved to a bin directory in the root of the project. This set up made it easy to swap directory and file names out across different videos.
+
+```terminal
+.\bin\ffmpeg.exe ^
+    -i ".\09_10_acceptance_tests_vs_unit_tests\java\Cucumber School - 01x09+10 - Acceptance Tests vs Unit Tests (Java).mp4" ^
+    -i ".\09_10_acceptance_tests_vs_unit_tests\java\Cucumber School - 01x09+10 - Acceptance Tests vs Unit Tests (Java).srt" ^
+    -c copy -c:s mov_text -metadata:s:s:0 language=eng ^
+    ".\09_10_acceptance_tests_vs_unit_tests\java\Cucumber School - 01x09+10 - Acceptance Tests vs Unit Tests (Java) - Subs.mp4"
+
+.\bin\ffmpeg.exe ^
+    -i ".\09_10_acceptance_tests_vs_unit_tests\ruby\Cucumber School - 01x09+10 - Acceptance Tests vs Unit Tests (Ruby).mp4" ^
+    -i ".\09_10_acceptance_tests_vs_unit_tests\ruby\Cucumber School - 01x09+10 - Acceptance Tests vs Unit Tests (Ruby).srt" ^
+    -c copy -c:s mov_text -metadata:s:s:0 language=eng ^
+    ".\09_10_acceptance_tests_vs_unit_tests\ruby\Cucumber School - 01x09+10 - Acceptance Tests vs Unit Tests (Ruby) - Subs.mp4"
+```
