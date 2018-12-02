@@ -635,7 +635,7 @@ Now what's interesting about this next step?
 
 140
 00:09:21,500 --> 00:09:24,180
-This shout is over out 180-character limit
+This shout is over our 180-character limit
 
 141
 00:09:25,280 --> 00:09:27,540
@@ -673,7 +673,7 @@ just long enough to be over the
 
 148
 00:10:02,380 --> 00:10:03,540
-Right.
+Right
 
 149
 00:10:03,540 --> 00:10:06,700
@@ -961,7 +961,7 @@ Let's split this scenario in two
 
 211
 00:13:56,640 --> 00:13:59,580
-'The one where Shaun shouts
+'The one where Sean shouts
 several over-long messages'
 
 212
@@ -984,7 +984,7 @@ is much more clearly documented
 
 216
 00:14:13,680 --> 00:14:17,720
-We run these new scenarios pass Paula
+We run these new scenarios past Paula
 and she's delighted
 
 217
