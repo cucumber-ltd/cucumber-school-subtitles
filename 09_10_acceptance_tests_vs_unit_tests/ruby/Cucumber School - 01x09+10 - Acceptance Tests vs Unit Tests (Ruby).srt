@@ -604,10 +604,10 @@ interaction between an object and its collaborators
 131
 00:09:27,900 --> 00:09:31,700
 This gives you feedback about
-how coupled those objects are
+how coupled these objects are
 
 132
-00:09:31,920 --> 00:09:37,480
+00:09:32,440 --> 00:09:37,480
 A lot of chatter going back and forth like this
 suggests they’re getting tangled up together
 
@@ -991,11 +991,11 @@ credits instance variable here, directly
 
 215
 00:15:49,240 --> 00:15:51,800
-We can make deduct credits private now
+We can make deduct_credits private now
 
 216
 00:15:53,600 --> 00:15:56,420
-We don’t need to pass short enough
+We don’t need to pass short_enough
 around as a variable...
 
 217
@@ -1033,7 +1033,7 @@ Okay
 224
 00:16:40,191 --> 00:16:43,775
 now we can tackle these two
-ignored unit tests in Network
+pending unit tests in Network
 
 225
 00:16:44,287 --> 00:16:48,383
