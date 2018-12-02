@@ -737,7 +737,7 @@ afford the shout and to deduct payment
 
 159
 00:11:33,480 --> 00:11:37,260
-First Sean calls Network#broadcast
+First Sean calls Network.broadcast
 
 160
 00:11:37,260 --> 00:11:41,600
@@ -1278,7 +1278,7 @@ kind of refactoring!
 279
 00:20:44,180 --> 00:20:49,520
 Let’s keep going and strip back all that
-crazy boolean logic in Network#broadcast
+crazy boolean logic in Network.broadcast
 
 280
 00:20:50,480 --> 00:20:54,440
