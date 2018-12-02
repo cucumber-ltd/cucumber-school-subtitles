@@ -45,7 +45,7 @@ where we use a unit testing tool
 10
 00:00:58,720 --> 00:01:04,000
 to drive out new classes or modify
-the behaviour of existing ones
+the behavior of existing ones
 
 11
 00:01:04,280 --> 00:01:08,660
@@ -245,7 +245,7 @@ missed by only running the smoke tests
 
 53
 00:03:39,060 --> 00:03:41,380
-Tags give you a way to organise your
+Tags give you a way to organize your
 scenarios that
 
 54
@@ -279,7 +279,7 @@ while working on Shouty
 
 60
 00:04:00,920 --> 00:04:05,600
-and all the behaviour we built so far
+and all the behavior we built so far
 is related to the issue number 11
 
 61
@@ -718,13 +718,14 @@ You learned how to filter scenarios
 by name, line number, or tag
 
 155
-00:10:29,760 --> 00:10:33,840
-We learned how to format Cucumber's
-output and we learned how to write
+00:10:29,760 --> 00:10:32,320
+You learned how to format Cucumber's
+output
 
 156
-00:10:33,840 --> 00:10:36,280
-your scenarios in different spoken languages
+00:10:32,320 --> 00:10:36,280
+and we learned how to write your scenarios
+in different spoken languages
 
 157
 00:10:37,660 --> 00:10:40,840
