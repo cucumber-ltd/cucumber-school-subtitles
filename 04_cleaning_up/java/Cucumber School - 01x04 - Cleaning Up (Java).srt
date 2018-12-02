@@ -593,7 +593,7 @@ more complex setup to do
 
 129
 00:09:41,540 --> 00:09:42,720
-you can use a hook
+you can use a Hook
 
 130
 00:09:44,840 --> 00:09:47,440
@@ -602,7 +602,7 @@ in every scenario
 
 131
 00:09:47,440 --> 00:09:50,480
-so we can declare a Before Hook
+so we can declare a Before hook
 
 132
 00:09:50,480 --> 00:09:54,800
