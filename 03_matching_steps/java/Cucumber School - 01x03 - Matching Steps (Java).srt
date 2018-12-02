@@ -58,7 +58,7 @@ as distinct from the step definitions
 14
 00:01:09,340 --> 00:01:12,960
 so we’ve drawn an extra box labelled
-'automation code'
+automation code
 
 15
 00:01:16,160 --> 00:01:20,280
@@ -493,7 +493,7 @@ that you can use
 
 108
 00:08:29,560 --> 00:08:32,660
-For digits, you can use a backslash-d (\d)
+For digits, you can use a backslash d (\d)
 
 109
 00:08:34,640 --> 00:08:37,740
@@ -753,7 +753,7 @@ separated by a pipe
 165
 00:13:00,880 --> 00:13:04,740
 This time we start with
-the question-mark-colon (?:)
+the question mark colon (?:)
 
 166
 00:13:04,740 --> 00:13:07,620
